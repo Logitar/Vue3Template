@@ -1,0 +1,46 @@
+{
+  "email": {
+    "address": {
+      "label": "Email Address",
+      "placeholder": "Enter your email address"
+    },
+    "verified": "Verified"
+  },
+  "name": {
+    "first": {
+      "label": "First Name",
+      "placeholder": "Enter your first name"
+    },
+    "full": "Name",
+    "last": {
+      "label": "Last Name",
+      "placeholder": "Enter your last name"
+    },
+    "middle": {
+      "label": "Middle Name",
+      "placeholder": "Enter your middle name"
+    },
+    "nick": {
+      "label": "Nickname",
+      "placeholder": "Enter your nickname"
+    },
+    "user": {
+      "label": "Username",
+      "placeholder": "Enter your username"
+    }
+  },
+  "password": {
+    "confirm": {
+      "label": "Password Confirmation",
+      "placeholder": "Enter your password again"
+    },
+    "label": "Password",
+    "placeholder": "Enter your password"
+  },
+  "register": {
+    "close": "You may now close this page.",
+    "submit": "Register",
+    "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
+    "title": "Register"
+  }
+}

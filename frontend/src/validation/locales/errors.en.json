@@ -1,0 +1,16 @@
+{
+  "confirmed": "The 1:{target} and the {field} do not match.",
+  "email": "Please enter a valid email address.",
+  "max_length": "The {field} cannot contain more than 0:{length} characters.",
+  "max_value": "The {field} must be lesser than or equal to 0:{max}.",
+  "min_length": "The {field} must contain at least 0:{length} characters.",
+  "min_value": "The {field} must be greater than or equal to 0:{min}.",
+  "require_digit": "The {field} must contain at least one digit (0-9).",
+  "require_lowercase": "The {field} must contain at least one lowercase letter (a-z).",
+  "require_non_alphanumeric": "The {field} must contain at least one special character (e.g. !@/$%&*_+-).",
+  "require_uppercase": "The {field} must contain at least one uppercase letter (A-Z).",
+  "required": "The {field} is required.",
+  "unique_chars": "The {field} must contain at least 0:{count} different characters.",
+  "url": "Please enter a valid URL. Valid URLs start with http:// or https://.",
+  "username": "The {field} may only contain the following characters: 0:{allowedCharacters}"
+}
