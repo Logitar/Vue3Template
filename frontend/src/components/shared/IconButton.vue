@@ -1,26 +1,22 @@
 <script setup lang="ts">
-import { type PropType } from "vue";
 import { computed } from "vue";
 
 type ButtonType = "button" | "submit" | "reset" | undefined;
 type ButtonVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link" | undefined;
 
-const props = defineProps({
-  icon: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String as PropType<ButtonType>,
-    default: "button",
-  },
-  variant: {
-    type: String as PropType<ButtonVariant>,
-    default: "primary",
-  },
-});
+const props = withDefaults(
+  defineProps<{
+    icon: string;
+    type?: ButtonType;
+    variant?: ButtonVariant;
+  }>(),
+  {
+    type: "button",
+    variant: "primary",
+  }
+);
 
-const classes = computed(() => {
+const classes = computed<string[]>(() => {
   const classes = ["btn"];
   if (props.variant) {
     classes.push(`btn-${props.variant}`);
