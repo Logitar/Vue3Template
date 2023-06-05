@@ -7,7 +7,7 @@ const counter = useCounterStore();
 <template>
   <main class="container">
     <h1>Home</h1>
-    <button class="btn btn-primary" @click="counter.increment">Click Me! ({{ counter.count }})</button>
+    <IconButton icon="fa-solid fa-plus" @click="counter.increment">{{ " " }} Click Me! ({{ counter.count }})</IconButton>
     <p>doubleCount: {{ counter.doubleCount }}</p>
   </main>
 </template>
