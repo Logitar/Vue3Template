@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logitar.Demo.Web", "src\Logitar.Demo.Web\Logitar.Demo.Web.csproj", "{AB481577-73E2-4F31-9E1E-D5D9F2E99076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36E893B8-6158-4B09-9585-05C23AFD4E9A}
+	EndGlobalSection
+EndGlobal

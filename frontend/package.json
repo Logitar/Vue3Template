@@ -1,6 +1,6 @@
 {
   "name": "logitar-vue3-template",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -19,8 +19,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@popperjs/core": "^2.11.8",
+    "@vee-validate/i18n": "^4.9.6",
+    "@vee-validate/rules": "^4.9.6",
     "bootstrap": "^5.3.0",
     "pinia": "^2.0.36",
+    "vee-validate": "^4.9.6",
     "vue": "^3.3.2",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.2.0"
