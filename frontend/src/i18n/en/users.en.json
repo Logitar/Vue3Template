@@ -69,5 +69,8 @@
     "submit": "Sign in",
     "title": "Sign In",
     "usernamePlaceholder": "Enter your email address or username"
+  },
+  "signOut": {
+    "title": "Sign Out"
   }
 }

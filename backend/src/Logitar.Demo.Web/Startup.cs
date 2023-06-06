@@ -1,7 +1,12 @@
-﻿using Logitar.Demo.Web.Extensions;
+﻿using Logitar.Demo.Web.Authentication;
+using Logitar.Demo.Web.Authorization;
+using Logitar.Demo.Web.Extensions;
 using Logitar.Demo.Web.Middlewares;
 using Logitar.Portal.Client;
+using Microsoft.AspNetCore.Authorization;
 using System.Text.Json.Serialization;
+
+using DemoSchemes = Logitar.Demo.Web.Constants.Schemes;
 
 namespace Logitar.Demo.Web;
 
@@ -30,16 +35,25 @@ internal class Startup : StartupBase
     services.AddApplicationInsightsTelemetry();
     services.AddHealthChecks()/*.AddDbContextCheck<EventContext>()*/; // TODO(fpion): implement
 
-    if (_corsSettings != null)
-    {
-      services.AddCors(_corsSettings);
-    }
-
     if (_enableOpenApi)
     {
       services.AddEndpointsApiExplorer();
       services.AddSwaggerGen();
     }
+
+    if (_corsSettings != null)
+    {
+      services.AddCors(_corsSettings);
+    }
+
+    services.AddAuthentication()
+      .AddScheme<SessionAuthenticationOptions, SessionAuthenticationHandler>(DemoSchemes.Session, options => { });
+
+    services.AddAuthorization(options => options.DefaultPolicy = new AuthorizationPolicyBuilder(DemoSchemes.Session)
+      .RequireAuthenticatedUser()
+      .AddRequirements(new SessionAuthorizationRequirement())
+      .Build());
+    services.AddSingleton<IAuthorizationHandler, SessionAuthorizationHandler>();
 
     services
       .AddSession(options =>
@@ -69,6 +83,8 @@ internal class Startup : StartupBase
 
     builder.UseSession();
     builder.UseMiddleware<RefreshSession>();
+    builder.UseAuthentication();
+    builder.UseAuthorization();
 
     if (builder is WebApplication application)
     {

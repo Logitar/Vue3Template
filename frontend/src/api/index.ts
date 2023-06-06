@@ -32,6 +32,9 @@ async function execute(method: string, url: string, data?: any): Promise<ApiResu
   }
 
   if (!response.ok) {
+    if (response.status === 401) {
+      window.location.replace(`/sign-in?redirect=${window.location.pathname}`);
+    }
     throw result;
   }
 
