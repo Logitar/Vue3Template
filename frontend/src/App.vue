@@ -20,6 +20,12 @@ const { t } = useI18n();
       <li>
         <RouterLink :to="{ name: 'Register' }"><font-awesome-icon icon="fas fa-user" /> {{ t("users.register.title") }}</RouterLink>
       </li>
+      <li>
+        <RouterLink :to="{ name: 'Profile' }"><font-awesome-icon icon="fas fa-user" /> user_profile</RouterLink>
+      </li>
+      <li>
+        <RouterLink :to="{ name: 'SignOut' }"><font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}</RouterLink>
+      </li>
     </ul>
   </header>
 

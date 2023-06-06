@@ -6,6 +6,7 @@ using Logitar.Portal.Contracts.Sessions;
 using Logitar.Portal.Contracts.Tokens;
 using Logitar.Portal.Contracts.Users;
 using Logitar.Portal.Contracts.Users.Contact;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Logitar.Demo.Web.Controllers;
@@ -171,6 +172,21 @@ public class AccountController : ControllerBase
 
       throw;
     }
+  }
+
+  [Authorize]
+  [HttpPost("sign/out")]
+  public async Task<ActionResult> SignOutAsync(CancellationToken cancellationToken)
+  {
+    Guid? sessionId = HttpContext.GetSessionId();
+
+    if (sessionId.HasValue)
+    {
+      _ = await _sessionService.SignOutAsync(sessionId.Value, cancellationToken);
+      HttpContext.SignOut();
+    }
+
+    return NoContent();
   }
 
   private ActionResult InvalidCredentials() => BadRequest(new { Code = "InvalidCredentials" });

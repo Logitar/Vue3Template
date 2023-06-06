@@ -24,6 +24,11 @@ const router = createRouter({
       component: () => import("./views/Users/Confirm.vue"),
     },
     {
+      name: "Profile",
+      path: "/profile",
+      component: () => import("./views/Users/Profile.vue"),
+    },
+    {
       name: "RecoverPassword",
       path: "/recover-password",
       component: () => import("./views/Users/RecoverPassword.vue"),
@@ -37,6 +42,11 @@ const router = createRouter({
       name: "SignIn",
       path: "/sign-in",
       component: () => import("./views/Users/SignIn.vue"),
+    },
+    {
+      name: "SignOut",
+      path: "/sign-out",
+      component: () => import("./views/Users/SignOut.vue"),
     },
   ],
 });

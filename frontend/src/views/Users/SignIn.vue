@@ -2,13 +2,12 @@
 import { ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
 import { handleError } from "@/helpers/errorUtils";
 import { signIn } from "@/api/account";
 import type { ApiResult } from "@/types/ApiResult";
-import { useRouter } from "vue-router";
-
 const { t } = useI18n();
 
 const invalidCredentials = ref<boolean>(false);
@@ -18,12 +17,14 @@ const remember = ref<boolean>(false);
 const username = ref<string>("");
 
 const { handleSubmit, isSubmitting } = useForm();
+const route = useRoute();
 const router = useRouter();
 const onSubmit = handleSubmit(async () => {
   try {
     invalidCredentials.value = false;
     await signIn({ username: username.value, password: password.value, remember: remember.value });
-    router.push({ name: "Profile" });
+    const redirect: string | undefined = route.query.redirect?.toString();
+    router.push(redirect ?? { name: "Profile" });
   } catch (e: any) {
     const { data, status } = e as ApiResult;
     if (status === 400 && data?.code === "InvalidCredentials") {

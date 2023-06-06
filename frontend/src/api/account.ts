@@ -15,3 +15,7 @@ export async function register(payload: RegisterPayload): Promise<ApiResult> {
 export async function signIn(payload: SignInPayload): Promise<ApiResult> {
   return await post("/account/sign/in", payload);
 }
+
+export async function signOut(): Promise<ApiResult> {
+  return await post("/account/sign/out");
+}
