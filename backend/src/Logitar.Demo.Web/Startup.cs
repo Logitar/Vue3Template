@@ -1,4 +1,5 @@
 ﻿using Logitar.Demo.Web.Extensions;
+using Logitar.Demo.Web.Middlewares;
 using Logitar.Portal.Client;
 using System.Text.Json.Serialization;
 
@@ -25,6 +26,9 @@ internal class Startup : StartupBase
 
     services.AddControllers()
       .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+    services.AddApplicationInsightsTelemetry();
+    services.AddHealthChecks()/*.AddDbContextCheck<EventContext>()*/; // TODO(fpion): implement
 
     if (_corsSettings != null)
     {
@@ -64,10 +68,12 @@ internal class Startup : StartupBase
     }
 
     builder.UseSession();
+    builder.UseMiddleware<RefreshSession>();
 
     if (builder is WebApplication application)
     {
       application.MapControllers();
+      application.MapHealthChecks("/health");
     }
   }
 }
