@@ -43,7 +43,8 @@
     "recover": {
       "close": "You may now close this page.",
       "info": "A password recovery message will be sent to your email address.",
-      "submit": "Recover password",
+      "remember": "I remember my password",
+      "submit": "Send",
       "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
       "title": "Recover Password"
     },
@@ -64,13 +65,13 @@
   "signIn": {
     "failed": "Sign in failed!",
     "invalidCredentials": "Please check you provided the correct email address/username and password.",
-    "recoverPassword": "I forgot my password",
+    "recover": "I forgot my password",
     "remember": "Remember me",
     "submit": "Sign in",
-    "title": "Sign In",
-    "usernamePlaceholder": "Enter your email address or username"
+    "title": "Sign In"
   },
   "signOut": {
     "title": "Sign Out"
-  }
+  },
+  "usernameOrEmailPlaceholder": "Enter your email address or username"
 }
