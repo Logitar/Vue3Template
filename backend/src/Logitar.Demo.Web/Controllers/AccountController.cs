@@ -1,6 +1,8 @@
-﻿using Logitar.Demo.Web.Models.Account;
+﻿using Logitar.Demo.Web.Extensions;
+using Logitar.Demo.Web.Models.Account;
 using Logitar.Portal.Contracts.Errors;
 using Logitar.Portal.Contracts.Messages;
+using Logitar.Portal.Contracts.Sessions;
 using Logitar.Portal.Contracts.Tokens;
 using Logitar.Portal.Contracts.Users;
 using Logitar.Portal.Contracts.Users.Contact;
@@ -18,12 +20,14 @@ public class AccountController : ControllerBase
 
   private readonly ILogger<AccountController> _logger;
   private readonly IMessageService _messageService;
+  private readonly ISessionService _sessionService;
   private readonly ITokenService _tokenService;
   private readonly IUserService _userService;
 
   public AccountController(IConfiguration configuration,
     ILogger<AccountController> logger,
     IMessageService messageService,
+    ISessionService sessionService,
     ITokenService tokenService,
     IUserService userService)
   {
@@ -32,6 +36,7 @@ public class AccountController : ControllerBase
 
     _logger = logger;
     _messageService = messageService;
+    _sessionService = sessionService;
     _tokenService = tokenService;
     _userService = userService;
   }
@@ -132,6 +137,40 @@ public class AccountController : ControllerBase
     }
 
     return NoContent();
+  }
+
+  [HttpPost("sign/in")]
+  public async Task<ActionResult> SignInAsync([FromBody] SignInPayload payload, CancellationToken cancellationToken)
+  {
+    try
+    {
+      SignInInput input = new()
+      {
+        Username = payload.Username,
+        Password = payload.Password,
+        Remember = payload.Remember,
+        IpAddress = HttpContext.GetClientIpAddress(),
+        AdditionalInformation = HttpContext.GetAdditionalInformation()
+      };
+      Session session = await _sessionService.SignInAsync(input, _realm, cancellationToken);
+      HttpContext.SignIn(session);
+
+      return NoContent();
+    }
+    catch (ErrorException exception)
+    {
+      ErrorData? statusCode = exception.Error.Data.SingleOrDefault(d => d.Key == "StatusCode");
+      ErrorData? content = exception.Error.Data.SingleOrDefault(d => d.Key == "Content");
+      if (statusCode?.Value == StatusCodes.Status400BadRequest.ToString()
+        && (content?.Value.Contains("AccountIsDisabled") == true
+          || content?.Value.Contains("AccountIsNotConfirmed") == true
+          || content?.Value.Contains("InvalidCredentials") == true))
+      {
+        return InvalidCredentials();
+      }
+
+      throw;
+    }
   }
 
   private ActionResult InvalidCredentials() => BadRequest(new { Code = "InvalidCredentials" });
