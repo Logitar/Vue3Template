@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
 
@@ -97,6 +97,12 @@ const validationListeners = computed<any>(() => ({
   change: handleChange,
   input: errorMessage.value ? handleChange : (e: any) => handleChange(e, false),
 }));
+
+const inputRef = ref<HTMLInputElement>();
+function focus(): void {
+  inputRef.value?.focus();
+}
+defineExpose({ focus });
 </script>
 
 <template>
@@ -115,6 +121,7 @@ const validationListeners = computed<any>(() => ({
         :min="inputMin"
         :name="inputName"
         :placeholder="placeholder ? t(placeholder) : ''"
+        ref="inputRef"
         :step="type === 'number' ? step : undefined"
         :type="type"
         :value="value"

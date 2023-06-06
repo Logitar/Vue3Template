@@ -19,8 +19,8 @@ onMounted(async () => {
       await confirm({ token });
       router.push({ name: "Profile", query: { status: "confirmed" } });
     } catch (e: any) {
-      const result = e as ApiResult;
-      if (result.status === 400 && result.data?.code === "InvalidCredentials") {
+      const { data, status } = e as ApiResult;
+      if (status === 400 && data?.code === "InvalidCredentials") {
         router.push({ name: "SignIn" });
       } else {
         handleError(e);

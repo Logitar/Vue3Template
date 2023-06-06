@@ -1,7 +1,7 @@
 {
   "confirm": {
     "failed": "Account confirmation failed!",
-    "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in."
+    "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
   },
   "email": {
     "address": {
@@ -39,7 +39,21 @@
       "placeholder": "Enter your password again"
     },
     "label": "Password",
-    "placeholder": "Enter your password"
+    "placeholder": "Enter your password",
+    "recover": {
+      "close": "You may now close this page.",
+      "info": "A password recovery message will be sent to your email address.",
+      "submit": "Recover password",
+      "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
+      "title": "Recover Password"
+    },
+    "reset": {
+      "info": "Create a new password to secure your account.",
+      "signIn": "Click the button below to sign-in to your account.",
+      "submit": "Reset password",
+      "success": "Your password has been changed.",
+      "title": "Reset Password"
+    }
   },
   "register": {
     "close": "You may now close this page.",
@@ -48,6 +62,12 @@
     "title": "Register"
   },
   "signIn": {
-    "title": "Sign In"
+    "failed": "Sign in failed!",
+    "invalidCredentials": "Please check you provided the correct email address/username and password.",
+    "recoverPassword": "I forgot my password",
+    "remember": "Remember me",
+    "submit": "Sign in",
+    "title": "Sign In",
+    "usernamePlaceholder": "Enter your email address or username"
   }
 }

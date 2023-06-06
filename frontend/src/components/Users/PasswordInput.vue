@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import type { ConfirmedParams } from "@/types/ConfirmedParams";
 import type { PasswordSettings } from "@/types/PasswordSettings";
@@ -64,6 +64,12 @@ const rules = computed<any>(() => {
   }
   return rules;
 });
+
+const inputRef = ref<HTMLInputElement>();
+function focus(): void {
+  inputRef.value?.focus();
+}
+defineExpose({ focus });
 </script>
 
 <template>
@@ -72,6 +78,7 @@ const rules = computed<any>(() => {
     :label="label"
     :modelValue="modelValue"
     :placeholder="placeholder"
+    ref="inputRef"
     :required="required"
     :rules="rules"
     type="password"

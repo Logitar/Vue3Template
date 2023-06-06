@@ -1,10 +1,12 @@
-﻿using Logitar.Portal.Client;
+﻿using Logitar.Demo.Web.Extensions;
+using Logitar.Portal.Client;
 using System.Text.Json.Serialization;
 
 namespace Logitar.Demo.Web;
 
 internal class Startup : StartupBase
 {
+  private readonly CorsSettings? _corsSettings;
   private readonly bool _enableOpenApi;
 
   private readonly IConfiguration _configuration;
@@ -13,6 +15,7 @@ internal class Startup : StartupBase
   {
     _configuration = configuration;
 
+    _corsSettings = configuration.GetSection("Cors").Get<CorsSettings>();
     _enableOpenApi = configuration.GetValue<bool>("EnableOpenApi");
   }
 
@@ -23,16 +26,24 @@ internal class Startup : StartupBase
     services.AddControllers()
       .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
+    if (_corsSettings != null)
+    {
+      services.AddCors(_corsSettings);
+    }
+
     if (_enableOpenApi)
     {
       services.AddEndpointsApiExplorer();
       services.AddSwaggerGen();
     }
 
-    services.AddCors(options => options.AddDefaultPolicy(policy => policy
-      .AllowAnyOrigin()
-      .AllowAnyMethod()
-      .AllowAnyHeader())); // TODO(fpion): configure CORS
+    services
+      .AddSession(options =>
+      {
+        options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+      })
+      .AddDistributedMemoryCache();
 
     services.AddLogitarPortalClient(_configuration);
   }
@@ -46,7 +57,13 @@ internal class Startup : StartupBase
     }
 
     builder.UseHttpsRedirection();
-    builder.UseCors();
+
+    if (_corsSettings != null)
+    {
+      builder.UseCors();
+    }
+
+    builder.UseSession();
 
     if (builder is WebApplication application)
     {
