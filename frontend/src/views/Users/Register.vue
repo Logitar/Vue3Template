@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useI18n } from "vue-i18n";
 import { useForm } from "vee-validate";
+import { useI18n } from "vue-i18n";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
