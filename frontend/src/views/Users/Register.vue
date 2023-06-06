@@ -7,6 +7,7 @@ import PasswordInput from "@/components/Users/PasswordInput.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
 import { handleError } from "@/helpers/errorUtils";
+import { register } from "@/api/account";
 
 const { t, locale } = useI18n();
 
@@ -27,14 +28,14 @@ function onEmailAddressInput({ target }: Event): void {
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
   try {
-    // await register({
-    //   username: username.value,
-    //   password: password.value,
-    //   emailAddress: emailAddress.value,
-    //   firstName: firstName.value,
-    //   lastName: lastName.value,
-    //   locale: locale.value,
-    // }); // TODO(fpion): implement
+    await register({
+      username: username.value,
+      password: password.value,
+      emailAddress: emailAddress.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      locale: locale.value,
+    });
     success.value = true;
   } catch (e) {
     handleError(e);
