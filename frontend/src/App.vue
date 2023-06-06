@@ -9,9 +9,14 @@ const { t } = useI18n();
   <header>
     <ul>
       <li>
-        <RouterLink to="/">{{ t("home.title") }}</RouterLink>
+        <RouterLink :to="{ name: 'Home' }">{{ t("home.title") }}</RouterLink>
       </li>
-      <li><RouterLink to="/about">About</RouterLink></li>
+      <li>
+        <RouterLink :to="{ name: 'About' }">About</RouterLink>
+      </li>
+      <li>
+        <RouterLink :to="{ name: 'SignIn' }"><font-awesome-icon icon="fas fa-arrow-right-to-bracket" /> {{ t("users.signIn.title") }}</RouterLink>
+      </li>
       <li>
         <RouterLink :to="{ name: 'Register' }"><font-awesome-icon icon="fas fa-user" /> {{ t("users.register.title") }}</RouterLink>
       </li>

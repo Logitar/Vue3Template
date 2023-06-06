@@ -1,4 +1,8 @@
 {
+  "confirm": {
+    "failed": "Account confirmation failed!",
+    "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in."
+  },
   "email": {
     "address": {
       "label": "Email Address",
@@ -42,5 +46,8 @@
     "submit": "Register",
     "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
     "title": "Register"
+  },
+  "signIn": {
+    "title": "Sign In"
   }
 }

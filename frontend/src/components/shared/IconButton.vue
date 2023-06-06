@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { useRouter } from "vue-router";
+import { useRouter, type RouteLocationRaw } from "vue-router";
 import type { ButtonType } from "@/types/ButtonType";
 import type { ButtonVariant } from "@/types/ButtonVariant";
 
@@ -13,7 +13,7 @@ const props = withDefaults(
     icon: string;
     loading?: boolean;
     text?: string;
-    to?: unknown;
+    to?: RouteLocationRaw;
     type?: ButtonType;
     variant?: ButtonVariant;
   }>(),

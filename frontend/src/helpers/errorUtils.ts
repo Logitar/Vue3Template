@@ -7,7 +7,7 @@ function toast(title: string, body: string, variant: string): void {
   // });
 }
 
-export function handleError(e: unknown): void {
+export function handleError(e: any): void {
   if (e) {
     console.error(e);
   }

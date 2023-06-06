@@ -46,20 +46,11 @@ public class AccountController : ControllerBase
       Realm = _realm
     };
     ValidatedToken validatedToken = await _tokenService.ConsumeAsync(validateToken, cancellationToken);
-    if (!validatedToken.Succeeded)
-    {
-      if (validatedToken.Errors.Any(e => e.Code == "SecurityTokenBlacklisted"))
-      {
-        return Conflict(new { Code = "AccountAlreadyConfirmed" });
-      }
-
-      return InvalidCredentials();
-    }
-
-    if (!Guid.TryParse(validatedToken.Subject, out Guid userId))
+    if (!validatedToken.Succeeded || !Guid.TryParse(validatedToken.Subject, out Guid userId))
     {
       return InvalidCredentials();
     }
+
     _ = await _userService.VerifyEmailAsync(userId, cancellationToken);
 
     return NoContent();

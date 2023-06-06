@@ -1,4 +1,4 @@
 export type ApiResult = {
-  data?: unknown;
+  data?: any;
   status: number;
 };
