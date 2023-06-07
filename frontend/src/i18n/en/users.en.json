@@ -83,6 +83,7 @@
     "label": "Profile URL",
     "placeholder": "Paste the URL to your profile",
     "title": "Profile",
+    "updated": "Your profile has been updated.",
     "welcome": "Welcome to {brand}!"
   },
   "register": {

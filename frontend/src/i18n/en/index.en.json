@@ -8,5 +8,6 @@
     "clickMe": "Click Me! ({count})",
     "title": "Home"
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "success": "Success!"
 }

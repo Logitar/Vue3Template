@@ -14,7 +14,7 @@ import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
 import WebsiteInput from "@/components/Users/WebsiteInput.vue";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile, saveProfile } from "@/api/account";
-import { handleError } from "@/helpers/errorUtils";
+import { handleError, toast } from "@/helpers/errorUtils";
 
 const { d, t } = useI18n();
 const { query } = useRoute();
@@ -54,7 +54,6 @@ onMounted(async () => {
   try {
     const { data } = await getProfile();
     setModel(data);
-    // TODO(fpion): visual feedback?
   } catch (e: any) {
     handleError(e);
   }
@@ -81,6 +80,7 @@ const onSubmit = handleSubmit(async () => {
       website: website.value,
     });
     setModel(data);
+    toast("success", "users.profile.updated", "success");
   } catch (e) {
     handleError(e);
   }
