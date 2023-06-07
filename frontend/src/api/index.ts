@@ -48,3 +48,7 @@ export async function get(url: string): Promise<ApiResult> {
 export async function post(url: string, data?: any): Promise<ApiResult> {
   return await execute("POST", url, data);
 }
+
+export async function put(url: string, data?: any): Promise<ApiResult> {
+  return await execute("PUT", url, data);
+}

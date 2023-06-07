@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 withDefaults(
   defineProps<{
     disabled?: boolean;
@@ -8,6 +12,7 @@ withDefaults(
     placeholder?: string;
     required?: boolean;
     validate?: boolean;
+    verified?: boolean;
   }>(),
   {
     disabled: false,
@@ -16,6 +21,7 @@ withDefaults(
     placeholder: "users.email.address.placeholder",
     required: false,
     validate: false,
+    verified: false,
   }
 );
 </script>
@@ -31,5 +37,9 @@ withDefaults(
     :required="required"
     type="email"
     @update:modelValue="$emit('update:modelValue', $event)"
-  />
+  >
+    <template v-if="verified" #append>
+      <span class="input-group-text bg-info text-white"> <font-awesome-icon icon="fas fa-check" />&nbsp;{{ t("users.email.verified") }} </span>
+    </template>
+  </form-input>
 </template>

@@ -3,6 +3,7 @@
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
   },
+  "createdOn": "Created on",
   "email": {
     "address": {
       "label": "Email Address",
@@ -56,6 +57,13 @@
       "title": "Reset Password"
     }
   },
+  "personal": {
+    "title": "Personal Information"
+  },
+  "profile": {
+    "submit": "Save",
+    "title": "Profile"
+  },
   "register": {
     "close": "You may now close this page.",
     "submit": "Register",
@@ -73,5 +81,7 @@
   "signOut": {
     "title": "Sign Out"
   },
+  "signedInOn": "Last signed-in on",
+  "updatedOn": "Last updated on",
   "usernameOrEmailPlaceholder": "Enter your email address or username"
 }

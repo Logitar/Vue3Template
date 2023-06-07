@@ -134,6 +134,60 @@ public class AccountController : ControllerBase
     return NoContent();
   }
 
+  [Authorize]
+  [HttpGet("profile")]
+  public ActionResult<Profile> GetProfile()
+  {
+    User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
+    Profile profile = new(user);
+
+    return Ok(profile);
+  }
+
+  [Authorize]
+  [HttpPut("profile")]
+  public async Task<ActionResult<Profile>> SaveProfile([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
+  {
+    User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
+
+    UpdateUserInput input = new()
+    {
+      Address = user.Address == null ? null : new AddressInput
+      {
+        Line1 = user.Address.Line1,
+        Line2 = user.Address.Line2,
+        Locality = user.Address.Locality,
+        PostalCode = user.Address.PostalCode,
+        Country = user.Address.Country,
+        Region = user.Address.Region
+      }, // TODO(fpion): implement
+      Email = payload.Email,
+      Phone = user.Phone == null ? null : new PhoneInput
+      {
+        CountryCode = user.Phone.CountryCode,
+        Number = user.Phone.Number,
+        Extension = user.Phone.Extension,
+        Verify = false
+      }, // TODO(fpion): implement
+      FirstName = payload.FirstName,
+      MiddleName = payload.MiddleName,
+      LastName = payload.LastName,
+      Nickname = payload.Nickname,
+      Birthdate = user.Birthdate, // TODO(fpion): implement
+      Gender = user.Gender, // TODO(fpion): implement
+      Locale = user.Locale, // TODO(fpion): implement
+      TimeZone = user.TimeZone, // TODO(fpion): implement
+      Picture = user.Picture, // TODO(fpion): implement
+      Profile = user.Profile, // TODO(fpion): implement
+      Website = user.Website, // TODO(fpion): implement
+      CustomAttributes = user.CustomAttributes
+    };
+    user = await _userService.UpdateAsync(user.Id, input, cancellationToken);
+    Profile profile = new(user);
+
+    return Ok(profile);
+  }
+
   [HttpPost("register")]
   public async Task<ActionResult> RegisterAsync([FromBody] RegisterPayload payload, CancellationToken cancellationToken)
   {
