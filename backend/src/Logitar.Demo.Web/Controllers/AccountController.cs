@@ -146,29 +146,15 @@ public class AccountController : ControllerBase
 
   [Authorize]
   [HttpPut("profile")]
-  public async Task<ActionResult<UserProfile>> SaveProfile([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
+  public async Task<ActionResult<UserProfile>> SaveProfileAsync([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
   {
     User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
 
     UpdateUserInput input = new()
     {
-      Address = user.Address == null ? null : new AddressInput
-      {
-        Line1 = user.Address.Line1,
-        Line2 = user.Address.Line2,
-        Locality = user.Address.Locality,
-        PostalCode = user.Address.PostalCode,
-        Country = user.Address.Country,
-        Region = user.Address.Region
-      }, // TODO(fpion): implement
+      Address = payload.Address,
       Email = payload.Email,
-      Phone = user.Phone == null ? null : new PhoneInput
-      {
-        CountryCode = user.Phone.CountryCode,
-        Number = user.Phone.Number,
-        Extension = user.Phone.Extension,
-        Verify = false
-      }, // TODO(fpion): implement
+      Phone = payload.Phone,
       FirstName = payload.FirstName,
       MiddleName = payload.MiddleName,
       LastName = payload.LastName,

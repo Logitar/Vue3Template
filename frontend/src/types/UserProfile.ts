@@ -1,9 +1,11 @@
+import type { Address } from "./Address";
 import type { Email } from "./Email";
 import type { Phone } from "./Phone";
 
 export type UserProfile = {
   username: string;
   signedInOn?: string;
+  address?: Address;
   email: Email;
   phone?: Phone;
   firstName: string;

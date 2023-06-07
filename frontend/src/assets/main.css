@@ -1,3 +1,7 @@
+:root {
+  --maz-border-width: 1px;
+}
+
 /* a {
   text-decoration: none;
 }

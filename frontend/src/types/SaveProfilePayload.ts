@@ -1,7 +1,11 @@
+import type { AddressInput } from "./AddressInput";
 import type { EmailInput } from "./EmailInput";
+import type { PhoneInput } from "./PhoneInput";
 
 export type SaveProfilePayload = {
+  address?: AddressInput;
   email: EmailInput;
+  phone?: PhoneInput;
   firstName: string;
   middleName?: string;
   lastName: string;

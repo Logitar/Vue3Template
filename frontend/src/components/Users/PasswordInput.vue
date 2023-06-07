@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import FormInput from "../shared/FormInput.vue";
 import type { ConfirmedParams } from "@/types/ConfirmedParams";
 import type { PasswordSettings } from "@/types/PasswordSettings";
 
@@ -65,7 +66,7 @@ const rules = computed<any>(() => {
   return rules;
 });
 
-const inputRef = ref<HTMLInputElement>();
+const inputRef = ref<InstanceType<typeof FormInput> | null>(null);
 function focus(): void {
   inputRef.value?.focus();
 }
@@ -73,7 +74,7 @@ defineExpose({ focus });
 </script>
 
 <template>
-  <form-input
+  <FormInput
     :id="id"
     :label="label"
     :modelValue="modelValue"

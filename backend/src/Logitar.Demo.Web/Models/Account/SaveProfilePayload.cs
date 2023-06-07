@@ -4,7 +4,9 @@ namespace Logitar.Demo.Web.Models.Account;
 
 public record SaveProfilePayload
 {
+  public AddressInput? Address { get; set; }
   public EmailInput Email { get; set; } = new();
+  public PhoneInput? Phone { get; set; }
 
   public string FirstName { get; set; } = string.Empty;
   public string? MiddleName { get; set; }

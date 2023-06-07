@@ -74,6 +74,24 @@
   "personal": {
     "title": "Personal Information"
   },
+  "phone": {
+    "countryCode": {
+      "label": "Country Code",
+      "placeholder": "Select a country"
+    },
+    "e164": "Phone Number (E164)",
+    "extension": {
+      "label": "Phone Extension",
+      "placeholder": "Enter your phone extension"
+    },
+    "invalid": "The phone is not valid.",
+    "number": {
+      "example": "Example:",
+      "label": "Phone Number",
+      "placeholder": "Enter your phone number"
+    },
+    "verified": "Verified"
+  },
   "picture": {
     "label": "Picture URL",
     "placeholder": "Paste the URL to your picture"

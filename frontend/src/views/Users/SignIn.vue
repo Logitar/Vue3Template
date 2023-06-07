@@ -12,7 +12,7 @@ const { t } = useI18n();
 
 const invalidCredentials = ref<boolean>(false);
 const password = ref<string>("");
-const passwordRef = ref<HTMLInputElement>();
+const passwordRef = ref<InstanceType<typeof PasswordInput> | null>(null);
 const remember = ref<boolean>(false);
 const username = ref<string>("");
 

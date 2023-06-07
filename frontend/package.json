@@ -22,6 +22,8 @@
     "@vee-validate/i18n": "^4.9.6",
     "@vee-validate/rules": "^4.9.6",
     "bootstrap": "^5.3.0",
+    "libphonenumber-js": "^1.10.34",
+    "maz-ui": "^3.9.0",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.6",
     "vue": "^3.3.2",

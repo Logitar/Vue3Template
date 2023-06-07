@@ -11,6 +11,7 @@ public record UserProfile
 
     SignedInOn = user.SignedInOn;
 
+    Address = user.Address;
     Email = user.Email ?? throw new ArgumentException($"The {nameof(user.Email)} is required.", nameof(user));
     Phone = user.Phone;
 
@@ -38,6 +39,7 @@ public record UserProfile
 
   public DateTime? SignedInOn { get; }
 
+  public Address? Address { get; }
   public Email Email { get; }
   public Phone? Phone { get; }
 
