@@ -11,6 +11,10 @@
     },
     "verified": "Verified"
   },
+  "locale": {
+    "label": "Locale",
+    "placeholder": "Select your preferred communication language"
+  },
   "name": {
     "first": {
       "label": "First Name",

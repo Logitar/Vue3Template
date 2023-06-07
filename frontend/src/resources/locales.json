@@ -1,0 +1,2753 @@
+[
+  {
+    "LCID": 54,
+    "Name": "af",
+    "DisplayName": "Afrikaans",
+    "EnglishName": "Afrikaans",
+    "NativeName": "Afrikaans"
+  },
+  {
+    "LCID": 1078,
+    "Name": "af-ZA",
+    "DisplayName": "Afrikaans (South Africa)",
+    "EnglishName": "Afrikaans (South Africa)",
+    "NativeName": "Afrikaans (Suid-Afrika)"
+  },
+  {
+    "LCID": 94,
+    "Name": "am",
+    "DisplayName": "Amharic",
+    "EnglishName": "Amharic",
+    "NativeName": "\u12A0\u121B\u122D\u129B"
+  },
+  {
+    "LCID": 1118,
+    "Name": "am-ET",
+    "DisplayName": "Amharic (Ethiopia)",
+    "EnglishName": "Amharic (Ethiopia)",
+    "NativeName": "\u12A0\u121B\u122D\u129B (\u12A2\u1275\u12EE\u1335\u12EB)"
+  },
+  {
+    "LCID": 1,
+    "Name": "ar",
+    "DisplayName": "Arabic",
+    "EnglishName": "Arabic",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629"
+  },
+  {
+    "LCID": 14337,
+    "Name": "ar-AE",
+    "DisplayName": "Arabic (United Arab Emirates)",
+    "EnglishName": "Arabic (United Arab Emirates)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062A \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0627\u0644\u0645\u062A\u062D\u062F\u0629)"
+  },
+  {
+    "LCID": 15361,
+    "Name": "ar-BH",
+    "DisplayName": "Arabic (Bahrain)",
+    "EnglishName": "Arabic (Bahrain)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0628\u062D\u0631\u064A\u0646)"
+  },
+  {
+    "LCID": 5121,
+    "Name": "ar-DZ",
+    "DisplayName": "Arabic (Algeria)",
+    "EnglishName": "Arabic (Algeria)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u062C\u0632\u0627\u0626\u0631)"
+  },
+  {
+    "LCID": 3073,
+    "Name": "ar-EG",
+    "DisplayName": "Arabic (Egypt)",
+    "EnglishName": "Arabic (Egypt)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0645\u0635\u0631)"
+  },
+  {
+    "LCID": 2049,
+    "Name": "ar-IQ",
+    "DisplayName": "Arabic (Iraq)",
+    "EnglishName": "Arabic (Iraq)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0639\u0631\u0627\u0642)"
+  },
+  {
+    "LCID": 11265,
+    "Name": "ar-JO",
+    "DisplayName": "Arabic (Jordan)",
+    "EnglishName": "Arabic (Jordan)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0623\u0631\u062F\u0646)"
+  },
+  {
+    "LCID": 13313,
+    "Name": "ar-KW",
+    "DisplayName": "Arabic (Kuwait)",
+    "EnglishName": "Arabic (Kuwait)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0643\u0648\u064A\u062A)"
+  },
+  {
+    "LCID": 12289,
+    "Name": "ar-LB",
+    "DisplayName": "Arabic (Lebanon)",
+    "EnglishName": "Arabic (Lebanon)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0644\u0628\u0646\u0627\u0646)"
+  },
+  {
+    "LCID": 4097,
+    "Name": "ar-LY",
+    "DisplayName": "Arabic (Libya)",
+    "EnglishName": "Arabic (Libya)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0644\u064A\u0628\u064A\u0627)"
+  },
+  {
+    "LCID": 6145,
+    "Name": "ar-MA",
+    "DisplayName": "Arabic (Morocco)",
+    "EnglishName": "Arabic (Morocco)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0645\u063A\u0631\u0628)"
+  },
+  {
+    "LCID": 8193,
+    "Name": "ar-OM",
+    "DisplayName": "Arabic (Oman)",
+    "EnglishName": "Arabic (Oman)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0639\u064F\u0645\u0627\u0646)"
+  },
+  {
+    "LCID": 16385,
+    "Name": "ar-QA",
+    "DisplayName": "Arabic (Qatar)",
+    "EnglishName": "Arabic (Qatar)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0642\u0637\u0631)"
+  },
+  {
+    "LCID": 1025,
+    "Name": "ar-SA",
+    "DisplayName": "Arabic (Saudi Arabia)",
+    "EnglishName": "Arabic (Saudi Arabia)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0627\u0644\u0633\u0639\u0648\u062F\u064A\u0629)"
+  },
+  {
+    "LCID": 10241,
+    "Name": "ar-SY",
+    "DisplayName": "Arabic (Syria)",
+    "EnglishName": "Arabic (Syria)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0633\u0648\u0631\u064A\u0627)"
+  },
+  {
+    "LCID": 7169,
+    "Name": "ar-TN",
+    "DisplayName": "Arabic (Tunisia)",
+    "EnglishName": "Arabic (Tunisia)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u062A\u0648\u0646\u0633)"
+  },
+  {
+    "LCID": 9217,
+    "Name": "ar-YE",
+    "DisplayName": "Arabic (Yemen)",
+    "EnglishName": "Arabic (Yemen)",
+    "NativeName": "\u0627\u0644\u0639\u0631\u0628\u064A\u0629 (\u0627\u0644\u064A\u0645\u0646)"
+  },
+  {
+    "LCID": 122,
+    "Name": "arn",
+    "DisplayName": "Mapuche",
+    "EnglishName": "Mapuche",
+    "NativeName": "Mapudungun"
+  },
+  {
+    "LCID": 1146,
+    "Name": "arn-CL",
+    "DisplayName": "Mapuche (Chile)",
+    "EnglishName": "Mapuche (Chile)",
+    "NativeName": "Mapuche (Chile)"
+  },
+  {
+    "LCID": 77,
+    "Name": "as",
+    "DisplayName": "Assamese",
+    "EnglishName": "Assamese",
+    "NativeName": "\u0985\u09B8\u09AE\u09C0\u09AF\u09BC\u09BE"
+  },
+  {
+    "LCID": 1101,
+    "Name": "as-IN",
+    "DisplayName": "Assamese (India)",
+    "EnglishName": "Assamese (India)",
+    "NativeName": "\u0985\u09B8\u09AE\u09C0\u09AF\u09BC\u09BE (\u09AD\u09BE\u09F0\u09A4)"
+  },
+  {
+    "LCID": 44,
+    "Name": "az",
+    "DisplayName": "Azerbaijani",
+    "EnglishName": "Azerbaijani",
+    "NativeName": "az\u0259rbaycan"
+  },
+  {
+    "LCID": 29740,
+    "Name": "az-Cyrl",
+    "DisplayName": "Azerbaijani (Cyrillic)",
+    "EnglishName": "Azerbaijani (Cyrillic)",
+    "NativeName": "\u0430\u0437\u04D9\u0440\u0431\u0430\u0458\u04B9\u0430\u043D (\u041A\u0438\u0440\u0438\u043B)"
+  },
+  {
+    "LCID": 2092,
+    "Name": "az-Cyrl-AZ",
+    "DisplayName": "Azerbaijani (Cyrillic, Azerbaijan)",
+    "EnglishName": "Azerbaijani (Cyrillic, Azerbaijan)",
+    "NativeName": "\u0430\u0437\u04D9\u0440\u0431\u0430\u0458\u04B9\u0430\u043D (\u041A\u0438\u0440\u0438\u043B, \u0410\u0437\u04D9\u0440\u0431\u0430\u0458\u04B9\u0430\u043D)"
+  },
+  {
+    "LCID": 30764,
+    "Name": "az-Latn",
+    "DisplayName": "Azerbaijani (Latin)",
+    "EnglishName": "Azerbaijani (Latin)",
+    "NativeName": "az\u0259rbaycan (lat\u0131n)"
+  },
+  {
+    "LCID": 1068,
+    "Name": "az-Latn-AZ",
+    "DisplayName": "Azerbaijani (Latin, Azerbaijan)",
+    "EnglishName": "Azerbaijani (Latin, Azerbaijan)",
+    "NativeName": "az\u0259rbaycan (lat\u0131n, Az\u0259rbaycan)"
+  },
+  {
+    "LCID": 109,
+    "Name": "ba",
+    "DisplayName": "Bashkir",
+    "EnglishName": "Bashkir",
+    "NativeName": "\u0431\u0430\u0448\u04A1\u043E\u0440\u0442 \u0442\u0435\u043B\u0435"
+  },
+  {
+    "LCID": 1133,
+    "Name": "ba-RU",
+    "DisplayName": "Bashkir (Russia)",
+    "EnglishName": "Bashkir (Russia)",
+    "NativeName": "Bashkir (Russia)"
+  },
+  {
+    "LCID": 35,
+    "Name": "be",
+    "DisplayName": "Belarusian",
+    "EnglishName": "Belarusian",
+    "NativeName": "\u0431\u0435\u043B\u0430\u0440\u0443\u0441\u043A\u0430\u044F"
+  },
+  {
+    "LCID": 1059,
+    "Name": "be-BY",
+    "DisplayName": "Belarusian (Belarus)",
+    "EnglishName": "Belarusian (Belarus)",
+    "NativeName": "\u0431\u0435\u043B\u0430\u0440\u0443\u0441\u043A\u0430\u044F (\u0411\u0435\u043B\u0430\u0440\u0443\u0441\u044C)"
+  },
+  {
+    "LCID": 2,
+    "Name": "bg",
+    "DisplayName": "Bulgarian",
+    "EnglishName": "Bulgarian",
+    "NativeName": "\u0431\u044A\u043B\u0433\u0430\u0440\u0441\u043A\u0438"
+  },
+  {
+    "LCID": 1026,
+    "Name": "bg-BG",
+    "DisplayName": "Bulgarian (Bulgaria)",
+    "EnglishName": "Bulgarian (Bulgaria)",
+    "NativeName": "\u0431\u044A\u043B\u0433\u0430\u0440\u0441\u043A\u0438 (\u0411\u044A\u043B\u0433\u0430\u0440\u0438\u044F)"
+  },
+  {
+    "LCID": 102,
+    "Name": "bin",
+    "DisplayName": "Edo",
+    "EnglishName": "Edo",
+    "NativeName": "\u1EB8\u0300d\u00F3"
+  },
+  {
+    "LCID": 1126,
+    "Name": "bin-NG",
+    "DisplayName": "Edo (Nigeria)",
+    "EnglishName": "Edo (Nigeria)",
+    "NativeName": "\u1EB8\u0300d\u00F3 (Nigeria)"
+  },
+  {
+    "LCID": 69,
+    "Name": "bn",
+    "DisplayName": "Bangla",
+    "EnglishName": "Bangla",
+    "NativeName": "\u09AC\u09BE\u0982\u09B2\u09BE"
+  },
+  {
+    "LCID": 2117,
+    "Name": "bn-BD",
+    "DisplayName": "Bangla (Bangladesh)",
+    "EnglishName": "Bangla (Bangladesh)",
+    "NativeName": "\u09AC\u09BE\u0982\u09B2\u09BE (\u09AC\u09BE\u0982\u09B2\u09BE\u09A6\u09C7\u09B6)"
+  },
+  {
+    "LCID": 1093,
+    "Name": "bn-IN",
+    "DisplayName": "Bangla (India)",
+    "EnglishName": "Bangla (India)",
+    "NativeName": "\u09AC\u09BE\u0982\u09B2\u09BE (\u09AD\u09BE\u09B0\u09A4)"
+  },
+  {
+    "LCID": 81,
+    "Name": "bo",
+    "DisplayName": "Tibetan",
+    "EnglishName": "Tibetan",
+    "NativeName": "\u0F56\u0F7C\u0F51\u0F0B\u0F66\u0F90\u0F51\u0F0B"
+  },
+  {
+    "LCID": 1105,
+    "Name": "bo-CN",
+    "DisplayName": "Tibetan (China)",
+    "EnglishName": "Tibetan (China)",
+    "NativeName": "\u0F56\u0F7C\u0F51\u0F0B\u0F66\u0F90\u0F51\u0F0B (\u0F62\u0F92\u0FB1\u0F0B\u0F53\u0F42)"
+  },
+  {
+    "LCID": 126,
+    "Name": "br",
+    "DisplayName": "Breton",
+    "EnglishName": "Breton",
+    "NativeName": "brezhoneg"
+  },
+  {
+    "LCID": 1150,
+    "Name": "br-FR",
+    "DisplayName": "Breton (France)",
+    "EnglishName": "Breton (France)",
+    "NativeName": "brezhoneg (Fra\u00F1s)"
+  },
+  {
+    "LCID": 30746,
+    "Name": "bs",
+    "DisplayName": "Bosnian",
+    "EnglishName": "Bosnian",
+    "NativeName": "bosanski"
+  },
+  {
+    "LCID": 25626,
+    "Name": "bs-Cyrl",
+    "DisplayName": "Bosnian (Cyrillic)",
+    "EnglishName": "Bosnian (Cyrillic)",
+    "NativeName": "\u0431\u043E\u0441\u0430\u043D\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430)"
+  },
+  {
+    "LCID": 8218,
+    "Name": "bs-Cyrl-BA",
+    "DisplayName": "Bosnian (Cyrillic, Bosnia \u0026 Herzegovina)",
+    "EnglishName": "Bosnian (Cyrillic, Bosnia \u0026 Herzegovina)",
+    "NativeName": "\u0431\u043E\u0441\u0430\u043D\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430, \u0411\u043E\u0441\u043D\u0430 \u0438 \u0425\u0435\u0440\u0446\u0435\u0433\u043E\u0432\u0438\u043D\u0430)"
+  },
+  {
+    "LCID": 26650,
+    "Name": "bs-Latn",
+    "DisplayName": "Bosnian (Latin)",
+    "EnglishName": "Bosnian (Latin)",
+    "NativeName": "bosanski (latinica)"
+  },
+  {
+    "LCID": 5146,
+    "Name": "bs-Latn-BA",
+    "DisplayName": "Bosnian (Latin, Bosnia \u0026 Herzegovina)",
+    "EnglishName": "Bosnian (Latin, Bosnia \u0026 Herzegovina)",
+    "NativeName": "bosanski (latinica, Bosna i Hercegovina)"
+  },
+  {
+    "LCID": 3,
+    "Name": "ca",
+    "DisplayName": "Catalan",
+    "EnglishName": "Catalan",
+    "NativeName": "catal\u00E0"
+  },
+  {
+    "LCID": 1027,
+    "Name": "ca-ES",
+    "DisplayName": "Catalan (Spain)",
+    "EnglishName": "Catalan (Spain)",
+    "NativeName": "catal\u00E0 (Espanya)"
+  },
+  {
+    "LCID": 92,
+    "Name": "chr",
+    "DisplayName": "Cherokee",
+    "EnglishName": "Cherokee",
+    "NativeName": "\u13E3\u13B3\u13A9"
+  },
+  {
+    "LCID": 131,
+    "Name": "co",
+    "DisplayName": "Corsican",
+    "EnglishName": "Corsican",
+    "NativeName": "corsu"
+  },
+  {
+    "LCID": 1155,
+    "Name": "co-FR",
+    "DisplayName": "Corsican (France)",
+    "EnglishName": "Corsican (France)",
+    "NativeName": "Corsican (France)"
+  },
+  {
+    "LCID": 5,
+    "Name": "cs",
+    "DisplayName": "Czech",
+    "EnglishName": "Czech",
+    "NativeName": "\u010De\u0161tina"
+  },
+  {
+    "LCID": 1029,
+    "Name": "cs-CZ",
+    "DisplayName": "Czech (Czechia)",
+    "EnglishName": "Czech (Czechia)",
+    "NativeName": "\u010De\u0161tina (\u010Cesko)"
+  },
+  {
+    "LCID": 82,
+    "Name": "cy",
+    "DisplayName": "Welsh",
+    "EnglishName": "Welsh",
+    "NativeName": "Cymraeg"
+  },
+  {
+    "LCID": 1106,
+    "Name": "cy-GB",
+    "DisplayName": "Welsh (United Kingdom)",
+    "EnglishName": "Welsh (United Kingdom)",
+    "NativeName": "Cymraeg (Y Deyrnas Unedig)"
+  },
+  {
+    "LCID": 6,
+    "Name": "da",
+    "DisplayName": "Danish",
+    "EnglishName": "Danish",
+    "NativeName": "dansk"
+  },
+  {
+    "LCID": 1030,
+    "Name": "da-DK",
+    "DisplayName": "Danish (Denmark)",
+    "EnglishName": "Danish (Denmark)",
+    "NativeName": "dansk (Danmark)"
+  },
+  {
+    "LCID": 7,
+    "Name": "de",
+    "DisplayName": "German",
+    "EnglishName": "German",
+    "NativeName": "Deutsch"
+  },
+  {
+    "LCID": 3079,
+    "Name": "de-AT",
+    "DisplayName": "German (Austria)",
+    "EnglishName": "German (Austria)",
+    "NativeName": "Deutsch (\u00D6sterreich)"
+  },
+  {
+    "LCID": 2055,
+    "Name": "de-CH",
+    "DisplayName": "German (Switzerland)",
+    "EnglishName": "German (Switzerland)",
+    "NativeName": "Deutsch (Schweiz)"
+  },
+  {
+    "LCID": 1031,
+    "Name": "de-DE",
+    "DisplayName": "German (Germany)",
+    "EnglishName": "German (Germany)",
+    "NativeName": "Deutsch (Deutschland)"
+  },
+  {
+    "LCID": 5127,
+    "Name": "de-LI",
+    "DisplayName": "German (Liechtenstein)",
+    "EnglishName": "German (Liechtenstein)",
+    "NativeName": "Deutsch (Liechtenstein)"
+  },
+  {
+    "LCID": 4103,
+    "Name": "de-LU",
+    "DisplayName": "German (Luxembourg)",
+    "EnglishName": "German (Luxembourg)",
+    "NativeName": "Deutsch (Luxemburg)"
+  },
+  {
+    "LCID": 31790,
+    "Name": "dsb",
+    "DisplayName": "Lower Sorbian",
+    "EnglishName": "Lower Sorbian",
+    "NativeName": "dolnoserb\u0161\u0107ina"
+  },
+  {
+    "LCID": 2094,
+    "Name": "dsb-DE",
+    "DisplayName": "Lower Sorbian (Germany)",
+    "EnglishName": "Lower Sorbian (Germany)",
+    "NativeName": "dolnoserb\u0161\u0107ina (Nimska)"
+  },
+  {
+    "LCID": 101,
+    "Name": "dv",
+    "DisplayName": "Divehi",
+    "EnglishName": "Divehi",
+    "NativeName": "Divehi"
+  },
+  {
+    "LCID": 1125,
+    "Name": "dv-MV",
+    "DisplayName": "Divehi (Maldives)",
+    "EnglishName": "Divehi (Maldives)",
+    "NativeName": "Divehi (Maldives)"
+  },
+  {
+    "LCID": 3153,
+    "Name": "dz-BT",
+    "DisplayName": "Dzongkha (Bhutan)",
+    "EnglishName": "Dzongkha (Bhutan)",
+    "NativeName": "\u0F62\u0FAB\u0F7C\u0F44\u0F0B\u0F41\u0F0D (\u0F60\u0F56\u0FB2\u0F74\u0F42\u0F0D)"
+  },
+  {
+    "LCID": 8,
+    "Name": "el",
+    "DisplayName": "Greek",
+    "EnglishName": "Greek",
+    "NativeName": "\u0395\u03BB\u03BB\u03B7\u03BD\u03B9\u03BA\u03AC"
+  },
+  {
+    "LCID": 1032,
+    "Name": "el-GR",
+    "DisplayName": "Greek (Greece)",
+    "EnglishName": "Greek (Greece)",
+    "NativeName": "\u0395\u03BB\u03BB\u03B7\u03BD\u03B9\u03BA\u03AC (\u0395\u03BB\u03BB\u03AC\u03B4\u03B1)"
+  },
+  {
+    "LCID": 9,
+    "Name": "en",
+    "DisplayName": "English",
+    "EnglishName": "English",
+    "NativeName": "English"
+  },
+  {
+    "LCID": 9225,
+    "Name": "en-029",
+    "DisplayName": "English (Caribbean)",
+    "EnglishName": "English (Caribbean)",
+    "NativeName": "English (Caribbean)"
+  },
+  {
+    "LCID": 3081,
+    "Name": "en-AU",
+    "DisplayName": "English (Australia)",
+    "EnglishName": "English (Australia)",
+    "NativeName": "English (Australia)"
+  },
+  {
+    "LCID": 10249,
+    "Name": "en-BZ",
+    "DisplayName": "English (Belize)",
+    "EnglishName": "English (Belize)",
+    "NativeName": "English (Belize)"
+  },
+  {
+    "LCID": 4105,
+    "Name": "en-CA",
+    "DisplayName": "English (Canada)",
+    "EnglishName": "English (Canada)",
+    "NativeName": "English (Canada)"
+  },
+  {
+    "LCID": 2057,
+    "Name": "en-GB",
+    "DisplayName": "English (United Kingdom)",
+    "EnglishName": "English (United Kingdom)",
+    "NativeName": "English (United Kingdom)"
+  },
+  {
+    "LCID": 15369,
+    "Name": "en-HK",
+    "DisplayName": "English (Hong Kong SAR)",
+    "EnglishName": "English (Hong Kong SAR)",
+    "NativeName": "English (Hong Kong SAR)"
+  },
+  {
+    "LCID": 14345,
+    "Name": "en-ID",
+    "DisplayName": "English (Indonesia)",
+    "EnglishName": "English (Indonesia)",
+    "NativeName": "English (Indonesia)"
+  },
+  {
+    "LCID": 6153,
+    "Name": "en-IE",
+    "DisplayName": "English (Ireland)",
+    "EnglishName": "English (Ireland)",
+    "NativeName": "English (Ireland)"
+  },
+  {
+    "LCID": 16393,
+    "Name": "en-IN",
+    "DisplayName": "English (India)",
+    "EnglishName": "English (India)",
+    "NativeName": "English (India)"
+  },
+  {
+    "LCID": 8201,
+    "Name": "en-JM",
+    "DisplayName": "English (Jamaica)",
+    "EnglishName": "English (Jamaica)",
+    "NativeName": "English (Jamaica)"
+  },
+  {
+    "LCID": 17417,
+    "Name": "en-MY",
+    "DisplayName": "English (Malaysia)",
+    "EnglishName": "English (Malaysia)",
+    "NativeName": "English (Malaysia)"
+  },
+  {
+    "LCID": 5129,
+    "Name": "en-NZ",
+    "DisplayName": "English (New Zealand)",
+    "EnglishName": "English (New Zealand)",
+    "NativeName": "English (New Zealand)"
+  },
+  {
+    "LCID": 13321,
+    "Name": "en-PH",
+    "DisplayName": "English (Philippines)",
+    "EnglishName": "English (Philippines)",
+    "NativeName": "English (Philippines)"
+  },
+  {
+    "LCID": 18441,
+    "Name": "en-SG",
+    "DisplayName": "English (Singapore)",
+    "EnglishName": "English (Singapore)",
+    "NativeName": "English (Singapore)"
+  },
+  {
+    "LCID": 11273,
+    "Name": "en-TT",
+    "DisplayName": "English (Trinidad \u0026 Tobago)",
+    "EnglishName": "English (Trinidad \u0026 Tobago)",
+    "NativeName": "English (Trinidad \u0026 Tobago)"
+  },
+  {
+    "LCID": 1033,
+    "Name": "en-US",
+    "DisplayName": "English (United States)",
+    "EnglishName": "English (United States)",
+    "NativeName": "English (United States)"
+  },
+  {
+    "LCID": 7177,
+    "Name": "en-ZA",
+    "DisplayName": "English (South Africa)",
+    "EnglishName": "English (South Africa)",
+    "NativeName": "English (South Africa)"
+  },
+  {
+    "LCID": 12297,
+    "Name": "en-ZW",
+    "DisplayName": "English (Zimbabwe)",
+    "EnglishName": "English (Zimbabwe)",
+    "NativeName": "English (Zimbabwe)"
+  },
+  {
+    "LCID": 10,
+    "Name": "es",
+    "DisplayName": "Spanish",
+    "EnglishName": "Spanish",
+    "NativeName": "espa\u00F1ol"
+  },
+  {
+    "LCID": 22538,
+    "Name": "es-419",
+    "DisplayName": "Spanish (Latin America)",
+    "EnglishName": "Spanish (Latin America)",
+    "NativeName": "espa\u00F1ol (Latinoam\u00E9rica)"
+  },
+  {
+    "LCID": 11274,
+    "Name": "es-AR",
+    "DisplayName": "Spanish (Argentina)",
+    "EnglishName": "Spanish (Argentina)",
+    "NativeName": "espa\u00F1ol (Argentina)"
+  },
+  {
+    "LCID": 16394,
+    "Name": "es-BO",
+    "DisplayName": "Spanish (Bolivia)",
+    "EnglishName": "Spanish (Bolivia)",
+    "NativeName": "espa\u00F1ol (Bolivia)"
+  },
+  {
+    "LCID": 13322,
+    "Name": "es-CL",
+    "DisplayName": "Spanish (Chile)",
+    "EnglishName": "Spanish (Chile)",
+    "NativeName": "espa\u00F1ol (Chile)"
+  },
+  {
+    "LCID": 9226,
+    "Name": "es-CO",
+    "DisplayName": "Spanish (Colombia)",
+    "EnglishName": "Spanish (Colombia)",
+    "NativeName": "espa\u00F1ol (Colombia)"
+  },
+  {
+    "LCID": 5130,
+    "Name": "es-CR",
+    "DisplayName": "Spanish (Costa Rica)",
+    "EnglishName": "Spanish (Costa Rica)",
+    "NativeName": "espa\u00F1ol (Costa Rica)"
+  },
+  {
+    "LCID": 23562,
+    "Name": "es-CU",
+    "DisplayName": "Spanish (Cuba)",
+    "EnglishName": "Spanish (Cuba)",
+    "NativeName": "espa\u00F1ol (Cuba)"
+  },
+  {
+    "LCID": 7178,
+    "Name": "es-DO",
+    "DisplayName": "Spanish (Dominican Republic)",
+    "EnglishName": "Spanish (Dominican Republic)",
+    "NativeName": "espa\u00F1ol (Rep\u00FAblica Dominicana)"
+  },
+  {
+    "LCID": 12298,
+    "Name": "es-EC",
+    "DisplayName": "Spanish (Ecuador)",
+    "EnglishName": "Spanish (Ecuador)",
+    "NativeName": "espa\u00F1ol (Ecuador)"
+  },
+  {
+    "LCID": 3082,
+    "Name": "es-ES",
+    "DisplayName": "Spanish (Spain)",
+    "EnglishName": "Spanish (Spain)",
+    "NativeName": "espa\u00F1ol (Espa\u00F1a)"
+  },
+  {
+    "LCID": 4106,
+    "Name": "es-GT",
+    "DisplayName": "Spanish (Guatemala)",
+    "EnglishName": "Spanish (Guatemala)",
+    "NativeName": "espa\u00F1ol (Guatemala)"
+  },
+  {
+    "LCID": 18442,
+    "Name": "es-HN",
+    "DisplayName": "Spanish (Honduras)",
+    "EnglishName": "Spanish (Honduras)",
+    "NativeName": "espa\u00F1ol (Honduras)"
+  },
+  {
+    "LCID": 2058,
+    "Name": "es-MX",
+    "DisplayName": "Spanish (Mexico)",
+    "EnglishName": "Spanish (Mexico)",
+    "NativeName": "espa\u00F1ol (M\u00E9xico)"
+  },
+  {
+    "LCID": 19466,
+    "Name": "es-NI",
+    "DisplayName": "Spanish (Nicaragua)",
+    "EnglishName": "Spanish (Nicaragua)",
+    "NativeName": "espa\u00F1ol (Nicaragua)"
+  },
+  {
+    "LCID": 6154,
+    "Name": "es-PA",
+    "DisplayName": "Spanish (Panama)",
+    "EnglishName": "Spanish (Panama)",
+    "NativeName": "espa\u00F1ol (Panam\u00E1)"
+  },
+  {
+    "LCID": 10250,
+    "Name": "es-PE",
+    "DisplayName": "Spanish (Peru)",
+    "EnglishName": "Spanish (Peru)",
+    "NativeName": "espa\u00F1ol (Per\u00FA)"
+  },
+  {
+    "LCID": 20490,
+    "Name": "es-PR",
+    "DisplayName": "Spanish (Puerto Rico)",
+    "EnglishName": "Spanish (Puerto Rico)",
+    "NativeName": "espa\u00F1ol (Puerto Rico)"
+  },
+  {
+    "LCID": 15370,
+    "Name": "es-PY",
+    "DisplayName": "Spanish (Paraguay)",
+    "EnglishName": "Spanish (Paraguay)",
+    "NativeName": "espa\u00F1ol (Paraguay)"
+  },
+  {
+    "LCID": 17418,
+    "Name": "es-SV",
+    "DisplayName": "Spanish (El Salvador)",
+    "EnglishName": "Spanish (El Salvador)",
+    "NativeName": "espa\u00F1ol (El Salvador)"
+  },
+  {
+    "LCID": 21514,
+    "Name": "es-US",
+    "DisplayName": "Spanish (United States)",
+    "EnglishName": "Spanish (United States)",
+    "NativeName": "espa\u00F1ol (Estados Unidos)"
+  },
+  {
+    "LCID": 14346,
+    "Name": "es-UY",
+    "DisplayName": "Spanish (Uruguay)",
+    "EnglishName": "Spanish (Uruguay)",
+    "NativeName": "espa\u00F1ol (Uruguay)"
+  },
+  {
+    "LCID": 8202,
+    "Name": "es-VE",
+    "DisplayName": "Spanish (Venezuela)",
+    "EnglishName": "Spanish (Venezuela)",
+    "NativeName": "espa\u00F1ol (Venezuela)"
+  },
+  {
+    "LCID": 37,
+    "Name": "et",
+    "DisplayName": "Estonian",
+    "EnglishName": "Estonian",
+    "NativeName": "eesti"
+  },
+  {
+    "LCID": 1061,
+    "Name": "et-EE",
+    "DisplayName": "Estonian (Estonia)",
+    "EnglishName": "Estonian (Estonia)",
+    "NativeName": "eesti (Eesti)"
+  },
+  {
+    "LCID": 45,
+    "Name": "eu",
+    "DisplayName": "Basque",
+    "EnglishName": "Basque",
+    "NativeName": "euskara"
+  },
+  {
+    "LCID": 1069,
+    "Name": "eu-ES",
+    "DisplayName": "Basque (Spain)",
+    "EnglishName": "Basque (Spain)",
+    "NativeName": "euskara (Espainia)"
+  },
+  {
+    "LCID": 41,
+    "Name": "fa",
+    "DisplayName": "Persian",
+    "EnglishName": "Persian",
+    "NativeName": "\u0641\u0627\u0631\u0633\u06CC"
+  },
+  {
+    "LCID": 1065,
+    "Name": "fa-IR",
+    "DisplayName": "Persian (Iran)",
+    "EnglishName": "Persian (Iran)",
+    "NativeName": "\u0641\u0627\u0631\u0633\u06CC (\u0627\u06CC\u0631\u0627\u0646)"
+  },
+  {
+    "LCID": 103,
+    "Name": "ff",
+    "DisplayName": "Fulah",
+    "EnglishName": "Fulah",
+    "NativeName": "Pulaar"
+  },
+  {
+    "LCID": 31847,
+    "Name": "ff-Latn",
+    "DisplayName": "Fulah (Latin)",
+    "EnglishName": "Fulah (Latin)",
+    "NativeName": "Fulah (Latin)"
+  },
+  {
+    "LCID": 2151,
+    "Name": "ff-Latn-SN",
+    "DisplayName": "Fulah (Latin, Senegal)",
+    "EnglishName": "Fulah (Latin, Senegal)",
+    "NativeName": "Fulah (Latin, Senegal)"
+  },
+  {
+    "LCID": 11,
+    "Name": "fi",
+    "DisplayName": "Finnish",
+    "EnglishName": "Finnish",
+    "NativeName": "suomi"
+  },
+  {
+    "LCID": 1035,
+    "Name": "fi-FI",
+    "DisplayName": "Finnish (Finland)",
+    "EnglishName": "Finnish (Finland)",
+    "NativeName": "suomi (Suomi)"
+  },
+  {
+    "LCID": 100,
+    "Name": "fil",
+    "DisplayName": "Filipino",
+    "EnglishName": "Filipino",
+    "NativeName": "Filipino"
+  },
+  {
+    "LCID": 1124,
+    "Name": "fil-PH",
+    "DisplayName": "Filipino (Philippines)",
+    "EnglishName": "Filipino (Philippines)",
+    "NativeName": "Filipino (Pilipinas)"
+  },
+  {
+    "LCID": 56,
+    "Name": "fo",
+    "DisplayName": "Faroese",
+    "EnglishName": "Faroese",
+    "NativeName": "f\u00F8royskt"
+  },
+  {
+    "LCID": 1080,
+    "Name": "fo-FO",
+    "DisplayName": "Faroese (Faroe Islands)",
+    "EnglishName": "Faroese (Faroe Islands)",
+    "NativeName": "f\u00F8royskt (F\u00F8royar)"
+  },
+  {
+    "LCID": 12,
+    "Name": "fr",
+    "DisplayName": "French",
+    "EnglishName": "French",
+    "NativeName": "fran\u00E7ais"
+  },
+  {
+    "LCID": 7180,
+    "Name": "fr-029",
+    "DisplayName": "French (Caribbean)",
+    "EnglishName": "French (Caribbean)",
+    "NativeName": "fran\u00E7ais (Cara\u00EFbes)"
+  },
+  {
+    "LCID": 2060,
+    "Name": "fr-BE",
+    "DisplayName": "French (Belgium)",
+    "EnglishName": "French (Belgium)",
+    "NativeName": "fran\u00E7ais (Belgique)"
+  },
+  {
+    "LCID": 3084,
+    "Name": "fr-CA",
+    "DisplayName": "French (Canada)",
+    "EnglishName": "French (Canada)",
+    "NativeName": "fran\u00E7ais (Canada)"
+  },
+  {
+    "LCID": 9228,
+    "Name": "fr-CD",
+    "DisplayName": "French (Congo [DRC])",
+    "EnglishName": "French (Congo [DRC])",
+    "NativeName": "fran\u00E7ais (Congo [R\u00E9publique d\u00E9mocratique du])"
+  },
+  {
+    "LCID": 4108,
+    "Name": "fr-CH",
+    "DisplayName": "French (Switzerland)",
+    "EnglishName": "French (Switzerland)",
+    "NativeName": "fran\u00E7ais (Suisse)"
+  },
+  {
+    "LCID": 12300,
+    "Name": "fr-CI",
+    "DisplayName": "French (C\u00F4te d\u2019Ivoire)",
+    "EnglishName": "French (C\u00F4te d\u2019Ivoire)",
+    "NativeName": "fran\u00E7ais (C\u00F4te d\u2019Ivoire)"
+  },
+  {
+    "LCID": 11276,
+    "Name": "fr-CM",
+    "DisplayName": "French (Cameroon)",
+    "EnglishName": "French (Cameroon)",
+    "NativeName": "fran\u00E7ais (Cameroun)"
+  },
+  {
+    "LCID": 1036,
+    "Name": "fr-FR",
+    "DisplayName": "French (France)",
+    "EnglishName": "French (France)",
+    "NativeName": "fran\u00E7ais (France)"
+  },
+  {
+    "LCID": 15372,
+    "Name": "fr-HT",
+    "DisplayName": "French (Haiti)",
+    "EnglishName": "French (Haiti)",
+    "NativeName": "fran\u00E7ais (Ha\u00EFti)"
+  },
+  {
+    "LCID": 5132,
+    "Name": "fr-LU",
+    "DisplayName": "French (Luxembourg)",
+    "EnglishName": "French (Luxembourg)",
+    "NativeName": "fran\u00E7ais (Luxembourg)"
+  },
+  {
+    "LCID": 14348,
+    "Name": "fr-MA",
+    "DisplayName": "French (Morocco)",
+    "EnglishName": "French (Morocco)",
+    "NativeName": "fran\u00E7ais (Maroc)"
+  },
+  {
+    "LCID": 6156,
+    "Name": "fr-MC",
+    "DisplayName": "French (Monaco)",
+    "EnglishName": "French (Monaco)",
+    "NativeName": "fran\u00E7ais (Monaco)"
+  },
+  {
+    "LCID": 13324,
+    "Name": "fr-ML",
+    "DisplayName": "French (Mali)",
+    "EnglishName": "French (Mali)",
+    "NativeName": "fran\u00E7ais (Mali)"
+  },
+  {
+    "LCID": 8204,
+    "Name": "fr-RE",
+    "DisplayName": "French (R\u00E9union)",
+    "EnglishName": "French (R\u00E9union)",
+    "NativeName": "fran\u00E7ais (La R\u00E9union)"
+  },
+  {
+    "LCID": 10252,
+    "Name": "fr-SN",
+    "DisplayName": "French (Senegal)",
+    "EnglishName": "French (Senegal)",
+    "NativeName": "fran\u00E7ais (S\u00E9n\u00E9gal)"
+  },
+  {
+    "LCID": 98,
+    "Name": "fy",
+    "DisplayName": "Western Frisian",
+    "EnglishName": "Western Frisian",
+    "NativeName": "Frysk"
+  },
+  {
+    "LCID": 1122,
+    "Name": "fy-NL",
+    "DisplayName": "Western Frisian (Netherlands)",
+    "EnglishName": "Western Frisian (Netherlands)",
+    "NativeName": "Frysk (Nederl\u00E2n)"
+  },
+  {
+    "LCID": 60,
+    "Name": "ga",
+    "DisplayName": "Irish",
+    "EnglishName": "Irish",
+    "NativeName": "Gaeilge"
+  },
+  {
+    "LCID": 2108,
+    "Name": "ga-IE",
+    "DisplayName": "Irish (Ireland)",
+    "EnglishName": "Irish (Ireland)",
+    "NativeName": "Gaeilge (\u00C9ire)"
+  },
+  {
+    "LCID": 145,
+    "Name": "gd",
+    "DisplayName": "Scottish Gaelic",
+    "EnglishName": "Scottish Gaelic",
+    "NativeName": "G\u00E0idhlig"
+  },
+  {
+    "LCID": 1169,
+    "Name": "gd-GB",
+    "DisplayName": "Scottish Gaelic (United Kingdom)",
+    "EnglishName": "Scottish Gaelic (United Kingdom)",
+    "NativeName": "G\u00E0idhlig (An R\u00ECoghachd Aonaichte)"
+  },
+  {
+    "LCID": 86,
+    "Name": "gl",
+    "DisplayName": "Galician",
+    "EnglishName": "Galician",
+    "NativeName": "galego"
+  },
+  {
+    "LCID": 1110,
+    "Name": "gl-ES",
+    "DisplayName": "Galician (Spain)",
+    "EnglishName": "Galician (Spain)",
+    "NativeName": "galego (Espa\u00F1a)"
+  },
+  {
+    "LCID": 116,
+    "Name": "gn",
+    "DisplayName": "Guarani",
+    "EnglishName": "Guarani",
+    "NativeName": "ava\u00F1e\u2019\u1EBD"
+  },
+  {
+    "LCID": 1140,
+    "Name": "gn-PY",
+    "DisplayName": "Guarani (Paraguay)",
+    "EnglishName": "Guarani (Paraguay)",
+    "NativeName": "Guarani (Paraguay)"
+  },
+  {
+    "LCID": 132,
+    "Name": "gsw",
+    "DisplayName": "Swiss German",
+    "EnglishName": "Swiss German",
+    "NativeName": "Schwiizert\u00FC\u00FCtsch"
+  },
+  {
+    "LCID": 1156,
+    "Name": "gsw-FR",
+    "DisplayName": "Swiss German (France)",
+    "EnglishName": "Swiss German (France)",
+    "NativeName": "Els\u00E4ssisch (Fr\u00E0nkrisch)"
+  },
+  {
+    "LCID": 71,
+    "Name": "gu",
+    "DisplayName": "Gujarati",
+    "EnglishName": "Gujarati",
+    "NativeName": "\u0A97\u0AC1\u0A9C\u0AB0\u0ABE\u0AA4\u0AC0"
+  },
+  {
+    "LCID": 1095,
+    "Name": "gu-IN",
+    "DisplayName": "Gujarati (India)",
+    "EnglishName": "Gujarati (India)",
+    "NativeName": "\u0A97\u0AC1\u0A9C\u0AB0\u0ABE\u0AA4\u0AC0 (\u0AAD\u0ABE\u0AB0\u0AA4)"
+  },
+  {
+    "LCID": 104,
+    "Name": "ha",
+    "DisplayName": "Hausa",
+    "EnglishName": "Hausa",
+    "NativeName": "Hausa"
+  },
+  {
+    "LCID": 117,
+    "Name": "haw",
+    "DisplayName": "Hawaiian",
+    "EnglishName": "Hawaiian",
+    "NativeName": "\u02BB\u014Clelo Hawai\u02BBi"
+  },
+  {
+    "LCID": 1141,
+    "Name": "haw-US",
+    "DisplayName": "Hawaiian (United States)",
+    "EnglishName": "Hawaiian (United States)",
+    "NativeName": "\u02BB\u014Clelo Hawai\u02BBi (\u02BBAmelika Hui P\u016B \u02BBIa)"
+  },
+  {
+    "LCID": 13,
+    "Name": "he",
+    "DisplayName": "Hebrew",
+    "EnglishName": "Hebrew",
+    "NativeName": "\u05E2\u05D1\u05E8\u05D9\u05EA"
+  },
+  {
+    "LCID": 1037,
+    "Name": "he-IL",
+    "DisplayName": "Hebrew (Israel)",
+    "EnglishName": "Hebrew (Israel)",
+    "NativeName": "\u05E2\u05D1\u05E8\u05D9\u05EA (\u05D9\u05E9\u05E8\u05D0\u05DC)"
+  },
+  {
+    "LCID": 57,
+    "Name": "hi",
+    "DisplayName": "Hindi",
+    "EnglishName": "Hindi",
+    "NativeName": "\u0939\u093F\u0928\u094D\u0926\u0940"
+  },
+  {
+    "LCID": 1081,
+    "Name": "hi-IN",
+    "DisplayName": "Hindi (India)",
+    "EnglishName": "Hindi (India)",
+    "NativeName": "\u0939\u093F\u0928\u094D\u0926\u0940 (\u092D\u093E\u0930\u0924)"
+  },
+  {
+    "LCID": 26,
+    "Name": "hr",
+    "DisplayName": "Croatian",
+    "EnglishName": "Croatian",
+    "NativeName": "hrvatski"
+  },
+  {
+    "LCID": 4122,
+    "Name": "hr-BA",
+    "DisplayName": "Croatian (Bosnia \u0026 Herzegovina)",
+    "EnglishName": "Croatian (Bosnia \u0026 Herzegovina)",
+    "NativeName": "hrvatski (Bosna i Hercegovina)"
+  },
+  {
+    "LCID": 1050,
+    "Name": "hr-HR",
+    "DisplayName": "Croatian (Croatia)",
+    "EnglishName": "Croatian (Croatia)",
+    "NativeName": "hrvatski (Hrvatska)"
+  },
+  {
+    "LCID": 46,
+    "Name": "hsb",
+    "DisplayName": "Upper Sorbian",
+    "EnglishName": "Upper Sorbian",
+    "NativeName": "hornjoserb\u0161\u0107ina"
+  },
+  {
+    "LCID": 1070,
+    "Name": "hsb-DE",
+    "DisplayName": "Upper Sorbian (Germany)",
+    "EnglishName": "Upper Sorbian (Germany)",
+    "NativeName": "hornjoserb\u0161\u0107ina (N\u011Bmska)"
+  },
+  {
+    "LCID": 14,
+    "Name": "hu",
+    "DisplayName": "Hungarian",
+    "EnglishName": "Hungarian",
+    "NativeName": "magyar"
+  },
+  {
+    "LCID": 1038,
+    "Name": "hu-HU",
+    "DisplayName": "Hungarian (Hungary)",
+    "EnglishName": "Hungarian (Hungary)",
+    "NativeName": "magyar (Magyarorsz\u00E1g)"
+  },
+  {
+    "LCID": 43,
+    "Name": "hy",
+    "DisplayName": "Armenian",
+    "EnglishName": "Armenian",
+    "NativeName": "\u0570\u0561\u0575\u0565\u0580\u0565\u0576"
+  },
+  {
+    "LCID": 1067,
+    "Name": "hy-AM",
+    "DisplayName": "Armenian (Armenia)",
+    "EnglishName": "Armenian (Armenia)",
+    "NativeName": "\u0570\u0561\u0575\u0565\u0580\u0565\u0576 (\u0540\u0561\u0575\u0561\u057D\u057F\u0561\u0576)"
+  },
+  {
+    "LCID": 105,
+    "Name": "ibb",
+    "DisplayName": "Ibibio",
+    "EnglishName": "Ibibio",
+    "NativeName": "Ibibio-Efik"
+  },
+  {
+    "LCID": 1129,
+    "Name": "ibb-NG",
+    "DisplayName": "Ibibio (Nigeria)",
+    "EnglishName": "Ibibio (Nigeria)",
+    "NativeName": "Ibibio-Efik (Nigeria)"
+  },
+  {
+    "LCID": 33,
+    "Name": "id",
+    "DisplayName": "Indonesian",
+    "EnglishName": "Indonesian",
+    "NativeName": "Indonesia"
+  },
+  {
+    "LCID": 1057,
+    "Name": "id-ID",
+    "DisplayName": "Indonesian (Indonesia)",
+    "EnglishName": "Indonesian (Indonesia)",
+    "NativeName": "Indonesia (Indonesia)"
+  },
+  {
+    "LCID": 112,
+    "Name": "ig",
+    "DisplayName": "Igbo",
+    "EnglishName": "Igbo",
+    "NativeName": "Igbo"
+  },
+  {
+    "LCID": 1136,
+    "Name": "ig-NG",
+    "DisplayName": "Igbo (Nigeria)",
+    "EnglishName": "Igbo (Nigeria)",
+    "NativeName": "Igbo (Na\u1ECBj\u1ECBr\u1ECBa)"
+  },
+  {
+    "LCID": 120,
+    "Name": "ii",
+    "DisplayName": "Yi",
+    "EnglishName": "Yi",
+    "NativeName": "\uA188\uA320\uA259"
+  },
+  {
+    "LCID": 1144,
+    "Name": "ii-CN",
+    "DisplayName": "Yi (China)",
+    "EnglishName": "Yi (China)",
+    "NativeName": "\uA188\uA320\uA259 (\uA34F\uA1E9)"
+  },
+  {
+    "LCID": 15,
+    "Name": "is",
+    "DisplayName": "Icelandic",
+    "EnglishName": "Icelandic",
+    "NativeName": "\u00EDslenska"
+  },
+  {
+    "LCID": 1039,
+    "Name": "is-IS",
+    "DisplayName": "Icelandic (Iceland)",
+    "EnglishName": "Icelandic (Iceland)",
+    "NativeName": "\u00EDslenska (\u00CDsland)"
+  },
+  {
+    "LCID": 16,
+    "Name": "it",
+    "DisplayName": "Italian",
+    "EnglishName": "Italian",
+    "NativeName": "italiano"
+  },
+  {
+    "LCID": 2064,
+    "Name": "it-CH",
+    "DisplayName": "Italian (Switzerland)",
+    "EnglishName": "Italian (Switzerland)",
+    "NativeName": "italiano (Svizzera)"
+  },
+  {
+    "LCID": 1040,
+    "Name": "it-IT",
+    "DisplayName": "Italian (Italy)",
+    "EnglishName": "Italian (Italy)",
+    "NativeName": "italiano (Italia)"
+  },
+  {
+    "LCID": 93,
+    "Name": "iu",
+    "DisplayName": "Inuktitut",
+    "EnglishName": "Inuktitut",
+    "NativeName": "Inuktitut"
+  },
+  {
+    "LCID": 31837,
+    "Name": "iu-Latn",
+    "DisplayName": "Inuktitut (Latin)",
+    "EnglishName": "Inuktitut (Latin)",
+    "NativeName": "Inuktitut (Latin)"
+  },
+  {
+    "LCID": 2141,
+    "Name": "iu-Latn-CA",
+    "DisplayName": "Inuktitut (Latin, Canada)",
+    "EnglishName": "Inuktitut (Latin, Canada)",
+    "NativeName": "Inuktitut (Latin, Canada)"
+  },
+  {
+    "LCID": 17,
+    "Name": "ja",
+    "DisplayName": "Japanese",
+    "EnglishName": "Japanese",
+    "NativeName": "\u65E5\u672C\u8A9E"
+  },
+  {
+    "LCID": 1041,
+    "Name": "ja-JP",
+    "DisplayName": "Japanese (Japan)",
+    "EnglishName": "Japanese (Japan)",
+    "NativeName": "\u65E5\u672C\u8A9E (\u65E5\u672C)"
+  },
+  {
+    "LCID": 55,
+    "Name": "ka",
+    "DisplayName": "Georgian",
+    "EnglishName": "Georgian",
+    "NativeName": "\u10E5\u10D0\u10E0\u10D7\u10E3\u10DA\u10D8"
+  },
+  {
+    "LCID": 1079,
+    "Name": "ka-GE",
+    "DisplayName": "Georgian (Georgia)",
+    "EnglishName": "Georgian (Georgia)",
+    "NativeName": "\u10E5\u10D0\u10E0\u10D7\u10E3\u10DA\u10D8 (\u10E1\u10D0\u10E5\u10D0\u10E0\u10D7\u10D5\u10D4\u10DA\u10DD)"
+  },
+  {
+    "LCID": 63,
+    "Name": "kk",
+    "DisplayName": "Kazakh",
+    "EnglishName": "Kazakh",
+    "NativeName": "\u049B\u0430\u0437\u0430\u049B \u0442\u0456\u043B\u0456"
+  },
+  {
+    "LCID": 1087,
+    "Name": "kk-KZ",
+    "DisplayName": "Kazakh (Kazakhstan)",
+    "EnglishName": "Kazakh (Kazakhstan)",
+    "NativeName": "\u049B\u0430\u0437\u0430\u049B \u0442\u0456\u043B\u0456 (\u049A\u0430\u0437\u0430\u049B\u0441\u0442\u0430\u043D)"
+  },
+  {
+    "LCID": 111,
+    "Name": "kl",
+    "DisplayName": "Kalaallisut",
+    "EnglishName": "Kalaallisut",
+    "NativeName": "kalaallisut"
+  },
+  {
+    "LCID": 1135,
+    "Name": "kl-GL",
+    "DisplayName": "Kalaallisut (Greenland)",
+    "EnglishName": "Kalaallisut (Greenland)",
+    "NativeName": "kalaallisut (Kalaallit Nunaat)"
+  },
+  {
+    "LCID": 83,
+    "Name": "km",
+    "DisplayName": "Khmer",
+    "EnglishName": "Khmer",
+    "NativeName": "\u1781\u17D2\u1798\u17C2\u179A"
+  },
+  {
+    "LCID": 1107,
+    "Name": "km-KH",
+    "DisplayName": "Khmer (Cambodia)",
+    "EnglishName": "Khmer (Cambodia)",
+    "NativeName": "\u1781\u17D2\u1798\u17C2\u179A (\u1780\u1798\u17D2\u1796\u17BB\u1787\u17B6)"
+  },
+  {
+    "LCID": 75,
+    "Name": "kn",
+    "DisplayName": "Kannada",
+    "EnglishName": "Kannada",
+    "NativeName": "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1"
+  },
+  {
+    "LCID": 1099,
+    "Name": "kn-IN",
+    "DisplayName": "Kannada (India)",
+    "EnglishName": "Kannada (India)",
+    "NativeName": "\u0C95\u0CA8\u0CCD\u0CA8\u0CA1 (\u0CAD\u0CBE\u0CB0\u0CA4)"
+  },
+  {
+    "LCID": 18,
+    "Name": "ko",
+    "DisplayName": "Korean",
+    "EnglishName": "Korean",
+    "NativeName": "\uD55C\uAD6D\uC5B4"
+  },
+  {
+    "LCID": 1042,
+    "Name": "ko-KR",
+    "DisplayName": "Korean (Korea)",
+    "EnglishName": "Korean (Korea)",
+    "NativeName": "\uD55C\uAD6D\uC5B4(\uB300\uD55C\uBBFC\uAD6D)"
+  },
+  {
+    "LCID": 87,
+    "Name": "kok",
+    "DisplayName": "Konkani",
+    "EnglishName": "Konkani",
+    "NativeName": "\u0915\u094B\u0902\u0915\u0923\u0940"
+  },
+  {
+    "LCID": 1111,
+    "Name": "kok-IN",
+    "DisplayName": "Konkani (India)",
+    "EnglishName": "Konkani (India)",
+    "NativeName": "\u0915\u094B\u0902\u0915\u0923\u0940 (\u092D\u093E\u0930\u0924)"
+  },
+  {
+    "LCID": 113,
+    "Name": "kr",
+    "DisplayName": "Kanuri",
+    "EnglishName": "Kanuri",
+    "NativeName": "Kanuri"
+  },
+  {
+    "LCID": 96,
+    "Name": "ks",
+    "DisplayName": "Kashmiri",
+    "EnglishName": "Kashmiri",
+    "NativeName": "\u06A9\u0672\u0634\u064F\u0631"
+  },
+  {
+    "LCID": 1120,
+    "Name": "ks-Arab",
+    "DisplayName": "Kashmiri (Arabic)",
+    "EnglishName": "Kashmiri (Arabic)",
+    "NativeName": "\u06A9\u0672\u0634\u064F\u0631 (\u0627\u064E\u0631\u0628\u06CC)"
+  },
+  {
+    "LCID": 2144,
+    "Name": "ks-Deva-IN",
+    "DisplayName": "Kashmiri (Devanagari, India)",
+    "EnglishName": "Kashmiri (Devanagari, India)",
+    "NativeName": "Kashmiri (Devanagari, India)"
+  },
+  {
+    "LCID": 64,
+    "Name": "ky",
+    "DisplayName": "Kyrgyz",
+    "EnglishName": "Kyrgyz",
+    "NativeName": "\u043A\u044B\u0440\u0433\u044B\u0437\u0447\u0430"
+  },
+  {
+    "LCID": 1088,
+    "Name": "ky-KG",
+    "DisplayName": "Kyrgyz (Kyrgyzstan)",
+    "EnglishName": "Kyrgyz (Kyrgyzstan)",
+    "NativeName": "\u043A\u044B\u0440\u0433\u044B\u0437\u0447\u0430 (\u041A\u044B\u0440\u0433\u044B\u0437\u0441\u0442\u0430\u043D)"
+  },
+  {
+    "LCID": 118,
+    "Name": "la",
+    "DisplayName": "Latin",
+    "EnglishName": "Latin",
+    "NativeName": "Latin"
+  },
+  {
+    "LCID": 110,
+    "Name": "lb",
+    "DisplayName": "Luxembourgish",
+    "EnglishName": "Luxembourgish",
+    "NativeName": "L\u00EBtzebuergesch"
+  },
+  {
+    "LCID": 1134,
+    "Name": "lb-LU",
+    "DisplayName": "Luxembourgish (Luxembourg)",
+    "EnglishName": "Luxembourgish (Luxembourg)",
+    "NativeName": "L\u00EBtzebuergesch (L\u00EBtzebuerg)"
+  },
+  {
+    "LCID": 84,
+    "Name": "lo",
+    "DisplayName": "Lao",
+    "EnglishName": "Lao",
+    "NativeName": "\u0EA5\u0EB2\u0EA7"
+  },
+  {
+    "LCID": 1108,
+    "Name": "lo-LA",
+    "DisplayName": "Lao (Laos)",
+    "EnglishName": "Lao (Laos)",
+    "NativeName": "\u0EA5\u0EB2\u0EA7 (\u0EA5\u0EB2\u0EA7)"
+  },
+  {
+    "LCID": 39,
+    "Name": "lt",
+    "DisplayName": "Lithuanian",
+    "EnglishName": "Lithuanian",
+    "NativeName": "lietuvi\u0173"
+  },
+  {
+    "LCID": 1063,
+    "Name": "lt-LT",
+    "DisplayName": "Lithuanian (Lithuania)",
+    "EnglishName": "Lithuanian (Lithuania)",
+    "NativeName": "lietuvi\u0173 (Lietuva)"
+  },
+  {
+    "LCID": 38,
+    "Name": "lv",
+    "DisplayName": "Latvian",
+    "EnglishName": "Latvian",
+    "NativeName": "latvie\u0161u"
+  },
+  {
+    "LCID": 1062,
+    "Name": "lv-LV",
+    "DisplayName": "Latvian (Latvia)",
+    "EnglishName": "Latvian (Latvia)",
+    "NativeName": "latvie\u0161u (Latvija)"
+  },
+  {
+    "LCID": 129,
+    "Name": "mi",
+    "DisplayName": "Maori",
+    "EnglishName": "Maori",
+    "NativeName": "te reo M\u0101ori"
+  },
+  {
+    "LCID": 1153,
+    "Name": "mi-NZ",
+    "DisplayName": "Maori (New Zealand)",
+    "EnglishName": "Maori (New Zealand)",
+    "NativeName": "te reo M\u0101ori (Aotearoa)"
+  },
+  {
+    "LCID": 47,
+    "Name": "mk",
+    "DisplayName": "Macedonian",
+    "EnglishName": "Macedonian",
+    "NativeName": "\u043C\u0430\u043A\u0435\u0434\u043E\u043D\u0441\u043A\u0438"
+  },
+  {
+    "LCID": 1071,
+    "Name": "mk-MK",
+    "DisplayName": "Macedonian (North Macedonia)",
+    "EnglishName": "Macedonian (North Macedonia)",
+    "NativeName": "\u043C\u0430\u043A\u0435\u0434\u043E\u043D\u0441\u043A\u0438 (\u0421\u0435\u0432\u0435\u0440\u043D\u0430 \u041C\u0430\u043A\u0435\u0434\u043E\u043D\u0438\u0458\u0430)"
+  },
+  {
+    "LCID": 76,
+    "Name": "ml",
+    "DisplayName": "Malayalam",
+    "EnglishName": "Malayalam",
+    "NativeName": "\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02"
+  },
+  {
+    "LCID": 1100,
+    "Name": "ml-IN",
+    "DisplayName": "Malayalam (India)",
+    "EnglishName": "Malayalam (India)",
+    "NativeName": "\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02 (\u0D07\u0D28\u0D4D\u0D24\u0D4D\u0D2F)"
+  },
+  {
+    "LCID": 80,
+    "Name": "mn",
+    "DisplayName": "Mongolian",
+    "EnglishName": "Mongolian",
+    "NativeName": "\u043C\u043E\u043D\u0433\u043E\u043B"
+  },
+  {
+    "LCID": 1104,
+    "Name": "mn-MN",
+    "DisplayName": "Mongolian (Mongolia)",
+    "EnglishName": "Mongolian (Mongolia)",
+    "NativeName": "\u043C\u043E\u043D\u0433\u043E\u043B (\u041C\u043E\u043D\u0433\u043E\u043B)"
+  },
+  {
+    "LCID": 31824,
+    "Name": "mn-Mong",
+    "DisplayName": "Mongolian (Mongolian)",
+    "EnglishName": "Mongolian (Mongolian)",
+    "NativeName": "Mongolian (Mongolian)"
+  },
+  {
+    "LCID": 2128,
+    "Name": "mn-Mong-CN",
+    "DisplayName": "Mongolian (Mongolian, China)",
+    "EnglishName": "Mongolian (Mongolian, China)",
+    "NativeName": "Mongolian (Mongolian, China)"
+  },
+  {
+    "LCID": 3152,
+    "Name": "mn-Mong-MN",
+    "DisplayName": "Mongolian (Mongolian, Mongolia)",
+    "EnglishName": "Mongolian (Mongolian, Mongolia)",
+    "NativeName": "\u182E\u1823\u1829\u182D\u1823\u182F (\u182E\u1823\u1829\u182D\u1823\u182F \u182A\u1822\u1834\u1822\u182D\u180C, \u182E\u1823\u1829\u182D\u1823\u182F)"
+  },
+  {
+    "LCID": 88,
+    "Name": "mni",
+    "DisplayName": "Manipuri",
+    "EnglishName": "Manipuri",
+    "NativeName": "\u09AE\u09C8\u09A4\u09C8\u09B2\u09CB\u09A8\u09CD"
+  },
+  {
+    "LCID": 124,
+    "Name": "moh",
+    "DisplayName": "Mohawk",
+    "EnglishName": "Mohawk",
+    "NativeName": "Kanien\u02BCk\u00E9ha"
+  },
+  {
+    "LCID": 1148,
+    "Name": "moh-CA",
+    "DisplayName": "Mohawk (Canada)",
+    "EnglishName": "Mohawk (Canada)",
+    "NativeName": "Mohawk (Canada)"
+  },
+  {
+    "LCID": 78,
+    "Name": "mr",
+    "DisplayName": "Marathi",
+    "EnglishName": "Marathi",
+    "NativeName": "\u092E\u0930\u093E\u0920\u0940"
+  },
+  {
+    "LCID": 1102,
+    "Name": "mr-IN",
+    "DisplayName": "Marathi (India)",
+    "EnglishName": "Marathi (India)",
+    "NativeName": "\u092E\u0930\u093E\u0920\u0940 (\u092D\u093E\u0930\u0924)"
+  },
+  {
+    "LCID": 62,
+    "Name": "ms",
+    "DisplayName": "Malay",
+    "EnglishName": "Malay",
+    "NativeName": "Melayu"
+  },
+  {
+    "LCID": 2110,
+    "Name": "ms-BN",
+    "DisplayName": "Malay (Brunei)",
+    "EnglishName": "Malay (Brunei)",
+    "NativeName": "Melayu (Brunei)"
+  },
+  {
+    "LCID": 1086,
+    "Name": "ms-MY",
+    "DisplayName": "Malay (Malaysia)",
+    "EnglishName": "Malay (Malaysia)",
+    "NativeName": "Melayu (Malaysia)"
+  },
+  {
+    "LCID": 58,
+    "Name": "mt",
+    "DisplayName": "Maltese",
+    "EnglishName": "Maltese",
+    "NativeName": "Malti"
+  },
+  {
+    "LCID": 1082,
+    "Name": "mt-MT",
+    "DisplayName": "Maltese (Malta)",
+    "EnglishName": "Maltese (Malta)",
+    "NativeName": "Malti (Malta)"
+  },
+  {
+    "LCID": 85,
+    "Name": "my",
+    "DisplayName": "Burmese",
+    "EnglishName": "Burmese",
+    "NativeName": "\u1019\u103C\u1014\u103A\u1019\u102C"
+  },
+  {
+    "LCID": 1109,
+    "Name": "my-MM",
+    "DisplayName": "Burmese (Myanmar)",
+    "EnglishName": "Burmese (Myanmar)",
+    "NativeName": "\u1019\u103C\u1014\u103A\u1019\u102C (\u1019\u103C\u1014\u103A\u1019\u102C)"
+  },
+  {
+    "LCID": 31764,
+    "Name": "nb",
+    "DisplayName": "Norwegian Bokm\u00E5l",
+    "EnglishName": "Norwegian Bokm\u00E5l",
+    "NativeName": "norsk bokm\u00E5l"
+  },
+  {
+    "LCID": 1044,
+    "Name": "nb-NO",
+    "DisplayName": "Norwegian Bokm\u00E5l (Norway)",
+    "EnglishName": "Norwegian Bokm\u00E5l (Norway)",
+    "NativeName": "norsk bokm\u00E5l (Norge)"
+  },
+  {
+    "LCID": 97,
+    "Name": "ne",
+    "DisplayName": "Nepali",
+    "EnglishName": "Nepali",
+    "NativeName": "\u0928\u0947\u092A\u093E\u0932\u0940"
+  },
+  {
+    "LCID": 2145,
+    "Name": "ne-IN",
+    "DisplayName": "Nepali (India)",
+    "EnglishName": "Nepali (India)",
+    "NativeName": "\u0928\u0947\u092A\u093E\u0932\u0940 (\u092D\u093E\u0930\u0924)"
+  },
+  {
+    "LCID": 1121,
+    "Name": "ne-NP",
+    "DisplayName": "Nepali (Nepal)",
+    "EnglishName": "Nepali (Nepal)",
+    "NativeName": "\u0928\u0947\u092A\u093E\u0932\u0940 (\u0928\u0947\u092A\u093E\u0932)"
+  },
+  {
+    "LCID": 19,
+    "Name": "nl",
+    "DisplayName": "Dutch",
+    "EnglishName": "Dutch",
+    "NativeName": "Nederlands"
+  },
+  {
+    "LCID": 2067,
+    "Name": "nl-BE",
+    "DisplayName": "Dutch (Belgium)",
+    "EnglishName": "Dutch (Belgium)",
+    "NativeName": "Nederlands (Belgi\u00EB)"
+  },
+  {
+    "LCID": 1043,
+    "Name": "nl-NL",
+    "DisplayName": "Dutch (Netherlands)",
+    "EnglishName": "Dutch (Netherlands)",
+    "NativeName": "Nederlands (Nederland)"
+  },
+  {
+    "LCID": 30740,
+    "Name": "nn",
+    "DisplayName": "Norwegian Nynorsk",
+    "EnglishName": "Norwegian Nynorsk",
+    "NativeName": "norsk nynorsk"
+  },
+  {
+    "LCID": 2068,
+    "Name": "nn-NO",
+    "DisplayName": "Norwegian Nynorsk (Norway)",
+    "EnglishName": "Norwegian Nynorsk (Norway)",
+    "NativeName": "norsk nynorsk (Noreg)"
+  },
+  {
+    "LCID": 108,
+    "Name": "nso",
+    "DisplayName": "Sesotho sa Leboa",
+    "EnglishName": "Sesotho sa Leboa",
+    "NativeName": "Sesotho sa Leboa"
+  },
+  {
+    "LCID": 1132,
+    "Name": "nso-ZA",
+    "DisplayName": "Sesotho sa Leboa (South Africa)",
+    "EnglishName": "Sesotho sa Leboa (South Africa)",
+    "NativeName": "Sesotho sa Leboa (South Africa)"
+  },
+  {
+    "LCID": 130,
+    "Name": "oc",
+    "DisplayName": "Occitan",
+    "EnglishName": "Occitan",
+    "NativeName": "Occitan"
+  },
+  {
+    "LCID": 1154,
+    "Name": "oc-FR",
+    "DisplayName": "Occitan (France)",
+    "EnglishName": "Occitan (France)",
+    "NativeName": "Occitan (France)"
+  },
+  {
+    "LCID": 114,
+    "Name": "om",
+    "DisplayName": "Oromo",
+    "EnglishName": "Oromo",
+    "NativeName": "Oromoo"
+  },
+  {
+    "LCID": 1138,
+    "Name": "om-ET",
+    "DisplayName": "Oromo (Ethiopia)",
+    "EnglishName": "Oromo (Ethiopia)",
+    "NativeName": "Oromoo (Itoophiyaa)"
+  },
+  {
+    "LCID": 72,
+    "Name": "or",
+    "DisplayName": "Odia",
+    "EnglishName": "Odia",
+    "NativeName": "\u0B13\u0B21\u0B3C\u0B3F\u0B06"
+  },
+  {
+    "LCID": 1096,
+    "Name": "or-IN",
+    "DisplayName": "Odia (India)",
+    "EnglishName": "Odia (India)",
+    "NativeName": "\u0B13\u0B21\u0B3C\u0B3F\u0B06 (\u0B2D\u0B3E\u0B30\u0B24)"
+  },
+  {
+    "LCID": 70,
+    "Name": "pa",
+    "DisplayName": "Punjabi",
+    "EnglishName": "Punjabi",
+    "NativeName": "\u0A2A\u0A70\u0A1C\u0A3E\u0A2C\u0A40"
+  },
+  {
+    "LCID": 31814,
+    "Name": "pa-Arab",
+    "DisplayName": "Punjabi (Arabic)",
+    "EnglishName": "Punjabi (Arabic)",
+    "NativeName": "\u067E\u0646\u062C\u0627\u0628\u06CC (\u0639\u0631\u0628\u06CC)"
+  },
+  {
+    "LCID": 2118,
+    "Name": "pa-Arab-PK",
+    "DisplayName": "Punjabi (Arabic, Pakistan)",
+    "EnglishName": "Punjabi (Arabic, Pakistan)",
+    "NativeName": "\u067E\u0646\u062C\u0627\u0628\u06CC (\u0639\u0631\u0628\u06CC, \u067E\u0627\u06A9\u0633\u062A\u0627\u0646)"
+  },
+  {
+    "LCID": 121,
+    "Name": "pap",
+    "DisplayName": "Papiamento",
+    "EnglishName": "Papiamento",
+    "NativeName": "Papiamentu"
+  },
+  {
+    "LCID": 1145,
+    "Name": "pap-029",
+    "DisplayName": "Papiamento (Caribbean)",
+    "EnglishName": "Papiamento (Caribbean)",
+    "NativeName": "Papiamentu (Caribbean)"
+  },
+  {
+    "LCID": 21,
+    "Name": "pl",
+    "DisplayName": "Polish",
+    "EnglishName": "Polish",
+    "NativeName": "polski"
+  },
+  {
+    "LCID": 1045,
+    "Name": "pl-PL",
+    "DisplayName": "Polish (Poland)",
+    "EnglishName": "Polish (Poland)",
+    "NativeName": "polski (Polska)"
+  },
+  {
+    "LCID": 99,
+    "Name": "ps",
+    "DisplayName": "Pashto",
+    "EnglishName": "Pashto",
+    "NativeName": "\u067E\u069A\u062A\u0648"
+  },
+  {
+    "LCID": 1123,
+    "Name": "ps-AF",
+    "DisplayName": "Pashto (Afghanistan)",
+    "EnglishName": "Pashto (Afghanistan)",
+    "NativeName": "\u067E\u069A\u062A\u0648 (\u0627\u0641\u063A\u0627\u0646\u0633\u062A\u0627\u0646)"
+  },
+  {
+    "LCID": 22,
+    "Name": "pt",
+    "DisplayName": "Portuguese",
+    "EnglishName": "Portuguese",
+    "NativeName": "portugu\u00EAs"
+  },
+  {
+    "LCID": 1046,
+    "Name": "pt-BR",
+    "DisplayName": "Portuguese (Brazil)",
+    "EnglishName": "Portuguese (Brazil)",
+    "NativeName": "portugu\u00EAs (Brasil)"
+  },
+  {
+    "LCID": 2070,
+    "Name": "pt-PT",
+    "DisplayName": "Portuguese (Portugal)",
+    "EnglishName": "Portuguese (Portugal)",
+    "NativeName": "portugu\u00EAs (Portugal)"
+  },
+  {
+    "LCID": 134,
+    "Name": "quc",
+    "DisplayName": "K\u02BCiche\u02BC",
+    "EnglishName": "K\u02BCiche\u02BC",
+    "NativeName": "K\u02BCiche\u02BC"
+  },
+  {
+    "LCID": 23,
+    "Name": "rm",
+    "DisplayName": "Romansh",
+    "EnglishName": "Romansh",
+    "NativeName": "rumantsch"
+  },
+  {
+    "LCID": 1047,
+    "Name": "rm-CH",
+    "DisplayName": "Romansh (Switzerland)",
+    "EnglishName": "Romansh (Switzerland)",
+    "NativeName": "rumantsch (Svizra)"
+  },
+  {
+    "LCID": 24,
+    "Name": "ro",
+    "DisplayName": "Romanian",
+    "EnglishName": "Romanian",
+    "NativeName": "rom\u00E2n\u0103"
+  },
+  {
+    "LCID": 2072,
+    "Name": "ro-MD",
+    "DisplayName": "Romanian (Moldova)",
+    "EnglishName": "Romanian (Moldova)",
+    "NativeName": "rom\u00E2n\u0103 (Republica Moldova)"
+  },
+  {
+    "LCID": 1048,
+    "Name": "ro-RO",
+    "DisplayName": "Romanian (Romania)",
+    "EnglishName": "Romanian (Romania)",
+    "NativeName": "rom\u00E2n\u0103 (Rom\u00E2nia)"
+  },
+  {
+    "LCID": 25,
+    "Name": "ru",
+    "DisplayName": "Russian",
+    "EnglishName": "Russian",
+    "NativeName": "\u0440\u0443\u0441\u0441\u043A\u0438\u0439"
+  },
+  {
+    "LCID": 2073,
+    "Name": "ru-MD",
+    "DisplayName": "Russian (Moldova)",
+    "EnglishName": "Russian (Moldova)",
+    "NativeName": "\u0440\u0443\u0441\u0441\u043A\u0438\u0439 (\u041C\u043E\u043B\u0434\u043E\u0432\u0430)"
+  },
+  {
+    "LCID": 1049,
+    "Name": "ru-RU",
+    "DisplayName": "Russian (Russia)",
+    "EnglishName": "Russian (Russia)",
+    "NativeName": "\u0440\u0443\u0441\u0441\u043A\u0438\u0439 (\u0420\u043E\u0441\u0441\u0438\u044F)"
+  },
+  {
+    "LCID": 135,
+    "Name": "rw",
+    "DisplayName": "Kinyarwanda",
+    "EnglishName": "Kinyarwanda",
+    "NativeName": "Kinyarwanda"
+  },
+  {
+    "LCID": 1159,
+    "Name": "rw-RW",
+    "DisplayName": "Kinyarwanda (Rwanda)",
+    "EnglishName": "Kinyarwanda (Rwanda)",
+    "NativeName": "Kinyarwanda (U Rwanda)"
+  },
+  {
+    "LCID": 79,
+    "Name": "sa",
+    "DisplayName": "Sanskrit",
+    "EnglishName": "Sanskrit",
+    "NativeName": "\u0938\u0902\u0938\u094D\u0915\u0943\u0924 \u092D\u093E\u0937\u093E"
+  },
+  {
+    "LCID": 1103,
+    "Name": "sa-IN",
+    "DisplayName": "Sanskrit (India)",
+    "EnglishName": "Sanskrit (India)",
+    "NativeName": "\u0938\u0902\u0938\u094D\u0915\u0943\u0924 \u092D\u093E\u0937\u093E (\u092D\u093E\u0930\u0924\u0903)"
+  },
+  {
+    "LCID": 133,
+    "Name": "sah",
+    "DisplayName": "Sakha",
+    "EnglishName": "Sakha",
+    "NativeName": "\u0441\u0430\u0445\u0430 \u0442\u044B\u043B\u0430"
+  },
+  {
+    "LCID": 1157,
+    "Name": "sah-RU",
+    "DisplayName": "Sakha (Russia)",
+    "EnglishName": "Sakha (Russia)",
+    "NativeName": "\u0441\u0430\u0445\u0430 \u0442\u044B\u043B\u0430 (\u0410\u0440\u0430\u0441\u0441\u044B\u044B\u0439\u0430)"
+  },
+  {
+    "LCID": 89,
+    "Name": "sd",
+    "DisplayName": "Sindhi",
+    "EnglishName": "Sindhi",
+    "NativeName": "\u0633\u0646\u068C\u064A"
+  },
+  {
+    "LCID": 31833,
+    "Name": "sd-Arab",
+    "DisplayName": "Sindhi (Arabic)",
+    "EnglishName": "Sindhi (Arabic)",
+    "NativeName": "\u0633\u0646\u068C\u064A (\u0639\u0631\u0628\u064A)"
+  },
+  {
+    "LCID": 2137,
+    "Name": "sd-Arab-PK",
+    "DisplayName": "Sindhi (Arabic, Pakistan)",
+    "EnglishName": "Sindhi (Arabic, Pakistan)",
+    "NativeName": "\u0633\u0646\u068C\u064A (\u0639\u0631\u0628\u064A, \u067E\u0627\u06AA\u0633\u062A\u0627\u0646)"
+  },
+  {
+    "LCID": 1113,
+    "Name": "sd-Deva-IN",
+    "DisplayName": "Sindhi (Devanagari, India)",
+    "EnglishName": "Sindhi (Devanagari, India)",
+    "NativeName": "\u0938\u093F\u0928\u094D\u0927\u0940 (\u0926\u0947\u0935\u0928\u093E\u0917\u093F\u0930\u0940, \u092D\u093E\u0930\u0924)"
+  },
+  {
+    "LCID": 59,
+    "Name": "se",
+    "DisplayName": "Northern Sami",
+    "EnglishName": "Northern Sami",
+    "NativeName": "davvis\u00E1megiella"
+  },
+  {
+    "LCID": 3131,
+    "Name": "se-FI",
+    "DisplayName": "Northern Sami (Finland)",
+    "EnglishName": "Northern Sami (Finland)",
+    "NativeName": "davvis\u00E1megiella (Suopma)"
+  },
+  {
+    "LCID": 1083,
+    "Name": "se-NO",
+    "DisplayName": "Northern Sami (Norway)",
+    "EnglishName": "Northern Sami (Norway)",
+    "NativeName": "davvis\u00E1megiella (Norga)"
+  },
+  {
+    "LCID": 2107,
+    "Name": "se-SE",
+    "DisplayName": "Northern Sami (Sweden)",
+    "EnglishName": "Northern Sami (Sweden)",
+    "NativeName": "davvis\u00E1megiella (Ruo\u0167\u0167a)"
+  },
+  {
+    "LCID": 91,
+    "Name": "si",
+    "DisplayName": "Sinhala",
+    "EnglishName": "Sinhala",
+    "NativeName": "\u0DC3\u0DD2\u0D82\u0DC4\u0DBD"
+  },
+  {
+    "LCID": 1115,
+    "Name": "si-LK",
+    "DisplayName": "Sinhala (Sri Lanka)",
+    "EnglishName": "Sinhala (Sri Lanka)",
+    "NativeName": "\u0DC3\u0DD2\u0D82\u0DC4\u0DBD (\u0DC1\u0DCA\u200D\u0DBB\u0DD3 \u0DBD\u0D82\u0D9A\u0DCF\u0DC0)"
+  },
+  {
+    "LCID": 27,
+    "Name": "sk",
+    "DisplayName": "Slovak",
+    "EnglishName": "Slovak",
+    "NativeName": "sloven\u010Dina"
+  },
+  {
+    "LCID": 1051,
+    "Name": "sk-SK",
+    "DisplayName": "Slovak (Slovakia)",
+    "EnglishName": "Slovak (Slovakia)",
+    "NativeName": "sloven\u010Dina (Slovensko)"
+  },
+  {
+    "LCID": 36,
+    "Name": "sl",
+    "DisplayName": "Slovenian",
+    "EnglishName": "Slovenian",
+    "NativeName": "sloven\u0161\u010Dina"
+  },
+  {
+    "LCID": 1060,
+    "Name": "sl-SI",
+    "DisplayName": "Slovenian (Slovenia)",
+    "EnglishName": "Slovenian (Slovenia)",
+    "NativeName": "sloven\u0161\u010Dina (Slovenija)"
+  },
+  {
+    "LCID": 30779,
+    "Name": "sma",
+    "DisplayName": "Southern Sami",
+    "EnglishName": "Southern Sami",
+    "NativeName": "\u00C5arjelsaemien g\u00EFele"
+  },
+  {
+    "LCID": 6203,
+    "Name": "sma-NO",
+    "DisplayName": "Southern Sami (Norway)",
+    "EnglishName": "Southern Sami (Norway)",
+    "NativeName": "Southern Sami (Norway)"
+  },
+  {
+    "LCID": 7227,
+    "Name": "sma-SE",
+    "DisplayName": "Southern Sami (Sweden)",
+    "EnglishName": "Southern Sami (Sweden)",
+    "NativeName": "Southern Sami (Sweden)"
+  },
+  {
+    "LCID": 31803,
+    "Name": "smj",
+    "DisplayName": "Lule Sami",
+    "EnglishName": "Lule Sami",
+    "NativeName": "julevs\u00E1megiella"
+  },
+  {
+    "LCID": 4155,
+    "Name": "smj-NO",
+    "DisplayName": "Lule Sami (Norway)",
+    "EnglishName": "Lule Sami (Norway)",
+    "NativeName": "Lule Sami (Norway)"
+  },
+  {
+    "LCID": 5179,
+    "Name": "smj-SE",
+    "DisplayName": "Lule Sami (Sweden)",
+    "EnglishName": "Lule Sami (Sweden)",
+    "NativeName": "Lule Sami (Sweden)"
+  },
+  {
+    "LCID": 28731,
+    "Name": "smn",
+    "DisplayName": "Inari Sami",
+    "EnglishName": "Inari Sami",
+    "NativeName": "anar\u00E2\u0161kiel\u00E2"
+  },
+  {
+    "LCID": 9275,
+    "Name": "smn-FI",
+    "DisplayName": "Inari Sami (Finland)",
+    "EnglishName": "Inari Sami (Finland)",
+    "NativeName": "anar\u00E2\u0161kiel\u00E2 (Suom\u00E2)"
+  },
+  {
+    "LCID": 29755,
+    "Name": "sms",
+    "DisplayName": "Skolt Sami",
+    "EnglishName": "Skolt Sami",
+    "NativeName": "Skolt Sami"
+  },
+  {
+    "LCID": 8251,
+    "Name": "sms-FI",
+    "DisplayName": "Skolt Sami (Finland)",
+    "EnglishName": "Skolt Sami (Finland)",
+    "NativeName": "Skolt Sami (Finland)"
+  },
+  {
+    "LCID": 119,
+    "Name": "so",
+    "DisplayName": "Somali",
+    "EnglishName": "Somali",
+    "NativeName": "Soomaali"
+  },
+  {
+    "LCID": 1143,
+    "Name": "so-SO",
+    "DisplayName": "Somali (Somalia)",
+    "EnglishName": "Somali (Somalia)",
+    "NativeName": "Soomaali (Soomaaliya)"
+  },
+  {
+    "LCID": 28,
+    "Name": "sq",
+    "DisplayName": "Albanian",
+    "EnglishName": "Albanian",
+    "NativeName": "shqip"
+  },
+  {
+    "LCID": 1052,
+    "Name": "sq-AL",
+    "DisplayName": "Albanian (Albania)",
+    "EnglishName": "Albanian (Albania)",
+    "NativeName": "shqip (Shqip\u00EBri)"
+  },
+  {
+    "LCID": 31770,
+    "Name": "sr",
+    "DisplayName": "Serbian",
+    "EnglishName": "Serbian",
+    "NativeName": "\u0441\u0440\u043F\u0441\u043A\u0438"
+  },
+  {
+    "LCID": 27674,
+    "Name": "sr-Cyrl",
+    "DisplayName": "Serbian (Cyrillic)",
+    "EnglishName": "Serbian (Cyrillic)",
+    "NativeName": "\u0441\u0440\u043F\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430)"
+  },
+  {
+    "LCID": 7194,
+    "Name": "sr-Cyrl-BA",
+    "DisplayName": "Serbian (Cyrillic, Bosnia \u0026 Herzegovina)",
+    "EnglishName": "Serbian (Cyrillic, Bosnia \u0026 Herzegovina)",
+    "NativeName": "\u0441\u0440\u043F\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430, \u0411\u043E\u0441\u043D\u0430 \u0438 \u0425\u0435\u0440\u0446\u0435\u0433\u043E\u0432\u0438\u043D\u0430)"
+  },
+  {
+    "LCID": 12314,
+    "Name": "sr-Cyrl-ME",
+    "DisplayName": "Serbian (Cyrillic, Montenegro)",
+    "EnglishName": "Serbian (Cyrillic, Montenegro)",
+    "NativeName": "\u0441\u0440\u043F\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430, \u0426\u0440\u043D\u0430 \u0413\u043E\u0440\u0430)"
+  },
+  {
+    "LCID": 10266,
+    "Name": "sr-Cyrl-RS",
+    "DisplayName": "Serbian (Cyrillic, Serbia)",
+    "EnglishName": "Serbian (Cyrillic, Serbia)",
+    "NativeName": "\u0441\u0440\u043F\u0441\u043A\u0438 (\u045B\u0438\u0440\u0438\u043B\u0438\u0446\u0430, \u0421\u0440\u0431\u0438\u0458\u0430)"
+  },
+  {
+    "LCID": 28698,
+    "Name": "sr-Latn",
+    "DisplayName": "Serbian (Latin)",
+    "EnglishName": "Serbian (Latin)",
+    "NativeName": "srpski (latinica)"
+  },
+  {
+    "LCID": 6170,
+    "Name": "sr-Latn-BA",
+    "DisplayName": "Serbian (Latin, Bosnia \u0026 Herzegovina)",
+    "EnglishName": "Serbian (Latin, Bosnia \u0026 Herzegovina)",
+    "NativeName": "srpski (latinica, Bosna i Hercegovina)"
+  },
+  {
+    "LCID": 11290,
+    "Name": "sr-Latn-ME",
+    "DisplayName": "Serbian (Latin, Montenegro)",
+    "EnglishName": "Serbian (Latin, Montenegro)",
+    "NativeName": "srpski (latinica, Crna Gora)"
+  },
+  {
+    "LCID": 9242,
+    "Name": "sr-Latn-RS",
+    "DisplayName": "Serbian (Latin, Serbia)",
+    "EnglishName": "Serbian (Latin, Serbia)",
+    "NativeName": "srpski (latinica, Srbija)"
+  },
+  {
+    "LCID": 48,
+    "Name": "st",
+    "DisplayName": "Sesotho",
+    "EnglishName": "Sesotho",
+    "NativeName": "Sesotho"
+  },
+  {
+    "LCID": 1072,
+    "Name": "st-ZA",
+    "DisplayName": "Sesotho (South Africa)",
+    "EnglishName": "Sesotho (South Africa)",
+    "NativeName": "Sesotho (South Africa)"
+  },
+  {
+    "LCID": 29,
+    "Name": "sv",
+    "DisplayName": "Swedish",
+    "EnglishName": "Swedish",
+    "NativeName": "svenska"
+  },
+  {
+    "LCID": 2077,
+    "Name": "sv-FI",
+    "DisplayName": "Swedish (Finland)",
+    "EnglishName": "Swedish (Finland)",
+    "NativeName": "svenska (Finland)"
+  },
+  {
+    "LCID": 1053,
+    "Name": "sv-SE",
+    "DisplayName": "Swedish (Sweden)",
+    "EnglishName": "Swedish (Sweden)",
+    "NativeName": "svenska (Sverige)"
+  },
+  {
+    "LCID": 65,
+    "Name": "sw",
+    "DisplayName": "Kiswahili",
+    "EnglishName": "Kiswahili",
+    "NativeName": "Kiswahili"
+  },
+  {
+    "LCID": 1089,
+    "Name": "sw-KE",
+    "DisplayName": "Kiswahili (Kenya)",
+    "EnglishName": "Kiswahili (Kenya)",
+    "NativeName": "Kiswahili (Kenya)"
+  },
+  {
+    "LCID": 90,
+    "Name": "syr",
+    "DisplayName": "Syriac",
+    "EnglishName": "Syriac",
+    "NativeName": "Syriac"
+  },
+  {
+    "LCID": 1114,
+    "Name": "syr-SY",
+    "DisplayName": "Syriac (Syria)",
+    "EnglishName": "Syriac (Syria)",
+    "NativeName": "Syriac (Syria)"
+  },
+  {
+    "LCID": 73,
+    "Name": "ta",
+    "DisplayName": "Tamil",
+    "EnglishName": "Tamil",
+    "NativeName": "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD"
+  },
+  {
+    "LCID": 1097,
+    "Name": "ta-IN",
+    "DisplayName": "Tamil (India)",
+    "EnglishName": "Tamil (India)",
+    "NativeName": "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD (\u0B87\u0BA8\u0BCD\u0BA4\u0BBF\u0BAF\u0BBE)"
+  },
+  {
+    "LCID": 2121,
+    "Name": "ta-LK",
+    "DisplayName": "Tamil (Sri Lanka)",
+    "EnglishName": "Tamil (Sri Lanka)",
+    "NativeName": "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD (\u0B87\u0BB2\u0B99\u0BCD\u0B95\u0BC8)"
+  },
+  {
+    "LCID": 74,
+    "Name": "te",
+    "DisplayName": "Telugu",
+    "EnglishName": "Telugu",
+    "NativeName": "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41"
+  },
+  {
+    "LCID": 1098,
+    "Name": "te-IN",
+    "DisplayName": "Telugu (India)",
+    "EnglishName": "Telugu (India)",
+    "NativeName": "\u0C24\u0C46\u0C32\u0C41\u0C17\u0C41 (\u0C2D\u0C3E\u0C30\u0C24\u0C26\u0C47\u0C36\u0C02)"
+  },
+  {
+    "LCID": 40,
+    "Name": "tg",
+    "DisplayName": "Tajik",
+    "EnglishName": "Tajik",
+    "NativeName": "\u0442\u043E\u04B7\u0438\u043A\u04E3"
+  },
+  {
+    "LCID": 30,
+    "Name": "th",
+    "DisplayName": "Thai",
+    "EnglishName": "Thai",
+    "NativeName": "\u0E44\u0E17\u0E22"
+  },
+  {
+    "LCID": 1054,
+    "Name": "th-TH",
+    "DisplayName": "Thai (Thailand)",
+    "EnglishName": "Thai (Thailand)",
+    "NativeName": "\u0E44\u0E17\u0E22 (\u0E44\u0E17\u0E22)"
+  },
+  {
+    "LCID": 115,
+    "Name": "ti",
+    "DisplayName": "Tigrinya",
+    "EnglishName": "Tigrinya",
+    "NativeName": "\u1275\u130D\u122D"
+  },
+  {
+    "LCID": 2163,
+    "Name": "ti-ER",
+    "DisplayName": "Tigrinya (Eritrea)",
+    "EnglishName": "Tigrinya (Eritrea)",
+    "NativeName": "\u1275\u130D\u122D (\u12A4\u122D\u1275\u122B)"
+  },
+  {
+    "LCID": 1139,
+    "Name": "ti-ET",
+    "DisplayName": "Tigrinya (Ethiopia)",
+    "EnglishName": "Tigrinya (Ethiopia)",
+    "NativeName": "\u1275\u130D\u122D (\u12A2\u1275\u12EE\u1335\u12EB)"
+  },
+  {
+    "LCID": 66,
+    "Name": "tk",
+    "DisplayName": "Turkmen",
+    "EnglishName": "Turkmen",
+    "NativeName": "t\u00FCrkmen dili"
+  },
+  {
+    "LCID": 1090,
+    "Name": "tk-TM",
+    "DisplayName": "Turkmen (Turkmenistan)",
+    "EnglishName": "Turkmen (Turkmenistan)",
+    "NativeName": "t\u00FCrkmen dili (T\u00FCrkmenistan)"
+  },
+  {
+    "LCID": 50,
+    "Name": "tn",
+    "DisplayName": "Setswana",
+    "EnglishName": "Setswana",
+    "NativeName": "Setswana"
+  },
+  {
+    "LCID": 2098,
+    "Name": "tn-BW",
+    "DisplayName": "Setswana (Botswana)",
+    "EnglishName": "Setswana (Botswana)",
+    "NativeName": "Setswana (Botswana)"
+  },
+  {
+    "LCID": 1074,
+    "Name": "tn-ZA",
+    "DisplayName": "Setswana (South Africa)",
+    "EnglishName": "Setswana (South Africa)",
+    "NativeName": "Setswana (South Africa)"
+  },
+  {
+    "LCID": 31,
+    "Name": "tr",
+    "DisplayName": "Turkish",
+    "EnglishName": "Turkish",
+    "NativeName": "T\u00FCrk\u00E7e"
+  },
+  {
+    "LCID": 1055,
+    "Name": "tr-TR",
+    "DisplayName": "Turkish (Turkey)",
+    "EnglishName": "Turkish (Turkey)",
+    "NativeName": "T\u00FCrk\u00E7e (T\u00FCrkiye)"
+  },
+  {
+    "LCID": 49,
+    "Name": "ts",
+    "DisplayName": "Xitsonga",
+    "EnglishName": "Xitsonga",
+    "NativeName": "Xitsonga"
+  },
+  {
+    "LCID": 1073,
+    "Name": "ts-ZA",
+    "DisplayName": "Xitsonga (South Africa)",
+    "EnglishName": "Xitsonga (South Africa)",
+    "NativeName": "Xitsonga (South Africa)"
+  },
+  {
+    "LCID": 68,
+    "Name": "tt",
+    "DisplayName": "Tatar",
+    "EnglishName": "Tatar",
+    "NativeName": "\u0442\u0430\u0442\u0430\u0440"
+  },
+  {
+    "LCID": 1092,
+    "Name": "tt-RU",
+    "DisplayName": "Tatar (Russia)",
+    "EnglishName": "Tatar (Russia)",
+    "NativeName": "\u0442\u0430\u0442\u0430\u0440 (\u0420\u043E\u0441\u0441\u0438\u044F)"
+  },
+  {
+    "LCID": 95,
+    "Name": "tzm",
+    "DisplayName": "Central Atlas Tamazight",
+    "EnglishName": "Central Atlas Tamazight",
+    "NativeName": "Tamazi\u0263t n la\u1E6Dla\u1E63"
+  },
+  {
+    "LCID": 1119,
+    "Name": "tzm-Arab-MA",
+    "DisplayName": "Central Atlas Tamazight (Arabic, Morocco)",
+    "EnglishName": "Central Atlas Tamazight (Arabic, Morocco)",
+    "NativeName": "Central Atlas Tamazight (Arabic, Morocco)"
+  },
+  {
+    "LCID": 30815,
+    "Name": "tzm-Tfng",
+    "DisplayName": "Central Atlas Tamazight (Tifinagh)",
+    "EnglishName": "Central Atlas Tamazight (Tifinagh)",
+    "NativeName": "Central Atlas Tamazight (Tifinagh)"
+  },
+  {
+    "LCID": 4191,
+    "Name": "tzm-Tfng-MA",
+    "DisplayName": "Central Atlas Tamazight (Tifinagh, Morocco)",
+    "EnglishName": "Central Atlas Tamazight (Tifinagh, Morocco)",
+    "NativeName": "Central Atlas Tamazight (Tifinagh, Morocco)"
+  },
+  {
+    "LCID": 128,
+    "Name": "ug",
+    "DisplayName": "Uyghur",
+    "EnglishName": "Uyghur",
+    "NativeName": "\u0626\u06C7\u064A\u063A\u06C7\u0631\u0686\u06D5"
+  },
+  {
+    "LCID": 1152,
+    "Name": "ug-CN",
+    "DisplayName": "Uyghur (China)",
+    "EnglishName": "Uyghur (China)",
+    "NativeName": "\u0626\u06C7\u064A\u063A\u06C7\u0631\u0686\u06D5 (\u062C\u06C7\u06AD\u06AF\u0648)"
+  },
+  {
+    "LCID": 34,
+    "Name": "uk",
+    "DisplayName": "Ukrainian",
+    "EnglishName": "Ukrainian",
+    "NativeName": "\u0443\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430"
+  },
+  {
+    "LCID": 1058,
+    "Name": "uk-UA",
+    "DisplayName": "Ukrainian (Ukraine)",
+    "EnglishName": "Ukrainian (Ukraine)",
+    "NativeName": "\u0443\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (\u0423\u043A\u0440\u0430\u0457\u043D\u0430)"
+  },
+  {
+    "LCID": 32,
+    "Name": "ur",
+    "DisplayName": "Urdu",
+    "EnglishName": "Urdu",
+    "NativeName": "\u0627\u0631\u062F\u0648"
+  },
+  {
+    "LCID": 2080,
+    "Name": "ur-IN",
+    "DisplayName": "Urdu (India)",
+    "EnglishName": "Urdu (India)",
+    "NativeName": "\u0627\u0631\u062F\u0648 (\u0628\u06BE\u0627\u0631\u062A)"
+  },
+  {
+    "LCID": 1056,
+    "Name": "ur-PK",
+    "DisplayName": "Urdu (Pakistan)",
+    "EnglishName": "Urdu (Pakistan)",
+    "NativeName": "\u0627\u0631\u062F\u0648 (\u067E\u0627\u06A9\u0633\u062A\u0627\u0646)"
+  },
+  {
+    "LCID": 67,
+    "Name": "uz",
+    "DisplayName": "Uzbek",
+    "EnglishName": "Uzbek",
+    "NativeName": "o\u2018zbek"
+  },
+  {
+    "LCID": 30787,
+    "Name": "uz-Cyrl",
+    "DisplayName": "Uzbek (Cyrillic)",
+    "EnglishName": "Uzbek (Cyrillic)",
+    "NativeName": "\u045E\u0437\u0431\u0435\u043A\u0447\u0430 (\u041A\u0438\u0440\u0438\u043B)"
+  },
+  {
+    "LCID": 2115,
+    "Name": "uz-Cyrl-UZ",
+    "DisplayName": "Uzbek (Cyrillic, Uzbekistan)",
+    "EnglishName": "Uzbek (Cyrillic, Uzbekistan)",
+    "NativeName": "\u045E\u0437\u0431\u0435\u043A\u0447\u0430 (\u041A\u0438\u0440\u0438\u043B, \u040E\u0437\u0431\u0435\u043A\u0438\u0441\u0442\u043E\u043D)"
+  },
+  {
+    "LCID": 31811,
+    "Name": "uz-Latn",
+    "DisplayName": "Uzbek (Latin)",
+    "EnglishName": "Uzbek (Latin)",
+    "NativeName": "o\u2018zbek (lotin)"
+  },
+  {
+    "LCID": 1091,
+    "Name": "uz-Latn-UZ",
+    "DisplayName": "Uzbek (Latin, Uzbekistan)",
+    "EnglishName": "Uzbek (Latin, Uzbekistan)",
+    "NativeName": "o\u2018zbek (lotin, O\u02BBzbekiston)"
+  },
+  {
+    "LCID": 51,
+    "Name": "ve",
+    "DisplayName": "Venda",
+    "EnglishName": "Venda",
+    "NativeName": "Venda"
+  },
+  {
+    "LCID": 1075,
+    "Name": "ve-ZA",
+    "DisplayName": "Venda (South Africa)",
+    "EnglishName": "Venda (South Africa)",
+    "NativeName": "Venda (South Africa)"
+  },
+  {
+    "LCID": 42,
+    "Name": "vi",
+    "DisplayName": "Vietnamese",
+    "EnglishName": "Vietnamese",
+    "NativeName": "Ti\u1EBFng Vi\u1EC7t"
+  },
+  {
+    "LCID": 1066,
+    "Name": "vi-VN",
+    "DisplayName": "Vietnamese (Vietnam)",
+    "EnglishName": "Vietnamese (Vietnam)",
+    "NativeName": "Ti\u1EBFng Vi\u1EC7t (Vi\u1EC7t Nam)"
+  },
+  {
+    "LCID": 136,
+    "Name": "wo",
+    "DisplayName": "Wolof",
+    "EnglishName": "Wolof",
+    "NativeName": "Wolof"
+  },
+  {
+    "LCID": 1160,
+    "Name": "wo-SN",
+    "DisplayName": "Wolof (Senegal)",
+    "EnglishName": "Wolof (Senegal)",
+    "NativeName": "Wolof (Senegaal)"
+  },
+  {
+    "LCID": 52,
+    "Name": "xh",
+    "DisplayName": "isiXhosa",
+    "EnglishName": "isiXhosa",
+    "NativeName": "isiXhosa"
+  },
+  {
+    "LCID": 1076,
+    "Name": "xh-ZA",
+    "DisplayName": "isiXhosa (South Africa)",
+    "EnglishName": "isiXhosa (South Africa)",
+    "NativeName": "isiXhosa (eMzantsi Afrika)"
+  },
+  {
+    "LCID": 61,
+    "Name": "yi",
+    "DisplayName": "Yiddish",
+    "EnglishName": "Yiddish",
+    "NativeName": "\u05D9\u05D9\u05B4\u05D3\u05D9\u05E9"
+  },
+  {
+    "LCID": 1085,
+    "Name": "yi-001",
+    "DisplayName": "Yiddish (World)",
+    "EnglishName": "Yiddish (World)",
+    "NativeName": "\u05D9\u05D9\u05B4\u05D3\u05D9\u05E9 (\u05D5\u05D5\u05E2\u05DC\u05D8)"
+  },
+  {
+    "LCID": 106,
+    "Name": "yo",
+    "DisplayName": "Yoruba",
+    "EnglishName": "Yoruba",
+    "NativeName": "\u00C8d\u00E8 Yor\u00F9b\u00E1"
+  },
+  {
+    "LCID": 1130,
+    "Name": "yo-NG",
+    "DisplayName": "Yoruba (Nigeria)",
+    "EnglishName": "Yoruba (Nigeria)",
+    "NativeName": "\u00C8d\u00E8 Yor\u00F9b\u00E1 (N\u00E0\u00ECj\u00EDr\u00ED\u00E0)"
+  },
+  {
+    "LCID": 30724,
+    "Name": "zh",
+    "DisplayName": "Chinese",
+    "EnglishName": "Chinese",
+    "NativeName": "\u4E2D\u6587"
+  },
+  {
+    "LCID": 4,
+    "Name": "zh-Hans",
+    "DisplayName": "Chinese (Simplified)",
+    "EnglishName": "Chinese (Simplified)",
+    "NativeName": "\u4E2D\u6587\uFF08\u7B80\u4F53\uFF09"
+  },
+  {
+    "LCID": 31748,
+    "Name": "zh-Hant",
+    "DisplayName": "Chinese (Traditional)",
+    "EnglishName": "Chinese (Traditional)",
+    "NativeName": "\u4E2D\u6587\uFF08\u7E41\u9AD4\uFF09"
+  },
+  {
+    "LCID": 53,
+    "Name": "zu",
+    "DisplayName": "isiZulu",
+    "EnglishName": "isiZulu",
+    "NativeName": "isiZulu"
+  },
+  {
+    "LCID": 1077,
+    "Name": "zu-ZA",
+    "DisplayName": "isiZulu (South Africa)",
+    "EnglishName": "isiZulu (South Africa)",
+    "NativeName": "isiZulu (iNingizimu Afrika)"
+  }
+]

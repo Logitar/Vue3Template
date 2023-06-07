@@ -10,4 +10,6 @@ public record SaveProfilePayload
   public string? MiddleName { get; set; }
   public string LastName { get; set; } = string.Empty;
   public string? Nickname { get; set; }
+
+  public string Locale { get; set; } = string.Empty;
 }

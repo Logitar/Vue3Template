@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
+import LocaleSelect from "@/components/Users/LocaleSelect.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
 import type { Profile } from "@/types/Profile";
 import { getProfile, saveProfile } from "@/api/account";
@@ -13,6 +14,7 @@ const { d, t } = useI18n();
 const emailAddress = ref<string>("");
 const firstName = ref<string>("");
 const lastName = ref<string>("");
+const locale = ref<string>("");
 const middleName = ref<string>("");
 const nickname = ref<string>("");
 const user = ref<Profile>();
@@ -22,6 +24,7 @@ function setModel(model: Profile): void {
   emailAddress.value = model.email.address;
   firstName.value = model.firstName;
   lastName.value = model.lastName;
+  locale.value = model.locale;
   middleName.value = model.middleName ?? "";
   nickname.value = model.nickname ?? "";
 }
@@ -47,6 +50,7 @@ const onSubmit = handleSubmit(async () => {
       middleName: middleName.value,
       lastName: lastName.value,
       nickname: nickname.value,
+      locale: locale.value,
     });
     setModel(data);
   } catch (e) {
@@ -103,10 +107,12 @@ const onSubmit = handleSubmit(async () => {
         <PersonNameInput class="col-lg-6" required type="last" validate v-model="lastName" />
       </div>
       <div class="row">
-        <PersonNameInput class="col-lg-6" required type="middle" validate v-model="middleName" />
-        <PersonNameInput class="col-lg-6" required type="nick" validate v-model="nickname" />
+        <PersonNameInput class="col-lg-6" type="middle" validate v-model="middleName" />
+        <PersonNameInput class="col-lg-6" type="nick" validate v-model="nickname" />
       </div>
-      <!-- TODO(fpion): Locale -->
+      <div class="row">
+        <LocaleSelect class="col-lg-6" required v-model="locale" />
+      </div>
       <icon-submit :disabled="isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="users.profile.submit" />
     </form>
   </div>
