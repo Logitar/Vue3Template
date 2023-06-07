@@ -3,9 +3,9 @@ using Logitar.Portal.Contracts.Users.Contact;
 
 namespace Logitar.Demo.Web.Models.Account;
 
-public record Profile
+public record UserProfile
 {
-  public Profile(User user)
+  public UserProfile(User user)
   {
     Username = user.Username;
 
@@ -24,6 +24,10 @@ public record Profile
 
     Locale = user.Locale ?? throw new ArgumentException($"The {nameof(user.Locale)} is required.", nameof(user));
     TimeZone = user.TimeZone;
+
+    Picture = user.Picture;
+    Profile = user.Profile;
+    Website = user.Website;
 
     CreatedOn = user.CreatedOn;
     UpdatedOn = user.UpdatedOn;
@@ -46,6 +50,10 @@ public record Profile
 
   public string Locale { get; }
   public string? TimeZone { get; }
+
+  public string? Picture { get; }
+  public string? Profile { get; }
+  public string? Website { get; }
 
   public DateTime CreatedOn { get; }
   public DateTime UpdatedOn { get; }

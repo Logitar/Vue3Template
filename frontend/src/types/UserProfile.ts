@@ -1,7 +1,7 @@
 import type { Email } from "./Email";
 import type { Phone } from "./Phone";
 
-export type Profile = {
+export type UserProfile = {
   username: string;
   signedInOn?: Date;
   email: Email;
@@ -14,6 +14,9 @@ export type Profile = {
   gender?: string;
   locale: string;
   timeZone?: string;
+  picture?: string;
+  profile?: string;
+  website?: string;
   createdOn: Date;
   updatedOn: Date;
 };

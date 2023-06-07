@@ -1,4 +1,7 @@
 {
+  "actions": {
+    "save": "Save"
+  },
   "brand": "Logitar",
   "copyright": "© Logitar {version} 2023.",
   "home": {

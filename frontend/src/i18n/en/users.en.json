@@ -1,4 +1,5 @@
 {
+  "birthdate": "Birthdate",
   "confirm": {
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
@@ -73,9 +74,16 @@
   "personal": {
     "title": "Personal Information"
   },
+  "picture": {
+    "label": "Picture URL",
+    "placeholder": "Paste the URL to your picture"
+  },
   "profile": {
-    "submit": "Save",
-    "title": "Profile"
+    "activated": "Your account has been successfully activated.",
+    "label": "Profile URL",
+    "placeholder": "Paste the URL to your profile",
+    "title": "Profile",
+    "welcome": "Welcome to {brand}!"
   },
   "register": {
     "close": "You may now close this page.",
@@ -100,5 +108,9 @@
     "placeholder": "Select your time zone"
   },
   "updatedOn": "Last updated on",
-  "usernameOrEmailPlaceholder": "Enter your email address or username"
+  "usernameOrEmailPlaceholder": "Enter your email address or username",
+  "website": {
+    "label": "Website URL",
+    "placeholder": "Paste the URL to your website"
+  }
 }

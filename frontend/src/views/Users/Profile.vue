@@ -6,8 +6,11 @@ import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
 import LocaleSelect from "@/components/Users/LocaleSelect.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
+import PictureInput from "@/components/Users/PictureInput.vue";
+import ProfileInput from "@/components/Users/ProfileInput.vue";
 import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
-import type { Profile } from "@/types/Profile";
+import WebsiteInput from "@/components/Users/WebsiteInput.vue";
+import type { UserProfile } from "@/types/UserProfile";
 import { getProfile, saveProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
 
@@ -23,10 +26,13 @@ const lastName = ref<string>("");
 const locale = ref<string>("");
 const middleName = ref<string>("");
 const nickname = ref<string>("");
+const picture = ref<string>("");
+const profile = ref<string>("");
 const timeZone = ref<string>("");
-const user = ref<Profile>();
+const user = ref<UserProfile>();
+const website = ref<string>("");
 
-function setModel(model: Profile): void {
+function setModel(model: UserProfile): void {
   user.value = model;
   emailAddress.value = model.email.address;
   firstName.value = model.firstName;
@@ -35,7 +41,10 @@ function setModel(model: Profile): void {
   locale.value = model.locale;
   middleName.value = model.middleName ?? "";
   nickname.value = model.nickname ?? "";
+  picture.value = model.picture ?? "";
+  profile.value = model.profile ?? "";
   timeZone.value = model.timeZone ?? "";
+  website.value = model.website ?? "";
 }
 
 onMounted(async () => {
@@ -63,6 +72,9 @@ const onSubmit = handleSubmit(async () => {
       nickname: nickname.value,
       locale: locale.value,
       timeZone: timeZone.value,
+      picture: picture.value,
+      profile: profile.value,
+      website: website.value,
     });
     setModel(data);
   } catch (e) {
@@ -110,9 +122,8 @@ const onSubmit = handleSubmit(async () => {
       </tbody>
     </table>
     <form @submit.prevent="onSubmit">
-      <div class="row">
-        <EmailAddressInput :disabled="user?.email.isVerified" required validate :verified="user?.email.isVerified" v-model="emailAddress" />
-      </div>
+      <!-- TODO(fpion): Address -->
+      <EmailAddressInput :disabled="user?.email.isVerified" required validate :verified="user?.email.isVerified" v-model="emailAddress" />
       <!-- TODO(fpion): Phone -->
       <div class="row">
         <PersonNameInput class="col-lg-6" required type="first" validate v-model="firstName" />
@@ -130,7 +141,10 @@ const onSubmit = handleSubmit(async () => {
         <LocaleSelect class="col-lg-6" required v-model="locale" />
         <TimeZoneSelect class="col-lg-6" v-model="timeZone" />
       </div>
-      <icon-submit :disabled="isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="users.profile.submit" />
+      <PictureInput v-model="picture" />
+      <ProfileInput v-model="profile" />
+      <WebsiteInput v-model="website" />
+      <icon-submit :disabled="isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
     </form>
   </div>
 </template>

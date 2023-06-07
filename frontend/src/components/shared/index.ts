@@ -7,6 +7,7 @@ import FormInput from "./FormInput.vue";
 import FormSelect from "./FormSelect.vue";
 import IconButton from "./IconButton.vue";
 import IconSubmit from "./IconSubmit.vue";
+import UrlInput from "./UrlInput.vue";
 
 export default function (app: App) {
   app.component("app-alert", AppAlert);
@@ -16,4 +17,5 @@ export default function (app: App) {
   app.component("form-select", FormSelect);
   app.component("icon-button", IconButton);
   app.component("icon-submit", IconSubmit);
+  app.component("url-input", UrlInput);
 }

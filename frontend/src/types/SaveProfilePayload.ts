@@ -9,4 +9,7 @@ export type SaveProfilePayload = {
   gender?: string;
   locale: string;
   timeZone?: string;
+  picture?: string;
+  profile?: string;
+  website?: string;
 };

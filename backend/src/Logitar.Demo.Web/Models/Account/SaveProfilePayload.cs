@@ -15,4 +15,8 @@ public record SaveProfilePayload
 
   public string Locale { get; set; } = string.Empty;
   public string? TimeZone { get; set; }
+
+  public string? Picture { get; set; }
+  public string? Profile { get; set; }
+  public string? Website { get; set; }
 }

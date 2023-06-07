@@ -136,17 +136,17 @@ public class AccountController : ControllerBase
 
   [Authorize]
   [HttpGet("profile")]
-  public ActionResult<Profile> GetProfile()
+  public ActionResult<UserProfile> GetProfile()
   {
     User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
-    Profile profile = new(user);
+    UserProfile profile = new(user);
 
     return Ok(profile);
   }
 
   [Authorize]
   [HttpPut("profile")]
-  public async Task<ActionResult<Profile>> SaveProfile([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
+  public async Task<ActionResult<UserProfile>> SaveProfile([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
   {
     User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
 
@@ -177,13 +177,13 @@ public class AccountController : ControllerBase
       Gender = payload.Gender,
       Locale = payload.Locale,
       TimeZone = payload.TimeZone,
-      Picture = user.Picture, // TODO(fpion): implement
-      Profile = user.Profile, // TODO(fpion): implement
-      Website = user.Website, // TODO(fpion): implement
+      Picture = payload.Picture,
+      Profile = payload.Profile,
+      Website = payload.Website,
       CustomAttributes = user.CustomAttributes
     };
     user = await _userService.UpdateAsync(user.Id, input, cancellationToken);
-    Profile profile = new(user);
+    UserProfile profile = new(user);
 
     return Ok(profile);
   }
