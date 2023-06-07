@@ -21,6 +21,7 @@ public record Profile
     FullName = user.FullName ?? throw new ArgumentException($"The {nameof(user.FullName)} is required.", nameof(user));
 
     Locale = user.Locale ?? throw new ArgumentException($"The {nameof(user.Locale)} is required.", nameof(user));
+    TimeZone = user.TimeZone;
 
     CreatedOn = user.CreatedOn;
     UpdatedOn = user.UpdatedOn;
@@ -40,6 +41,7 @@ public record Profile
   public string FullName { get; }
 
   public string Locale { get; }
+  public string? TimeZone { get; }
 
   public DateTime CreatedOn { get; }
   public DateTime UpdatedOn { get; }

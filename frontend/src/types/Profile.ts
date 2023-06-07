@@ -12,6 +12,7 @@ export type Profile = {
   nickname?: string;
   fullName: string;
   locale: string;
+  timeZone?: string;
   createdOn: Date;
   updatedOn: Date;
 };

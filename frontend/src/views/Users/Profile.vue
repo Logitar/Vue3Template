@@ -5,11 +5,15 @@ import { useI18n } from "vue-i18n";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import LocaleSelect from "@/components/Users/LocaleSelect.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
+import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
 import type { Profile } from "@/types/Profile";
 import { getProfile, saveProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
 
 const { d, t } = useI18n();
+
+// const { query } = useRoute(); // TODO(fpion): implement
+// const activated = ref(query.status === "activated"); // TODO(fpion): implement
 
 const emailAddress = ref<string>("");
 const firstName = ref<string>("");
@@ -17,6 +21,7 @@ const lastName = ref<string>("");
 const locale = ref<string>("");
 const middleName = ref<string>("");
 const nickname = ref<string>("");
+const timeZone = ref<string>("");
 const user = ref<Profile>();
 
 function setModel(model: Profile): void {
@@ -27,12 +32,14 @@ function setModel(model: Profile): void {
   locale.value = model.locale;
   middleName.value = model.middleName ?? "";
   nickname.value = model.nickname ?? "";
+  timeZone.value = model.timeZone ?? "";
 }
 
 onMounted(async () => {
   try {
     const { data } = await getProfile();
     setModel(data);
+    // TODO(fpion): visual feedback?
   } catch (e: any) {
     handleError(e);
   }
@@ -51,6 +58,7 @@ const onSubmit = handleSubmit(async () => {
       lastName: lastName.value,
       nickname: nickname.value,
       locale: locale.value,
+      timeZone: timeZone.value,
     });
     setModel(data);
   } catch (e) {
@@ -112,6 +120,7 @@ const onSubmit = handleSubmit(async () => {
       </div>
       <div class="row">
         <LocaleSelect class="col-lg-6" required v-model="locale" />
+        <TimeZoneSelect class="col-lg-6" v-model="timeZone" />
       </div>
       <icon-submit :disabled="isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="users.profile.submit" />
     </form>

@@ -86,6 +86,10 @@
     "title": "Sign Out"
   },
   "signedInOn": "Last signed-in on",
+  "timeZone": {
+    "label": "Time Zone",
+    "placeholder": "Select your time zone"
+  },
   "updatedOn": "Last updated on",
   "usernameOrEmailPlaceholder": "Enter your email address or username"
 }
