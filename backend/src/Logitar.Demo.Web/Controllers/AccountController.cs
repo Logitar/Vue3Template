@@ -174,7 +174,7 @@ public class AccountController : ControllerBase
       LastName = payload.LastName,
       Nickname = payload.Nickname,
       Birthdate = user.Birthdate, // TODO(fpion): implement
-      Gender = user.Gender, // TODO(fpion): implement
+      Gender = payload.Gender,
       Locale = payload.Locale,
       TimeZone = payload.TimeZone,
       Picture = user.Picture, // TODO(fpion): implement

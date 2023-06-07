@@ -11,6 +11,7 @@ export type Profile = {
   lastName: string;
   nickname?: string;
   fullName: string;
+  gender?: string;
   locale: string;
   timeZone?: string;
   createdOn: Date;

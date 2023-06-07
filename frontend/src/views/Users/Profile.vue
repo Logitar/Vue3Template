@@ -3,6 +3,7 @@ import { onMounted, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
+import GenderSelect from "@/components/Users/GenderSelect.vue";
 import LocaleSelect from "@/components/Users/LocaleSelect.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
 import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
@@ -17,6 +18,7 @@ const { d, t } = useI18n();
 
 const emailAddress = ref<string>("");
 const firstName = ref<string>("");
+const gender = ref<string>("");
 const lastName = ref<string>("");
 const locale = ref<string>("");
 const middleName = ref<string>("");
@@ -28,6 +30,7 @@ function setModel(model: Profile): void {
   user.value = model;
   emailAddress.value = model.email.address;
   firstName.value = model.firstName;
+  gender.value = model.gender ?? "";
   lastName.value = model.lastName;
   locale.value = model.locale;
   middleName.value = model.middleName ?? "";
@@ -54,6 +57,7 @@ const onSubmit = handleSubmit(async () => {
         verify: false,
       },
       firstName: firstName.value,
+      gender: gender.value,
       middleName: middleName.value,
       lastName: lastName.value,
       nickname: nickname.value,
@@ -117,6 +121,10 @@ const onSubmit = handleSubmit(async () => {
       <div class="row">
         <PersonNameInput class="col-lg-6" type="middle" validate v-model="middleName" />
         <PersonNameInput class="col-lg-6" type="nick" validate v-model="nickname" />
+      </div>
+      <div class="row">
+        <div class="col-lg-6"><!-- TODO(fpion): Birthdate --></div>
+        <GenderSelect class="col-lg-6" v-model="gender" />
       </div>
       <div class="row">
         <LocaleSelect class="col-lg-6" required v-model="locale" />

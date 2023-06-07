@@ -20,6 +20,8 @@ public record Profile
     Nickname = user.Nickname;
     FullName = user.FullName ?? throw new ArgumentException($"The {nameof(user.FullName)} is required.", nameof(user));
 
+    Gender = user.Gender;
+
     Locale = user.Locale ?? throw new ArgumentException($"The {nameof(user.Locale)} is required.", nameof(user));
     TimeZone = user.TimeZone;
 
@@ -39,6 +41,8 @@ public record Profile
   public string LastName { get; }
   public string? Nickname { get; }
   public string FullName { get; }
+
+  public string? Gender { get; }
 
   public string Locale { get; }
   public string? TimeZone { get; }

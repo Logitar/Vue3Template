@@ -6,6 +6,7 @@ export type SaveProfilePayload = {
   middleName?: string;
   lastName: string;
   nickname?: string;
+  gender?: string;
   locale: string;
   timeZone?: string;
 };

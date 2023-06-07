@@ -11,6 +11,15 @@
     },
     "verified": "Verified"
   },
+  "gender": {
+    "label": "Gender",
+    "options": {
+      "Female": "Female",
+      "Male": "Male",
+      "Other": "Other"
+    },
+    "placeholder": "Select your gender"
+  },
   "locale": {
     "label": "Locale",
     "placeholder": "Select your preferred communication language"

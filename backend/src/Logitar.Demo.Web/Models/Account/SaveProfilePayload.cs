@@ -11,6 +11,8 @@ public record SaveProfilePayload
   public string LastName { get; set; } = string.Empty;
   public string? Nickname { get; set; }
 
+  public string? Gender { get; set; }
+
   public string Locale { get; set; } = string.Empty;
   public string? TimeZone { get; set; }
 }
