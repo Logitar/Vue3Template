@@ -102,6 +102,38 @@ public class AccountController : ControllerBase
     return NoContent();
   }
 
+  [HttpGet("password/reset")]
+  public async Task<ActionResult> ResetPasswordAsync(string token, CancellationToken cancellationToken)
+  {
+    ValidateTokenInput input = new()
+    {
+      Token = token,
+      Realm = _realm,
+      Purpose = "reset_password"
+    };
+    ValidatedToken validatedToken = await _tokenService.ValidateAsync(input, cancellationToken);
+    if (!validatedToken.Succeeded)
+    {
+      return InvalidCredentials();
+    }
+
+    return NoContent();
+  }
+
+  [HttpPost("password/reset")]
+  public async Task<ActionResult> ResetPasswordAsync([FromBody] ResetPasswordPayload payload, CancellationToken cancellationToken)
+  {
+    ResetPasswordInput input = new()
+    {
+      Token = payload.Token,
+      Realm = _realm,
+      Password = payload.Password
+    };
+    _ = await _userService.ResetPasswordAsync(input, cancellationToken);
+
+    return NoContent();
+  }
+
   [HttpPost("register")]
   public async Task<ActionResult> RegisterAsync([FromBody] RegisterPayload payload, CancellationToken cancellationToken)
   {
