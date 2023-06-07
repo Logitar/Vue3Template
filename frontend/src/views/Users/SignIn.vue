@@ -45,11 +45,11 @@ const onSubmit = handleSubmit(async () => {
       <strong>{{ t("users.signIn.failed") }}</strong> {{ t("users.signIn.invalidCredentials") }}
     </app-alert>
     <form @submit.prevent="onSubmit">
-      <UsernameInput placeholder="users.signIn.usernamePlaceholder" required v-model="username" />
+      <UsernameInput placeholder="users.usernameOrEmailPlaceholder" required v-model="username" />
       <PasswordInput ref="passwordRef" required v-model="password" />
       <form-checkbox id="remember" label="users.signIn.remember" v-model="remember" />
       <icon-submit :disabled="isSubmitting" icon="fas fa-arrow-right-to-bracket" :loading="isSubmitting" text="users.signIn.submit" />
-      <RouterLink :to="{ name: 'RecoverPassword' }" class="mx-1">{{ t("users.signIn.recoverPassword") }}</RouterLink>
+      <RouterLink :to="{ name: 'RecoverPassword' }" class="mx-1">{{ t("users.signIn.recover") }}</RouterLink>
     </form>
   </div>
 </template>

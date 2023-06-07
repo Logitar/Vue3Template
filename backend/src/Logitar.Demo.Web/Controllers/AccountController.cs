@@ -62,6 +62,78 @@ public class AccountController : ControllerBase
     return NoContent();
   }
 
+  [HttpPost("password/recover")]
+  public async Task<ActionResult> RecoverPasswordAsync([FromBody] RecoverPasswordPayload payload, CancellationToken cancellationToken)
+  {
+    try
+    {
+      RecoverPasswordInput input = new()
+      {
+        Realm = _realm,
+        Username = payload.Username
+      };
+      SentMessages sentMessages = await _userService.RecoverPasswordAsync(input, cancellationToken);
+      if (sentMessages.Success.Count() != 1)
+      {
+        _logger.LogWarning("User '{userId}' password recovery has multiple sent messages: {success}", payload.Username, string.Join(", ", sentMessages.Success));
+      }
+      if (sentMessages.Error.Any())
+      {
+        _logger.LogError("User '{userId}' password recovery has error messages: {error}", payload.Username, string.Join(", ", sentMessages.Error));
+      }
+      if (sentMessages.Unsent.Any())
+      {
+        _logger.LogWarning("User '{userId}' password recovery has unsent messages: {unsent}", payload.Username, string.Join(", ", sentMessages.Unsent));
+      }
+    }
+    catch (ErrorException exception)
+    {
+      ErrorData? statusCode = exception.Error.Data.SingleOrDefault(d => d.Key == "StatusCode");
+      ErrorData? content = exception.Error.Data.SingleOrDefault(d => d.Key == "Content");
+      if (statusCode?.Value != StatusCodes.Status400BadRequest.ToString()
+        || (content?.Value.Contains("AccountIsDisabled") != true
+          && content?.Value.Contains("AccountIsNotConfirmed") != true
+          && content?.Value.Contains("InvalidCredentials") != true))
+      {
+        throw;
+      }
+    }
+
+    return NoContent();
+  }
+
+  [HttpGet("password/reset")]
+  public async Task<ActionResult> ResetPasswordAsync(string token, CancellationToken cancellationToken)
+  {
+    ValidateTokenInput input = new()
+    {
+      Token = token,
+      Realm = _realm,
+      Purpose = "reset_password"
+    };
+    ValidatedToken validatedToken = await _tokenService.ValidateAsync(input, cancellationToken);
+    if (!validatedToken.Succeeded)
+    {
+      return InvalidCredentials();
+    }
+
+    return NoContent();
+  }
+
+  [HttpPost("password/reset")]
+  public async Task<ActionResult> ResetPasswordAsync([FromBody] ResetPasswordPayload payload, CancellationToken cancellationToken)
+  {
+    ResetPasswordInput input = new()
+    {
+      Token = payload.Token,
+      Realm = _realm,
+      Password = payload.Password
+    };
+    _ = await _userService.ResetPasswordAsync(input, cancellationToken);
+
+    return NoContent();
+  }
+
   [HttpPost("register")]
   public async Task<ActionResult> RegisterAsync([FromBody] RegisterPayload payload, CancellationToken cancellationToken)
   {
