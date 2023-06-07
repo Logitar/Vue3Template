@@ -79,7 +79,7 @@
     "placeholder": "Paste the URL to your picture"
   },
   "profile": {
-    "activated": "Your account has been successfully activated.",
+    "confirmed": "Your account has been successfully confirmed.",
     "label": "Profile URL",
     "placeholder": "Paste the URL to your profile",
     "title": "Profile",

@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
 import BirthdateInput from "@/components/Users/BirthdateInput.vue";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
@@ -16,11 +17,10 @@ import { getProfile, saveProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
 
 const { d, t } = useI18n();
-
-// const { query } = useRoute(); // TODO(fpion): implement
-// const activated = ref(query.status === "activated"); // TODO(fpion): implement
+const { query } = useRoute();
 
 const birthdate = ref<Date>();
+const confirmed = ref<boolean>(query.status === "confirmed");
 const emailAddress = ref<string>("");
 const firstName = ref<string>("");
 const gender = ref<string>("");
@@ -90,6 +90,9 @@ const onSubmit = handleSubmit(async () => {
 <template>
   <div class="container">
     <h1>{{ t("users.profile.title") }}</h1>
+    <app-alert dismissible variant="success" v-model="confirmed">
+      <strong>{{ t("users.profile.welcome", { brand: t("brand") }) }}</strong> {{ t("users.profile.confirmed") }}
+    </app-alert>
     <h2>{{ t("users.personal.title") }}</h2>
     <table v-if="user" class="table table-striped">
       <tbody>
