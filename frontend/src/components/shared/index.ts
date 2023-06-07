@@ -2,6 +2,7 @@ import type { App } from "vue";
 
 import AppAlert from "./AppAlert.vue";
 import AppBadge from "./AppBadge.vue";
+import DateTimeInput from "./DateTimeInput.vue";
 import FormCheckbox from "./FormCheckbox.vue";
 import FormInput from "./FormInput.vue";
 import FormSelect from "./FormSelect.vue";
@@ -12,6 +13,7 @@ import UrlInput from "./UrlInput.vue";
 export default function (app: App) {
   app.component("app-alert", AppAlert);
   app.component("app-badge", AppBadge);
+  app.component("date-time-input", DateTimeInput);
   app.component("form-checkbox", FormCheckbox);
   app.component("form-input", FormInput);
   app.component("form-select", FormSelect);

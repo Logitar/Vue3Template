@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import BirthdateInput from "@/components/Users/BirthdateInput.vue";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
 import LocaleSelect from "@/components/Users/LocaleSelect.vue";
@@ -19,6 +20,7 @@ const { d, t } = useI18n();
 // const { query } = useRoute(); // TODO(fpion): implement
 // const activated = ref(query.status === "activated"); // TODO(fpion): implement
 
+const birthdate = ref<Date>();
 const emailAddress = ref<string>("");
 const firstName = ref<string>("");
 const gender = ref<string>("");
@@ -34,6 +36,7 @@ const website = ref<string>("");
 
 function setModel(model: UserProfile): void {
   user.value = model;
+  birthdate.value = model.birthdate ? new Date(model.birthdate) : undefined;
   emailAddress.value = model.email.address;
   firstName.value = model.firstName;
   gender.value = model.gender ?? "";
@@ -66,10 +69,11 @@ const onSubmit = handleSubmit(async () => {
         verify: false,
       },
       firstName: firstName.value,
-      gender: gender.value,
       middleName: middleName.value,
       lastName: lastName.value,
       nickname: nickname.value,
+      birthdate: birthdate.value,
+      gender: gender.value,
       locale: locale.value,
       timeZone: timeZone.value,
       picture: picture.value,
@@ -134,7 +138,7 @@ const onSubmit = handleSubmit(async () => {
         <PersonNameInput class="col-lg-6" type="nick" validate v-model="nickname" />
       </div>
       <div class="row">
-        <div class="col-lg-6"><!-- TODO(fpion): Birthdate --></div>
+        <BirthdateInput class="col-lg-6" v-model="birthdate" />
         <GenderSelect class="col-lg-6" v-model="gender" />
       </div>
       <div class="row">

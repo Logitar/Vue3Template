@@ -20,6 +20,7 @@ public record UserProfile
     Nickname = user.Nickname;
     FullName = user.FullName ?? throw new ArgumentException($"The {nameof(user.FullName)} is required.", nameof(user));
 
+    Birthdate = user.Birthdate;
     Gender = user.Gender;
 
     Locale = user.Locale ?? throw new ArgumentException($"The {nameof(user.Locale)} is required.", nameof(user));
@@ -46,6 +47,7 @@ public record UserProfile
   public string? Nickname { get; }
   public string FullName { get; }
 
+  public DateTime? Birthdate { get; }
   public string? Gender { get; }
 
   public string Locale { get; }

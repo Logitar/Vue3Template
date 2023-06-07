@@ -10,10 +10,10 @@ const props = withDefaults(
     disabled?: boolean;
     id: string;
     label?: string;
-    maxDate?: Date;
+    maxDate?: string;
     maxLength?: number;
     maxValue?: number;
-    minDate?: Date;
+    minDate?: string;
     minLength?: number;
     minValue?: number;
     modelValue?: string;

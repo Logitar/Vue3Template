@@ -3,7 +3,7 @@ import type { Phone } from "./Phone";
 
 export type UserProfile = {
   username: string;
-  signedInOn?: Date;
+  signedInOn?: string;
   email: Email;
   phone?: Phone;
   firstName: string;
@@ -11,12 +11,13 @@ export type UserProfile = {
   lastName: string;
   nickname?: string;
   fullName: string;
+  birthdate?: string;
   gender?: string;
   locale: string;
   timeZone?: string;
   picture?: string;
   profile?: string;
   website?: string;
-  createdOn: Date;
-  updatedOn: Date;
+  createdOn: string;
+  updatedOn: string;
 };

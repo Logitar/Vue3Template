@@ -1,5 +1,5 @@
 {
-  "birthdate": "Birthdate",
+  "birthdate": "Date of birth",
   "confirm": {
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
