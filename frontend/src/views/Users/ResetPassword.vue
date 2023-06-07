@@ -14,6 +14,7 @@ const { t } = useI18n();
 const confirm = ref<string>("");
 const password = ref<string>("");
 const success = ref<boolean>(false);
+const validated = ref<boolean>(false);
 
 const { query } = useRoute();
 const token = query.token?.toString() ?? "";
@@ -22,6 +23,7 @@ onMounted(async () => {
   if (token) {
     try {
       await validatePasswordReset(token);
+      validated.value = true;
     } catch (e: any) {
       const { data, status } = e as ApiResult;
       if (status === 400 && data?.code === "InvalidCredentials") {
@@ -47,7 +49,7 @@ const onSubmit = handleSubmit(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-show="validated">
     <h1>{{ t("users.password.reset.title") }}</h1>
     <app-alert v-if="success" show variant="success">
       <strong>{{ t("users.password.reset.success") }}</strong> {{ t("users.password.reset.signIn") }}
