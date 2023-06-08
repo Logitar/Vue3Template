@@ -29,7 +29,7 @@ const { errorMessage, handleChange, meta, value } = useField<string>(
   inputName,
   { required: props.required },
   {
-    initialValue: undefined,
+    initialValue: props.modelValue || undefined,
     label: props.label ? t(props.label).toLowerCase() : inputName,
   }
 );

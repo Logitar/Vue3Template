@@ -11,10 +11,11 @@ import {
   faKey,
   faPaperPlane,
   faPlus,
+  faTimes,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faArrowRightFromBracket, faArrowRightToBracket, faArrowUpRightFromSquare, faCheck, faFloppyDisk, faKey, faPlus, faPaperPlane, faUser);
+library.add(faArrowRightFromBracket, faArrowRightToBracket, faArrowUpRightFromSquare, faCheck, faFloppyDisk, faKey, faPlus, faPaperPlane, faTimes, faUser);
 
 export default function (app: App) {
   app.component("font-awesome-icon", FontAwesomeIcon);

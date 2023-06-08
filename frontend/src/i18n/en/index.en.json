@@ -1,5 +1,6 @@
 {
   "actions": {
+    "clear": "Clear",
     "save": "Save"
   },
   "brand": "Logitar",

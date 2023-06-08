@@ -145,8 +145,8 @@ public class AccountController : ControllerBase
   }
 
   [Authorize]
-  [HttpPut("profile")]
-  public async Task<ActionResult<UserProfile>> SaveProfileAsync([FromBody] SaveProfilePayload payload, CancellationToken cancellationToken)
+  [HttpPut("profile/contact")]
+  public async Task<ActionResult<UserProfile>> SaveContactInformationAsync([FromBody] SaveContactInformationPayload payload, CancellationToken cancellationToken)
   {
     User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
 
@@ -155,6 +155,55 @@ public class AccountController : ControllerBase
       Address = payload.Address,
       Email = payload.Email,
       Phone = payload.Phone,
+      FirstName = user.FirstName,
+      MiddleName = user.MiddleName,
+      LastName = user.LastName,
+      Nickname = user.Nickname,
+      Birthdate = user.Birthdate,
+      Gender = user.Gender,
+      Locale = user.Locale,
+      TimeZone = user.TimeZone,
+      Picture = user.Picture,
+      Profile = user.Profile,
+      Website = user.Website,
+      CustomAttributes = user.CustomAttributes
+    };
+    user = await _userService.UpdateAsync(user.Id, input, cancellationToken);
+    UserProfile profile = new(user);
+
+    return Ok(profile);
+  }
+
+  [Authorize]
+  [HttpPut("profile/personal")]
+  public async Task<ActionResult<UserProfile>> SavePersonalInformationAsync([FromBody] SavePersonalInformationPayload payload, CancellationToken cancellationToken)
+  {
+    User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
+
+    UpdateUserInput input = new()
+    {
+      Address = user.Address == null ? null : new AddressInput
+      {
+        Line1 = user.Address.Line1,
+        Line2 = user.Address.Line2,
+        Locality = user.Address.Locality,
+        PostalCode = user.Address.PostalCode,
+        Country = user.Address.Country,
+        Region = user.Address.Region,
+        Verify = false
+      },
+      Email = user.Email == null ? null : new EmailInput
+      {
+        Address = user.Email.Address,
+        Verify = false
+      },
+      Phone = user.Phone == null ? null : new PhoneInput
+      {
+        CountryCode = user.Phone.CountryCode,
+        Number = user.Phone.Number,
+        Extension = user.Phone.Extension,
+        Verify = false
+      },
       FirstName = payload.FirstName,
       MiddleName = payload.MiddleName,
       LastName = payload.LastName,

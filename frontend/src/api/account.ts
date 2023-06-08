@@ -3,7 +3,8 @@ import type { ConfirmPayload } from "@/types/ConfirmPayload";
 import type { RecoverPasswordPayload } from "@/types/RecoverPasswordPayload";
 import type { RegisterPayload } from "@/types/RegisterPayload";
 import type { ResetPasswordPayload } from "@/types/ResetPasswordPayload";
-import type { SaveProfilePayload } from "./../types/SaveProfilePayload";
+import type { SaveContactInformationPayload } from "@/types/SaveContactInformationPayload";
+import type { SavePersonalInformationPayload } from "@/types/SavePersonalInformationPayload";
 import type { SignInPayload } from "@/types/SignInPayload";
 import { get, post, put } from ".";
 
@@ -27,8 +28,12 @@ export async function resetPassword(payload: ResetPasswordPayload): Promise<ApiR
   return await post("/account/password/reset", payload);
 }
 
-export async function saveProfile(payload: SaveProfilePayload): Promise<ApiResult> {
-  return await put("/account/profile", payload);
+export async function saveContactInformation(payload: SaveContactInformationPayload): Promise<ApiResult> {
+  return await put("/account/profile/contact", payload);
+}
+
+export async function savePersonalInformation(payload: SavePersonalInformationPayload): Promise<ApiResult> {
+  return await put("/account/profile/personal", payload);
 }
 
 export async function signIn(payload: SignInPayload): Promise<ApiResult> {

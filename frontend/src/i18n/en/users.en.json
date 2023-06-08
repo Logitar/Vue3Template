@@ -1,8 +1,38 @@
 {
+  "address": {
+    "additional": {
+      "label": "Additional Information",
+      "placeholder": "Enter additional information, if necessary (e.g. P.O. Box #4321)"
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Select your country"
+    },
+    "locality": {
+      "label": "Locality/City",
+      "placeholder": "Enter your locality or city name"
+    },
+    "postalCode": {
+      "label": "Postal Code",
+      "placeholder": "Enter your postal code"
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "Select your region"
+    },
+    "street": {
+      "label": "Street Address",
+      "placeholder": "Enter your street address"
+    },
+    "title": "Postal Address"
+  },
   "birthdate": "Date of birth",
   "confirm": {
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
+  },
+  "contact": {
+    "title": "Contact Information"
   },
   "createdOn": "Created on",
   "email": {
