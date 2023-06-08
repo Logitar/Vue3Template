@@ -1,9 +1,14 @@
 {
+  "actions": {
+    "clear": "Clear",
+    "save": "Save"
+  },
   "brand": "Logitar",
   "copyright": "© Logitar {version} 2023.",
   "home": {
     "clickMe": "Click Me! ({count})",
     "title": "Home"
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "success": "Success!"
 }

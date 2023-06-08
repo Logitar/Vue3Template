@@ -10,10 +10,10 @@ const props = withDefaults(
     disabled?: boolean;
     id: string;
     label?: string;
-    maxDate?: Date;
+    maxDate?: string;
     maxLength?: number;
     maxValue?: number;
-    minDate?: Date;
+    minDate?: string;
     minLength?: number;
     minValue?: number;
     modelValue?: string;
@@ -82,7 +82,7 @@ const validationRules = computed<any>(() => {
 });
 
 const { errorMessage, handleChange, meta, value } = useField<string>(inputName, validationRules, {
-  initialValue: undefined,
+  initialValue: props.modelValue || undefined,
   label: props.label ? t(props.label).toLowerCase() : inputName,
 });
 const classes = computed<string[]>(() => {

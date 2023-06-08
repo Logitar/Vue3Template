@@ -1,14 +1,56 @@
 {
+  "address": {
+    "additional": {
+      "label": "Additional Information",
+      "placeholder": "Enter additional information, if necessary (e.g. P.O. Box #4321)"
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Select your country"
+    },
+    "locality": {
+      "label": "Locality/City",
+      "placeholder": "Enter your locality or city name"
+    },
+    "postalCode": {
+      "label": "Postal Code",
+      "placeholder": "Enter your postal code"
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "Select your region"
+    },
+    "street": {
+      "label": "Street Address",
+      "placeholder": "Enter your street address"
+    },
+    "title": "Postal Address"
+  },
+  "birthdate": "Date of birth",
   "confirm": {
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
   },
+  "createdOn": "Created on",
   "email": {
     "address": {
       "label": "Email Address",
       "placeholder": "Enter your email address"
     },
     "verified": "Verified"
+  },
+  "gender": {
+    "label": "Gender",
+    "options": {
+      "Female": "Female",
+      "Male": "Male",
+      "Other": "Other"
+    },
+    "placeholder": "Select your gender"
+  },
+  "locale": {
+    "label": "Locale",
+    "placeholder": "Select your preferred communication language"
   },
   "name": {
     "first": {
@@ -56,6 +98,36 @@
       "title": "Reset Password"
     }
   },
+  "phone": {
+    "countryCode": {
+      "label": "Country Code",
+      "placeholder": "Select a country"
+    },
+    "e164": "Phone Number (E164)",
+    "extension": {
+      "label": "Phone Extension",
+      "placeholder": "Enter your phone extension"
+    },
+    "invalid": "The phone is not valid.",
+    "number": {
+      "example": "Example:",
+      "label": "Phone Number",
+      "placeholder": "Enter your phone number"
+    },
+    "verified": "Verified"
+  },
+  "picture": {
+    "label": "Picture URL",
+    "placeholder": "Paste the URL to your picture"
+  },
+  "profile": {
+    "confirmed": "Your account has been successfully confirmed.",
+    "label": "Profile URL",
+    "placeholder": "Paste the URL to your profile",
+    "title": "Profile",
+    "updated": "Your profile has been updated.",
+    "welcome": "Welcome to {brand}!"
+  },
   "register": {
     "close": "You may now close this page.",
     "submit": "Register",
@@ -73,5 +145,20 @@
   "signOut": {
     "title": "Sign Out"
   },
-  "usernameOrEmailPlaceholder": "Enter your email address or username"
+  "signedInOn": "Last signed-in on",
+  "tabs": {
+    "authentication": "Authentication Information",
+    "contact": "Contact Information",
+    "personal": "Personal Information"
+  },
+  "timeZone": {
+    "label": "Time Zone",
+    "placeholder": "Select your time zone"
+  },
+  "updatedOn": "Last updated on",
+  "usernameOrEmailPlaceholder": "Enter your email address or username",
+  "website": {
+    "label": "Website URL",
+    "placeholder": "Paste the URL to your website"
+  }
 }

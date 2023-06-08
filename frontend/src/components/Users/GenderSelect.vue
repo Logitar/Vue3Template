@@ -1,0 +1,46 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
+
+const { tm } = useI18n();
+
+withDefaults(
+  defineProps<{
+    disabled?: boolean;
+    id?: string;
+    label?: string;
+    modelValue?: string;
+    placeholder?: string;
+    required?: boolean;
+  }>(),
+  {
+    disabled: false,
+    id: "gender",
+    label: "users.gender.label",
+    placeholder: "users.gender.placeholder",
+    required: false,
+  }
+);
+
+const options = computed<SelectOption[]>(() => {
+  return orderBy(
+    Object.entries(tm("users.gender.options")).map(([value, text]) => ({ text, value } as SelectOption)),
+    "text"
+  );
+});
+</script>
+
+<template>
+  <form-select
+    :disabled="disabled"
+    :id="id"
+    :label="label"
+    :modelValue="modelValue"
+    :options="options"
+    :placeholder="placeholder"
+    :required="required"
+    @update:modelValue="$emit('update:modelValue', $event)"
+  />
+</template>

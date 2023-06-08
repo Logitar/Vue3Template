@@ -18,18 +18,18 @@ const props = withDefaults(
   }
 );
 
-const fieldId = computed<string>(() => props.id ?? `${props.type}Name`);
-const fieldLabel = computed<string>(() => props.label ?? `users.name.${props.type}.label`);
-const fieldPlaceholder = computed<string>(() => props.placeholder ?? `users.name.${props.type}.placeholder`);
+const inputId = computed<string>(() => props.id ?? `${props.type}Name`);
+const inputLabel = computed<string>(() => props.label ?? `users.name.${props.type}.label`);
+const inputPlaceholder = computed<string>(() => props.placeholder ?? `users.name.${props.type}.placeholder`);
 </script>
 
 <template>
   <form-input
-    :id="fieldId"
-    :label="fieldLabel"
+    :id="inputId"
+    :label="inputLabel"
     :maxLength="validate ? 255 : null"
     :modelValue="modelValue"
-    :placeholder="fieldPlaceholder"
+    :placeholder="inputPlaceholder"
     :required="required"
     @update:modelValue="$emit('update:modelValue', $event)"
   />

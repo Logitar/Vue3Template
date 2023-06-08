@@ -1,6 +1,6 @@
 import { configure, defineRule } from "vee-validate";
 import { localize } from "@vee-validate/i18n";
-import { email, max, max_value, min, min_value, required } from "@vee-validate/rules";
+import { email, max, max_value, min, min_value, regex, required } from "@vee-validate/rules";
 
 import confirmed from "./rules/confirmed";
 import requireDigit from "./rules/requireDigit";
@@ -17,6 +17,7 @@ defineRule("max_length", max);
 defineRule("max_value", max_value);
 defineRule("min_length", min);
 defineRule("min_value", min_value);
+defineRule("regex", regex);
 defineRule("require_digit", requireDigit);
 defineRule("require_lowercase", requireLowercase);
 defineRule("require_non_alphanumeric", requireNonAlphanumeric);
