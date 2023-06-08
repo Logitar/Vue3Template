@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { SelectOption } from "@/types/SelectOption";
 import locales from "@/resources/locales.json";
+import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
 
 withDefaults(
   defineProps<{
@@ -22,7 +23,10 @@ withDefaults(
 );
 
 const options = computed<SelectOption[]>(() => {
-  return locales.map(({ Name, NativeName }) => ({ value: Name, text: NativeName })); // TODO(fpion): sort
+  return orderBy(
+    locales.map(({ Name, NativeName }) => ({ value: Name, text: NativeName })),
+    "text"
+  );
 });
 </script>
 

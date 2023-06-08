@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { SelectOption } from "@/types/SelectOption";
 import timeZones from "@/resources/timeZones.json";
+import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
 
 withDefaults(
   defineProps<{
@@ -22,7 +23,10 @@ withDefaults(
 );
 
 const options = computed<SelectOption[]>(() => {
-  return timeZones.map(({ id, displayName }) => ({ value: id, text: displayName })); // TODO(fpion): sort
+  return orderBy(
+    timeZones.map(({ id, displayName }) => ({ value: id, text: displayName })),
+    "text"
+  );
 });
 </script>
 

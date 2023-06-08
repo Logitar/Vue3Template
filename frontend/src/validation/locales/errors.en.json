@@ -5,6 +5,7 @@
   "max_value": "The {field} must be lesser than or equal to 0:{max}.",
   "min_length": "The {field} must contain at least 0:{length} characters.",
   "min_value": "The {field} must be greater than or equal to 0:{min}.",
+  "regex": "The {field} must match the following pattern: 0:{pattern}",
   "require_digit": "The {field} must contain at least one digit (0-9).",
   "require_lowercase": "The {field} must contain at least one lowercase letter (a-z).",
   "require_non_alphanumeric": "The {field} must contain at least one special character (e.g. !@/$%&*_+-).",

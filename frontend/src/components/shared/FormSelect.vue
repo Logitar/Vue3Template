@@ -24,15 +24,18 @@ const props = withDefaults(
 );
 
 const inputName = computed<string>(() => props.name ?? props.id);
-
-const { errorMessage, handleChange, meta, value } = useField<string>(
-  inputName,
-  { required: props.required },
-  {
-    initialValue: props.modelValue || undefined,
-    label: props.label ? t(props.label).toLowerCase() : inputName,
+const validationRules = computed<any>(() => {
+  const rules: any = {};
+  if (props.required) {
+    rules.required = true;
   }
-);
+  return rules;
+});
+
+const { errorMessage, handleChange, meta, value } = useField<string>(inputName, validationRules, {
+  initialValue: props.modelValue || undefined,
+  label: props.label ? t(props.label).toLowerCase() : inputName,
+});
 const classes = computed<string[]>(() => {
   const classes = ["form-control"];
   if (meta.dirty || meta.touched) {
@@ -57,7 +60,7 @@ const validationListeners = computed<any>(() => ({
       <slot name="prepend"></slot>
       <select :class="classes" :disabled="disabled" :id="id" :name="inputName" :value="value" v-on="validationListeners">
         <option v-if="placeholder" :disabled="required" value="">{{ t(placeholder) }}</option>
-        <option v-for="option in options" :key="option.value" :value="option.value">{{ option.key ? t(option.key) : option.text }}</option>
+        <option v-for="option in options" :key="option.value" :value="option.value">{{ option.text }}</option>
       </select>
       <slot name="append"></slot>
     </div>

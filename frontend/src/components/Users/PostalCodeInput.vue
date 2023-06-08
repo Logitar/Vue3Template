@@ -1,6 +1,10 @@
 <script setup lang="ts">
-withDefaults(
+import type { CountrySettings } from "@/types/CountrySettings";
+import { computed } from "vue";
+
+const props = withDefaults(
   defineProps<{
+    country?: CountrySettings;
     disabled?: boolean;
     id?: string;
     label?: string;
@@ -18,6 +22,15 @@ withDefaults(
     validate: false,
   }
 );
+
+const rules = computed<any>(() => {
+  const rules: any = {};
+  const regex = props.country?.postalCode;
+  if (regex) {
+    rules.regex = regex;
+  }
+  return rules;
+});
 </script>
 
 <template>
@@ -29,6 +42,7 @@ withDefaults(
     :modelValue="modelValue"
     :placeholder="placeholder"
     :required="required"
+    :rules="rules"
     @update:modelValue="$emit('update:modelValue', $event)"
   />
 </template>

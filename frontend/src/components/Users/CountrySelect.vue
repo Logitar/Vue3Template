@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watchEffect } from "vue";
+import { useI18n } from "vue-i18n";
 import countries from "@/resources/countries.json";
 import type { CountrySettings } from "@/types/CountrySettings";
 import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
 
-const map = new Map<string, CountrySettings>();
-countries.forEach((country) => map.set(country.code, country));
+const { t } = useI18n();
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     disabled?: boolean;
     id?: string;
@@ -25,18 +26,24 @@ withDefaults(
   }
 );
 
-const options = computed<SelectOption[]>(() => countries.map(({ code }) => ({ key: `countries.${code}.name`, value: code }))); // TODO(fpion): sort
+const options = computed<SelectOption[]>(() =>
+  orderBy(
+    countries.map(({ code }) => ({ text: t(`countries.${code}.name`), value: code })),
+    "text"
+  )
+);
 
+const map = new Map<string, CountrySettings>();
+countries.forEach((country) => map.set(country.code, country));
 const emit = defineEmits(["countrySelected", "update:modelValue"]);
-function onModelValueUpdated(value: string): void {
-  emit("update:modelValue", value);
-  if (value) {
-    const country: CountrySettings | undefined = map.get(value);
+watchEffect(() => {
+  if (props.modelValue) {
+    const country: CountrySettings | undefined = map.get(props.modelValue);
     emit("countrySelected", country);
   } else {
     emit("countrySelected", undefined);
   }
-}
+});
 </script>
 
 <template>
@@ -48,6 +55,6 @@ function onModelValueUpdated(value: string): void {
     :options="options"
     :placeholder="placeholder"
     :required="required"
-    @update:modelValue="onModelValueUpdated"
+    @update:modelValue="$emit('update:modelValue', $event)"
   />
 </template>

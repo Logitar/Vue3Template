@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 import type { CountrySettings } from "@/types/CountrySettings";
 import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
+
+const { t } = useI18n();
 
 const props = withDefaults(
   defineProps<{
@@ -22,9 +26,9 @@ const props = withDefaults(
   }
 );
 
-const options = computed<SelectOption[]>(
-  () => props.country?.regions.map((region) => ({ key: `countries.${props.country?.code}.regions.${region}`, value: region })) ?? []
-); // TODO(fpion): sort
+const options = computed<SelectOption[]>(() =>
+  orderBy(props.country?.regions.map((region) => ({ text: t(`countries.${props.country?.code}.regions.${region}`), value: region })) ?? [], "text")
+);
 </script>
 
 <template>

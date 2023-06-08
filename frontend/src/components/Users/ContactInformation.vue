@@ -107,9 +107,7 @@ function clearAddress() {
   address.value.region = undefined;
 }
 
-// TODO(fpion): postal code regex
-// TODO(fpion): region not selected when loading profile with existing street address
-// TODO(fpion): cannot save when address is cleared
+// TODO(fpion): tabs control
 </script>
 
 <template>
@@ -137,7 +135,7 @@ function clearAddress() {
       </div>
       <div class="row">
         <AddressLocalityInput class="col-lg-6" :required="isAddressRequired" validate v-model="address.locality" />
-        <PostalCodeInput class="col-lg-6" validate v-model="address.postalCode" />
+        <PostalCodeInput class="col-lg-6" :country="selectedCountry" validate v-model="address.postalCode" />
       </div>
       <div class="row">
         <CountrySelect class="col-lg-6" :required="isAddressRequired" v-model="address.country" @countrySelected="selectedCountry = $event" />

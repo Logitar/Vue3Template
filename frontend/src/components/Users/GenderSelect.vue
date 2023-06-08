@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import type { SelectOption } from "@/types/SelectOption";
+import { orderBy } from "@/helpers/arrayUtils";
 
 const { tm } = useI18n();
 
@@ -24,7 +25,10 @@ withDefaults(
 );
 
 const options = computed<SelectOption[]>(() => {
-  return Object.entries(tm("users.gender.options")).map(([value, text]) => ({ text, value } as SelectOption)); // TODO(fpion): sort
+  return orderBy(
+    Object.entries(tm("users.gender.options")).map(([value, text]) => ({ text, value } as SelectOption)),
+    "text"
+  );
 });
 </script>
 

@@ -25,3 +25,5 @@ app.use(router);
 app.use(sharedComponents);
 
 app.mount("#app");
+
+// TODO(fpion): always define all emits from components
