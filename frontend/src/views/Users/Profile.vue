@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
@@ -41,6 +41,30 @@ const profile = ref<string>("");
 const timeZone = ref<string>("");
 const user = ref<UserProfile>();
 const website = ref<string>("");
+
+const hasChanges = computed<boolean>(() => {
+  const model: UserProfile | undefined = user.value;
+  if (!model) {
+    return false;
+  }
+  return (
+    email.value.address !== model.email.address ||
+    phone.value.countryCode !== model.phone?.countryCode ||
+    phone.value.number !== model.phone?.number ||
+    phone.value.extension !== model.phone?.extension ||
+    firstName.value !== model.firstName ||
+    lastName.value !== model.lastName ||
+    middleName.value !== model.middleName ||
+    nickname.value !== model.nickname ||
+    Number(birthdate.value) !== Number(model.birthdate ? new Date(model.birthdate) : undefined) ||
+    gender.value !== model.gender ||
+    locale.value !== model.locale ||
+    timeZone.value !== model.timeZone ||
+    picture.value !== model.picture ||
+    profile.value !== model.profile ||
+    website.value !== model.website
+  );
+});
 
 function setModel(model: UserProfile): void {
   user.value = model;
@@ -189,7 +213,7 @@ const onSubmit = handleSubmit(async () => {
       <PictureInput v-model="picture" />
       <ProfileInput v-model="profile" />
       <WebsiteInput v-model="website" />
-      <icon-submit :disabled="isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
+      <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
     </form>
   </div>
 </template>
