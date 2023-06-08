@@ -9,6 +9,8 @@ public record UserProfile
   {
     Username = user.Username;
 
+    PasswordChangedOn = user.PasswordChangedOn ?? throw new ArgumentException($"The {nameof(user.PasswordChangedOn)} is required.", nameof(user));
+
     SignedInOn = user.SignedInOn;
 
     Address = user.Address;
@@ -36,6 +38,8 @@ public record UserProfile
   }
 
   public string Username { get; }
+
+  public DateTime PasswordChangedOn { get; }
 
   public DateTime? SignedInOn { get; }
 

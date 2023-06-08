@@ -1,4 +1,5 @@
 import type { ApiResult } from "@/types/ApiResult";
+import type { ChangePasswordPayload } from "@/types/ChangePasswordPayload";
 import type { ConfirmPayload } from "@/types/ConfirmPayload";
 import type { RecoverPasswordPayload } from "@/types/RecoverPasswordPayload";
 import type { RegisterPayload } from "@/types/RegisterPayload";
@@ -7,6 +8,10 @@ import type { SaveContactInformationPayload } from "@/types/SaveContactInformati
 import type { SavePersonalInformationPayload } from "@/types/SavePersonalInformationPayload";
 import type { SignInPayload } from "@/types/SignInPayload";
 import { get, post, put } from ".";
+
+export async function changePassword(payload: ChangePasswordPayload): Promise<ApiResult> {
+  return await post("/account/password/change", payload);
+}
 
 export async function confirm(payload: ConfirmPayload): Promise<ApiResult> {
   return await post("/account/confirm", payload);

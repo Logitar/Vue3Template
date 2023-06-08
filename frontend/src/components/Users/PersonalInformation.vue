@@ -12,6 +12,7 @@ import WebsiteInput from "@/components/Users/WebsiteInput.vue";
 import type { UserProfile } from "@/types/UserProfile";
 import { savePersonalInformation } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
+import { toast } from "@/helpers/errorUtils";
 
 const props = defineProps<{
   user: UserProfile;
@@ -82,7 +83,8 @@ const onSubmit = handleSubmit(async () => {
       website: website.value,
     });
     emit("profileUpdated", data);
-  } catch (e) {
+    toast("success", "users.profile.updated", "success");
+  } catch (e: any) {
     handleError(e);
   }
 });

@@ -17,6 +17,7 @@ import type { PhoneInput } from "@/types/PhoneInput";
 import type { UserProfile } from "@/types/UserProfile";
 import { handleError } from "@/helpers/errorUtils";
 import { saveContactInformation } from "@/api/account";
+import { toast } from "@/helpers/errorUtils";
 
 const { t } = useI18n();
 
@@ -93,7 +94,8 @@ const onSubmit = handleSubmit(async () => {
       phone: phone.value.number ? phone.value : undefined,
     });
     emit("profileUpdated", data);
-  } catch (e) {
+    toast("success", "users.profile.updated", "success");
+  } catch (e: any) {
     handleError(e);
   }
 });

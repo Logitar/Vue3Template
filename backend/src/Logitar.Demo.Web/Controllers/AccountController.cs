@@ -62,6 +62,31 @@ public class AccountController : ControllerBase
     return NoContent();
   }
 
+  [Authorize]
+  [HttpPost("password/change")]
+  public async Task<ActionResult<UserProfile>> ChangePasswordAsync([FromBody] ChangePasswordInput input, CancellationToken cancellationToken)
+  {
+    try
+    {
+      User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
+      user = await _userService.ChangePasswordAsync(user.Id, input, cancellationToken);
+      UserProfile profile = new(user);
+
+      return Ok(profile);
+    }
+    catch (ErrorException exception)
+    {
+      ErrorData? statusCode = exception.Error.Data.SingleOrDefault(d => d.Key == "StatusCode");
+      ErrorData? content = exception.Error.Data.SingleOrDefault(d => d.Key == "Content");
+      if (statusCode?.Value == StatusCodes.Status400BadRequest.ToString() && content?.Value.Contains("InvalidCredentials") == true)
+      {
+        return InvalidCredentials();
+      }
+
+      throw;
+    }
+  }
+
   [HttpPost("password/recover")]
   public async Task<ActionResult> RecoverPasswordAsync([FromBody] RecoverPasswordPayload payload, CancellationToken cancellationToken)
   {

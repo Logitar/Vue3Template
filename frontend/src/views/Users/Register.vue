@@ -37,7 +37,7 @@ const onSubmit = handleSubmit(async () => {
       locale: locale.value,
     });
     success.value = true;
-  } catch (e) {
+  } catch (e: any) {
     handleError(e);
   }
 });

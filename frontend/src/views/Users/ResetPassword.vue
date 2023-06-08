@@ -42,7 +42,7 @@ const onSubmit = handleSubmit(async () => {
   try {
     await resetPassword({ token, password: password.value });
     success.value = true;
-  } catch (e) {
+  } catch (e: any) {
     handleError(e);
   }
 });
@@ -59,9 +59,9 @@ const onSubmit = handleSubmit(async () => {
     <template v-else>
       <app-alert show variant="info">{{ t("users.password.reset.info") }}</app-alert>
       <form @submit.prevent="onSubmit">
-        <PasswordInput required validate v-model="password" />
+        <PasswordInput label="users.password.new.label" placeholder="users.password.new.placeholder" required validate v-model="password" />
         <PasswordInput
-          :confirm="{ value: password, label: 'users.password.label' }"
+          :confirm="{ value: password, label: 'users.password.new.label' }"
           id="confirm"
           label="users.password.confirm.label"
           placeholder="users.password.confirm.placeholder"

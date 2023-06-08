@@ -2,13 +2,13 @@
 import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
+import AuthenticationInformation from "@/components/Users/AuthenticationInformation.vue";
 import ContactInformation from "@/components/Users/ContactInformation.vue";
 import PersonalInformation from "@/components/Users/PersonalInformation.vue";
 import ProfileHeader from "@/components/Users/ProfileHeader.vue";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-import { toast } from "@/helpers/errorUtils";
 
 const { t } = useI18n();
 const { query } = useRoute();
@@ -18,7 +18,6 @@ const user = ref<UserProfile>();
 
 function onProfileUpdated(value: UserProfile): void {
   user.value = value;
-  toast("success", "users.profile.updated", "success");
 }
 
 onMounted(async () => {
@@ -43,7 +42,7 @@ onMounted(async () => {
         <template #headers>
           <tab-header active id="personalHeader" target="personalContents">{{ t("users.tabs.personal") }}</tab-header>
           <tab-header id="contactHeader" target="contactContents">{{ t("users.tabs.contact") }}</tab-header>
-          <tab-header id="authenticationHeader" target="authenticationContents" disabled>{{ t("users.tabs.authentication") }}</tab-header>
+          <tab-header id="authenticationHeader" target="authenticationContents">{{ t("users.tabs.authentication") }}</tab-header>
         </template>
         <template #contents>
           <tab-contents active header="personalHeader" id="personalContents">
@@ -52,7 +51,9 @@ onMounted(async () => {
           <tab-contents header="contactHeader" id="contactContents">
             <ContactInformation :user="user" @profileUpdated="onProfileUpdated" />
           </tab-contents>
-          <tab-contents header="authenticationHeader" id="authenticationContents">TODO</tab-contents>
+          <tab-contents header="authenticationHeader" id="authenticationContents">
+            <AuthenticationInformation :user="user" @profileUpdated="onProfileUpdated" />
+          </tab-contents>
         </template>
       </app-tabs>
     </template>

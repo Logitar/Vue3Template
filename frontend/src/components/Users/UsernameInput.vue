@@ -4,6 +4,7 @@ import type { UsernameSettings } from "@/types/UsernameSettings";
 
 const props = withDefaults(
   defineProps<{
+    disabled?: boolean;
     id?: string;
     label?: string;
     modelValue?: string;
@@ -13,6 +14,7 @@ const props = withDefaults(
     validate?: boolean;
   }>(),
   {
+    disabled: false,
     id: "username",
     label: "users.name.user.label",
     placeholder: "users.name.user.placeholder",
@@ -33,6 +35,7 @@ const rules = computed<any>(() => {
 
 <template>
   <form-input
+    :disabled="disabled"
     :id="id"
     :label="label"
     :maxLength="validate ? 255 : null"

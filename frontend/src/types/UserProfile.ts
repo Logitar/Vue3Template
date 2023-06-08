@@ -4,6 +4,7 @@ import type { Phone } from "./Phone";
 
 export type UserProfile = {
   username: string;
+  passwordChangedOn?: string;
   signedInOn?: string;
   address?: Address;
   email: Email;

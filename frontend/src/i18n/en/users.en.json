@@ -76,11 +76,23 @@
     }
   },
   "password": {
+    "changeFailed": "Password change failed!",
+    "changed": "Your password has been changed.",
+    "changedOn": "Last changed on {date}",
     "confirm": {
       "label": "Password Confirmation",
-      "placeholder": "Enter your password again"
+      "placeholder": "Enter the same password again"
     },
+    "current": {
+      "label": "Current Password",
+      "placeholder": "Enter your current password"
+    },
+    "invalidCredentials": "Please check you provided your correct current password.",
     "label": "Password",
+    "new": {
+      "label": "New Password",
+      "placeholder": "Enter a new password"
+    },
     "placeholder": "Enter your password",
     "recover": {
       "close": "You may now close this page.",
@@ -96,7 +108,8 @@
       "submit": "Reset password",
       "success": "Your password has been changed.",
       "title": "Reset Password"
-    }
+    },
+    "submit": "Change password"
   },
   "phone": {
     "countryCode": {
