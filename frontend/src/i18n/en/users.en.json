@@ -24,7 +24,8 @@
       "label": "Street Address",
       "placeholder": "Enter your street address"
     },
-    "title": "Postal Address"
+    "title": "Postal Address",
+    "verified": "Verified"
   },
   "birthdate": "Date of birth",
   "confirm": {

@@ -9,15 +9,19 @@ import ProfileHeader from "@/components/Users/ProfileHeader.vue";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
+import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
 const { query } = useRoute();
+
+const account = useAccountStore();
 
 const confirmed = ref<boolean>(query.status === "confirmed");
 const user = ref<UserProfile>();
 
 function onProfileUpdated(value: UserProfile): void {
   user.value = value;
+  account.signIn(value);
 }
 
 onMounted(async () => {

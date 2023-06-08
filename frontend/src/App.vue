@@ -1,33 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+import { RouterView } from "vue-router";
+import AppFooter from "./components/Layout/AppFooter.vue";
+import AppNavbar from "./components/Layout/AppNavbar.vue";
 </script>
 
 <template>
-  <header>
-    <ul>
-      <li>
-        <RouterLink :to="{ name: 'Home' }">{{ t("home.title") }}</RouterLink>
-      </li>
-      <li>
-        <RouterLink :to="{ name: 'About' }">About</RouterLink>
-      </li>
-      <li>
-        <RouterLink :to="{ name: 'SignIn' }"><font-awesome-icon icon="fas fa-arrow-right-to-bracket" /> {{ t("users.signIn.title") }}</RouterLink>
-      </li>
-      <li>
-        <RouterLink :to="{ name: 'Register' }"><font-awesome-icon icon="fas fa-user" /> {{ t("users.register.title") }}</RouterLink>
-      </li>
-      <li>
-        <RouterLink :to="{ name: 'Profile' }"><font-awesome-icon icon="fas fa-user" /> user_profile</RouterLink>
-      </li>
-      <li>
-        <RouterLink :to="{ name: 'SignOut' }"><font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}</RouterLink>
-      </li>
-    </ul>
-  </header>
-
+  <AppNavbar environment="Development" />
   <RouterView />
+  <AppFooter version="1.0.0" />
 </template>

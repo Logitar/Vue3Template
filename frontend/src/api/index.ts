@@ -1,4 +1,5 @@
 import type { ApiResult } from "@/types/ApiResult";
+import { useAccountStore } from "@/stores/account";
 
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
 const contentType: string = "Content-Type";
@@ -33,6 +34,8 @@ async function execute(method: string, url: string, data?: any): Promise<ApiResu
 
   if (!response.ok) {
     if (response.status === 401) {
+      const account = useAccountStore();
+      account.signOut();
       window.location.replace(`/sign-in?redirect=${window.location.pathname}`);
     }
     throw result;

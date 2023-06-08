@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import type { UserProfile } from "@/types/UserProfile";
 
 const { d, t } = useI18n();
 
-defineProps<{
+const props = defineProps<{
   user: UserProfile;
 }>();
+
+const addressLines = computed<string[]>(() => props.user.address?.formatted.split("\n") ?? []);
 </script>
 
 <template>
@@ -28,6 +31,16 @@ defineProps<{
         <td>
           {{ user.phone.e164Formatted }}
           <app-badge v-if="user.phone.isVerified">{{ t("users.phone.verified") }}</app-badge>
+        </td>
+      </tr>
+      <tr v-if="user.address">
+        <th scope="row">{{ t("users.address.title") }}</th>
+        <td>
+          <template v-for="(line, index) in addressLines" :key="index"><br v-if="index > 0" />{{ line }}</template>
+          <template v-if="user.address.isVerified">
+            {{ " " }}
+            <app-badge>{{ t("users.address.verified") }}</app-badge>
+          </template>
         </td>
       </tr>
       <tr>

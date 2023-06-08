@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import persistedState from "pinia-plugin-persistedstate";
 
 import App from "./App.vue";
 import fontAwesome from "./fontAwesome";
@@ -17,10 +18,13 @@ import "./validation";
 
 const app = createApp(App);
 
-app.use(createPinia());
+const pinia = createPinia();
+pinia.use(persistedState);
+
 app.use(fontAwesome);
 app.use(i18n);
 app.use(maz);
+app.use(pinia);
 app.use(router);
 app.use(sharedComponents);
 

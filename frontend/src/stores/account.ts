@@ -1,0 +1,22 @@
+import { ref } from "vue";
+import { defineStore } from "pinia";
+import type { UserProfile } from "@/types/UserProfile";
+
+export const useAccountStore = defineStore(
+  "account",
+  () => {
+    const authenticated = ref<UserProfile>();
+
+    function signIn(user: UserProfile): void {
+      authenticated.value = user;
+    }
+    function signOut(): void {
+      authenticated.value = undefined;
+    }
+
+    return { authenticated, signIn, signOut };
+  },
+  {
+    persist: true,
+  }
+);

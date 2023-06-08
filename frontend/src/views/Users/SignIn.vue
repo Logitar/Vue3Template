@@ -5,10 +5,14 @@ import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
+import type { ApiResult } from "@/types/ApiResult";
 import { handleError } from "@/helpers/errorUtils";
 import { signIn } from "@/api/account";
-import type { ApiResult } from "@/types/ApiResult";
+import { useAccountStore } from "@/stores/account";
+
 const { t } = useI18n();
+
+const account = useAccountStore();
 
 const invalidCredentials = ref<boolean>(false);
 const password = ref<string>("");
@@ -22,7 +26,8 @@ const router = useRouter();
 const onSubmit = handleSubmit(async () => {
   try {
     invalidCredentials.value = false;
-    await signIn({ username: username.value, password: password.value, remember: remember.value });
+    const { data } = await signIn({ username: username.value, password: password.value, remember: remember.value });
+    account.signIn(data);
     const redirect: string | undefined = route.query.redirect?.toString();
     router.push(redirect ?? { name: "Profile" });
   } catch (e: any) {
