@@ -327,7 +327,7 @@ public class AccountController : ControllerBase
   }
 
   [HttpPost("sign/in")]
-  public async Task<ActionResult> SignInAsync([FromBody] SignInPayload payload, CancellationToken cancellationToken)
+  public async Task<ActionResult<UserProfile>> SignInAsync([FromBody] SignInPayload payload, CancellationToken cancellationToken)
   {
     try
     {
@@ -342,7 +342,9 @@ public class AccountController : ControllerBase
       Session session = await _sessionService.SignInAsync(input, _realm, cancellationToken);
       HttpContext.SignIn(session);
 
-      return NoContent();
+      UserProfile profile = new(session.User);
+
+      return Ok(profile);
     }
     catch (ErrorException exception)
     {
