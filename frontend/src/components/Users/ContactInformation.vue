@@ -106,15 +106,14 @@ function clearAddress() {
   address.value.country = "";
   address.value.region = undefined;
 }
-
-// TODO(fpion): tabs control
 </script>
 
 <template>
   <div>
-    <h2>{{ t("users.contact.title") }}</h2>
     <form @submit.prevent="onSubmit">
-      <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
+      <div class="my-3">
+        <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
+      </div>
       <EmailAddressInput :disabled="user?.email.isVerified" required validate :verified="user?.email.isVerified" v-model="email.address" />
       <div class="row">
         <PhoneNumberInput
@@ -128,7 +127,7 @@ function clearAddress() {
         />
         <PhoneExtensionInput class="col-lg-6" validate v-model="phone.extension" />
       </div>
-      <h3>{{ t("users.address.title") }}</h3>
+      <h5>{{ t("users.address.title") }}</h5>
       <div class="row">
         <AddressLineInput class="col-lg-6" :required="isAddressRequired" type="street" validate v-model="address.line1" />
         <AddressLineInput class="col-lg-6" type="additional" validate v-model="address.line2" />

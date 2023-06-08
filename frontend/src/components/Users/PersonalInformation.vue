@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
-import { useI18n } from "vue-i18n";
 import BirthdateInput from "@/components/Users/BirthdateInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
 import LocaleSelect from "@/components/Users/LocaleSelect.vue";
@@ -13,8 +12,6 @@ import WebsiteInput from "@/components/Users/WebsiteInput.vue";
 import type { UserProfile } from "@/types/UserProfile";
 import { savePersonalInformation } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-
-const { t } = useI18n();
 
 const props = defineProps<{
   user: UserProfile;
@@ -93,9 +90,10 @@ const onSubmit = handleSubmit(async () => {
 
 <template>
   <div>
-    <h2>{{ t("users.personal.title") }}</h2>
     <form @submit.prevent="onSubmit">
-      <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
+      <div class="my-3">
+        <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
+      </div>
       <div class="row">
         <PersonNameInput class="col-lg-6" required type="first" validate v-model="firstName" />
         <PersonNameInput class="col-lg-6" required type="last" validate v-model="lastName" />

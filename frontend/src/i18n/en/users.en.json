@@ -31,9 +31,6 @@
     "failed": "Account confirmation failed!",
     "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
   },
-  "contact": {
-    "title": "Contact Information"
-  },
   "createdOn": "Created on",
   "email": {
     "address": {
@@ -101,9 +98,6 @@
       "title": "Reset Password"
     }
   },
-  "personal": {
-    "title": "Personal Information"
-  },
   "phone": {
     "countryCode": {
       "label": "Country Code",
@@ -152,6 +146,11 @@
     "title": "Sign Out"
   },
   "signedInOn": "Last signed-in on",
+  "tabs": {
+    "authentication": "Authentication Information",
+    "contact": "Contact Information",
+    "personal": "Personal Information"
+  },
   "timeZone": {
     "label": "Time Zone",
     "placeholder": "Select your time zone"
