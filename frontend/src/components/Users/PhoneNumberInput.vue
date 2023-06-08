@@ -36,20 +36,20 @@ const classes = computed<string[]>(() => {
   return classes;
 });
 
-type MazColor = "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "white" | "black";
-const color = computed<MazColor | undefined>(() => {
+const inputName = computed<string>(() => props.name ?? props.id);
+const inputPlaceholder = computed<string>(() => (props.modelValue ? undefined : t(props.placeholder)));
+
+type MazState = "success" | "warning" | "error";
+const state = computed<MazState | undefined>(() => {
   switch (isValid.value) {
     case true:
       return "success";
     case false:
-      return "danger";
+      return "error";
     default:
       return undefined;
   }
 });
-
-const inputName = computed<string>(() => props.name ?? props.id);
-const inputPlaceholder = computed<string>(() => (props.modelValue ? undefined : t(props.placeholder)));
 
 const translations = computed(() => ({
   countrySelector: {
@@ -65,8 +65,6 @@ function onUpdate(e: any): void {
   isValid.value = props.modelValue ? e.isValid : undefined;
 }
 
-// TODO(fpion): colors
-
 defineExpose({ isValid });
 </script>
 
@@ -80,14 +78,15 @@ defineExpose({ isValid });
       <slot name="prepend"></slot>
       <maz-phone-number-input
         :class="classes"
-        :color="color"
         :defaultCountryCode="countryCode"
         :disabled="disabled"
+        :error="state === 'error'"
         :id="id"
         :modelValue="modelValue"
         :name="inputName"
         :placeholder="inputPlaceholder"
         size="sm"
+        :success="state === 'success'"
         :translations="translations"
         @country-code="$emit('country-code', $event)"
         @update="onUpdate"

@@ -1,5 +1,7 @@
 :root {
   --maz-border-width: 1px;
+  --maz-color-danger: #dc3545;
+  --maz-color-success: #198754;
 }
 
 /* a {
