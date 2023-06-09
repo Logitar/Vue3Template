@@ -14,10 +14,10 @@ import type { AddressInput } from "@/types/AddressInput";
 import type { CountrySettings } from "@/types/CountrySettings";
 import type { EmailInput } from "@/types/EmailInput";
 import type { PhoneInput } from "@/types/PhoneInput";
+import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { handleError } from "@/helpers/errorUtils";
 import { saveContactInformation } from "@/api/account";
-import { toast } from "@/helpers/errorUtils";
 
 const { t } = useI18n();
 
@@ -90,8 +90,8 @@ const onSubmit = handleSubmit(async () => {
       email: email.value,
       phone: phone.value.number ? phone.value : undefined,
     });
-    emit("profileUpdated", data);
-    toast("success", "users.profile.updated", "success");
+    const event: ProfileUpdatedEvent = { user: data };
+    emit("profileUpdated", event);
   } catch (e: any) {
     handleError(e);
   }

@@ -12,7 +12,7 @@ defineProps<{
   <footer class="bg-dark">
     <div class="fluid">
       <RouterLink :to="{ name: 'Home' }" class="text-light">
-        <img src="@/assets/logo.png" :alt="`${t('brand')} Logo`" height="32" /> {{ t("copyright", { version }) }}
+        <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" /> {{ t("copyright", { version }) }}
       </RouterLink>
     </div>
   </footer>

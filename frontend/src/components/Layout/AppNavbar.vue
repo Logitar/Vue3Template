@@ -20,7 +20,7 @@ const environmentName = computed<string>(() => props.environment.toLowerCase());
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
       <RouterLink :to="{ name: 'Home' }" class="navbar-brand">
-        <img src="@/assets/logo.png" :alt="`${t('brand')} Logo`" height="32" />
+        <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" />
         {{ t("brand") }}
         <span v-if="environmentName !== 'production'" class="badge text-bg-warning">{{ environmentName }}</span>
       </RouterLink>
