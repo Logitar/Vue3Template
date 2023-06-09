@@ -57,7 +57,7 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
 
 <template>
   <div>
-    <form class="my-3" @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit">
       <UsernameInput disabled :modelValue="user.username" />
       <h5>{{ t("users.password.label") }}</h5>
       <app-alert dismissible variant="warning" v-model="invalidCredentials">

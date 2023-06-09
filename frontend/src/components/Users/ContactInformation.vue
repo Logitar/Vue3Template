@@ -111,7 +111,7 @@ function clearAddress() {
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <div class="my-3">
+      <div class="mb-3">
         <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
       </div>
       <EmailAddressInput :disabled="user.email.isVerified" required validate :verified="user.email.isVerified" v-model="email.address" />

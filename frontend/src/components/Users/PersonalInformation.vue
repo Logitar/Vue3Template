@@ -94,7 +94,7 @@ const onSubmit = handleSubmit(async () => {
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <div class="my-3">
+      <div class="mb-3">
         <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
       </div>
       <div class="row">

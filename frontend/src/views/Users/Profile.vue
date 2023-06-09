@@ -49,22 +49,15 @@ onMounted(async () => {
     <template v-if="user">
       <ProfileHeader :user="user" />
       <app-tabs>
-        <template #headers>
-          <tab-header active id="personalHeader" target="personalContents">{{ t("users.tabs.personal") }}</tab-header>
-          <tab-header id="contactHeader" target="contactContents">{{ t("users.tabs.contact") }}</tab-header>
-          <tab-header id="authenticationHeader" target="authenticationContents">{{ t("users.tabs.authentication") }}</tab-header>
-        </template>
-        <template #contents>
-          <tab-contents active header="personalHeader" id="personalContents">
-            <PersonalInformation :user="user" @profileUpdated="onProfileUpdated" />
-          </tab-contents>
-          <tab-contents header="contactHeader" id="contactContents">
-            <ContactInformation :user="user" @profileUpdated="onProfileUpdated" />
-          </tab-contents>
-          <tab-contents header="authenticationHeader" id="authenticationContents">
-            <AuthenticationInformation :user="user" @profileUpdated="onProfileUpdated" />
-          </tab-contents>
-        </template>
+        <app-tab active id="personal" title="users.tabs.personal">
+          <PersonalInformation :user="user" @profileUpdated="onProfileUpdated" />
+        </app-tab>
+        <app-tab id="contact" title="users.tabs.contact">
+          <ContactInformation :user="user" @profileUpdated="onProfileUpdated" />
+        </app-tab>
+        <app-tab id="authentication" title="users.tabs.authentication">
+          <AuthenticationInformation :user="user" @profileUpdated="onProfileUpdated" />
+        </app-tab>
       </app-tabs>
     </template>
   </div>
