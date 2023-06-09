@@ -21,6 +21,10 @@ const props = withDefaults(
 const inputId = computed<string>(() => props.id ?? `${props.type}Name`);
 const inputLabel = computed<string>(() => props.label ?? `users.name.${props.type}.label`);
 const inputPlaceholder = computed<string>(() => props.placeholder ?? `users.name.${props.type}.placeholder`);
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>

@@ -53,7 +53,7 @@ const onSubmit = handleSubmit(async () => {
     </app-alert>
     <form v-else @submit.prevent="onSubmit">
       <div class="row">
-        <EmailAddressInput class="col-lg-6" :model-value="emailAddress" required validate @input="onEmailAddressInput" />
+        <EmailAddressInput class="col-lg-6" :modelValue="emailAddress" required validate @input="onEmailAddressInput" />
         <UsernameInput class="col-lg-6" required validate v-model="username" />
       </div>
       <div class="row">

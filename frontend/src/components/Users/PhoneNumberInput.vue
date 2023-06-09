@@ -66,6 +66,11 @@ function onUpdate(e: any): void {
 }
 
 defineExpose({ isValid });
+
+defineEmits<{
+  (e: "countryCode", value: string): void;
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>
@@ -88,9 +93,9 @@ defineExpose({ isValid });
         size="sm"
         :success="state === 'success'"
         :translations="translations"
-        @country-code="$emit('country-code', $event)"
+        @country-code="$emit('countryCode', $event)"
         @update="onUpdate"
-        @update:modelValue="$emit('update:model-value', $event)"
+        @update:modelValue="$emit('update:modelValue', $event)"
       />
       <span v-if="verified" class="input-group-text bg-info text-white"><font-awesome-icon icon="fas fa-check" />&nbsp;{{ t("users.phone.verified") }}</span>
       <slot name="append"></slot>

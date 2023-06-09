@@ -32,7 +32,9 @@ const classes = computed<string[]>(() => {
   return classes;
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits<{
+  (e: "update:modelValue", value: false): void;
+}>();
 function onClose() {
   emit("update:modelValue", false);
 }

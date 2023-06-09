@@ -35,7 +35,10 @@ const options = computed<SelectOption[]>(() =>
 
 const map = new Map<string, CountrySettings>();
 countries.forEach((country) => map.set(country.code, country));
-const emit = defineEmits(["countrySelected", "update:modelValue"]);
+const emit = defineEmits<{
+  (e: "countrySelected", country?: CountrySettings): void;
+  (e: "update:modelValue", value: string): void;
+}>();
 watchEffect(() => {
   if (props.modelValue) {
     const country: CountrySettings | undefined = map.get(props.modelValue);

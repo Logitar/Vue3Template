@@ -29,6 +29,10 @@ const props = withDefaults(
 const options = computed<SelectOption[]>(() =>
   orderBy(props.country?.regions.map((region) => ({ text: t(`countries.${props.country?.code}.regions.${region}`), value: region })) ?? [], "text")
 );
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>

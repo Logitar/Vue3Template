@@ -31,15 +31,16 @@ function reset(): void {
   confirm.value = "";
 }
 
-const emit = defineEmits(["profileUpdated"]);
+const emit = defineEmits<{
+  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+}>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async (_, { resetForm }) => {
   invalidCredentials.value = false;
   try {
     const { data } = await changePassword({ current: current.value, password: password.value });
-    const event: ProfileUpdatedEvent = { toast: false, user: data };
     resetForm();
-    emit("profileUpdated", event);
+    emit("profileUpdated", { toast: false, user: data });
     toast({ message: "users.password.changed", title: "toasts.success.title", variant: "success" });
   } catch (e: any) {
     reset();
