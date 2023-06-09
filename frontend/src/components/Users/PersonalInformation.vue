@@ -65,7 +65,9 @@ watchEffect(() => {
   website.value = user.website ?? "";
 });
 
-const emit = defineEmits(["profileUpdated"]);
+const emit = defineEmits<{
+  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+}>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
   try {
@@ -82,8 +84,7 @@ const onSubmit = handleSubmit(async () => {
       profile: profile.value,
       website: website.value,
     });
-    const event: ProfileUpdatedEvent = { user: data };
-    emit("profileUpdated", event);
+    emit("profileUpdated", { user: data });
   } catch (e: any) {
     handleError(e);
   }

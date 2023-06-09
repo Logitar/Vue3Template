@@ -81,7 +81,9 @@ watchEffect(() => {
   };
 });
 
-const emit = defineEmits(["profileUpdated"]);
+const emit = defineEmits<{
+  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+}>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
   try {
@@ -90,8 +92,7 @@ const onSubmit = handleSubmit(async () => {
       email: email.value,
       phone: phone.value.number ? phone.value : undefined,
     });
-    const event: ProfileUpdatedEvent = { user: data };
-    emit("profileUpdated", event);
+    emit("profileUpdated", { user: data });
   } catch (e: any) {
     handleError(e);
   }
@@ -123,7 +124,7 @@ function clearAddress() {
           :required="Boolean(phone.extension)"
           :verified="user.phone?.isVerified"
           v-model="phone.number"
-          @country-code="phone.countryCode = $event"
+          @countryCode="phone.countryCode = $event"
         />
         <PhoneExtensionInput class="col-lg-6" :disabled="user.phone?.isVerified" validate v-model="phone.extension" />
       </div>

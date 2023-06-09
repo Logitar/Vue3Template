@@ -9,7 +9,9 @@ defineProps<{
   modelValue?: boolean;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits<{
+  (e: "update:modelValue", value: boolean): void;
+}>();
 function onChange($event: Event) {
   if ($event.target) {
     emit("update:modelValue", ($event.target as HTMLInputElement).checked);

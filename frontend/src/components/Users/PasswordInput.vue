@@ -71,6 +71,10 @@ function focus(): void {
   inputRef.value?.focus();
 }
 defineExpose({ focus });
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>

@@ -18,6 +18,10 @@ withDefaults(
 const max = new Date();
 const min = new Date(max);
 min.setFullYear(min.getFullYear() - 100);
+
+defineEmits<{
+  (e: "update:modelValue", value?: Date): void;
+}>();
 </script>
 
 <template>

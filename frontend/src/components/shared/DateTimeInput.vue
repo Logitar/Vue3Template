@@ -27,7 +27,9 @@ const formattedMax = computed<string | undefined>(() => (props.max ? getDateTime
 const formattedMin = computed<string | undefined>(() => (props.min ? getDateTimeLocal(props.min) : undefined));
 const formattedValue = computed<string | undefined>(() => (props.modelValue ? getDateTimeLocal(props.modelValue) : undefined));
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits<{
+  (e: "update:modelValue", date?: Date): void;
+}>();
 function onModelValueUpdate(value: string): void {
   try {
     const date = new Date(value);

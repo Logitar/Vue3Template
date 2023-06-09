@@ -18,6 +18,10 @@ withDefaults(
     validate: false,
   }
 );
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>

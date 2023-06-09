@@ -31,6 +31,10 @@ const rules = computed<any>(() => {
   }
   return rules;
 });
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>

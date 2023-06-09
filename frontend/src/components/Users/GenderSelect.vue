@@ -30,6 +30,10 @@ const options = computed<SelectOption[]>(() => {
     "text"
   );
 });
+
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+}>();
 </script>
 
 <template>
