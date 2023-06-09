@@ -1,9 +1,13 @@
-﻿using Logitar.Demo.Web.Authentication;
+﻿using Logitar.Demo.Core;
+using Logitar.Demo.Infrastructure;
+using Logitar.Demo.Web.Authentication;
 using Logitar.Demo.Web.Authorization;
 using Logitar.Demo.Web.Extensions;
 using Logitar.Demo.Web.Middlewares;
+using Logitar.EventSourcing.EntityFrameworkCore.PostgreSQL;
 using Logitar.Portal.Client;
 using Microsoft.AspNetCore.Authorization;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 using DemoSchemes = Logitar.Demo.Web.Constants.Schemes;
@@ -27,13 +31,18 @@ internal class Startup : StartupBase
 
   public override void ConfigureServices(IServiceCollection services)
   {
+    string connectionString = _configuration.GetValue<string>("POSTGRESQLCONNSTR_DemoContext")
+      ?? throw new InvalidOperationException($"The configuration 'POSTGRESQLCONNSTR_DemoContext' could not be found.");
+
     base.ConfigureServices(services);
 
     services.AddControllers()
       .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
     services.AddApplicationInsightsTelemetry();
-    services.AddHealthChecks()/*.AddDbContextCheck<EventContext>()*/; // TODO(fpion): implement
+    services.AddHealthChecks()
+      .AddDbContextCheck<DemoContext>()
+      .AddDbContextCheck<EventContext>();
 
     if (_enableOpenApi)
     {
@@ -63,7 +72,13 @@ internal class Startup : StartupBase
       })
       .AddDistributedMemoryCache();
 
+    Assembly assembly = typeof(Startup).Assembly;
+
+    services.AddAutoMapper(assembly);
+    services.AddLogitarDemoCore();
+    services.AddLogitarDemoInfrastructure(connectionString);
     services.AddLogitarPortalClient(_configuration);
+    services.AddSingleton<IApplicationContext, HttpApplicationContext>();
   }
 
   public override void Configure(IApplicationBuilder builder)

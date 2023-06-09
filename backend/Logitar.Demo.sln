@@ -5,6 +5,19 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logitar.Demo.Web", "src\Logitar.Demo.Web\Logitar.Demo.Web.csproj", "{AB481577-73E2-4F31-9E1E-D5D9F2E99076}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logitar.Demo.Core", "src\Logitar.Demo.Core\Logitar.Demo.Core.csproj", "{C9A3BC9A-AF41-4278-AB62-609CBCEC5542}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logitar.Demo.Infrastructure", "src\Logitar.Demo.Infrastructure\Logitar.Demo.Infrastructure.csproj", "{32967D8A-E24E-4227-8AFF-0AA575CE848E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8C266866-61A5-44D5-990C-469B5FBB42B0}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +28,14 @@ Global
 		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB481577-73E2-4F31-9E1E-D5D9F2E99076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A3BC9A-AF41-4278-AB62-609CBCEC5542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A3BC9A-AF41-4278-AB62-609CBCEC5542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A3BC9A-AF41-4278-AB62-609CBCEC5542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A3BC9A-AF41-4278-AB62-609CBCEC5542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32967D8A-E24E-4227-8AFF-0AA575CE848E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32967D8A-E24E-4227-8AFF-0AA575CE848E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32967D8A-E24E-4227-8AFF-0AA575CE848E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32967D8A-E24E-4227-8AFF-0AA575CE848E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
