@@ -1,4 +1,5 @@
-﻿using Logitar.Demo.Web.Extensions;
+﻿using AutoMapper;
+using Logitar.Demo.Web.Extensions;
 using Logitar.Demo.Web.Models.Account;
 using Logitar.Portal.Contracts.Errors;
 using Logitar.Portal.Contracts.Messages;
@@ -20,6 +21,7 @@ public class AccountController : ControllerBase
   private readonly string _realm;
 
   private readonly ILogger<AccountController> _logger;
+  private readonly IMapper _mapper;
   private readonly IMessageService _messageService;
   private readonly ISessionService _sessionService;
   private readonly ITokenService _tokenService;
@@ -27,6 +29,7 @@ public class AccountController : ControllerBase
 
   public AccountController(IConfiguration configuration,
     ILogger<AccountController> logger,
+    IMapper mapper,
     IMessageService messageService,
     ISessionService sessionService,
     ITokenService tokenService,
@@ -36,6 +39,7 @@ public class AccountController : ControllerBase
       ?? throw new InvalidOperationException("The configuration key 'Portal:Realm' has not been set.");
 
     _logger = logger;
+    _mapper = mapper;
     _messageService = messageService;
     _sessionService = sessionService;
     _tokenService = tokenService;
@@ -70,9 +74,8 @@ public class AccountController : ControllerBase
     {
       User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
       user = await _userService.ChangePasswordAsync(user.Id, input, cancellationToken);
-      UserProfile profile = new(user);
 
-      return Ok(profile);
+      return Ok(_mapper.Map<UserProfile>(user));
     }
     catch (ErrorException exception)
     {
@@ -164,9 +167,8 @@ public class AccountController : ControllerBase
   public ActionResult<UserProfile> GetProfile()
   {
     User user = HttpContext.GetUser() ?? throw new InvalidOperationException("The User is required.");
-    UserProfile profile = new(user);
 
-    return Ok(profile);
+    return Ok(_mapper.Map<UserProfile>(user));
   }
 
   [Authorize]
@@ -194,9 +196,8 @@ public class AccountController : ControllerBase
       CustomAttributes = user.CustomAttributes
     };
     user = await _userService.UpdateAsync(user.Id, input, cancellationToken);
-    UserProfile profile = new(user);
 
-    return Ok(profile);
+    return Ok(_mapper.Map<UserProfile>(user));
   }
 
   [Authorize]
@@ -243,9 +244,8 @@ public class AccountController : ControllerBase
       CustomAttributes = user.CustomAttributes
     };
     user = await _userService.UpdateAsync(user.Id, input, cancellationToken);
-    UserProfile profile = new(user);
 
-    return Ok(profile);
+    return Ok(_mapper.Map<UserProfile>(user));
   }
 
   [HttpPost("register")]
@@ -342,9 +342,7 @@ public class AccountController : ControllerBase
       Session session = await _sessionService.SignInAsync(input, _realm, cancellationToken);
       HttpContext.SignIn(session);
 
-      UserProfile profile = new(session.User);
-
-      return Ok(profile);
+      return Ok(_mapper.Map<UserProfile>(session.User));
     }
     catch (ErrorException exception)
     {
