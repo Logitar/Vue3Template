@@ -10,7 +10,7 @@ import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-import { toast } from "@/helpers/toastUtils";
+import { toasts } from "@/helpers/toastUtils";
 import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
@@ -26,7 +26,7 @@ function onProfileUpdated(event: ProfileUpdatedEvent): void {
   account.signIn(event.user);
 
   if (event.toast ?? true) {
-    toast({ message: "users.profile.updated", title: "toasts.success.title", variant: "success" });
+    toasts.success("users.profile.updated");
   }
 }
 

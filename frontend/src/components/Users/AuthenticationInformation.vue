@@ -9,7 +9,7 @@ import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { changePassword } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-import { toast } from "@/helpers/toastUtils";
+import { toasts } from "@/helpers/toastUtils";
 
 const { d, t } = useI18n();
 
@@ -41,7 +41,7 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
     const { data } = await changePassword({ current: current.value, password: password.value });
     resetForm();
     emit("profileUpdated", { toast: false, user: data });
-    toast({ message: "users.password.changed", title: "toasts.success.title", variant: "success" });
+    toasts.success("users.password.changed");
   } catch (e: any) {
     reset();
     currentRef.value?.focus();
