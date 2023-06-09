@@ -9,10 +9,10 @@ import PictureInput from "@/components/Users/PictureInput.vue";
 import ProfileInput from "@/components/Users/ProfileInput.vue";
 import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
 import WebsiteInput from "@/components/Users/WebsiteInput.vue";
+import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
-import { savePersonalInformation } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-import { toast } from "@/helpers/errorUtils";
+import { savePersonalInformation } from "@/api/account";
 
 const props = defineProps<{
   user: UserProfile;
@@ -82,8 +82,8 @@ const onSubmit = handleSubmit(async () => {
       profile: profile.value,
       website: website.value,
     });
-    emit("profileUpdated", data);
-    toast("success", "users.profile.updated", "success");
+    const event: ProfileUpdatedEvent = { user: data };
+    emit("profileUpdated", event);
   } catch (e: any) {
     handleError(e);
   }

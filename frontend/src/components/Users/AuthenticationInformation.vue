@@ -5,10 +5,11 @@ import { useI18n } from "vue-i18n";
 import PasswordInput from "./PasswordInput.vue";
 import UsernameInput from "./UsernameInput.vue";
 import type { ApiResult } from "@/types/ApiResult";
+import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { changePassword } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
-import { toast } from "@/helpers/errorUtils";
+import { toast } from "@/helpers/toastUtils";
 
 const { d, t } = useI18n();
 
@@ -36,9 +37,10 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
   invalidCredentials.value = false;
   try {
     const { data } = await changePassword({ current: current.value, password: password.value });
+    const event: ProfileUpdatedEvent = { toast: false, user: data };
     resetForm();
-    emit("profileUpdated", data);
-    toast("success", "users.password.changed", "success");
+    emit("profileUpdated", event);
+    toast({ message: "users.password.changed", title: "toasts.success.title", variant: "success" });
   } catch (e: any) {
     reset();
     currentRef.value?.focus();

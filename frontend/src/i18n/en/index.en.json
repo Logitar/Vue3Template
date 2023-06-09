@@ -10,5 +10,13 @@
     "title": "Home"
   },
   "loading": "Loading...",
-  "success": "Success!"
+  "toasts": {
+    "error": {
+      "message": "An unexpected error occurred. Please try again later or contact our support team.",
+      "title": "Error!"
+    },
+    "success": {
+      "title": "Success!"
+    }
+  }
 }

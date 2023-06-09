@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import "maz-ui/css/main.css";
 
-import "./assets/main.css";
+import "./assets/styles/main.css";
 import "./validation";
 
 const app = createApp(App);

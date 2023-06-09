@@ -6,9 +6,11 @@ import AuthenticationInformation from "@/components/Users/AuthenticationInformat
 import ContactInformation from "@/components/Users/ContactInformation.vue";
 import PersonalInformation from "@/components/Users/PersonalInformation.vue";
 import ProfileHeader from "@/components/Users/ProfileHeader.vue";
+import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile } from "@/api/account";
 import { handleError } from "@/helpers/errorUtils";
+import { toast } from "@/helpers/toastUtils";
 import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
@@ -19,9 +21,13 @@ const account = useAccountStore();
 const confirmed = ref<boolean>(query.status === "confirmed");
 const user = ref<UserProfile>();
 
-function onProfileUpdated(value: UserProfile): void {
-  user.value = value;
-  account.signIn(value);
+function onProfileUpdated(event: ProfileUpdatedEvent): void {
+  user.value = event.user;
+  account.signIn(event.user);
+
+  if (event.toast ?? true) {
+    toast({ message: "users.profile.updated", title: "toasts.success.title", variant: "success" });
+  }
 }
 
 onMounted(async () => {
