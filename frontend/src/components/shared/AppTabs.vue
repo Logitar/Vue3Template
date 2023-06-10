@@ -15,16 +15,13 @@ withDefaults(
   }
 );
 
-const tabs = ref<TabOptions[]>([]);
+const tabs = ref<Map<string, TabOptions>>(new Map<string, TabOptions>());
 
 function bindTab(tab: TabOptions): void {
-  tabs.value.push(tab);
+  tabs.value.set(tab.id, tab);
 }
 function unbindTab(tab: TabOptions): void {
-  const index = tabs.value.findIndex(({ id }) => tab.id === id);
-  if (index >= 0) {
-    tabs.value.splice(index, 1);
-  }
+  tabs.value.delete(tab.id);
 }
 provide(bindTabKey, bindTab);
 provide(unbindTabKey, unbindTab);
@@ -33,7 +30,7 @@ provide(unbindTabKey, unbindTab);
 <template>
   <div>
     <ul class="nav nav-tabs" :id="`tab_${id}_headers`" role="tablist">
-      <li v-for="tab in tabs" :key="tab.id" class="nav-item" role="presentation">
+      <li v-for="[key, tab] in tabs" :key="key" class="nav-item" role="presentation">
         <button
           :class="{ 'nav-link': true, active: tab.active }"
           :id="`tab_${tab.id}_head`"

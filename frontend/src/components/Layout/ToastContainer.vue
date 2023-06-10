@@ -4,22 +4,15 @@ import { v4 as uuidv4 } from "uuid";
 import type { ToastOptions } from "@/types/ToastOptions";
 import AppToast from "./AppToast.vue";
 
-type ToastWrapper = {
-  id: string;
-  options: ToastOptions;
-};
-const toasts = ref<ToastWrapper[]>([]);
+const toasts = ref<Map<string, ToastOptions>>(new Map<string, ToastOptions>());
 
-function add(options: ToastOptions): void {
-  const id = ["toast", uuidv4()].join("_");
-  toasts.value.push({ id, options });
+function add(toast: ToastOptions): void {
+  const key = ["toast", uuidv4()].join("_");
+  toasts.value.set(key, toast);
 }
 
-function onHidden(id: string): void {
-  const index = toasts.value.findIndex((toast) => toast.id === id);
-  if (index >= 0) {
-    toasts.value.splice(index, 1);
-  }
+function onHidden(key: string): void {
+  toasts.value.delete(key);
 }
 
 defineExpose({ add });
@@ -28,14 +21,14 @@ defineExpose({ add });
 <template>
   <div class="toast-container position-fixed top-0 end-0 p-3">
     <AppToast
-      v-for="toast in toasts"
-      :id="toast.id"
-      :key="toast.id"
-      :message="toast.options.message"
-      :solid="toast.options.solid"
-      :title="toast.options.title"
-      :variant="toast.options.variant"
-      @hidden="onHidden(toast.id)"
+      v-for="[key, toast] in toasts"
+      :key="key"
+      :id="key"
+      :message="toast.message"
+      :solid="toast.solid"
+      :title="toast.title"
+      :variant="toast.variant"
+      @hidden="onHidden(key)"
     />
   </div>
 </template>
