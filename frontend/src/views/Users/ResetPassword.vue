@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import type { ApiResult } from "@/types/ApiResult";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { onMounted } from "vue";
 import { resetPassword, validatePasswordReset } from "@/api/account";
 
 const { t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const confirm = ref<string>("");
 const password = ref<string>("");

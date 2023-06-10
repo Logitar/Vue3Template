@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { inject, onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { signOut } from "@/api/account";
 import { useAccountStore } from "@/stores/account";
+
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const account = useAccountStore();
 

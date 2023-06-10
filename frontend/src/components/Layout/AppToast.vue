@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+import { Toast } from "bootstrap";
 import type { ToastVariant } from "@/types/ToastVariant";
 
 const { t } = useI18n();
@@ -27,6 +28,19 @@ const classes = computed<string[]>(() => {
     classes.push(`toast-${props.variant}`);
   }
   return classes;
+});
+
+const emit = defineEmits<{
+  (e: "hidden"): void;
+}>();
+onMounted(() => {
+  const element = document.getElementById(props.id);
+  if (element) {
+    element.addEventListener("hidden.bs.toast", () => emit("hidden"));
+
+    const toast = Toast.getOrCreateInstance(element);
+    toast.show();
+  }
 });
 </script>
 

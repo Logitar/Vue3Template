@@ -1,7 +1,3 @@
-.toast-wrapper {
-  --bs-toast-spacing: 1.5rem;
-}
-
 .toast.toast-primary {
   background-color: rgba(230, 242, 255, 0.85);
   border-color: rgba(184, 218, 255, 0.85);

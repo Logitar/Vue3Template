@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { register } from "@/api/account";
 
 const { t, locale } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const confirm = ref<string>("");
 const emailAddress = ref<string>("");

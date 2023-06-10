@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import PasswordInput from "./PasswordInput.vue";
 import UsernameInput from "./UsernameInput.vue";
 import type { ApiResult } from "@/types/ApiResult";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
+import type { ToastUtils } from "@/types/ToastUtils";
 import type { UserProfile } from "@/types/UserProfile";
 import { changePassword } from "@/api/account";
-import { handleError } from "@/helpers/errorUtils";
-import { toasts } from "@/helpers/toastUtils";
+import { handleErrorKey, toastsKey } from "@/inject/App";
 
 const { d, t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
+const toasts = inject(toastsKey) as ToastUtils;
 
 defineProps<{
   user: UserProfile;

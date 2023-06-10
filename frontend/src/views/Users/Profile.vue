@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { inject, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 import AuthenticationInformation from "@/components/Users/AuthenticationInformation.vue";
@@ -7,14 +7,16 @@ import ContactInformation from "@/components/Users/ContactInformation.vue";
 import PersonalInformation from "@/components/Users/PersonalInformation.vue";
 import ProfileHeader from "@/components/Users/ProfileHeader.vue";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
+import type { ToastUtils } from "@/types/ToastUtils";
 import type { UserProfile } from "@/types/UserProfile";
 import { getProfile } from "@/api/account";
-import { handleError } from "@/helpers/errorUtils";
-import { toasts } from "@/helpers/toastUtils";
+import { handleErrorKey, toastsKey } from "@/inject/App";
 import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
 const { query } = useRoute();
+const handleError = inject(handleErrorKey) as (e: any) => void;
+const toasts = inject(toastsKey) as ToastUtils;
 
 const account = useAccountStore();
 

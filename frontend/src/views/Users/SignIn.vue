@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
 import type { ApiResult } from "@/types/ApiResult";
-import { handleError } from "@/helpers/errorUtils";
 import { signIn } from "@/api/account";
 import { useAccountStore } from "@/stores/account";
+import { handleErrorKey } from "@/inject/App";
 
 const { t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const account = useAccountStore();
 

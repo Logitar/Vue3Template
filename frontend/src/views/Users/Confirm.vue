@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { inject, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import type { ApiResult } from "@/types/ApiResult";
 import { confirm } from "@/api/account";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 
 const { t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const error = ref<boolean>(false);
 

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { recoverPassword } from "@/api/account";
 
 const { t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const success = ref<boolean>(false);
 const username = ref<string>("");

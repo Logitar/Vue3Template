@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
+import { computed, inject, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
 import BirthdateInput from "@/components/Users/BirthdateInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
@@ -11,8 +11,10 @@ import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
 import WebsiteInput from "@/components/Users/WebsiteInput.vue";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { savePersonalInformation } from "@/api/account";
+
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const props = defineProps<{
   user: UserProfile;

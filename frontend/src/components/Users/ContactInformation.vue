@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
+import { computed, inject, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import AddressLineInput from "./AddressLineInput.vue";
@@ -16,10 +16,11 @@ import type { EmailInput } from "@/types/EmailInput";
 import type { PhoneInput } from "@/types/PhoneInput";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
-import { handleError } from "@/helpers/errorUtils";
+import { handleErrorKey } from "@/inject/App";
 import { saveContactInformation } from "@/api/account";
 
 const { t } = useI18n();
+const handleError = inject(handleErrorKey) as (e: any) => void;
 
 const props = defineProps<{
   user: UserProfile;
