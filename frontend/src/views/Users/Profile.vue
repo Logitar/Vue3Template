@@ -51,13 +51,13 @@ onMounted(async () => {
     <template v-if="user">
       <ProfileHeader :user="user" />
       <app-tabs>
-        <app-tab active id="personal" title="users.tabs.personal">
+        <app-tab active title="users.tabs.personal">
           <PersonalInformation :user="user" @profileUpdated="onProfileUpdated" />
         </app-tab>
-        <app-tab id="contact" title="users.tabs.contact">
+        <app-tab title="users.tabs.contact">
           <ContactInformation :user="user" @profileUpdated="onProfileUpdated" />
         </app-tab>
-        <app-tab id="authentication" title="users.tabs.authentication">
+        <app-tab title="users.tabs.authentication">
           <AuthenticationInformation :user="user" @profileUpdated="onProfileUpdated" />
         </app-tab>
       </app-tabs>
