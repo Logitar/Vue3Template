@@ -32,13 +32,13 @@ provide(unbindTabKey, unbindTab);
 
 <template>
   <div>
-    <ul class="nav nav-tabs" :id="`${id}_headers`" role="tablist">
+    <ul class="nav nav-tabs" :id="`tab_${id}_headers`" role="tablist">
       <li v-for="tab in tabs" :key="tab.id" class="nav-item" role="presentation">
         <button
           :class="{ 'nav-link': true, active: tab.active }"
-          :id="`${tab.id}_head`"
+          :id="`tab_${tab.id}_head`"
           data-bs-toggle="tab"
-          :data-bs-target="`#${tab.id}_pane`"
+          :data-bs-target="`#tab_${tab.id}_pane`"
           type="button"
           role="tab"
           :aria-controls="`${tab.id}_pane`"

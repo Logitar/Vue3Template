@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, inject, onMounted, onUnmounted } from "vue";
+import { computed, inject, onMounted, onUnmounted, ref } from "vue";
+import { v4 as uuidv4 } from "uuid";
 import { bindTabKey, unbindTabKey } from "@/inject/AppTabs";
 import type { TabOptions } from "@/types/TabOptions";
 
@@ -10,7 +11,6 @@ const props = withDefaults(
   defineProps<{
     active?: boolean;
     disabled?: boolean;
-    id: string; // TODO(fpion): remove
     title: string;
   }>(),
   {
@@ -18,6 +18,8 @@ const props = withDefaults(
     disabled: false,
   }
 );
+
+const id = ref<string>(uuidv4());
 
 const classes = computed<string[]>(() => {
   const classes = ["tab-pane", "fade"];
@@ -28,7 +30,7 @@ const classes = computed<string[]>(() => {
   return classes;
 });
 
-const options = computed<TabOptions>(() => ({ active: props.active, disabled: props.disabled, id: props.id, title: props.title }));
+const options = computed<TabOptions>(() => ({ active: props.active, disabled: props.disabled, id: id.value, title: props.title }));
 onMounted(() => {
   if (bindTab) {
     bindTab(options.value);
@@ -42,7 +44,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="classes" :id="`${props.id}_pane`" role="tabpanel" :aria-labelledby="`${props.id}_head`" tabindex="0">
+  <div :class="classes" :id="`tab_${id}_pane`" role="tabpanel" :aria-labelledby="`tab_${id}_head`" tabindex="0">
     <slot></slot>
   </div>
 </template>
