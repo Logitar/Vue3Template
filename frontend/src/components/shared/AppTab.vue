@@ -10,7 +10,7 @@ const props = withDefaults(
   defineProps<{
     active?: boolean;
     disabled?: boolean;
-    id: string;
+    id: string; // TODO(fpion): remove
     title: string;
   }>(),
   {
