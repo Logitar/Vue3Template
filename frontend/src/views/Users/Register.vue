@@ -20,8 +20,7 @@ const password = ref<string>("");
 const success = ref<boolean>(false);
 const username = ref<string>("");
 
-function onEmailAddressInput({ target }: Event): void {
-  const value = (target as HTMLInputElement).value;
+function onEmailAddressInput(value: string): void {
   emailAddress.value = value;
   username.value = value;
 }
@@ -54,7 +53,7 @@ const onSubmit = handleSubmit(async () => {
     </app-alert>
     <form v-else @submit.prevent="onSubmit">
       <div class="row">
-        <EmailAddressInput class="col-lg-6" :modelValue="emailAddress" required validate @input="onEmailAddressInput" />
+        <EmailAddressInput class="col-lg-6" :modelValue="emailAddress" required validate @update:modelValue="onEmailAddressInput" />
         <UsernameInput class="col-lg-6" required validate v-model="username" />
       </div>
       <div class="row">

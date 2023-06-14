@@ -1,0 +1,11 @@
+{
+  "empty": "There are no results.",
+  "sort": {
+    "options": {
+      "DisplayName": "Display name",
+      "UniqueName": "Unique name",
+      "UpdatedOn": "Updated on"
+    }
+  },
+  "title": "Realms"
+}

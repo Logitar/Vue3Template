@@ -1,46 +1,45 @@
 <script setup lang="ts">
+import type { SelectOption } from "@/types/SelectOption";
+
 withDefaults(
   defineProps<{
     disabled?: boolean;
-    id: string;
+    id?: string;
+    isDescending?: boolean;
     label?: string;
-    maxLength?: number;
-    minLength?: number;
     modelValue?: string;
     name?: string;
+    options: SelectOption[];
     placeholder?: string;
-    required?: boolean;
   }>(),
   {
     disabled: false,
-    maxLength: 2048,
-    required: false,
+    isDescending: false,
+    id: "sort",
+    label: "sort.label",
+    placeholder: "sort.placeholder",
   }
 );
 
 defineEmits<{
+  (e: "isDescending", value: boolean): void;
   (e: "update:modelValue", value: string): void;
 }>();
 </script>
 
 <template>
-  <form-input
+  <form-select
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxLength="maxLength"
-    :minLength="minLength"
     :modelValue="modelValue"
     :name="name"
+    :options="options"
     :placeholder="placeholder"
-    :required="required"
-    type="url"
     @update:modelValue="$emit('update:modelValue', $event)"
   >
-    <template #append>
-      <a :class="{ 'btn btn-info text-white': true, disabled: !modelValue }" :href="modelValue" target="_blank">
-        <font-awesome-icon icon="fas fa-arrow-up-right-from-square" />
-      </a>
+    <template #after>
+      <form-checkbox id="isDescending" label="sort.isDescending" :modelValue="isDescending" @update:modelValue="$emit('isDescending', $event)" />
     </template>
-  </form-input>
+  </form-select>
 </template>
