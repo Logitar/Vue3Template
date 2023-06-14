@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import { isEmpty } from "@/helpers/objectUtils";
 
 const { t } = useI18n();
 
@@ -87,7 +88,7 @@ const { errorMessage, handleChange, meta, value } = useField<string>(inputName, 
 });
 const classes = computed<string[]>(() => {
   const classes = ["form-control"];
-  if (meta.dirty || meta.touched) {
+  if ((meta.dirty || meta.touched) && !isEmpty(validationRules.value)) {
     classes.push(meta.valid ? "is-valid" : "is-invalid");
   }
   return classes;
@@ -120,7 +121,7 @@ defineExpose({ focus });
         :max="inputMax"
         :min="inputMin"
         :name="inputName"
-        :placeholder="placeholder ? t(placeholder) : ''"
+        :placeholder="placeholder ? t(placeholder) : undefined"
         ref="inputRef"
         :step="type === 'number' ? step : undefined"
         :type="type"

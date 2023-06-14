@@ -20,7 +20,7 @@ function onChange($event: Event) {
 </script>
 
 <template>
-  <div class="mb-3 form-check">
+  <div class="form-check">
     <input type="checkbox" :checked="modelValue" class="form-check-input" :id="id" @change="onChange" />
     <label v-if="label" class="form-check-label" :for="id">{{ t(label) }}</label>
   </div>

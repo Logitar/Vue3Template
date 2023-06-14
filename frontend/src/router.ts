@@ -53,6 +53,17 @@ const router = createRouter({
       path: "/sign-out",
       component: () => import("./views/Users/SignOut.vue"),
     },
+    // Realms
+    {
+      name: "RealmList",
+      path: "/realms",
+      component: () => import("./views/Realms/RealmList.vue"),
+    },
+    {
+      name: "RealmEdit",
+      path: "/realms/:id",
+      component: () => import("./views/Realms/RealmEdit.vue"),
+    },
   ],
 });
 

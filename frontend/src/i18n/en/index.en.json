@@ -1,15 +1,36 @@
 {
   "actions": {
     "clear": "Clear",
+    "delete": "Delete",
+    "refresh": "Refresh",
     "save": "Save"
   },
   "brand": "Logitar",
+  "by": "By",
   "copyright": "© Logitar {version} 2023.",
+  "count": "Count",
   "home": {
     "clickMe": "Click Me! ({count})",
     "title": "Home"
   },
   "loading": "Loading...",
+  "pagination": {
+    "first": "First",
+    "label": "Page result pagination",
+    "last": "Last",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "search": {
+    "label": "Search",
+    "placeholder": "Type something to search"
+  },
+  "sort": {
+    "isDescending": "Is descending",
+    "label": "Sort",
+    "placeholder": "Select a sort option"
+  },
+  "system": "System",
   "toasts": {
     "error": {
       "message": "An unexpected error occurred. Please try again later or contact our support team.",
