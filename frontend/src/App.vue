@@ -1,14 +1,29 @@
 <script setup lang="ts">
 import { provide, ref } from "vue";
 import { RouterView } from "vue-router";
+import { Tooltip } from "bootstrap";
 import AppFooter from "./components/Layout/AppFooter.vue";
 import AppNavbar from "./components/Layout/AppNavbar.vue";
 import ToastContainer from "./components/Layout/ToastContainer.vue";
 import type { ToastOptions } from "./types/ToastOptions";
 import type { ToastUtils } from "./types/ToastUtils";
-import { handleErrorKey, toastKey, toastsKey } from "./inject/App";
+import { handleErrorKey, registerTooltipsKey, toastKey, toastsKey } from "./inject/App";
 
 const containerRef = ref<InstanceType<typeof ToastContainer> | null>(null);
+
+function handleError(e: any): void {
+  if (e) {
+    console.error(e);
+  }
+  toasts.error();
+}
+provide(handleErrorKey, handleError);
+
+function registerTooltips(): void {
+  const tooltipTriggers = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  tooltipTriggers.forEach((element) => new Tooltip(element));
+}
+provide(registerTooltipsKey, registerTooltips);
 
 function toast(toast: ToastOptions): void {
   if (containerRef.value) {
@@ -32,14 +47,6 @@ const toasts: ToastUtils = {
   },
 };
 provide(toastsKey, toasts);
-
-function handleError(e: any): void {
-  if (e) {
-    console.error(e);
-  }
-  toasts.error();
-}
-provide(handleErrorKey, handleError);
 </script>
 
 <template>

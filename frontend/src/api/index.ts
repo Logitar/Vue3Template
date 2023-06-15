@@ -44,8 +44,16 @@ async function execute(method: string, url: string, data?: any): Promise<ApiResu
   return result;
 }
 
+export async function _delete(url: string): Promise<ApiResult> {
+  return await execute("DELETE", url);
+}
+
 export async function get(url: string): Promise<ApiResult> {
   return await execute("GET", url);
+}
+
+export async function patch(url: string, data?: any): Promise<ApiResult> {
+  return await execute("PATCH", url, data);
 }
 
 export async function post(url: string, data?: any): Promise<ApiResult> {

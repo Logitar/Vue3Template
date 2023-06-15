@@ -54,7 +54,9 @@ function onSearch(): void {
           </li>
           <template v-if="account.authenticated">
             <li class="nav-item">
-              <RouterLink :to="{ name: 'RealmList' }" class="nav-link"> <font-awesome-icon icon="fas fa-chess-rook" /> {{ t("realms.title") }} </RouterLink>
+              <RouterLink :to="{ name: 'RealmList' }" class="nav-link">
+                <font-awesome-icon icon="fas fa-chess-rook" /> {{ t("realms.title.list") }}
+              </RouterLink>
             </li>
           </template>
         </ul>

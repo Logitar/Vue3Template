@@ -26,12 +26,12 @@ const page = computed<number>(() => Number(route.query.page) || 1);
 const search = computed<string>(() => route.query.search?.toString() ?? "");
 const sort = computed<string>(() => route.query.sort?.toString() ?? "");
 
-const sortOptions = computed<SelectOption[]>(() => {
-  return orderBy(
+const sortOptions = computed<SelectOption[]>(() =>
+  orderBy(
     Object.entries(tm("realms.sort.options")).map(([value, text]) => ({ text, value } as SelectOption)),
     "text"
-  );
-});
+  )
+);
 
 async function refresh(): Promise<void> {
   const params: SearchParameters = {
@@ -108,9 +108,10 @@ watch(
 
 <template>
   <div class="container">
-    <h1>{{ t("realms.title") }}</h1>
+    <h1>{{ t("realms.title.list") }}</h1>
     <div class="my-2">
-      <icon-button :disabled="isLoading" icon="fas fa-rotate" :loading="isLoading" text="actions.refresh" @click="refresh()" />
+      <icon-button class="me-1" :disabled="isLoading" icon="fas fa-rotate" :loading="isLoading" text="actions.refresh" @click="refresh()" />
+      <icon-button class="ms-1" icon="fas fa-plus" text="actions.create" :to="{ name: 'CreateRealm' }" variant="success" />
     </div>
     <div class="row">
       <search-input class="col-lg-4" :modelValue="search" @update:modelValue="setQuery('search', $event)" />

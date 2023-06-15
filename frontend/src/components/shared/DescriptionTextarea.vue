@@ -1,32 +1,24 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import timeZones from "@/resources/timeZones.json";
-import type { SelectOption } from "@/types/SelectOption";
-import { orderBy } from "@/helpers/arrayUtils";
-
 withDefaults(
   defineProps<{
     disabled?: boolean;
     id?: string;
     label?: string;
     modelValue?: string;
+    name?: string;
     placeholder?: string;
+    rows?: number;
     required?: boolean;
   }>(),
   {
     disabled: false,
-    id: "timeZone",
-    label: "users.timeZone.label",
-    placeholder: "users.timeZone.placeholder",
+    id: "description",
+    label: "description.label",
+    placeholder: "description.placeholder",
     required: false,
+    rows: 15,
+    validate: false,
   }
-);
-
-const options = computed<SelectOption[]>(() =>
-  orderBy(
-    timeZones.map(({ id, displayName }) => ({ value: id, text: displayName })),
-    "text"
-  )
 );
 
 defineEmits<{
@@ -35,14 +27,15 @@ defineEmits<{
 </script>
 
 <template>
-  <form-select
+  <form-textarea
     :disabled="disabled"
     :id="id"
     :label="label"
     :modelValue="modelValue"
-    :options="options"
+    :name="name"
     :placeholder="placeholder"
     :required="required"
+    :rows="rows"
     @update:modelValue="$emit('update:modelValue', $event)"
   />
 </template>

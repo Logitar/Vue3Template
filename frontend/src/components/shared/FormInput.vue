@@ -2,7 +2,6 @@
 import { computed, ref } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
-import { isEmpty } from "@/helpers/objectUtils";
 
 const { t } = useI18n();
 
@@ -19,6 +18,8 @@ const props = withDefaults(
     minValue?: number;
     modelValue?: string;
     name?: string;
+    noLabel?: boolean;
+    noState?: boolean;
     placeholder?: string;
     required?: boolean;
     rules?: object;
@@ -27,6 +28,8 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
+    noLabel: false,
+    noState: false,
     required: false,
     type: "text",
   }
@@ -88,7 +91,7 @@ const { errorMessage, handleChange, meta, value } = useField<string>(inputName, 
 });
 const classes = computed<string[]>(() => {
   const classes = ["form-control"];
-  if ((meta.dirty || meta.touched) && !isEmpty(validationRules.value)) {
+  if (!props.noState && (meta.dirty || meta.touched)) {
     classes.push(meta.valid ? "is-valid" : "is-invalid");
   }
   return classes;
@@ -108,7 +111,7 @@ defineExpose({ focus });
 
 <template>
   <div class="mb-3">
-    <label v-if="label" :for="id" class="form-label">
+    <label v-if="!noLabel && label" :for="id" class="form-label">
       <template v-if="required"><span class="text-danger">*</span></template> {{ t(label) }}
     </label>
     <slot name="before"></slot>

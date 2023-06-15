@@ -7,15 +7,22 @@ import AppPagination from "./AppPagination.vue";
 import AppTab from "./AppTab.vue";
 import AppTabs from "./AppTabs.vue";
 import CountSelect from "./CountSelect.vue";
+import CustomAttributeList from "./CustomAttributeList.vue";
 import DateTimeInput from "./DateTimeInput.vue";
+import DescriptionTextarea from "./DescriptionTextarea.vue";
+import DisplayNameInput from "./DisplayNameInput.vue";
 import FormCheckbox from "./FormCheckbox.vue";
 import FormInput from "./FormInput.vue";
 import FormSelect from "./FormSelect.vue";
+import FormTextarea from "./FormTextarea.vue";
 import IconButton from "./IconButton.vue";
 import IconSubmit from "./IconSubmit.vue";
+import LocaleSelect from "./LocaleSelect.vue";
 import SearchInput from "./SearchInput.vue";
+import SlugInput from "./SlugInput.vue";
 import SortSelect from "./SortSelect.vue";
 import StatusBlock from "./StatusBlock.vue";
+import StatusDetail from "./StatusDetail.vue";
 import UrlInput from "./UrlInput.vue";
 
 export default function (app: App) {
@@ -26,14 +33,21 @@ export default function (app: App) {
   app.component("app-tab", AppTab);
   app.component("app-tabs", AppTabs);
   app.component("count-select", CountSelect);
+  app.component("custom-attribute-list", CustomAttributeList);
   app.component("date-time-input", DateTimeInput);
+  app.component("description-textarea", DescriptionTextarea);
+  app.component("display-name-input", DisplayNameInput);
   app.component("form-checkbox", FormCheckbox);
   app.component("form-input", FormInput);
   app.component("form-select", FormSelect);
+  app.component("form-textarea", FormTextarea);
   app.component("icon-button", IconButton);
   app.component("icon-submit", IconSubmit);
+  app.component("locale-select", LocaleSelect);
   app.component("search-input", SearchInput);
+  app.component("slug-input", SlugInput);
   app.component("sort-select", SortSelect);
   app.component("status-block", StatusBlock);
+  app.component("status-detail", StatusDetail);
   app.component("url-input", UrlInput);
 }

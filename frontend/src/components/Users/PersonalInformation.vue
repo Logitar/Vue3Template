@@ -3,7 +3,6 @@ import { computed, inject, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
 import BirthdateInput from "@/components/Users/BirthdateInput.vue";
 import GenderSelect from "@/components/Users/GenderSelect.vue";
-import LocaleSelect from "@/components/Users/LocaleSelect.vue";
 import PersonNameInput from "@/components/Users/PersonNameInput.vue";
 import PictureInput from "@/components/Users/PictureInput.vue";
 import ProfileInput from "@/components/Users/ProfileInput.vue";
@@ -112,7 +111,7 @@ const onSubmit = handleSubmit(async () => {
         <GenderSelect class="col-lg-6" v-model="gender" />
       </div>
       <div class="row">
-        <LocaleSelect class="col-lg-6" required v-model="locale" />
+        <locale-select class="col-lg-6" placeholder="users.locale.placeholder" required v-model="locale" />
         <TimeZoneSelect class="col-lg-6" v-model="timeZone" />
       </div>
       <PictureInput v-model="picture" />

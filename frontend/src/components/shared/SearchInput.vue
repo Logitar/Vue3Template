@@ -28,6 +28,7 @@ defineEmits<{
     :label="label"
     :modelValue="modelValue"
     :name="name"
+    noState
     :placeholder="placeholder"
     @update:modelValue="$emit('update:modelValue', $event)"
   />

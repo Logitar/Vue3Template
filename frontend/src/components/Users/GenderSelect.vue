@@ -24,12 +24,12 @@ withDefaults(
   }
 );
 
-const options = computed<SelectOption[]>(() => {
-  return orderBy(
+const options = computed<SelectOption[]>(() =>
+  orderBy(
     Object.entries(tm("users.gender.options")).map(([value, text]) => ({ text, value } as SelectOption)),
     "text"
-  );
-});
+  )
+);
 
 defineEmits<{
   (e: "update:modelValue", value: string): void;

@@ -35,6 +35,7 @@ function onModelValueUpdate(value: string): void {
     :label="label"
     :modelValue="modelValue.toString()"
     :name="name"
+    noState
     :options="options"
     @update:modelValue="onModelValueUpdate"
   />
