@@ -47,6 +47,11 @@
     "label": "Locale",
     "placeholder": "Select a locale"
   },
+  "notFound": {
+    "help": "The requested page could not be found.",
+    "lead": "Page Not Found",
+    "link": "Go to Home"
+  },
   "pagination": {
     "first": "First",
     "label": "Page result pagination",
