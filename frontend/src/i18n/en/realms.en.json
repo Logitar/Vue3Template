@@ -13,6 +13,11 @@
   },
   "created": "The realm has been created.",
   "defaultLocale": "Default Locale",
+  "delete": {
+    "confirm": "Do you really want to delete the following realm?",
+    "success": "The realm has been deleted.",
+    "title": "Delete realm"
+  },
   "empty": "There are no results.",
   "jwt": {
     "secret": {

@@ -2,9 +2,12 @@
   "actions": {
     "add": "Add",
     "back": "Back",
+    "cancel": "Cancel",
     "clear": "Clear",
+    "close": "Close",
     "create": "Create",
     "delete": "Delete",
+    "ok": "OK",
     "refresh": "Refresh",
     "revert": "Revert",
     "save": "Save"
