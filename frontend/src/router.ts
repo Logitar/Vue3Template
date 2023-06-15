@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "./views/HomeView.vue";
+import { useAccountStore } from "@/stores/account";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,6 +9,7 @@ const router = createRouter({
       name: "Home",
       path: "/",
       component: HomeView,
+      meta: { isPublic: true },
     },
     {
       name: "About",
@@ -16,12 +18,14 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("./views/AboutView.vue"),
+      meta: { isPublic: true },
     },
     // Users
     {
       name: "Confirm",
       path: "/confirm",
       component: () => import("./views/Users/Confirm.vue"),
+      meta: { isPublic: true },
     },
     {
       name: "Profile",
@@ -32,21 +36,25 @@ const router = createRouter({
       name: "RecoverPassword",
       path: "/recover-password",
       component: () => import("./views/Users/RecoverPassword.vue"),
+      meta: { isPublic: true },
     },
     {
       name: "Register",
       path: "/register",
       component: () => import("./views/Users/Register.vue"),
+      meta: { isPublic: true },
     },
     {
       name: "ResetPassword",
       path: "/reset-password",
       component: () => import("./views/Users/ResetPassword.vue"),
+      meta: { isPublic: true },
     },
     {
       name: "SignIn",
       path: "/sign-in",
       component: () => import("./views/Users/SignIn.vue"),
+      meta: { isPublic: true },
     },
     {
       name: "SignOut",
@@ -74,8 +82,16 @@ const router = createRouter({
       name: "NotFound",
       path: "/:pathMatch(.*)*",
       component: () => import("./views/NotFound.vue"),
+      meta: { isPublic: true },
     },
   ],
+});
+
+router.beforeEach((to) => {
+  const accountStore = useAccountStore();
+  if (!to.meta.isPublic && !accountStore.authenticated) {
+    return { name: "SignIn", query: { redirect: to.fullPath } };
+  }
 });
 
 export default router;

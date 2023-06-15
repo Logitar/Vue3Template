@@ -1,21 +1,33 @@
 <script setup lang="ts">
 import { provide, ref } from "vue";
-import { RouterView } from "vue-router";
+import { RouterView, useRoute, useRouter } from "vue-router";
 import { Tooltip } from "bootstrap";
 import AppFooter from "./components/Layout/AppFooter.vue";
 import AppNavbar from "./components/Layout/AppNavbar.vue";
 import ToastContainer from "./components/Layout/ToastContainer.vue";
+import type { ApiResult } from "./types/ApiResult";
 import type { ToastOptions } from "./types/ToastOptions";
 import type { ToastUtils } from "./types/ToastUtils";
 import { handleErrorKey, registerTooltipsKey, toastKey, toastsKey } from "./inject/App";
+
+const route = useRoute();
+const router = useRouter();
 
 const containerRef = ref<InstanceType<typeof ToastContainer> | null>(null);
 
 function handleError(e: any): void {
   if (e) {
-    console.error(e);
+    const { status } = e as ApiResult;
+    if (status === 401) {
+      toasts.warning("toasts.warning.signedOut");
+      router.push({ name: "SignIn", query: { redirect: route.fullPath } });
+    } else {
+      console.error(e);
+      toasts.error();
+    }
+  } else {
+    toasts.error();
   }
-  toasts.error();
 }
 provide(handleErrorKey, handleError);
 
@@ -42,6 +54,12 @@ const toasts: ToastUtils = {
   success(message: string, options?: ToastOptions): void {
     toast({
       ...{ message, title: "toasts.success.title", variant: "success" },
+      ...options,
+    });
+  },
+  warning(message: string, options?: ToastOptions): void {
+    toast({
+      ...{ message, title: "toasts.warning.title", variant: "warning" },
       ...options,
     });
   },

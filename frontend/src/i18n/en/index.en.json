@@ -85,6 +85,10 @@
     },
     "success": {
       "title": "Success!"
+    },
+    "warning": {
+      "signedOut": "You have been signed-out, please try sign-in to your account again.",
+      "title": "Warning!"
     }
   }
 }
