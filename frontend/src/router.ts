@@ -69,6 +69,12 @@ const router = createRouter({
       path: "/create-realm",
       component: () => import("./views/Realms/RealmEdit.vue"),
     },
+    // NotFound
+    {
+      name: "NotFound",
+      path: "/:pathMatch(.*)*",
+      component: () => import("./views/NotFound.vue"),
+    },
   ],
 });
 
