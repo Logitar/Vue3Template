@@ -5,15 +5,17 @@ import { useRoute, useRouter } from "vue-router";
 import type { Realm } from "@/types/Realm";
 import type { SearchParameters } from "@/types/SearchParameters";
 import type { SelectOption } from "@/types/SelectOption";
-import { handleErrorKey } from "@/inject/App";
+import { handleErrorKey, toastsKey } from "@/inject/App";
 import { isEmpty } from "@/helpers/objectUtils";
 import { orderBy } from "@/helpers/arrayUtils";
-import { searchRealms } from "@/api/realms";
+import { deleteRealm, searchRealms } from "@/api/realms";
+import type { ToastUtils } from "@/types/ToastUtils";
 
 const { t, tm } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
 const route = useRoute();
 const router = useRouter();
+const handleError = inject(handleErrorKey) as (e: any) => void;
+const toasts = inject(toastsKey) as ToastUtils;
 
 const isLoading = ref<boolean>(false);
 const realms = ref<Realm[]>([]);
@@ -61,6 +63,23 @@ async function refresh(): Promise<void> {
     if (now === timestamp.value) {
       isLoading.value = false;
     }
+  }
+}
+
+async function onDelete(realm: Realm, hideModal: () => void): Promise<void> {
+  if (!isLoading.value) {
+    isLoading.value = true;
+    try {
+      await deleteRealm(realm.id);
+      hideModal();
+      toasts.success("realms.delete.success");
+    } catch (e) {
+      handleError(e);
+      return;
+    } finally {
+      isLoading.value = false;
+    }
+    await refresh();
   }
 }
 
@@ -142,7 +161,24 @@ watch(
             </td>
             <td>{{ realm.displayName ?? "—" }}</td>
             <td><status-block :actor="realm.updatedBy" :date="realm.updatedOn" /></td>
-            <td><icon-button disabled icon="fas fa-trash" text="actions.delete" variant="danger" /></td>
+            <td>
+              <icon-button
+                :disabled="isLoading"
+                icon="trash"
+                text="actions.delete"
+                variant="danger"
+                data-bs-toggle="modal"
+                :data-bs-target="`#deleteModal_${realm.id}`"
+              />
+              <delete-modal
+                confirm="realms.delete.confirm"
+                :displayName="realm.displayName ? `${realm.displayName} (${realm.uniqueName})` : realm.uniqueName"
+                :id="`deleteModal_${realm.id}`"
+                :isLoading="isLoading"
+                title="realms.delete.title"
+                @ok="onDelete(realm, $event)"
+              />
+            </td>
           </tr>
         </tbody>
       </table>
