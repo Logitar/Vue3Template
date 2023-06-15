@@ -16,18 +16,18 @@ withDefaults(
   {
     disabled: false,
     id: "locale",
-    label: "users.locale.label",
-    placeholder: "users.locale.placeholder",
+    label: "locale.label",
+    placeholder: "locale.placeholder",
     required: false,
   }
 );
 
-const options = computed<SelectOption[]>(() => {
-  return orderBy(
+const options = computed<SelectOption[]>(() =>
+  orderBy(
     locales.map(({ Name, NativeName }) => ({ value: Name, text: NativeName })),
     "text"
-  );
-});
+  )
+);
 
 defineEmits<{
   (e: "update:modelValue", value: string): void;

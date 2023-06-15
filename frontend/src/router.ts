@@ -64,6 +64,11 @@ const router = createRouter({
       path: "/realms/:id",
       component: () => import("./views/Realms/RealmEdit.vue"),
     },
+    {
+      name: "CreateRealm",
+      path: "/create-realm",
+      component: () => import("./views/Realms/RealmEdit.vue"),
+    },
   ],
 });
 

@@ -50,7 +50,6 @@
     "placeholder": "Select your gender"
   },
   "locale": {
-    "label": "Locale",
     "placeholder": "Select your preferred communication language"
   },
   "name": {
