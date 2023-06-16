@@ -11,7 +11,7 @@ import { orderBy } from "@/helpers/arrayUtils";
 import { deleteRealm, searchRealms } from "@/api/realms";
 import type { ToastUtils } from "@/types/ToastUtils";
 
-const { t, tm } = useI18n();
+const { rt, t, tm } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const handleError = inject(handleErrorKey) as (e: any) => void;
@@ -30,7 +30,7 @@ const sort = computed<string>(() => route.query.sort?.toString() ?? "");
 
 const sortOptions = computed<SelectOption[]>(() =>
   orderBy(
-    Object.entries(tm("realms.sort.options")).map(([value, text]) => ({ text, value } as SelectOption)),
+    Object.entries(tm(rt("realms.sort.options"))).map(([value, text]) => ({ text, value } as SelectOption)),
     "text"
   )
 );

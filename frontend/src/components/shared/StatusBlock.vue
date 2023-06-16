@@ -54,7 +54,7 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
       </div>
     </div>
     <div>
-      {{ d(new Date(date), "medium") }}
+      {{ d(date, "medium") }}
       <br />
       {{ t("by") }}
       <a v-if="href" :href="href" target="_blank">{{ displayName }} <font-awesome-icon icon="fas fa-arrow-up-right-from-square" /></a>

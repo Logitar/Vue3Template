@@ -4,7 +4,7 @@ import { useI18n } from "vue-i18n";
 import type { SelectOption } from "@/types/SelectOption";
 import { orderBy } from "@/helpers/arrayUtils";
 
-const { tm } = useI18n();
+const { rt, tm } = useI18n();
 
 withDefaults(
   defineProps<{
@@ -26,7 +26,7 @@ withDefaults(
 
 const options = computed<SelectOption[]>(() =>
   orderBy(
-    Object.entries(tm("users.gender.options")).map(([value, text]) => ({ text, value } as SelectOption)),
+    Object.entries(tm(rt("users.gender.options"))).map(([value, text]) => ({ text, value } as SelectOption)),
     "text"
   )
 );
