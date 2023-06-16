@@ -42,7 +42,7 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
 
 <template>
   <span>
-    {{ t(format, { date: d(new Date(date), "medium") }) }}
+    {{ t(format, { date: d(date, "medium") }) }}
     <template v-if="actor.isDeleted">
       <app-avatar :displayName="actor.displayName" :emailAddress="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
       {{ actor.displayName }}

@@ -1,1 +1,19 @@
-{}
+{
+  "confirmed": "Les champs « 1:{target} » et « {field} » ne correspondent pas.",
+  "email": "Veuillez entrer une adresse courriel valide.",
+  "identifier": "Le champs « {field} » ne peut commencer par un chiffre et il ne peut contenir que des lettres, des chiffres et des tirets bas (_).",
+  "max_length": "Le champs « {field} » ne peut contenir plus de 0:{length} caractères.",
+  "max_value": "Le champs « {field} » doit être inférieur ou égal à 0:{max}.",
+  "min_length": "Le champs « {field} » doit contenir au moins 0:{length} caractères.",
+  "min_value": "Le champs « {field} » doit être supérieur ou égal à 0:{min}.",
+  "regex": "Le champs « {field} » doit correspondre au modèle suivant : 0:{pattern}",
+  "require_digit": "Le champs « {field} » doit contenir au moins un chiffre (0-9).",
+  "require_lowercase": "Le champs « {field} » doit contenir au moins une minuscule (a-z).",
+  "require_non_alphanumeric": "Le champs « {field} » doit contenir au moins un caractère spécial (e.g. !@/$%&*_+-).",
+  "require_uppercase": "Le champs « {field} » doit contenir au moins une majuscule (A-Z).",
+  "required": "Le champs « {field} » est requis.",
+  "slug": "Le champs « {field} » doit être composé de mots alphanumériques non vides séparés par un tiret (-).",
+  "unique_chars": "Le champs « {field} » doit contenir au moins 0:{count} caractères uniques.",
+  "url": "Veuillez entre un lien valide. Un lien valide débute par http:// ou https://.",
+  "username": "Le champs « {field} » ne peut contenir que les caractères suivants : 0:{allowedCharacters}"
+}
