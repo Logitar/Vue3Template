@@ -6,6 +6,12 @@
   --maz-color-success: #198754;
 }
 
+body {
+  position: relative;
+  min-height: calc(100svh);
+  padding-bottom: 60px;
+}
+
 button:disabled {
   cursor: not-allowed !important;
 }
