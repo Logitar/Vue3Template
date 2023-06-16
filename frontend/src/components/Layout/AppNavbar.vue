@@ -2,6 +2,8 @@
 import { computed, ref } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import type { AuthenticatedUser } from "@/types/AuthenticatedUser";
+import { urlCombine } from "@/helpers/stringUtils";
 import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
@@ -17,9 +19,12 @@ const props = defineProps<{
 const search = ref<string>("");
 
 const environmentName = computed<string>(() => props.environment.toLowerCase());
-const swaggerUrl = computed<string | undefined>(() =>
-  environmentName.value === "development" ? [apiBaseUrl.replace(/^\/+|\/+$/g, ""), "swagger"].join("/") : undefined
-);
+const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
+const user = computed<AuthenticatedUser>(() => ({
+  displayName: account.authenticated?.fullName ?? account.authenticated?.username,
+  emailAddress: account.authenticated?.email.address,
+  picture: account.authenticated?.picture,
+}));
 
 function onSearch(): void {
   const query = { search: search.value, page: 1, count: 10 };
@@ -70,20 +75,24 @@ function onSearch(): void {
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <template v-if="account.authenticated">
-            <li class="nav-item dropdown">
+            <li class="d-block d-lg-none">
+              <RouterLink class="nav-link" :to="{ name: 'Profile' }">
+                <app-avatar :displayName="user.displayName" :emailAddress="user.emailAddress" :size="24" :url="user.picture" />
+                {{ user.displayName }}
+              </RouterLink>
+            </li>
+            <li class="d-block d-lg-none">
+              <RouterLink class="nav-link" :to="{ name: 'SignOut' }">
+                <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}
+              </RouterLink>
+            </li>
+            <li class="nav-item dropdown d-none d-lg-block">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <app-avatar
-                  :displayName="account.authenticated.fullName ?? account.authenticated.username"
-                  :emailAddress="account.authenticated.email?.address"
-                  :size="24"
-                  :url="account.authenticated.picture"
-                />
+                <app-avatar :displayName="user.displayName" :emailAddress="user.emailAddress" :size="24" :url="user.picture" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                  <RouterLink class="dropdown-item" :to="{ name: 'Profile' }">
-                    <font-awesome-icon icon="fas fa-user" /> {{ account.authenticated.fullName ?? account.authenticated.username }}
-                  </RouterLink>
+                  <RouterLink class="dropdown-item" :to="{ name: 'Profile' }"> <font-awesome-icon icon="fas fa-user" /> {{ user.displayName }} </RouterLink>
                 </li>
                 <li>
                   <RouterLink class="dropdown-item" :to="{ name: 'SignOut' }">

@@ -33,6 +33,13 @@ export function slugify(s?: string): string {
   return unaccent(words.join("-").toLowerCase());
 }
 
+export function urlCombine(...segments: string[]): string {
+  return segments
+    .map((v) => v.replace(/^\/+|\/+$/g, ""))
+    .filter((v) => v.length)
+    .join("/");
+}
+
 const accents = new Map<string, string>([
   ["à", "a"],
   ["â", "a"],

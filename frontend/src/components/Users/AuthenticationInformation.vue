@@ -87,7 +87,9 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
           v-model="confirm"
         />
       </div>
-      <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.submit" />
+      <div class="mb-3">
+        <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.submit" />
+      </div>
     </form>
   </div>
 </template>
