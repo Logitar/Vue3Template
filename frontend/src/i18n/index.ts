@@ -37,5 +37,4 @@ export default createI18n<[MessageSchema], "en" | "fr">({
   },
 });
 
-// TODO(fpion): https://github.com/intlify/vue-i18n-next/issues/789
 // TODO(fpion): "npm run type-check" won't run
