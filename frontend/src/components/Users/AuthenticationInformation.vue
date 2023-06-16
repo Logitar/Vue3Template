@@ -61,35 +61,37 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
   <div>
     <form @submit.prevent="onSubmit">
       <UsernameInput disabled :modelValue="user.username" />
-      <h5>{{ t("users.password.label") }}</h5>
-      <app-alert dismissible variant="warning" v-model="invalidCredentials">
-        <strong>{{ t("users.password.changeFailed") }}</strong> {{ t("users.password.invalidCredentials") }}
-      </app-alert>
-      <p>{{ t("users.password.changedOn", { date: d(user.passwordChangedOn, "medium") }) }}</p>
-      <PasswordInput
-        id="current"
-        label="users.password.current.label"
-        placeholder="users.password.current.placeholder"
-        ref="currentRef"
-        required
-        v-model="current"
-      />
-      <div class="row">
-        <PasswordInput class="col-lg-6" label="users.password.new.label" placeholder="users.password.new.placeholder" required validate v-model="password" />
+      <template v-if="user.passwordChangedOn">
+        <h5>{{ t("users.password.label") }}</h5>
+        <app-alert dismissible variant="warning" v-model="invalidCredentials">
+          <strong>{{ t("users.password.changeFailed") }}</strong> {{ t("users.password.invalidCredentials") }}
+        </app-alert>
+        <p>{{ t("users.password.changedOn", { date: d(user.passwordChangedOn, "medium") }) }}</p>
         <PasswordInput
-          class="col-lg-6"
-          :confirm="{ value: password, label: 'users.password.new.label' }"
-          id="confirm"
-          label="users.password.confirm.label"
-          placeholder="users.password.confirm.placeholder"
+          id="current"
+          label="users.password.current.label"
+          placeholder="users.password.current.placeholder"
+          ref="currentRef"
           required
-          validate
-          v-model="confirm"
+          v-model="current"
         />
-      </div>
-      <div class="mb-3">
-        <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.submit" />
-      </div>
+        <div class="row">
+          <PasswordInput class="col-lg-6" label="users.password.new.label" placeholder="users.password.new.placeholder" required validate v-model="password" />
+          <PasswordInput
+            class="col-lg-6"
+            :confirm="{ value: password, label: 'users.password.new.label' }"
+            id="confirm"
+            label="users.password.confirm.label"
+            placeholder="users.password.confirm.placeholder"
+            required
+            validate
+            v-model="confirm"
+          />
+        </div>
+        <div class="mb-3">
+          <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.submit" />
+        </div>
+      </template>
     </form>
   </div>
 </template>

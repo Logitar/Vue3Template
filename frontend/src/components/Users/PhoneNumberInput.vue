@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, popScopeId, ref } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -37,7 +37,7 @@ const classes = computed<string[]>(() => {
 });
 
 const inputName = computed<string>(() => props.name ?? props.id);
-const inputPlaceholder = computed<string>(() => (props.modelValue ? undefined : t(props.placeholder)));
+const inputPlaceholder = computed<string | undefined>(() => (props.modelValue ? undefined : t(props.placeholder)));
 
 type MazState = "success" | "warning" | "error";
 const state = computed<MazState | undefined>(() => {
