@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { urlCombine } from "@/helpers/stringUtils";
 import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
@@ -17,9 +18,7 @@ const props = defineProps<{
 const search = ref<string>("");
 
 const environmentName = computed<string>(() => props.environment.toLowerCase());
-const swaggerUrl = computed<string | undefined>(() =>
-  environmentName.value === "development" ? [apiBaseUrl.replace(/^\/+|\/+$/g, ""), "swagger"].join("/") : undefined
-);
+const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
 
 function onSearch(): void {
   const query = { search: search.value, page: 1, count: 10 };

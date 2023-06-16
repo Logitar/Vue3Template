@@ -1,4 +1,5 @@
 import type { ApiResult } from "@/types/ApiResult";
+import { urlCombine } from "@/helpers/stringUtils";
 
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
 const contentType: string = "Content-Type";
@@ -11,10 +12,7 @@ async function execute(method: string, url: string, data?: any): Promise<ApiResu
     headers.set(contentType, "application/json; charset=UTF-8");
   }
 
-  const input = [apiBaseUrl, url]
-    .filter((v) => Boolean(v))
-    .map((v) => v.replace(/^\/+|\/+$/g, ""))
-    .join("/");
+  const input = urlCombine(apiBaseUrl, url);
 
   const response: Response = await fetch(input, { method, headers, body, credentials: "include" });
 
