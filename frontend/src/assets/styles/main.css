@@ -6,22 +6,9 @@
   --maz-color-success: #198754;
 }
 
-/* TODO(fpion): necessary */
-/* a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-} */
-/* TODO(fpion): necessary */
-
-/* TODO(fpion): not working */
-a.disabled,
 button:disabled {
-  cursor: not-allowed;
-  pointer-events: none !important;
+  cursor: not-allowed !important;
 }
-/* TODO(fpion): not working */
 
 .invalid-feedback {
   display: block;
