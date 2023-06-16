@@ -46,8 +46,7 @@ internal class Startup : StartupBase
 
     if (_enableOpenApi)
     {
-      services.AddEndpointsApiExplorer();
-      services.AddSwaggerGen();
+      services.AddOpenApi();
     }
 
     if (_corsSettings != null)
@@ -85,8 +84,7 @@ internal class Startup : StartupBase
   {
     if (_enableOpenApi)
     {
-      builder.UseSwagger();
-      builder.UseSwaggerUI();
+      builder.UseOpenApi();
     }
 
     builder.UseHttpsRedirection();
