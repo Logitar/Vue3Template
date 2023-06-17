@@ -24,58 +24,58 @@ const router = createRouter({
     {
       name: "Confirm",
       path: "/confirm",
-      component: () => import("./views/_users/Confirm.vue"),
+      component: () => import("./views/users/Confirm.vue"),
       meta: { isPublic: true },
     },
     {
       name: "Profile",
       path: "/profile",
-      component: () => import("./views/_users/Profile.vue"),
+      component: () => import("./views/users/Profile.vue"),
     },
     {
       name: "RecoverPassword",
       path: "/recover-password",
-      component: () => import("./views/_users/RecoverPassword.vue"),
+      component: () => import("./views/users/RecoverPassword.vue"),
       meta: { isPublic: true },
     },
     {
       name: "Register",
       path: "/register",
-      component: () => import("./views/_users/Register.vue"),
+      component: () => import("./views/users/Register.vue"),
       meta: { isPublic: true },
     },
     {
       name: "ResetPassword",
       path: "/reset-password",
-      component: () => import("./views/_users/ResetPassword.vue"),
+      component: () => import("./views/users/ResetPassword.vue"),
       meta: { isPublic: true },
     },
     {
       name: "SignIn",
       path: "/sign-in",
-      component: () => import("./views/_users/SignIn.vue"),
+      component: () => import("./views/users/SignIn.vue"),
       meta: { isPublic: true },
     },
     {
       name: "SignOut",
       path: "/sign-out",
-      component: () => import("./views/_users/SignOut.vue"),
+      component: () => import("./views/users/SignOut.vue"),
     },
     // Realms
     {
       name: "RealmList",
       path: "/realms",
-      component: () => import("./views/_realms/RealmList.vue"),
+      component: () => import("./views/realms/RealmList.vue"),
     },
     {
       name: "RealmEdit",
       path: "/realms/:id",
-      component: () => import("./views/_realms/RealmEdit.vue"),
+      component: () => import("./views/realms/RealmEdit.vue"),
     },
     {
       name: "CreateRealm",
       path: "/create-realm",
-      component: () => import("./views/_realms/RealmEdit.vue"),
+      component: () => import("./views/realms/RealmEdit.vue"),
     },
     // NotFound
     {

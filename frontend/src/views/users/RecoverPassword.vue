@@ -2,7 +2,7 @@
 import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
-import UsernameInput from "@/components/_users/UsernameInput.vue";
+import UsernameInput from "@/components/users/UsernameInput.vue";
 import { handleErrorKey } from "@/inject/App";
 import { recoverPassword } from "@/api/account";
 
