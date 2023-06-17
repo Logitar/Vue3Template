@@ -14,7 +14,7 @@ import type { ToastUtils } from "@/types/ToastUtils";
 const { rt, t, tm } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 const toasts = inject(toastsKey) as ToastUtils;
 
 const isLoading = ref<boolean>(false);
@@ -57,7 +57,7 @@ async function refresh(): Promise<void> {
       realms.value = data.results;
       total.value = data.total;
     }
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   } finally {
     if (now === timestamp.value) {
@@ -133,16 +133,16 @@ watch(
       <icon-button class="ms-1" icon="fas fa-plus" text="actions.create" :to="{ name: 'CreateRealm' }" variant="success" />
     </div>
     <div class="row">
-      <search-input class="col-lg-4" :modelValue="search" @update:modelValue="setQuery('search', $event)" />
+      <search-input class="col-lg-4" :model-value="search" @update:model-value="setQuery('search', $event)" />
       <sort-select
         class="col-lg-4"
-        :isDescending="isDescending"
-        :modelValue="sort"
+        :descending="isDescending"
+        :model-value="sort"
         :options="sortOptions"
-        @isDescending="setQuery('isDescending', $event)"
-        @update:modelValue="setQuery('sort', $event)"
+        @descending="setQuery('isDescending', $event)"
+        @update:model-value="setQuery('sort', $event)"
       />
-      <count-select class="col-lg-4" :modelValue="count" @update:modelValue="setQuery('count', $event)" />
+      <count-select class="col-lg-4" :model-value="count" @update:model-value="setQuery('count', $event)" />
     </div>
     <template v-if="realms.length">
       <table class="table table-striped">
@@ -172,9 +172,9 @@ watch(
               />
               <delete-modal
                 confirm="realms.delete.confirm"
-                :displayName="realm.displayName ? `${realm.displayName} (${realm.uniqueName})` : realm.uniqueName"
+                :display-name="realm.displayName ? `${realm.displayName} (${realm.uniqueName})` : realm.uniqueName"
                 :id="`deleteModal_${realm.id}`"
-                :isLoading="isLoading"
+                :loading="isLoading"
                 title="realms.delete.title"
                 @ok="onDelete(realm, $event)"
               />
@@ -182,7 +182,7 @@ watch(
           </tr>
         </tbody>
       </table>
-      <app-pagination :count="count" :modelValue="page" :total="total" @update:modelValue="setQuery('page', $event)" />
+      <app-pagination :count="count" :model-value="page" :total="total" @update:model-value="setQuery('page', $event)" />
     </template>
     <p v-else>{{ t("realms.empty") }}</p>
   </div>

@@ -17,23 +17,23 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: ClaimMapping[]): void;
+  (e: "update:model-value", value: ClaimMapping[]): void;
 }>();
 
 function add(): void {
   const value = [...props.modelValue];
   value.push({ key: "", type: "" });
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 function remove(index: number): void {
   const value = [...props.modelValue];
   value.splice(index, 1);
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 function update(index: number, mapping: ClaimMapping): void {
   const value = [...props.modelValue];
   value.splice(index, 1, mapping);
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 </script>
 
@@ -51,7 +51,7 @@ function update(index: number, mapping: ClaimMapping): void {
       <ClaimMappingEdit
         v-for="(claimMapping, index) in modelValue"
         :key="index"
-        :claimMapping="claimMapping"
+        :claim-mapping="claimMapping"
         class="row"
         :id="[id, index].join('_')"
         @remove="remove(index)"

@@ -4,6 +4,7 @@ import { useI18n } from "vue-i18n";
 import FormInput from "../shared/FormInput.vue";
 import type { ConfirmedParams } from "@/types/ConfirmedParams";
 import type { PasswordSettings } from "@/types/PasswordSettings";
+import type { ValidationRules } from "@/types/ValidationRules";
 
 const { t } = useI18n();
 
@@ -35,8 +36,8 @@ const props = withDefaults(
   }
 );
 
-const rules = computed<any>(() => {
-  const rules: any = {};
+const rules = computed<ValidationRules>(() => {
+  const rules: ValidationRules = {};
   if (props.validate) {
     if (props.confirm) {
       rules.confirmed = [props.confirm.value, t(props.confirm.label).toLowerCase()];
@@ -73,7 +74,7 @@ function focus(): void {
 defineExpose({ focus });
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -81,12 +82,12 @@ defineEmits<{
   <FormInput
     :id="id"
     :label="label"
-    :modelValue="modelValue"
+    :model-value="modelValue"
     :placeholder="placeholder"
     ref="inputRef"
     :required="required"
     :rules="rules"
     type="password"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

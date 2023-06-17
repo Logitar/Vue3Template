@@ -5,7 +5,7 @@ import { handleErrorKey } from "@/inject/App";
 import { signOut } from "@/api/account";
 import { useAccountStore } from "@/stores/account";
 
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const account = useAccountStore();
 
@@ -15,7 +15,7 @@ onMounted(async () => {
     await signOut();
     account.signOut();
     router.push({ name: "SignIn" });
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });

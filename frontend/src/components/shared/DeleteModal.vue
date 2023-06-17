@@ -10,12 +10,12 @@ withDefaults(
     confirm?: string;
     displayName?: string;
     id?: string;
-    isLoading?: boolean;
+    loading?: boolean;
     title: string;
   }>(),
   {
     id: "deleteModal",
-    isLoading: false,
+    loading: false,
   }
 );
 
@@ -47,7 +47,7 @@ defineEmits<{
     <slot></slot>
     <template #footer>
       <icon-button icon="ban" text="actions.cancel" variant="secondary" @click="hide" />
-      <icon-button :disabled="isLoading" icon="trash" :loading="isLoading" text="actions.delete" variant="danger" @click="$emit('ok', hide)" />
+      <icon-button :disabled="loading" icon="trash" :loading="loading" text="actions.delete" variant="danger" @click="$emit('ok', hide)" />
     </template>
   </AppModal>
 </template>

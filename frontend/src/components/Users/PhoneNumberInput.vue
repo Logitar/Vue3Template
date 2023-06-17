@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import type { Result, Translations } from "maz-ui/components/MazPhoneNumberInput";
 
 const { t } = useI18n();
 
@@ -51,25 +52,27 @@ const state = computed<MazState | undefined>(() => {
   }
 });
 
-const translations = computed(() => ({
+const translations = computed<Translations>(() => ({
   countrySelector: {
-    placeholder: t("users.phone.countryCode.label"),
     error: t("users.phone.countryCode.placeholder"),
+    placeholder: t("users.phone.countryCode.label"),
+    searchPlaceholder: "",
   },
   phoneInput: {
     example: t("users.phone.number.example"),
+    placeholder: "",
   },
 }));
 
-function onUpdate(e: any): void {
+function onUpdate(e: Partial<Result>): void {
   isValid.value = props.modelValue ? e.isValid : undefined;
 }
 
 defineExpose({ isValid });
 
 defineEmits<{
-  (e: "countryCode", value: string): void;
-  (e: "update:modelValue", value: string): void;
+  (e: "country-code", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -87,15 +90,15 @@ defineEmits<{
         :disabled="disabled"
         :error="state === 'error'"
         :id="id"
-        :modelValue="modelValue"
+        :model-value="modelValue"
         :name="inputName"
         :placeholder="inputPlaceholder"
         size="sm"
         :success="state === 'success'"
         :translations="translations"
-        @country-code="$emit('countryCode', $event)"
+        @country-code="$emit('country-code', $event)"
         @update="onUpdate"
-        @update:modelValue="$emit('update:modelValue', $event)"
+        @update:model-value="$emit('update:model-value', $event)"
       />
       <span v-if="verified" class="input-group-text bg-info text-white"><font-awesome-icon icon="fas fa-check" />&nbsp;{{ t("users.phone.verified") }}</span>
       <slot name="append"></slot>

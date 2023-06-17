@@ -1,7 +1,5 @@
 export default function (s?: string): boolean {
-  if (typeof s !== "string") {
-    return false;
-  } else if (!s.length) {
+  if (!s) {
     return true;
   }
 

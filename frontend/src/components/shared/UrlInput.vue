@@ -19,7 +19,7 @@ withDefaults(
 );
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -28,14 +28,14 @@ defineEmits<{
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxLength="maxLength"
-    :minLength="minLength"
-    :modelValue="modelValue"
+    :max-length="maxLength"
+    :min-length="minLength"
+    :model-value="modelValue"
     :name="name"
     :placeholder="placeholder"
     :required="required"
     type="url"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   >
     <template #append>
       <a :class="{ 'btn btn-info text-white': true, disabled: !modelValue }" :href="modelValue" target="_blank">

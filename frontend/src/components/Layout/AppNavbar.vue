@@ -77,7 +77,7 @@ function onSearch(): void {
           <template v-if="account.authenticated">
             <li class="d-block d-lg-none">
               <RouterLink class="nav-link" :to="{ name: 'Profile' }">
-                <app-avatar :displayName="user.displayName" :emailAddress="user.emailAddress" :size="24" :url="user.picture" />
+                <app-avatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.picture" />
                 {{ user.displayName }}
               </RouterLink>
             </li>
@@ -88,7 +88,7 @@ function onSearch(): void {
             </li>
             <li class="nav-item dropdown d-none d-lg-block">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <app-avatar :displayName="user.displayName" :emailAddress="user.emailAddress" :size="24" :url="user.picture" />
+                <app-avatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.picture" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>

@@ -36,5 +36,3 @@ export default createI18n<[MessageSchema], "en" | "fr">({
     },
   },
 });
-
-// TODO(fpion): "npm run type-check" won't run

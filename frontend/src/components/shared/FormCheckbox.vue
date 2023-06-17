@@ -10,11 +10,11 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: boolean): void;
+  (e: "update:model-value", value: boolean): void;
 }>();
-function onChange($event: Event) {
+function onChange($event: Event): void {
   if ($event.target) {
-    emit("update:modelValue", ($event.target as HTMLInputElement).checked);
+    emit("update:model-value", ($event.target as HTMLInputElement).checked);
   }
 }
 </script>

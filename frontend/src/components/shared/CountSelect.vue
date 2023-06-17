@@ -21,10 +21,10 @@ withDefaults(
 const options = computed<SelectOption[]>(() => [10, 25, 50, 100].map((value) => ({ text: value.toString(), value: value.toString() })));
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: number): void;
+  (e: "update:model-value", value: number): void;
 }>();
 function onModelValueUpdate(value: string): void {
-  emit("update:modelValue", Number(value));
+  emit("update:model-value", Number(value));
 }
 </script>
 
@@ -33,10 +33,10 @@ function onModelValueUpdate(value: string): void {
     :disabled="disabled"
     :id="id"
     :label="label"
-    :modelValue="modelValue.toString()"
+    :model-value="modelValue.toString()"
     :name="name"
-    noState
+    no-state
     :options="options"
-    @update:modelValue="onModelValueUpdate"
+    @update:model-value="onModelValueUpdate"
   />
 </template>

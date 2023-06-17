@@ -20,7 +20,7 @@ const min = new Date(max);
 min.setFullYear(min.getFullYear() - 100);
 
 defineEmits<{
-  (e: "update:modelValue", value?: Date): void;
+  (e: "update:model-value", value?: Date): void;
 }>();
 </script>
 
@@ -31,8 +31,8 @@ defineEmits<{
     :label="label"
     :max="max"
     :min="min"
-    :modelValue="modelValue"
+    :model-value="modelValue"
     :required="required"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

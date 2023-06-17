@@ -36,15 +36,15 @@ const options = computed<SelectOption[]>(() =>
 const map = new Map<string, CountrySettings>();
 countries.forEach((country) => map.set(country.code, country));
 const emit = defineEmits<{
-  (e: "countrySelected", country?: CountrySettings): void;
-  (e: "update:modelValue", value: string): void;
+  (e: "country-selected", country?: CountrySettings): void;
+  (e: "update:model-value", value: string): void;
 }>();
 watchEffect(() => {
   if (props.modelValue) {
     const country: CountrySettings | undefined = map.get(props.modelValue);
-    emit("countrySelected", country);
+    emit("country-selected", country);
   } else {
-    emit("countrySelected", undefined);
+    emit("country-selected", undefined);
   }
 });
 </script>
@@ -54,10 +54,10 @@ watchEffect(() => {
     :disabled="disabled"
     :id="id"
     :label="label"
-    :modelValue="modelValue"
+    :model-value="modelValue"
     :options="options"
     :placeholder="placeholder"
     :required="required"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

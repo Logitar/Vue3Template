@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { PasswordSettings } from "@/types/PasswordSettings";
 import { useI18n } from "vue-i18n";
+import type { PasswordSettings } from "@/types/PasswordSettings";
+import { assign } from "@/helpers/objectUtils";
 
 const { t } = useI18n();
 
@@ -9,14 +10,14 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: PasswordSettings): void;
+  (e: "update:model-value", value: PasswordSettings): void;
 }>();
 function onUpdate(changes: object): void {
-  const settings: any = { ...props.modelValue };
+  const settings: PasswordSettings = { ...props.modelValue };
   for (const [key, value] of Object.entries(changes)) {
-    settings[key] = value;
+    assign(settings, key as keyof PasswordSettings, value);
   }
-  emit("update:modelValue", settings);
+  emit("update:model-value", settings);
 }
 </script>
 
@@ -28,50 +29,50 @@ function onUpdate(changes: object): void {
         class="col-lg-6"
         id="requiredLength"
         label="realms.password.requiredLength.label"
-        :minValue="1"
-        :modelValue="modelValue.requiredLength.toString()"
+        :min-value="1"
+        :model-value="modelValue.requiredLength.toString()"
         placeholder="realms.password.requiredLength.placeholder"
         required
         type="number"
-        @update:modelValue="onUpdate({ requiredLength: Number($event) })"
+        @update:model-value="onUpdate({ requiredLength: Number($event) })"
       />
       <form-input
         class="col-lg-6"
         id="requiredUniqueChars"
         label="realms.password.requiredUniqueChars.label"
-        :minValue="1"
-        :maxValue="modelValue.requiredLength"
-        :modelValue="modelValue.requiredUniqueChars.toString()"
+        :min-value="1"
+        :max-value="modelValue.requiredLength"
+        :model-value="modelValue.requiredUniqueChars.toString()"
         placeholder="realms.password.requiredUniqueChars.placeholder"
         required
         type="number"
-        @update:modelValue="onUpdate({ requiredUniqueChars: Number($event) })"
+        @update:model-value="onUpdate({ requiredUniqueChars: Number($event) })"
       />
     </div>
     <div class="mb-3">
       <form-checkbox
         id="requireLowercase"
         label="realms.password.requireLowercase"
-        :modelValue="modelValue.requireLowercase"
-        @update:modelValue="onUpdate({ requireLowercase: $event })"
+        :model-value="modelValue.requireLowercase"
+        @update:model-value="onUpdate({ requireLowercase: $event })"
       />
       <form-checkbox
         id="requireUppercase"
         label="realms.password.requireUppercase"
-        :modelValue="modelValue.requireUppercase"
-        @update:modelValue="onUpdate({ requireUppercase: $event })"
+        :model-value="modelValue.requireUppercase"
+        @update:model-value="onUpdate({ requireUppercase: $event })"
       />
       <form-checkbox
         id="requireDigit"
         label="realms.password.requireDigit"
-        :modelValue="modelValue.requireDigit"
-        @update:modelValue="onUpdate({ requireDigit: $event })"
+        :model-value="modelValue.requireDigit"
+        @update:model-value="onUpdate({ requireDigit: $event })"
       />
       <form-checkbox
         id="requireNonAlphanumeric"
         label="realms.password.requireNonAlphanumeric"
-        :modelValue="modelValue.requireNonAlphanumeric"
-        @update:modelValue="onUpdate({ requireNonAlphanumeric: $event })"
+        :model-value="modelValue.requireNonAlphanumeric"
+        @update:model-value="onUpdate({ requireNonAlphanumeric: $event })"
       />
     </div>
   </div>

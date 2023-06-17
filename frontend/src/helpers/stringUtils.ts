@@ -1,13 +1,13 @@
-export function isDigit(c: unknown): boolean {
-  return typeof c === "string" && c.trim() !== "" && !isNaN(Number(c));
+export function isDigit(c: string): boolean {
+  return c.trim() !== "" && !isNaN(Number(c));
 }
 
-export function isLetter(c: unknown): boolean {
-  return typeof c === "string" && c.toLowerCase() !== c.toUpperCase();
+export function isLetter(c: string): boolean {
+  return c.toLowerCase() !== c.toUpperCase();
 }
 
-export function isLetterOrDigit(c: unknown): boolean {
-  return typeof c === "string" && (isDigit(c) || isLetter(c));
+export function isLetterOrDigit(c: string): boolean {
+  return isDigit(c) || isLetter(c);
 }
 
 export function shortify(s: string, length: number): string {
@@ -15,7 +15,9 @@ export function shortify(s: string, length: number): string {
 }
 
 export function slugify(s?: string): string {
-  s = s ?? "";
+  if (!s) {
+    return "";
+  }
   const words = [];
   let word = "";
   for (let i = 0; i < s.length; i++) {

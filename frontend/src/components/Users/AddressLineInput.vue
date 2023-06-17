@@ -25,7 +25,7 @@ const inputLabel = computed<string>(() => props.label ?? `users.address.${props.
 const inputPlaceholder = computed<string>(() => props.placeholder ?? `users.address.${props.type}.placeholder`);
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -34,10 +34,10 @@ defineEmits<{
     :disabled="disabled"
     :id="inputId"
     :label="inputLabel"
-    :maxLength="validate ? 255 : undefined"
-    :modelValue="modelValue"
+    :max-length="validate ? 255 : undefined"
+    :model-value="modelValue"
     :placeholder="inputPlaceholder"
     :required="required"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

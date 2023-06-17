@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { UsernameSettings } from "@/types/UsernameSettings";
 import { useI18n } from "vue-i18n";
+import type { UsernameSettings } from "@/types/UsernameSettings";
+import { assign } from "@/helpers/objectUtils";
 
 const { t } = useI18n();
 
@@ -9,14 +10,14 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: UsernameSettings): void;
+  (e: "update:model-value", value: UsernameSettings): void;
 }>();
 function onUpdate(changes: object): void {
-  const settings: any = { ...props.modelValue };
+  const settings: UsernameSettings = { ...props.modelValue };
   for (const [key, value] of Object.entries(changes)) {
-    settings[key] = value;
+    assign(settings, key as keyof UsernameSettings, value);
   }
-  emit("update:modelValue", settings);
+  emit("update:model-value", settings);
 }
 </script>
 
@@ -27,8 +28,8 @@ function onUpdate(changes: object): void {
       id="allowedCharacters"
       label="realms.username.allowedCharacters.label"
       placeholder="realms.username.allowedCharacters.placeholder"
-      :modelValue="modelValue?.allowedCharacters"
-      @update:modelValue="onUpdate({ allowedCharacters: $event })"
+      :model-value="modelValue?.allowedCharacters"
+      @update:model-value="onUpdate({ allowedCharacters: $event })"
     />
   </div>
 </template>

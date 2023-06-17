@@ -19,7 +19,7 @@ import { handleErrorKey, registerTooltipsKey, toastsKey } from "@/inject/App";
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 const registerTooltips = inject(registerTooltipsKey) as () => void;
 const toasts = inject(toastsKey) as ToastUtils;
 
@@ -133,7 +133,7 @@ const onSubmit = handleSubmit(async () => {
       toasts.success("realms.created");
       router.replace({ name: "RealmEdit", params: { id: data.id } });
     }
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });
@@ -144,7 +144,7 @@ onMounted(async () => {
     try {
       const { data } = await getRealm(id);
       setModel(data);
-    } catch (e: any) {
+    } catch (e: unknown) {
       handleError(e);
     }
   }
@@ -174,7 +174,7 @@ onMounted(async () => {
           <div class="row">
             <display-name-input class="col-lg-6" validate v-model="displayName" />
             <slug-input
-              :baseValue="displayName"
+              :base-value="displayName"
               class="col-lg-6"
               :disabled="Boolean(realm)"
               id="uniqueName"
@@ -209,7 +209,7 @@ onMounted(async () => {
           <UsernameSettingsEdit v-model="usernameSettings" />
           <PasswordSettingsEdit v-model="passwordSettings" />
           <h5>{{ t("realms.jwt.title") }}</h5>
-          <JwtSecretField :oldValue="realm?.secret" validate v-model="secret" />
+          <JwtSecretField :old-value="realm?.secret" validate v-model="secret" />
         </app-tab>
         <app-tab title="realms.claimMappings.title">
           <ClaimMappingList v-model="claimMappings" />

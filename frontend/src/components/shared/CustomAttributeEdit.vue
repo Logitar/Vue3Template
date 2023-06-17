@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { CustomAttribute } from "@/types/CustomAttribute";
+import { assign } from "@/helpers/objectUtils";
 
 const props = defineProps<{
-  attribute: CustomAttribute;
+  customAttribute: CustomAttribute;
   id: string;
 }>();
 
@@ -11,11 +12,11 @@ const emit = defineEmits<{
   (e: "update", attribute: CustomAttribute): void;
 }>();
 function onUpdate(changes: object): void {
-  const attribute: any = { ...props.attribute };
+  const customAttribute: CustomAttribute = { ...props.customAttribute };
   for (const [key, value] of Object.entries(changes)) {
-    attribute[key] = value;
+    assign(customAttribute, key as keyof CustomAttribute, value);
   }
-  emit("update", attribute);
+  emit("update", customAttribute);
 }
 </script>
 
@@ -25,13 +26,13 @@ function onUpdate(changes: object): void {
       <form-input
         :id="`${id}_key`"
         label="customAttributes.key.label"
-        :maxLength="255"
-        :modelValue="attribute.key"
-        noLabel
+        :max-length="255"
+        :model-value="customAttribute.key"
+        no-label
         placeholder="customAttributes.key.placeholder"
         required
         :rules="{ identifier: true }"
-        @update:modelValue="onUpdate({ key: $event })"
+        @update:model-value="onUpdate({ key: $event })"
       >
         <template #prepend>
           <icon-button icon="times" variant="danger" @click="$emit('remove')" />
@@ -42,11 +43,11 @@ function onUpdate(changes: object): void {
       class="col"
       :id="`${id}_value`"
       label="customAttributes.value.label"
-      :modelValue="attribute.value"
-      noLabel
+      :model-value="customAttribute.value"
+      no-label
       placeholder="customAttributes.value.placeholder"
       required
-      @update:modelValue="onUpdate({ value: $event })"
+      @update:model-value="onUpdate({ value: $event })"
     />
   </div>
 </template>

@@ -33,10 +33,10 @@ const classes = computed<string[]>(() => {
 });
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: false): void;
+  (e: "update:model-value", value: false): void;
 }>();
-function onClose() {
-  emit("update:modelValue", false);
+function onClose(): void {
+  emit("update:model-value", false);
 }
 </script>
 

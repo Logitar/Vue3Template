@@ -20,7 +20,7 @@ withDefaults(
 );
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -29,10 +29,10 @@ defineEmits<{
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxLength="validate ? 255 : undefined"
-    :modelValue="modelValue"
+    :max-length="validate ? 255 : undefined"
+    :model-value="modelValue"
     :placeholder="placeholder"
     :required="required"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

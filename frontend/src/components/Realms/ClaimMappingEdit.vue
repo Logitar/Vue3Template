@@ -3,6 +3,7 @@ import { computed } from "vue";
 import claimValueTypes from "@/resources/claimValueTypes.json";
 import type { ClaimMapping } from "@/types/ClaimMapping";
 import type { SelectOption } from "@/types/SelectOption";
+import { assign } from "@/helpers/objectUtils";
 import { orderBy } from "@/helpers/arrayUtils";
 
 const props = defineProps<{
@@ -22,9 +23,9 @@ const emit = defineEmits<{
   (e: "update", claimMapping: ClaimMapping): void;
 }>();
 function onUpdate(changes: object): void {
-  const claimMapping: any = { ...props.claimMapping };
+  const claimMapping: ClaimMapping = { ...props.claimMapping };
   for (const [key, value] of Object.entries(changes)) {
-    claimMapping[key] = value;
+    assign(claimMapping, key as keyof ClaimMapping, value);
   }
   emit("update", claimMapping);
 }
@@ -36,13 +37,13 @@ function onUpdate(changes: object): void {
       <form-input
         :id="`${id}_key`"
         label="customAttributes.key.label"
-        :maxLength="255"
-        :modelValue="claimMapping.key"
-        noLabel
+        :max-length="255"
+        :model-value="claimMapping.key"
+        no-label
         placeholder="customAttributes.key.placeholder"
         required
         :rules="{ identifier: true }"
-        @update:modelValue="onUpdate({ key: $event })"
+        @update:model-value="onUpdate({ key: $event })"
       >
         <template #prepend>
           <icon-button icon="times" variant="danger" @click="$emit('remove')" />
@@ -53,21 +54,21 @@ function onUpdate(changes: object): void {
       class="col"
       :id="`${id}_type`"
       label="realms.claimMappings.type.label"
-      :modelValue="claimMapping.type"
-      noLabel
+      :model-value="claimMapping.type"
+      no-label
       placeholder="realms.claimMappings.type.placeholder"
       required
-      @update:modelValue="onUpdate({ type: $event })"
+      @update:model-value="onUpdate({ type: $event })"
     />
     <form-select
       class="col"
       :id="`${id}_valueType`"
       label="realms.claimMappings.valueType.label"
-      :modelValue="claimMapping.valueType"
-      noLabel
+      :model-value="claimMapping.valueType"
+      no-label
       :options="claimValueTypeOptions"
       placeholder="realms.claimMappings.valueType.placeholder"
-      @update:modelValue="onUpdate({ valueType: $event || null })"
+      @update:model-value="onUpdate({ valueType: $event || null })"
     />
   </div>
 </template>

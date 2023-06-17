@@ -4,13 +4,14 @@ import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
-import type { ApiResult } from "@/types/ApiResult";
+import type { ApiError } from "@/types/ApiError";
+import type { ErrorDetail } from "@/types/ErrorDetail";
 import { handleErrorKey } from "@/inject/App";
 import { onMounted } from "vue";
 import { resetPassword, validatePasswordReset } from "@/api/account";
 
 const { t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const confirm = ref<string>("");
 const password = ref<string>("");
@@ -25,9 +26,9 @@ onMounted(async () => {
     try {
       await validatePasswordReset(token);
       validated.value = true;
-    } catch (e: any) {
-      const { data, status } = e as ApiResult;
-      if (status === 400 && data?.code === "InvalidCredentials") {
+    } catch (e: unknown) {
+      const { data, status } = e as ApiError;
+      if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
         router.push({ name: "SignIn" });
       } else {
         handleError(e);
@@ -43,7 +44,7 @@ const onSubmit = handleSubmit(async () => {
   try {
     await resetPassword({ token, password: password.value });
     success.value = true;
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });

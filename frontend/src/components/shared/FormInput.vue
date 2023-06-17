@@ -2,6 +2,8 @@
 import { computed, ref } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
+import type { ValidationListeners } from "@/types/ValidationListeners";
+import type { ValidationRules } from "@/types/ValidationRules";
 
 const { t } = useI18n();
 
@@ -35,7 +37,7 @@ const props = withDefaults(
   }
 );
 
-const inputMax = computed<any>(() => {
+const inputMax = computed<string | number | undefined>(() => {
   switch (props.type) {
     case "datetime-local":
       return props.maxDate;
@@ -44,7 +46,7 @@ const inputMax = computed<any>(() => {
   }
   return undefined;
 });
-const inputMin = computed<any>(() => {
+const inputMin = computed<string | number | undefined>(() => {
   switch (props.type) {
     case "datetime-local":
       return props.minDate;
@@ -54,8 +56,8 @@ const inputMin = computed<any>(() => {
   return undefined;
 });
 const inputName = computed<string>(() => props.name ?? props.id);
-const validationRules = computed<any>(() => {
-  const rules: any = {};
+const validationRules = computed<ValidationRules>(() => {
+  const rules: ValidationRules = {};
   if (props.required) {
     rules.required = true;
   }
@@ -96,10 +98,10 @@ const classes = computed<string[]>(() => {
   }
   return classes;
 });
-const validationListeners = computed<any>(() => ({
+const validationListeners = computed<ValidationListeners>(() => ({
   blur: handleChange,
   change: handleChange,
-  input: errorMessage.value ? handleChange : (e: any) => handleChange(e, false),
+  input: errorMessage.value ? handleChange : (e: unknown) => handleChange(e, false),
 }));
 
 const inputRef = ref<HTMLInputElement>();

@@ -4,7 +4,8 @@ import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import PasswordInput from "./PasswordInput.vue";
 import UsernameInput from "./UsernameInput.vue";
-import type { ApiResult } from "@/types/ApiResult";
+import type { ApiError } from "@/types/ApiError";
+import type { ErrorDetail } from "@/types/ErrorDetail";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { ToastUtils } from "@/types/ToastUtils";
 import type { UserProfile } from "@/types/UserProfile";
@@ -12,7 +13,7 @@ import { changePassword } from "@/api/account";
 import { handleErrorKey, toastsKey } from "@/inject/App";
 
 const { d, t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 const toasts = inject(toastsKey) as ToastUtils;
 
 defineProps<{
@@ -34,7 +35,7 @@ function reset(): void {
 }
 
 const emit = defineEmits<{
-  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+  (e: "profile-updated", event: ProfileUpdatedEvent): void;
 }>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async (_, { resetForm }) => {
@@ -42,13 +43,13 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
   try {
     const { data } = await changePassword({ current: current.value, password: password.value });
     resetForm();
-    emit("profileUpdated", { toast: false, user: data });
+    emit("profile-updated", { toast: false, user: data });
     toasts.success("users.password.changed");
-  } catch (e: any) {
+  } catch (e: unknown) {
     reset();
     currentRef.value?.focus();
-    const { data, status } = e as ApiResult;
-    if (status === 400 && data?.code === "InvalidCredentials") {
+    const { data, status } = e as ApiError;
+    if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
       invalidCredentials.value = true;
     } else {
       handleError(e);
@@ -60,7 +61,7 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
 <template>
   <div>
     <form @submit.prevent="onSubmit">
-      <UsernameInput disabled :modelValue="user.username" />
+      <UsernameInput disabled :model-value="user.username" />
       <template v-if="user.passwordChangedOn">
         <h5>{{ t("users.password.label") }}</h5>
         <app-alert dismissible variant="warning" v-model="invalidCredentials">

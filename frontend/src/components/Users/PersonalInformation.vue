@@ -13,7 +13,7 @@ import type { UserProfile } from "@/types/UserProfile";
 import { handleErrorKey } from "@/inject/App";
 import { savePersonalInformation } from "@/api/account";
 
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const props = defineProps<{
   user: UserProfile;
@@ -39,15 +39,15 @@ const hasChanges = computed<boolean>(() => {
   return (
     firstName.value !== user.firstName ||
     lastName.value !== user.lastName ||
-    middleName.value !== user.middleName ||
-    nickname.value !== user.nickname ||
-    Number(birthdate.value) !== Number(user.birthdate ? new Date(user.birthdate) : undefined) ||
-    gender.value !== user.gender ||
-    locale.value !== user.locale ||
-    timeZone.value !== user.timeZone ||
-    picture.value !== user.picture ||
-    profile.value !== user.profile ||
-    website.value !== user.website
+    middleName.value !== (user.middleName ?? "") ||
+    nickname.value !== (user.nickname ?? "") ||
+    birthdate.value?.getTime() !== (user.birthdate ? new Date(user.birthdate) : undefined)?.getTime() ||
+    gender.value !== (user.gender ?? "") ||
+    locale.value !== (user.locale ?? "") ||
+    timeZone.value !== (user.timeZone ?? "") ||
+    picture.value !== (user.picture ?? "") ||
+    profile.value !== (user.profile ?? "") ||
+    website.value !== (user.website ?? "")
   );
 });
 
@@ -67,7 +67,7 @@ watchEffect(() => {
 });
 
 const emit = defineEmits<{
-  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+  (e: "profile-updated", event: ProfileUpdatedEvent): void;
 }>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
@@ -85,8 +85,8 @@ const onSubmit = handleSubmit(async () => {
       profile: profile.value,
       website: website.value,
     });
-    emit("profileUpdated", { user: data });
-  } catch (e: any) {
+    emit("profile-updated", { user: data });
+  } catch (e: unknown) {
     handleError(e);
   }
 });

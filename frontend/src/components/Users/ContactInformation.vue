@@ -20,7 +20,7 @@ import { handleErrorKey } from "@/inject/App";
 import { saveContactInformation } from "@/api/account";
 
 const { t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const props = defineProps<{
   user: UserProfile;
@@ -83,7 +83,7 @@ watchEffect(() => {
 });
 
 const emit = defineEmits<{
-  (e: "profileUpdated", event: ProfileUpdatedEvent): void;
+  (e: "profile-updated", event: ProfileUpdatedEvent): void;
 }>();
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
@@ -93,13 +93,13 @@ const onSubmit = handleSubmit(async () => {
       email: email.value,
       phone: phone.value.number ? phone.value : undefined,
     });
-    emit("profileUpdated", { user: data });
-  } catch (e: any) {
+    emit("profile-updated", { user: data });
+  } catch (e: unknown) {
     handleError(e);
   }
 });
 
-function clearAddress() {
+function clearAddress(): void {
   address.value.line1 = "";
   address.value.line2 = undefined;
   address.value.locality = "";
@@ -119,13 +119,13 @@ function clearAddress() {
       <div class="row">
         <PhoneNumberInput
           class="col-lg-6"
-          :countryCode="phone.countryCode"
+          :country-code="phone.countryCode"
           :disabled="user.phone?.isVerified"
           ref="phoneNumberRef"
           :required="Boolean(phone.extension)"
           :verified="user.phone?.isVerified"
           v-model="phone.number"
-          @countryCode="phone.countryCode = $event"
+          @country-code="phone.countryCode = $event"
         />
         <PhoneExtensionInput class="col-lg-6" :disabled="user.phone?.isVerified" validate v-model="phone.extension" />
       </div>
@@ -149,7 +149,7 @@ function clearAddress() {
           :disabled="user.address?.isVerified"
           :required="isAddressRequired"
           v-model="address.country"
-          @countrySelected="selectedCountry = $event"
+          @country-selected="selectedCountry = $event"
         />
         <RegionSelect class="col-lg-6" :country="selectedCountry" :disabled="user.address?.isVerified" v-model="address.region" />
       </div>
