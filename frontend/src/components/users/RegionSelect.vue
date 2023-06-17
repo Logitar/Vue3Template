@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import type { CountrySettings } from "@/types/CountrySettings";
-import type { SelectOption } from "@/types/SelectOption";
+import type { CountrySettings } from "@/types/users/contact";
+import type { SelectOption } from "@/types/components";
 import { orderBy } from "@/helpers/arrayUtils";
 
 const { t } = useI18n();

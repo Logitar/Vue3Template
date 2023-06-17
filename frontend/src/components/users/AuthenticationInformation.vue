@@ -4,11 +4,10 @@ import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import PasswordInput from "./PasswordInput.vue";
 import UsernameInput from "./UsernameInput.vue";
-import type { ApiError } from "@/types/ApiError";
-import type { ErrorDetail } from "@/types/ErrorDetail";
-import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
-import type { ToastUtils } from "@/types/ToastUtils";
-import type { UserProfile } from "@/types/UserProfile";
+import type { ApiError, ErrorDetail } from "@/types/api";
+import type { ProfileUpdatedEvent } from "@/types/users";
+import type { ToastUtils } from "@/types/components";
+import type { UserProfile } from "@/types/users";
 import { changePassword } from "@/api/account";
 import { handleErrorKey, toastsKey } from "@/inject/App";
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SelectOption } from "@/types/SelectOption";
+import type { SelectOption } from "@/types/components";
 
 withDefaults(
   defineProps<{

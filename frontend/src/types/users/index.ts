@@ -1,6 +1,17 @@
-import type { Address } from "./Address";
-import type { Email } from "./Email";
-import type { Phone } from "./Phone";
+import type { Address, Email, Phone } from "./contact";
+
+export type AuthenticatedUser = {
+  displayName?: string;
+  emailAddress?: string;
+  picture?: string;
+};
+
+export type PersonNameType = "first" | "last" | "middle" | "nick";
+
+export type ProfileUpdatedEvent = {
+  toast?: boolean;
+  user: UserProfile;
+};
 
 export type UserProfile = {
   username: string;

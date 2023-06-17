@@ -1,13 +1,15 @@
-import type { ApiResult } from "@/types/ApiResult";
-import type { ChangePasswordPayload } from "@/types/ChangePasswordPayload";
-import type { ConfirmPayload } from "@/types/ConfirmPayload";
-import type { RecoverPasswordPayload } from "@/types/RecoverPasswordPayload";
-import type { RegisterPayload } from "@/types/RegisterPayload";
-import type { ResetPasswordPayload } from "@/types/ResetPasswordPayload";
-import type { SaveContactInformationPayload } from "@/types/SaveContactInformationPayload";
-import type { SavePersonalInformationPayload } from "@/types/SavePersonalInformationPayload";
-import type { SignInPayload } from "@/types/SignInPayload";
-import type { UserProfile } from "@/types/UserProfile";
+import type { ApiResult } from "@/types/api";
+import type {
+  ChangePasswordPayload,
+  ConfirmPayload,
+  RecoverPasswordPayload,
+  RegisterPayload,
+  ResetPasswordPayload,
+  SaveContactInformationPayload,
+  SavePersonalInformationPayload,
+  SignInPayload,
+} from "@/types/users/payloads";
+import type { UserProfile } from "@/types/users";
 import { get, post, put } from ".";
 
 export async function changePassword(payload: ChangePasswordPayload): Promise<ApiResult<UserProfile>> {

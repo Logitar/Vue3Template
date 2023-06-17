@@ -1,5 +1,4 @@
-import type { ApiError } from "@/types/ApiError";
-import type { ApiResult } from "@/types/ApiResult";
+import type { ApiError, ApiResult } from "@/types/api";
 import { urlCombine } from "@/helpers/stringUtils";
 
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;

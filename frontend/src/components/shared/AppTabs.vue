@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import type { TabOptions } from "@/types/TabOptions";
+import type { TabOptions } from "@/types/components";
 import { bindTabKey, unbindTabKey } from "@/inject/AppTabs";
 
 const { t } = useI18n();

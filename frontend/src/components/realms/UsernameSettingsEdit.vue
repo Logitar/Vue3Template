@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import type { UsernameSettings } from "@/types/UsernameSettings";
+import type { UsernameSettings } from "@/types/realms";
 import { assign } from "@/helpers/objectUtils";
 
 const { t } = useI18n();

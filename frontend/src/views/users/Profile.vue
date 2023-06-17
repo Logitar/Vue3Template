@@ -6,9 +6,8 @@ import AuthenticationInformation from "@/components/users/AuthenticationInformat
 import ContactInformation from "@/components/users/ContactInformation.vue";
 import PersonalInformation from "@/components/users/PersonalInformation.vue";
 import ProfileHeader from "@/components/users/ProfileHeader.vue";
-import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
-import type { ToastUtils } from "@/types/ToastUtils";
-import type { UserProfile } from "@/types/UserProfile";
+import type { ProfileUpdatedEvent, UserProfile } from "@/types/users";
+import type { ToastUtils } from "@/types/components";
 import { getProfile } from "@/api/account";
 import { handleErrorKey, toastsKey } from "@/inject/App";
 import { useAccountStore } from "@/stores/account";

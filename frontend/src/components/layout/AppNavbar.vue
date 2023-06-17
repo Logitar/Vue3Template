@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
-import type { AuthenticatedUser } from "@/types/AuthenticatedUser";
+import type { AuthenticatedUser } from "@/types/users";
 import { urlCombine } from "@/helpers/stringUtils";
 import { useAccountStore } from "@/stores/account";
 

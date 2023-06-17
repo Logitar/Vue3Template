@@ -1,9 +1,6 @@
-import type { ApiResult } from "@/types/ApiResult";
-import type { CreateRealmPayload } from "@/types/CreateRealmPayload";
-import type { Realm } from "@/types/Realm";
-import type { SearchParameters } from "@/types/SearchParameters";
-import type { SearchResults } from "@/types/SearchResults";
-import type { UpdateRealmPayload } from "@/types/UpdateRealmPayload";
+import type { ApiResult, SearchParameters, SearchResults } from "@/types/api";
+import type { CreateRealmPayload, UpdateRealmPayload } from "@/types/realms/payloads";
+import type { Realm } from "@/types/realms";
 import { _delete, get, post, put } from ".";
 
 export async function createRealm(payload: CreateRealmPayload): Promise<ApiResult<Realm>> {

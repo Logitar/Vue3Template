@@ -5,9 +5,8 @@ import { Tooltip } from "bootstrap";
 import AppFooter from "./components/layout/AppFooter.vue";
 import AppNavbar from "./components/layout/AppNavbar.vue";
 import ToastContainer from "./components/layout/ToastContainer.vue";
-import type { ApiError } from "./types/ApiError";
-import type { ToastOptions } from "./types/ToastOptions";
-import type { ToastUtils } from "./types/ToastUtils";
+import type { ApiError } from "./types/api";
+import type { ToastOptions, ToastUtils } from "./types/components";
 import { handleErrorKey, registerTooltipsKey, toastKey, toastsKey } from "./inject/App";
 
 const route = useRoute();

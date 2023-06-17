@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import ClaimMappingEdit from "./ClaimMappingEdit.vue";
-import type { ClaimMapping } from "@/types/ClaimMapping";
+import type { ClaimMapping } from "@/types/realms";
 
 const { t } = useI18n();
 

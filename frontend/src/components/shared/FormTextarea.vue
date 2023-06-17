@@ -2,8 +2,7 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useField } from "vee-validate";
-import type { ValidationListeners } from "@/types/ValidationListeners";
-import type { ValidationRules } from "@/types/ValidationRules";
+import type { ValidationListeners, ValidationRules } from "@/types/validation";
 
 const { t } = useI18n();
 

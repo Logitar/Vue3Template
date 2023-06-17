@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { CountrySettings } from "@/types/CountrySettings";
-import type { ValidationRules } from "@/types/ValidationRules";
+import type { CountrySettings } from "@/types/users/contact";
+import type { ValidationRules } from "@/types/validation";
 import { computed } from "vue";
 
 const props = withDefaults(

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { AddressLineType } from "@/types/AddressLineType";
+import type { AddressLineType } from "@/types/users/contact";
 
 const props = withDefaults(
   defineProps<{

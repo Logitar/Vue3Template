@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import claimValueTypes from "@/resources/claimValueTypes.json";
-import type { ClaimMapping } from "@/types/ClaimMapping";
-import type { SelectOption } from "@/types/SelectOption";
+import type { ClaimMapping } from "@/types/realms";
+import type { SelectOption } from "@/types/components";
 import { assign } from "@/helpers/objectUtils";
 import { orderBy } from "@/helpers/arrayUtils";
 

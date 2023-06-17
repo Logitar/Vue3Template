@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import FormInput from "../shared/FormInput.vue";
-import type { ConfirmedParams } from "@/types/ConfirmedParams";
-import type { PasswordSettings } from "@/types/PasswordSettings";
-import type { ValidationRules } from "@/types/ValidationRules";
+import FormInput from "@/components/shared/FormInput.vue";
+import type { ConfirmedParams } from "@/types/validation";
+import type { PasswordSettings } from "@/types/realms";
+import type { ValidationRules } from "@/types/validation";
 
 const { t } = useI18n();
 

@@ -2,8 +2,7 @@
 import { inject, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
-import type { ApiError } from "@/types/ApiError";
-import type { ErrorDetail } from "@/types/ErrorDetail";
+import type { ApiError, ErrorDetail } from "@/types/api";
 import { confirm } from "@/api/account";
 import { handleErrorKey } from "@/inject/App";
 

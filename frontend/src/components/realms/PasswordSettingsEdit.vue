@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import type { PasswordSettings } from "@/types/PasswordSettings";
+import type { PasswordSettings } from "@/types/realms";
 import { assign } from "@/helpers/objectUtils";
 
 const { t } = useI18n();

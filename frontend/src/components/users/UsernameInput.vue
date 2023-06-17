@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { UsernameSettings } from "@/types/UsernameSettings";
-import type { ValidationRules } from "@/types/ValidationRules";
+import type { UsernameSettings } from "@/types/realms";
+import type { ValidationRules } from "@/types/validation";
 
 const props = withDefaults(
   defineProps<{
