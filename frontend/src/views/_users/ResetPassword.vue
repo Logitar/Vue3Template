@@ -3,7 +3,7 @@ import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
-import PasswordInput from "@/components/Users/PasswordInput.vue";
+import PasswordInput from "@/components/_users/PasswordInput.vue";
 import type { ApiError } from "@/types/ApiError";
 import type { ErrorDetail } from "@/types/ErrorDetail";
 import { handleErrorKey } from "@/inject/App";

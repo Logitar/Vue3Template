@@ -2,10 +2,10 @@
 import { inject, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
-import EmailAddressInput from "@/components/Users/EmailAddressInput.vue";
-import PasswordInput from "@/components/Users/PasswordInput.vue";
-import PersonNameInput from "@/components/Users/PersonNameInput.vue";
-import UsernameInput from "@/components/Users/UsernameInput.vue";
+import EmailAddressInput from "@/components/_users/EmailAddressInput.vue";
+import PasswordInput from "@/components/_users/PasswordInput.vue";
+import PersonNameInput from "@/components/_users/PersonNameInput.vue";
+import UsernameInput from "@/components/_users/UsernameInput.vue";
 import { handleErrorKey } from "@/inject/App";
 import { register } from "@/api/account";
 

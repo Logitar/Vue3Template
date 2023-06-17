@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, inject, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
-import BirthdateInput from "@/components/Users/BirthdateInput.vue";
-import GenderSelect from "@/components/Users/GenderSelect.vue";
-import PersonNameInput from "@/components/Users/PersonNameInput.vue";
-import PictureInput from "@/components/Users/PictureInput.vue";
-import ProfileInput from "@/components/Users/ProfileInput.vue";
-import TimeZoneSelect from "@/components/Users/TimeZoneSelect.vue";
-import WebsiteInput from "@/components/Users/WebsiteInput.vue";
+import BirthdateInput from "@/components/_users/BirthdateInput.vue";
+import GenderSelect from "@/components/_users/GenderSelect.vue";
+import PersonNameInput from "@/components/_users/PersonNameInput.vue";
+import PictureInput from "@/components/_users/PictureInput.vue";
+import ProfileInput from "@/components/_users/ProfileInput.vue";
+import TimeZoneSelect from "@/components/_users/TimeZoneSelect.vue";
+import WebsiteInput from "@/components/_users/WebsiteInput.vue";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { UserProfile } from "@/types/UserProfile";
 import { handleErrorKey } from "@/inject/App";

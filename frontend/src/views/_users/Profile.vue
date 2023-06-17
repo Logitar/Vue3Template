@@ -2,10 +2,10 @@
 import { inject, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
-import AuthenticationInformation from "@/components/Users/AuthenticationInformation.vue";
-import ContactInformation from "@/components/Users/ContactInformation.vue";
-import PersonalInformation from "@/components/Users/PersonalInformation.vue";
-import ProfileHeader from "@/components/Users/ProfileHeader.vue";
+import AuthenticationInformation from "@/components/_users/AuthenticationInformation.vue";
+import ContactInformation from "@/components/_users/ContactInformation.vue";
+import PersonalInformation from "@/components/_users/PersonalInformation.vue";
+import ProfileHeader from "@/components/_users/ProfileHeader.vue";
 import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
 import type { ToastUtils } from "@/types/ToastUtils";
 import type { UserProfile } from "@/types/UserProfile";
