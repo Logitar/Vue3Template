@@ -2,7 +2,7 @@
 import { computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { Toast } from "bootstrap";
-import type { ToastVariant } from "@/types/ToastVariant";
+import type { ToastVariant } from "@/types/components";
 
 const { t } = useI18n();
 

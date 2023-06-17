@@ -2,15 +2,13 @@
 import { computed, inject, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
-import type { Realm } from "@/types/Realm";
-import type { SearchParameters } from "@/types/SearchParameters";
-import type { SelectOption } from "@/types/SelectOption";
+import type { Realm } from "@/types/realms";
+import type { SearchParameters } from "@/types/api";
+import type { SelectOption, ToastUtils } from "@/types/components";
 import { handleErrorKey, toastsKey } from "@/inject/App";
 import { isEmpty } from "@/helpers/objectUtils";
 import { orderBy } from "@/helpers/arrayUtils";
 import { deleteRealm, searchRealms } from "@/api/realms";
-import type { ToastUtils } from "@/types/ToastUtils";
-
 const { rt, t, tm } = useI18n();
 const route = useRoute();
 const router = useRouter();

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonVariant } from "@/types/ButtonVariant";
+import type { ButtonVariant } from "@/types/components";
 
 defineProps<{
   disabled?: boolean;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { PersonNameType } from "@/types/PersonNameType";
+import type { PersonNameType } from "@/types/users";
 
 const props = withDefaults(
   defineProps<{

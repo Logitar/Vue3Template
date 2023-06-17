@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import type { Actor } from "@/types/Actor";
+import type { Actor } from "@/types/actor";
 import { urlCombine } from "@/helpers/stringUtils";
 
 const portalBaseUrl: string = import.meta.env.VITE_APP_PORTAL_BASE_URL;

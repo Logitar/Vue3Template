@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
-import type { ToastOptions } from "@/types/ToastOptions";
+import type { ToastOptions } from "@/types/components";
 import AppToast from "./AppToast.vue";
 
 const toasts = ref<Map<string, ToastOptions>>(new Map<string, ToastOptions>());

@@ -2,8 +2,7 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter, type RouteLocationRaw } from "vue-router";
-import type { ButtonType } from "@/types/ButtonType";
-import type { ButtonVariant } from "@/types/ButtonVariant";
+import type { ButtonType, ButtonVariant } from "@/types/components";
 
 const { t } = useI18n();
 

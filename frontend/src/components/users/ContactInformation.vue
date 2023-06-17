@@ -10,12 +10,9 @@ import PhoneExtensionInput from "@/components/users/PhoneExtensionInput.vue";
 import PhoneNumberInput from "@/components/users/PhoneNumberInput.vue";
 import PostalCodeInput from "@/components/users/PostalCodeInput.vue";
 import RegionSelect from "@/components/users/RegionSelect.vue";
-import type { AddressInput } from "@/types/AddressInput";
-import type { CountrySettings } from "@/types/CountrySettings";
-import type { EmailInput } from "@/types/EmailInput";
-import type { PhoneInput } from "@/types/PhoneInput";
-import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
-import type { UserProfile } from "@/types/UserProfile";
+import type { AddressPayload, EmailPayload, PhonePayload } from "@/types/users/contact/payloads";
+import type { CountrySettings } from "@/types/users/contact";
+import type { ProfileUpdatedEvent, UserProfile } from "@/types/users";
 import { handleErrorKey } from "@/inject/App";
 import { saveContactInformation } from "@/api/account";
 
@@ -26,9 +23,9 @@ const props = defineProps<{
   user: UserProfile;
 }>();
 
-const address = ref<AddressInput>({ line1: "", locality: "", country: "", verify: false });
-const email = ref<EmailInput>({ address: "", verify: false });
-const phone = ref<PhoneInput>({ number: "", verify: false });
+const address = ref<AddressPayload>({ line1: "", locality: "", country: "", verify: false });
+const email = ref<EmailPayload>({ address: "", verify: false });
+const phone = ref<PhonePayload>({ number: "", verify: false });
 const phoneNumberRef = ref<InstanceType<typeof PhoneNumberInput> | null>(null);
 const selectedCountry = ref<CountrySettings>();
 

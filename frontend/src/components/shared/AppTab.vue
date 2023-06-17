@@ -2,7 +2,7 @@
 import { computed, inject, onMounted, onUnmounted, ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { bindTabKey, unbindTabKey } from "@/inject/AppTabs";
-import type { TabOptions } from "@/types/TabOptions";
+import type { TabOptions } from "@/types/components";
 
 const bindTab: ((tab: TabOptions) => void) | undefined = inject(bindTabKey);
 const unbindTab: ((tab: TabOptions) => void) | undefined = inject(unbindTabKey);

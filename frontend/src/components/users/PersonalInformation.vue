@@ -8,8 +8,7 @@ import PictureInput from "@/components/users/PictureInput.vue";
 import ProfileInput from "@/components/users/ProfileInput.vue";
 import TimeZoneSelect from "@/components/users/TimeZoneSelect.vue";
 import WebsiteInput from "@/components/users/WebsiteInput.vue";
-import type { ProfileUpdatedEvent } from "@/types/ProfileUpdatedEvent";
-import type { UserProfile } from "@/types/UserProfile";
+import type { ProfileUpdatedEvent, UserProfile } from "@/types/users";
 import { handleErrorKey } from "@/inject/App";
 import { savePersonalInformation } from "@/api/account";
 
