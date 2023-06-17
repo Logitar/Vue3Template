@@ -33,7 +33,7 @@ const onSubmit = handleSubmit(async () => {
       <app-alert show variant="info">{{ t("users.password.recover.info") }}</app-alert>
       <form @submit.prevent="onSubmit">
         <UsernameInput placeholder="users.usernameOrEmailPlaceholder" required v-model="username" />
-        <icon-submit :disabled="isSubmitting" icon="fas fa-paper-plane" :loading="isSubmitting" text="users.password.recover.submit" />
+        <icon-submit class="me-2" :disabled="isSubmitting" icon="fas fa-paper-plane" :loading="isSubmitting" text="users.password.recover.submit" />
         <RouterLink :to="{ name: 'SignIn' }" class="mx-1">{{ t("users.password.recover.remember") }}</RouterLink>
       </form>
     </template>

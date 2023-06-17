@@ -2,11 +2,15 @@
 import { computed, ref } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "@vee-validate/i18n";
+import locales from "@/resources/locales.json";
 import type { AuthenticatedUser } from "@/types/users";
+import type { Locale } from "@/types/components";
+import { orderBy } from "@/helpers/arrayUtils";
 import { urlCombine } from "@/helpers/stringUtils";
 import { useAccountStore } from "@/stores/account";
 
-const { t } = useI18n();
+const { availableLocales, locale, t } = useI18n();
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
 
 const account = useAccountStore();
@@ -26,10 +30,33 @@ const user = computed<AuthenticatedUser>(() => ({
   picture: account.authenticated?.picture,
 }));
 
+const currentLocale = computed<Locale | undefined>(() => {
+  const currentLocale = locales.find(({ Name }) => Name === locale.value);
+  return currentLocale
+    ? {
+        code: currentLocale.Name,
+        nativeName: currentLocale.NativeName,
+      }
+    : undefined;
+});
+const otherLocales = computed<Locale[]>(() => {
+  const otherLocales = new Set<string>(availableLocales.filter((item) => item !== locale.value));
+  return orderBy(
+    locales.filter(({ Name }) => otherLocales.has(Name)).map(({ Name, NativeName }) => ({ code: Name, nativeName: NativeName })),
+    "nativeName"
+  );
+});
+
 function onSearch(): void {
   const query = { search: search.value, page: 1, count: 10 };
   search.value = "";
   router.push({ name: "RealmList", query });
+}
+
+function translate({ code }: Locale): void {
+  // TODO(fpion): persist in localStorage, on-load & on-save
+  locale.value = code;
+  setLocale(code); // TODO(fpion): doesn't seem to work on existing messages and labels
 }
 </script>
 
@@ -74,14 +101,27 @@ function onSearch(): void {
         </form>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
+          <template v-if="currentLocale">
+            <li v-if="otherLocales.length > 1" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ currentLocale.nativeName }}</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li v-for="option in otherLocales" :key="option.code">
+                  <a class="dropdown-item" href="#" @click.prevent="translate(option)">{{ option.nativeName }}</a>
+                </li>
+              </ul>
+            </li>
+            <li v-else-if="otherLocales.length === 1" class="nav-item">
+              <a class="nav-link" href="#" @click.prevent="translate(otherLocales[0])">{{ otherLocales[0].nativeName }}</a>
+            </li>
+          </template>
           <template v-if="account.authenticated">
-            <li class="d-block d-lg-none">
+            <li class="nav-item d-block d-lg-none">
               <RouterLink class="nav-link" :to="{ name: 'Profile' }">
                 <app-avatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.picture" />
                 {{ user.displayName }}
               </RouterLink>
             </li>
-            <li class="d-block d-lg-none">
+            <li class="nav-item d-block d-lg-none">
               <RouterLink class="nav-link" :to="{ name: 'SignOut' }">
                 <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}
               </RouterLink>
@@ -92,7 +132,7 @@ function onSearch(): void {
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                  <RouterLink class="dropdown-item" :to="{ name: 'Profile' }"> <font-awesome-icon icon="fas fa-user" /> {{ user.displayName }} </RouterLink>
+                  <RouterLink class="dropdown-item" :to="{ name: 'Profile' }"><font-awesome-icon icon="fas fa-user" /> {{ user.displayName }}</RouterLink>
                 </li>
                 <li>
                   <RouterLink class="dropdown-item" :to="{ name: 'SignOut' }">

@@ -2,7 +2,7 @@
   "address": {
     "additional": {
       "label": "Informations additionnelles",
-      "placeholder": "Entrez des informations additionnelles, si nécessaire (ex. : C.P. Box #4321)"
+      "placeholder": "Entrez des informations additionnelles, si nécessaire (ex. : C.P. Boîte #4321)"
     },
     "country": {
       "label": "Pays",
@@ -32,7 +32,7 @@
     "failed": "Confirmée du compte échouée !",
     "signIn": "Nous n’avons pu confirmer votre compte. Veuillez contacter le support si le problème persiste. Vous pouvez cliquer sur le bouton ci-dessous afin de vous connecter."
   },
-  "createdOn": "Créé",
+  "createdOn": "Création",
   "email": {
     "address": {
       "label": "Adresse courriel",
@@ -168,7 +168,7 @@
     "label": "Fuseau horaire",
     "placeholder": "Sélectionnez votre fuseau horaire"
   },
-  "updatedOn": "Dernière modification le",
+  "updatedOn": "Dernière modification",
   "usernameOrEmailPlaceholder": "Entrez votre adresse courriel ou nom d’utilisateur",
   "website": {
     "label": "Site Web",

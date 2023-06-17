@@ -54,7 +54,7 @@ const onSubmit = handleSubmit(async () => {
       <UsernameInput placeholder="users.usernameOrEmailPlaceholder" required v-model="username" />
       <PasswordInput ref="passwordRef" required v-model="password" />
       <form-checkbox class="mb-3" id="remember" label="users.signIn.remember" v-model="remember" />
-      <icon-submit :disabled="isSubmitting" icon="fas fa-arrow-right-to-bracket" :loading="isSubmitting" text="users.signIn.submit" />
+      <icon-submit class="me-2" :disabled="isSubmitting" icon="fas fa-arrow-right-to-bracket" :loading="isSubmitting" text="users.signIn.submit" />
       <RouterLink :to="{ name: 'RecoverPassword' }" class="mx-1">{{ t("users.signIn.recover") }}</RouterLink>
     </form>
   </div>
