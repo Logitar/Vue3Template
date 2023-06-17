@@ -1,4 +1,4 @@
-import type { Actor } from "@/types/_actor";
+import type { Actor } from "@/types/actor";
 
 export type AddressLineType = "street" | "additional";
 

@@ -1,4 +1,4 @@
-import type { Actor } from "./_actor";
+import type { Actor } from "./actor";
 
 export type Aggregate = {
   createdBy: Actor;

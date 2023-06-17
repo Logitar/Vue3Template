@@ -1,5 +1,5 @@
-import type { Aggregate } from "@/types/_aggregate";
-import type { CustomAttribute } from "@/types/_customAttribute";
+import type { Aggregate } from "@/types/aggregate";
+import type { CustomAttribute } from "@/types/customAttribute";
 
 export type ClaimMapping = {
   key: string;

@@ -8,7 +8,7 @@ import JwtSecretField from "@/components/realms/JwtSecretField.vue";
 import PasswordSettingsEdit from "@/components/realms/PasswordSettingsEdit.vue";
 import UsernameSettingsEdit from "@/components/realms/UsernameSettingsEdit.vue";
 import type { ClaimMapping, PasswordSettings, Realm, UsernameSettings } from "@/types/realms";
-import type { CustomAttribute } from "@/types/_customAttribute";
+import type { CustomAttribute } from "@/types/customAttribute";
 import type { ToastUtils } from "@/types/components";
 import { createRealm, getRealm, updateRealm } from "@/api/realms";
 import { handleErrorKey, registerTooltipsKey, toastsKey } from "@/inject/App";

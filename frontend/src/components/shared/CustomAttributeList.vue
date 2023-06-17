@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import CustomAttributeEdit from "./CustomAttributeEdit.vue";
-import type { CustomAttribute } from "@/types/_customAttribute";
+import type { CustomAttribute } from "@/types/customAttribute";
 
 const { t } = useI18n();
 

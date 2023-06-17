@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import StatusInfo from "./StatusInfo.vue";
-import type { Aggregate } from "@/types/_aggregate";
+import type { Aggregate } from "@/types/aggregate";
 
 defineProps<{
   aggregate: Aggregate;
