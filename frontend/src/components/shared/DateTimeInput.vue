@@ -33,7 +33,7 @@ const emit = defineEmits<{
 function onModelValueUpdate(value: string): void {
   try {
     const date = new Date(value);
-    emit("update:model-value", isNaN(Number(date)) ? undefined : date);
+    emit("update:model-value", isNaN(date.getTime()) ? undefined : date);
   } catch {
     emit("update:model-value", undefined);
   }
