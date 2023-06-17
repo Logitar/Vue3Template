@@ -49,7 +49,7 @@ async function refresh(): Promise<void> {
     limit: count.value,
   };
   isLoading.value = true;
-  const now = Number(Date.now());
+  const now = Date.now();
   timestamp.value = now;
   try {
     const { data } = await searchRealms(params);
