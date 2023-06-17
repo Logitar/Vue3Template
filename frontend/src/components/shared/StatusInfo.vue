@@ -44,11 +44,11 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
   <span>
     {{ t(format, { date: d(date, "medium") }) }}
     <template v-if="actor.isDeleted">
-      <app-avatar :displayName="actor.displayName" :emailAddress="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
+      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
       {{ actor.displayName }}
     </template>
     <a v-else :href="href" target="_blank">
-      <app-avatar :displayName="actor.displayName" :emailAddress="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
+      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
       {{ actor.displayName }} <font-awesome-icon icon="fas fa-arrow-up-right-from-square" />
     </a>
   </span>

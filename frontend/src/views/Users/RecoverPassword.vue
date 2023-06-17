@@ -7,7 +7,7 @@ import { handleErrorKey } from "@/inject/App";
 import { recoverPassword } from "@/api/account";
 
 const { t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const success = ref<boolean>(false);
 const username = ref<string>("");
@@ -17,7 +17,7 @@ const onSubmit = handleSubmit(async () => {
   try {
     await recoverPassword({ username: username.value });
     success.value = true;
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });

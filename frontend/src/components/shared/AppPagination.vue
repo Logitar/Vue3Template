@@ -64,11 +64,11 @@ const range = computed<number[]>(() => {
 });
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: number): void;
+  (e: "update:model-value", value: number): void;
 }>();
 function go(page: number): void {
   if (props.modelValue !== page) {
-    emit("update:modelValue", page);
+    emit("update:model-value", page);
   }
 }
 </script>

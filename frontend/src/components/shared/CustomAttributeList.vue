@@ -17,23 +17,23 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: CustomAttribute[]): void;
+  (e: "update:model-value", value: CustomAttribute[]): void;
 }>();
 
 function add(): void {
   const value = [...props.modelValue];
   value.push({ key: "", value: "" });
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 function remove(index: number): void {
   const value = [...props.modelValue];
   value.splice(index, 1);
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 function update(index: number, attribute: CustomAttribute): void {
   const value = [...props.modelValue];
   value.splice(index, 1, attribute);
-  emit("update:modelValue", value);
+  emit("update:model-value", value);
 }
 </script>
 
@@ -50,7 +50,7 @@ function update(index: number, attribute: CustomAttribute): void {
       <CustomAttributeEdit
         v-for="(attribute, index) in modelValue"
         :key="index"
-        :attribute="attribute"
+        :custom-attribute="attribute"
         class="row"
         :id="[id, index].join('_')"
         @remove="remove(index)"

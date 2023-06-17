@@ -28,14 +28,14 @@ const formattedMin = computed<string | undefined>(() => (props.min ? getDateTime
 const formattedValue = computed<string | undefined>(() => (props.modelValue ? getDateTimeLocal(props.modelValue) : undefined));
 
 const emit = defineEmits<{
-  (e: "update:modelValue", date?: Date): void;
+  (e: "update:model-value", date?: Date): void;
 }>();
 function onModelValueUpdate(value: string): void {
   try {
     const date = new Date(value);
-    emit("update:modelValue", isNaN(Number(date)) ? undefined : date);
+    emit("update:model-value", isNaN(Number(date)) ? undefined : date);
   } catch {
-    emit("update:modelValue", undefined);
+    emit("update:model-value", undefined);
   }
 }
 </script>
@@ -45,12 +45,12 @@ function onModelValueUpdate(value: string): void {
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxDate="formattedMax"
-    :minDate="formattedMin"
-    :modelValue="formattedValue"
+    :max-date="formattedMax"
+    :min-date="formattedMin"
+    :model-value="formattedValue"
     :name="name"
     :required="required"
     type="datetime-local"
-    @update:modelValue="onModelValueUpdate"
+    @update:model-value="onModelValueUpdate"
   />
 </template>

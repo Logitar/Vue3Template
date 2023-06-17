@@ -15,7 +15,7 @@ import { useAccountStore } from "@/stores/account";
 
 const { t } = useI18n();
 const { query } = useRoute();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 const toasts = inject(toastsKey) as ToastUtils;
 
 const account = useAccountStore();
@@ -36,7 +36,7 @@ onMounted(async () => {
   try {
     const { data } = await getProfile();
     user.value = data;
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });
@@ -52,13 +52,13 @@ onMounted(async () => {
       <ProfileHeader :user="user" />
       <app-tabs>
         <app-tab active title="users.tabs.personal">
-          <PersonalInformation :user="user" @profileUpdated="onProfileUpdated" />
+          <PersonalInformation :user="user" @profile-updated="onProfileUpdated" />
         </app-tab>
         <app-tab title="users.tabs.contact">
-          <ContactInformation :user="user" @profileUpdated="onProfileUpdated" />
+          <ContactInformation :user="user" @profile-updated="onProfileUpdated" />
         </app-tab>
         <app-tab title="users.tabs.authentication">
-          <AuthenticationInformation :user="user" @profileUpdated="onProfileUpdated" />
+          <AuthenticationInformation :user="user" @profile-updated="onProfileUpdated" />
         </app-tab>
       </app-tabs>
     </template>

@@ -5,7 +5,7 @@ withDefaults(
   defineProps<{
     disabled?: boolean;
     id?: string;
-    isDescending?: boolean;
+    descending?: boolean;
     label?: string;
     modelValue?: string;
     name?: string;
@@ -22,8 +22,8 @@ withDefaults(
 );
 
 defineEmits<{
-  (e: "isDescending", value: boolean): void;
-  (e: "update:modelValue", value: string): void;
+  (e: "descending", value: boolean): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -32,15 +32,15 @@ defineEmits<{
     :disabled="disabled"
     :id="id"
     :label="label"
-    :modelValue="modelValue"
+    :model-value="modelValue"
     :name="name"
-    noState
+    no-state
     :options="options"
     :placeholder="placeholder"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   >
     <template #after>
-      <form-checkbox id="isDescending" label="sort.isDescending" :modelValue="isDescending" @update:modelValue="$emit('isDescending', $event)" />
+      <form-checkbox id="isDescending" label="sort.isDescending" :model-value="descending" @update:model-value="$emit('descending', $event)" />
     </template>
   </form-select>
 </template>

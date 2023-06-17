@@ -5,13 +5,14 @@ import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import PasswordInput from "@/components/Users/PasswordInput.vue";
 import UsernameInput from "@/components/Users/UsernameInput.vue";
-import type { ApiResult } from "@/types/ApiResult";
+import type { ApiError } from "@/types/ApiError";
+import type { ErrorDetail } from "@/types/ErrorDetail";
+import { handleErrorKey } from "@/inject/App";
 import { signIn } from "@/api/account";
 import { useAccountStore } from "@/stores/account";
-import { handleErrorKey } from "@/inject/App";
 
 const { t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const account = useAccountStore();
 
@@ -31,9 +32,9 @@ const onSubmit = handleSubmit(async () => {
     account.signIn(data);
     const redirect: string | undefined = route.query.redirect?.toString();
     router.push(redirect ?? { name: "Profile" });
-  } catch (e: any) {
-    const { data, status } = e as ApiResult;
-    if (status === 400 && data?.code === "InvalidCredentials") {
+  } catch (e: unknown) {
+    const { data, status } = e as ApiError;
+    if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
       invalidCredentials.value = true;
       password.value = "";
       passwordRef.value?.focus();

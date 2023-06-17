@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CountrySettings } from "@/types/CountrySettings";
+import type { ValidationRules } from "@/types/ValidationRules";
 import { computed } from "vue";
 
 const props = withDefaults(
@@ -23,8 +24,8 @@ const props = withDefaults(
   }
 );
 
-const rules = computed<any>(() => {
-  const rules: any = {};
+const rules = computed<ValidationRules>(() => {
+  const rules: ValidationRules = {};
   const regex = props.country?.postalCode;
   if (regex) {
     rules.regex = regex;
@@ -33,7 +34,7 @@ const rules = computed<any>(() => {
 });
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -42,11 +43,11 @@ defineEmits<{
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxLength="validate ? 255 : undefined"
-    :modelValue="modelValue"
+    :max-length="validate ? 255 : undefined"
+    :model-value="modelValue"
     :placeholder="placeholder"
     :required="required"
     :rules="rules"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

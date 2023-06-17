@@ -10,7 +10,7 @@ import { handleErrorKey } from "@/inject/App";
 import { register } from "@/api/account";
 
 const { t, locale } = useI18n();
-const handleError = inject(handleErrorKey) as (e: any) => void;
+const handleError = inject(handleErrorKey) as (e: unknown) => void;
 
 const confirm = ref<string>("");
 const emailAddress = ref<string>("");
@@ -37,7 +37,7 @@ const onSubmit = handleSubmit(async () => {
       locale: locale.value,
     });
     success.value = true;
-  } catch (e: any) {
+  } catch (e: unknown) {
     handleError(e);
   }
 });
@@ -53,7 +53,7 @@ const onSubmit = handleSubmit(async () => {
     </app-alert>
     <form v-else @submit.prevent="onSubmit">
       <div class="row">
-        <EmailAddressInput class="col-lg-6" :modelValue="emailAddress" required validate @update:modelValue="onEmailAddressInput" />
+        <EmailAddressInput class="col-lg-6" :model-value="emailAddress" required validate @update:model-value="onEmailAddressInput" />
         <UsernameInput class="col-lg-6" required validate v-model="username" />
       </div>
       <div class="row">

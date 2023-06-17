@@ -25,7 +25,7 @@ withDefaults(
 const showSecret = ref<boolean>(false);
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -34,23 +34,23 @@ defineEmits<{
     <form-input
       :id="id"
       :label="label"
-      :maxLength="validate ? 512 / 8 : undefined"
-      :minLength="validate ? 256 / 8 : undefined"
-      :modelValue="modelValue"
+      :max-length="validate ? 512 / 8 : undefined"
+      :min-length="validate ? 256 / 8 : undefined"
+      :model-value="modelValue"
       :placeholder="placeholder"
       :type="showSecret ? 'text' : 'password'"
-      @update:modelValue="$emit('update:modelValue', $event)"
+      @update:model-value="$emit('update:model-value', $event)"
     >
       <template #append>
         <icon-button :icon="showSecret ? 'eye-slash' : 'eye'" variant="info" @click="showSecret = !showSecret" />
-        <icon-button :disabled="!modelValue" icon="times" text="actions.clear" variant="warning" @click="$emit('update:modelValue', '')" />
+        <icon-button :disabled="!modelValue" icon="times" text="actions.clear" variant="warning" @click="$emit('update:model-value', '')" />
       </template>
     </form-input>
     <app-alert :show="oldValue && oldValue !== modelValue" variant="warning">
       <p>
         <strong>{{ t(warning) }}</strong>
       </p>
-      <icon-button icon="fa-history" text="actions.revert" variant="warning" @click="$emit('update:modelValue', oldValue)" />
+      <icon-button icon="fa-history" text="actions.revert" variant="warning" @click="$emit('update:model-value', oldValue)" />
     </app-alert>
   </div>
 </template>

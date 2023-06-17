@@ -2,6 +2,8 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useField } from "vee-validate";
+import type { ValidationListeners } from "@/types/ValidationListeners";
+import type { ValidationRules } from "@/types/ValidationRules";
 
 const { t } = useI18n();
 
@@ -29,8 +31,8 @@ const props = withDefaults(
 );
 
 const inputName = computed<string>(() => props.name ?? props.id);
-const validationRules = computed<any>(() => {
-  const rules: any = {};
+const validationRules = computed<ValidationRules>(() => {
+  const rules: ValidationRules = {};
   if (props.required) {
     rules.required = true;
   }
@@ -56,10 +58,10 @@ const classes = computed<string[]>(() => {
   }
   return classes;
 });
-const validationListeners = computed<any>(() => ({
+const validationListeners = computed<ValidationListeners>(() => ({
   blur: handleChange,
   change: handleChange,
-  input: errorMessage.value ? handleChange : (e: any) => handleChange(e, false),
+  input: errorMessage.value ? handleChange : (e: unknown) => handleChange(e, false),
 }));
 </script>
 

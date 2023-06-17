@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { UsernameSettings } from "@/types/UsernameSettings";
+import type { ValidationRules } from "@/types/ValidationRules";
 
 const props = withDefaults(
   defineProps<{
@@ -24,8 +25,8 @@ const props = withDefaults(
   }
 );
 
-const rules = computed<any>(() => {
-  const rules: any = {};
+const rules = computed<ValidationRules>(() => {
+  const rules: ValidationRules = {};
   if (props.validate && props.settings?.allowedCharacters) {
     rules.username = props.settings.allowedCharacters;
   }
@@ -33,7 +34,7 @@ const rules = computed<any>(() => {
 });
 
 defineEmits<{
-  (e: "update:modelValue", value: string): void;
+  (e: "update:model-value", value: string): void;
 }>();
 </script>
 
@@ -42,11 +43,11 @@ defineEmits<{
     :disabled="disabled"
     :id="id"
     :label="label"
-    :maxLength="validate ? 255 : null"
-    :modelValue="modelValue"
+    :max-length="validate ? 255 : null"
+    :model-value="modelValue"
     :placeholder="placeholder"
     :required="required"
     :rules="rules"
-    @update:modelValue="$emit('update:modelValue', $event)"
+    @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

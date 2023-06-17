@@ -5,7 +5,7 @@ import { Tooltip } from "bootstrap";
 import AppFooter from "./components/Layout/AppFooter.vue";
 import AppNavbar from "./components/Layout/AppNavbar.vue";
 import ToastContainer from "./components/Layout/ToastContainer.vue";
-import type { ApiResult } from "./types/ApiResult";
+import type { ApiError } from "./types/ApiError";
 import type { ToastOptions } from "./types/ToastOptions";
 import type { ToastUtils } from "./types/ToastUtils";
 import { handleErrorKey, registerTooltipsKey, toastKey, toastsKey } from "./inject/App";
@@ -15,9 +15,9 @@ const router = useRouter();
 
 const containerRef = ref<InstanceType<typeof ToastContainer> | null>(null);
 
-function handleError(e: any): void {
+function handleError(e: unknown): void {
   if (e) {
-    const { status } = e as ApiResult;
+    const { status } = e as ApiError;
     if (status === 401) {
       toasts.warning("toasts.warning.signedOut");
       router.push({ name: "SignIn", query: { redirect: route.fullPath } });
