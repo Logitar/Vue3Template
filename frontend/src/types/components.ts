@@ -6,11 +6,6 @@ export type ButtonType = "button" | "submit" | "reset" | undefined;
 
 export type ButtonVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link";
 
-export type Locale = {
-  code: string;
-  nativeName: string;
-};
-
 export type SelectOption = {
   value: string;
   text?: string;

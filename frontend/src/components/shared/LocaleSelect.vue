@@ -24,7 +24,7 @@ withDefaults(
 
 const options = computed<SelectOption[]>(() =>
   orderBy(
-    locales.map(({ Name, NativeName }) => ({ value: Name, text: NativeName })),
+    locales.map(({ code, nativeName }) => ({ value: code, text: nativeName })),
     "text"
   )
 );
