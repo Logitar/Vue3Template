@@ -36,6 +36,7 @@ const props = withDefaults(
   }
 );
 
+const displayLabel = computed<string>(() => (props.label ? t(props.label).toLowerCase() : inputName.value));
 const inputMax = computed<string | number | undefined>(() => {
   switch (props.type) {
     case "datetime-local":
@@ -88,7 +89,7 @@ const validationRules = computed<ValidationRules>(() => {
 
 const { errorMessage, handleChange, meta, value } = useField<string>(inputName, validationRules, {
   initialValue: props.modelValue || undefined,
-  label: props.label ? t(props.label).toLowerCase() : inputName,
+  label: displayLabel,
 });
 const classes = computed<string[]>(() => {
   const classes = ["form-control"];

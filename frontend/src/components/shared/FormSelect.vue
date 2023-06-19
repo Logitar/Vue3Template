@@ -28,6 +28,7 @@ const props = withDefaults(
   }
 );
 
+const displayLabel = computed<string>(() => (props.label ? t(props.label).toLowerCase() : inputName.value));
 const inputName = computed<string>(() => props.name ?? props.id);
 const validationRules = computed<ValidationRules>(() => {
   const rules: ValidationRules = {};
@@ -39,7 +40,7 @@ const validationRules = computed<ValidationRules>(() => {
 
 const { errorMessage, handleChange, meta, value } = useField<string>(inputName, validationRules, {
   initialValue: props.modelValue || undefined,
-  label: props.label ? t(props.label).toLowerCase() : inputName,
+  label: displayLabel,
 });
 const classes = computed<string[]>(() => {
   const classes = ["form-control"];
