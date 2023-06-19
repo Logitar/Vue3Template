@@ -25,13 +25,6 @@ const props = defineProps<{
 const search = ref<string>("");
 
 const environmentName = computed<string>(() => props.environment.toLowerCase());
-const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
-const user = computed<AuthenticatedUser>(() => ({
-  displayName: account.authenticated?.fullName ?? account.authenticated?.username,
-  emailAddress: account.authenticated?.email.address,
-  picture: account.authenticated?.picture,
-}));
-
 const otherLocales = computed<Locale[]>(() => {
   const otherLocales = new Set<string>(availableLocales.filter((item) => item !== locale.value));
   return orderBy(
@@ -39,6 +32,12 @@ const otherLocales = computed<Locale[]>(() => {
     "nativeName"
   );
 });
+const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
+const user = computed<AuthenticatedUser>(() => ({
+  displayName: account.authenticated?.fullName ?? account.authenticated?.username,
+  emailAddress: account.authenticated?.email.address,
+  picture: account.authenticated?.picture,
+}));
 
 function onSearch(): void {
   const query = { search: search.value, page: 1, count: 10 };
