@@ -77,7 +77,7 @@ function go(page: number): void {
   <nav :aria-label="t('pagination.label')">
     <ul class="justify-content-center pagination">
       <li v-if="first" :class="{ 'page-item': true, disabled: modelValue === 1 }">
-        <a v-if="modelValue > 1" class="page-link" href="#" @click="go(1)" :aria-label="t('pagination.first')">
+        <a v-if="modelValue > 1" class="page-link" href="#" @click.prevent="go(1)" :aria-label="t('pagination.first')">
           <span aria-hidden="true">&laquo;</span>
         </a>
         <span v-else class="page-link" :aria-label="t('pagination.first')">
@@ -85,7 +85,7 @@ function go(page: number): void {
         </span>
       </li>
       <li v-if="previous" :class="{ 'page-item': true, disabled: modelValue === 1 }">
-        <a v-if="modelValue > 1" class="page-link" href="#" @click="go(modelValue - 1)" :aria-label="t('pagination.previous')">
+        <a v-if="modelValue > 1" class="page-link" href="#" @click.prevent="go(modelValue - 1)" :aria-label="t('pagination.previous')">
           <span aria-hidden="true">&lsaquo;</span>
         </a>
         <span v-else class="page-link" :aria-label="t('pagination.previous')">
@@ -98,11 +98,11 @@ function go(page: number): void {
         :class="{ 'page-item': true, active: modelValue === page }"
         :aria-current="modelValue === page ? 'page' : undefined"
       >
-        <a v-if="modelValue !== page" class="page-link" href="#" @click="go(page)">{{ page }}</a>
+        <a v-if="modelValue !== page" class="page-link" href="#" @click.prevent="go(page)">{{ page }}</a>
         <span v-else class="page-link">{{ page }}</span>
       </li>
       <li v-if="next" :class="{ 'page-item': true, disabled: modelValue === pageCount }">
-        <a v-if="modelValue < pageCount" class="page-link" href="#" @click="go(modelValue + 1)" :aria-label="t('pagination.next')">
+        <a v-if="modelValue < pageCount" class="page-link" href="#" @click.prevent="go(modelValue + 1)" :aria-label="t('pagination.next')">
           <span aria-hidden="true">&rsaquo;</span>
         </a>
         <span v-else class="page-link" :aria-label="t('pagination.next')">
@@ -110,7 +110,7 @@ function go(page: number): void {
         </span>
       </li>
       <li v-if="last" :class="{ 'page-item': true, disabled: modelValue === pageCount }">
-        <a v-if="modelValue < pageCount" class="page-link" href="#" @click="go(pageCount)" :aria-label="t('pagination.last')">
+        <a v-if="modelValue < pageCount" class="page-link" href="#" @click.prevent="go(pageCount)" :aria-label="t('pagination.last')">
           <span aria-hidden="true">&raquo;</span>
         </a>
         <span v-else class="page-link" :aria-label="t('pagination.last')">
