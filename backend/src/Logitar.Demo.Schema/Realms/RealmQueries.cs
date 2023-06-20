@@ -9,6 +9,18 @@ internal static class RealmQueries
 {
   internal static void Register(RootQuery root)
   {
+    root.Field<RealmGraphType>("realm")
+      .Description("Retrieves a realm.")
+      .Arguments(new QueryArguments(
+        new QueryArgument<IdGraphType>() { Name = "id", Description = "The unique identifier of the realm." },
+        new QueryArgument<StringGraphType>() { Name = "uniqueName", Description = "The unique name of the realm." }
+      ))
+      .ResolveAsync(async context => await context.GetRequiredService<IRealmService, object?>().GetAsync(
+        context.GetArgument<Guid?>("id"),
+        context.GetArgument<string?>("uniqueName"),
+        context.CancellationToken
+      ));
+
     root.Field<NonNullGraphType<SearchResultsGraphType<Realm, RealmGraphType>>>("realms")
       .Description("Searches a list of realms.")
       .Arguments(new QueryArguments(

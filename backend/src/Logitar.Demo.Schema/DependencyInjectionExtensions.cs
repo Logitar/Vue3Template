@@ -17,16 +17,11 @@ public static class DependencyInjectionExtensions
   public static IServiceCollection AddLogitarDemoSchema(this IServiceCollection services, GraphQLSettings settings)
   {
     return services.AddGraphQL(builder => builder
+      .AddAuthorizationRule()
+      .AddErrorInfoProvider(new ErrorInfoProvider(options => options.ExposeExceptionDetails = settings.ExposeExceptionDetails))
+      .AddGraphTypes(typeof(DemoSchema).Assembly)
       .AddSchema<DemoSchema>()
       .AddSystemTextJson()
-      .AddErrorInfoProvider(new ErrorInfoProvider(options =>
-      {
-        options.ExposeExceptionDetails = settings.ExposeExceptionDetails;
-      }))
-      .AddGraphTypes(typeof(DemoSchema).Assembly)
-      .ConfigureExecutionOptions(options =>
-      {
-        options.EnableMetrics = settings.EnableMetrics;
-      }));
+      .ConfigureExecutionOptions(options => options.EnableMetrics = settings.EnableMetrics));
   }
 }
