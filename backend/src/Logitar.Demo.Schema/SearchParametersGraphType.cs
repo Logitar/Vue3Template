@@ -13,25 +13,25 @@ internal abstract class SearchParametersGraphType<T> : InputObjectGraphType<T> w
   {
     if (!noSearchField)
     {
-      Field(x => x.Search, type: typeof(NonNullGraphType<TextSearchGraphType>)).DefaultValue(new TextSearch())
+      Field(x => x.Search, type: typeof(TextSearchGraphType)).DefaultValue(new TextSearch())
         .Description("The parameters used to perform a global text-search.");
     }
 
     if (!noSortField)
     {
-      AddSortField<NonNullGraphType<ListGraphType<NonNullGraphType<SortParametersGraphType>>>>()
+      AddSortField<ListGraphType<NonNullGraphType<SortParametersGraphType>>>()
         .DefaultValue(new List<SortParameters>());
     }
 
     if (!noSkipField)
     {
-      Field(x => x.Skip).DefaultValue(0)
+      Field(x => x.Skip, nullable: true).DefaultValue(0)
         .Description("The number of results to skip.");
     }
 
     if (!noLimitField)
     {
-      Field(x => x.Limit).DefaultValue(0)
+      Field(x => x.Limit, nullable: true).DefaultValue(0)
         .Description("The number of results to return.");
     }
   }

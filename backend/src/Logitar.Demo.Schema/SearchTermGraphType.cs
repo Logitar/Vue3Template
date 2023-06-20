@@ -3,7 +3,7 @@ using Logitar.Demo.Core;
 
 namespace Logitar.Demo.Schema;
 
-internal class SearchTermGraphType : ObjectGraphType<SearchTerm>
+internal class SearchTermGraphType : InputObjectGraphType<SearchTerm>
 {
   public SearchTermGraphType()
   {

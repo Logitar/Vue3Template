@@ -6,7 +6,7 @@ public class DemoSchema : GraphQL.Types.Schema
 {
   public DemoSchema(IServiceProvider serviceProvider) : base(serviceProvider)
   {
-    //Mutation = serviceProvider.GetRequiredService<RootMutation>();
+    Mutation = serviceProvider.GetRequiredService<RootMutation>();
     Query = serviceProvider.GetRequiredService<RootQuery>();
   }
 }

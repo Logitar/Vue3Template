@@ -7,7 +7,7 @@ namespace Logitar.Demo.Schema.Realms;
 
 internal static class RealmQueries
 {
-  internal static void Register(RootQuery root)
+  public static void Register(RootQuery root)
   {
     root.Field<RealmGraphType>("realm")
       .Description("Retrieves a realm.")

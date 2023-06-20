@@ -10,10 +10,10 @@ internal class TextSearchGraphType : InputObjectGraphType<TextSearch>
     Name = nameof(TextSearch);
     Description = "Represents the options available to perform a text-search.";
 
-    Field(x => x.Terms, type: typeof(NonNullGraphType<ListGraphType<NonNullGraphType<TextSearchGraphType>>>))
+    Field(x => x.Terms, type: typeof(ListGraphType<NonNullGraphType<SearchTermGraphType>>))
       .DefaultValue(new List<SearchTerm>())
       .Description("The terms to use in the text-search.");
-    Field(x => x.Operator).DefaultValue(QueryOperator.And)
+    Field(x => x.Operator, nullable: true).DefaultValue(QueryOperator.And)
       .Description("The operator to use between each term.");
   }
 }

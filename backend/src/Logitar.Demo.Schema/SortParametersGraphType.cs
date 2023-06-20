@@ -12,7 +12,7 @@ internal class SortParametersGraphType : InputObjectGraphType<SortParameters>
 
     Field(x => x.Field)
       .Description("The field to use to sort the results.");
-    Field(x => x.IsDescending).DefaultValue(false)
+    Field(x => x.IsDescending, nullable: true).DefaultValue(false)
       .Description("A value indicating whether or not the field will be used to reverse-sort the results.");
   }
 }
