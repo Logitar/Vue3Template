@@ -8,10 +8,10 @@ internal abstract class AggregateGraphType<T> : ObjectGraphType<T> where T : Agg
 {
   public AggregateGraphType()
   {
-    Field(x => x.CreatedBy, type: typeof(NonNullGraphType<ActorGraphType>)).Description("...");
-    Field(x => x.CreatedOn).Description("...");
-    Field(x => x.UpdatedBy, type: typeof(NonNullGraphType<ActorGraphType>)).Description("...");
-    Field(x => x.UpdatedOn).Description("...");
-    Field(x => x.Version).Description("...");
+    Field(x => x.CreatedBy, type: typeof(NonNullGraphType<ActorGraphType>)).Description("The actor who created the entity.");
+    Field(x => x.CreatedOn).Description("The date and time when the entity was created.");
+    Field(x => x.UpdatedBy, type: typeof(NonNullGraphType<ActorGraphType>)).Description("The actor who updated the entity lately.");
+    Field(x => x.UpdatedOn).Description("The date and time when the entity was updated lately.");
+    Field(x => x.Version).Description("The ordinal version of the entity.");
   }
 }

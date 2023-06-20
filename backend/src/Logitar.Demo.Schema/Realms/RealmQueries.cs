@@ -10,9 +10,9 @@ internal static class RealmQueries
   internal static void Register(RootQuery root)
   {
     root.Field<NonNullGraphType<SearchResultsGraphType<Realm, RealmGraphType>>>("realms")
-      .Description("...")
+      .Description("Searches a list of realms.")
       .Arguments(new QueryArguments(
-        new QueryArgument<NonNullGraphType<RealmSearchParametersGraphType>>() { Name = "parameters" }
+        new QueryArgument<NonNullGraphType<RealmSearchParametersGraphType>>() { Name = "parameters", Description = "The parameters of the search." }
       ))
       .ResolveAsync(async context => await context.GetRequiredService<IRealmService, object?>().SearchAsync(
         context.GetArgument<RealmSearchParameters>("parameters"),

@@ -5,13 +5,12 @@ namespace Logitar.Demo.Schema.Realms;
 
 internal class RealmSearchParametersGraphType : SearchParametersGraphType<RealmSearchParameters>
 {
-  public RealmSearchParametersGraphType()
+  public RealmSearchParametersGraphType() : base(noSortField: true)
   {
     Name = nameof(RealmSearchParameters);
-    Description = "...";
+    Description = "Represents the parameters used to search realms.";
 
-    Field(x => x.Sort, type: typeof(NonNullGraphType<ListGraphType<NonNullGraphType<RealmSortGraphType>>>))
-      .DefaultValue(new List<RealmSortParameters>())
-      .Description("...");
+    AddSortField<NonNullGraphType<ListGraphType<NonNullGraphType<RealmSortParametersGraphType>>>>()
+      .DefaultValue(new List<RealmSortParameters>());
   }
 }

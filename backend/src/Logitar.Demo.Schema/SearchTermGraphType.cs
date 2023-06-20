@@ -8,8 +8,8 @@ internal class SearchTermGraphType : ObjectGraphType<SearchTerm>
   public SearchTermGraphType()
   {
     Name = nameof(SearchTerm);
-    Description = "...";
+    Description = "Represents a term in a text-search.";
 
-    Field(x => x.Value).Description("...");
+    Field(x => x.Value).Description("The textual value of the term.");
   }
 }

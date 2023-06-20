@@ -1,22 +1,44 @@
-﻿using GraphQL.Types;
+﻿using GraphQL.Builders;
+using GraphQL.Types;
 using Logitar.Demo.Core;
 
 namespace Logitar.Demo.Schema;
 
 internal abstract class SearchParametersGraphType<T> : InputObjectGraphType<T> where T : SearchParameters
 {
-  public SearchParametersGraphType()
+  public SearchParametersGraphType(bool noSearchField = false,
+    bool noSortField = false,
+    bool noSkipField = false,
+    bool noLimitField = false)
   {
-    Field(x => x.Search, type: typeof(NonNullGraphType<TextSearchGraphType>))
-      .DefaultValue(new TextSearch())
-      .Description("...");
+    if (!noSearchField)
+    {
+      Field(x => x.Search, type: typeof(NonNullGraphType<TextSearchGraphType>)).DefaultValue(new TextSearch())
+        .Description("The parameters used to perform a global text-search.");
+    }
 
-    Field(x => x.Sort, type: typeof(NonNullGraphType<ListGraphType<NonNullGraphType<SortParametersGraphType>>>))
-      .DefaultValue(new List<SortParameters>())
-      .Description("...");
+    if (!noSortField)
+    {
+      AddSortField<NonNullGraphType<ListGraphType<NonNullGraphType<SortParametersGraphType>>>>()
+        .DefaultValue(new List<SortParameters>());
+    }
 
-    Field(x => x.Skip).DefaultValue(0).Description("...");
+    if (!noSkipField)
+    {
+      Field(x => x.Skip).DefaultValue(0)
+        .Description("The number of results to skip.");
+    }
 
-    Field(x => x.Limit).DefaultValue(0).Description("...");
+    if (!noLimitField)
+    {
+      Field(x => x.Limit).DefaultValue(0)
+        .Description("The number of results to return.");
+    }
+  }
+
+  protected FieldBuilder<T, IEnumerable<SortParameters>> AddSortField<TField>(string? description = null)
+  {
+    return Field(x => x.Sort, type: typeof(TField))
+      .Description(description ?? "The parameters used to sort the results.");
   }
 }

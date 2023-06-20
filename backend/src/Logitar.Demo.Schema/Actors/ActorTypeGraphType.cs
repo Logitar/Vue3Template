@@ -1,5 +1,6 @@
 ﻿using GraphQL.Types;
 using Logitar.Demo.Core.Actors;
+using Logitar.Demo.Schema.Extensions;
 
 namespace Logitar.Demo.Schema.Actors;
 
@@ -8,15 +9,9 @@ internal class ActorTypeGraphType : EnumerationGraphType<ActorType>
   public ActorTypeGraphType()
   {
     Name = nameof(ActorType);
-    Description = "...";
+    Description = "Defines the different actor types.";
 
-    Add(new EnumValueDefinition(nameof(ActorType.System), ActorType.System)
-    {
-      Description = "..."
-    });
-    Add(new EnumValueDefinition(nameof(ActorType.User), ActorType.User)
-    {
-      Description = "..."
-    });
+    this.AddValue(ActorType.System, "The actor is the system.");
+    this.AddValue(ActorType.User, "The actor is an user.");
   }
 }

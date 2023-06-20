@@ -8,9 +8,9 @@ internal class CustomAttributeGraphType : ObjectGraphType<CustomAttribute>
   public CustomAttributeGraphType()
   {
     Name = nameof(CustomAttribute);
-    Description = "...";
+    Description = "Represents a custom attribute.";
 
-    Field(x => x.Key).Description("...");
-    Field(x => x.Value).Description("...");
+    Field(x => x.Key).Description("The unique key of the custom attribute.");
+    Field(x => x.Value).Description("The value of the custom attribute.");
   }
 }

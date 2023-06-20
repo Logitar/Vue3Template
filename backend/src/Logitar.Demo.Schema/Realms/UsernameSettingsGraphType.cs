@@ -8,8 +8,8 @@ internal class UsernameSettingsGraphType : ObjectGraphType<UsernameSettings>
   public UsernameSettingsGraphType()
   {
     Name = nameof(UsernameSettings);
-    Description = "...";
+    Description = "Represents the settings of usernames in a realm.";
 
-    Field(x => x.AllowedCharacters, nullable: true).Description("...");
+    Field(x => x.AllowedCharacters, nullable: true).Description("The list of allowed characters in usernames.");
   }
 }

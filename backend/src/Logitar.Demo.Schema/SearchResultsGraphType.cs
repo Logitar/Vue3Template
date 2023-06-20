@@ -8,9 +8,11 @@ internal class SearchResultsGraphType<TModel, TGraph> : ObjectGraphType<SearchRe
   public SearchResultsGraphType()
   {
     Name = nameof(SearchResults<TGraph>);
-    Description = "...";
+    Description = "Represents a set of results.";
 
-    Field(x => x.Results, type: typeof(NonNullGraphType<ListGraphType<NonNullGraphType<TGraph>>>)).Description("...");
-    Field(x => x.Total).Description("...");
+    Field(x => x.Results, type: typeof(NonNullGraphType<ListGraphType<NonNullGraphType<TGraph>>>))
+      .Description("The list of results.");
+    Field(x => x.Total)
+      .Description("The total number of results.");
   }
 }
