@@ -34,13 +34,13 @@ const sortOptions = computed<SelectOption[]>(() =>
 );
 
 async function refresh(): Promise<void> {
-  const params: SearchParameters = {
+  const parameters: SearchParameters = {
     search: {
       terms: search.value
         .split(" ")
         .filter((term) => Boolean(term))
         .map((term) => ({ value: `%${term}%` })),
-      operator: "And",
+      operator: "AND",
     },
     sort: sort.value ? [{ field: sort.value, isDescending: isDescending.value }] : [],
     skip: (page.value - 1) * count.value,
@@ -50,7 +50,7 @@ async function refresh(): Promise<void> {
   const now = Date.now();
   timestamp.value = now;
   try {
-    const { data } = await searchRealms(params);
+    const { data } = await searchRealms(parameters);
     if (now === timestamp.value) {
       realms.value = data.results;
       total.value = data.total;

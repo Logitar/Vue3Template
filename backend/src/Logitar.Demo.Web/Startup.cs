@@ -1,5 +1,6 @@
 ﻿using Logitar.Demo.Core;
 using Logitar.Demo.Infrastructure;
+using Logitar.Demo.Schema;
 using Logitar.Demo.Web.Authentication;
 using Logitar.Demo.Web.Authorization;
 using Logitar.Demo.Web.Extensions;
@@ -76,6 +77,7 @@ internal class Startup : StartupBase
     services.AddAutoMapper(assembly);
     services.AddLogitarDemoCore();
     services.AddLogitarDemoInfrastructure(connectionString);
+    services.AddLogitarDemoSchema(_configuration);
     services.AddLogitarPortalClient(_configuration);
     services.AddSingleton<IApplicationContext, HttpApplicationContext>();
   }
@@ -87,6 +89,23 @@ internal class Startup : StartupBase
       builder.UseOpenApi();
     }
 
+    if (_configuration.GetValue<bool>("EnableGraphQLAltair"))
+    {
+      builder.UseGraphQLAltair();
+    }
+    if (_configuration.GetValue<bool>("EnableGraphQLGraphiQL"))
+    {
+      builder.UseGraphQLGraphiQL();
+    }
+    if (_configuration.GetValue<bool>("EnableGraphQLPlayground"))
+    {
+      builder.UseGraphQLPlayground();
+    }
+    if (_configuration.GetValue<bool>("EnableGraphQLVoyager"))
+    {
+      builder.UseGraphQLVoyager();
+    }
+
     builder.UseHttpsRedirection();
 
     if (_corsSettings != null)
@@ -94,10 +113,13 @@ internal class Startup : StartupBase
       builder.UseCors();
     }
 
+    builder.UseStaticFiles();
     builder.UseSession();
     builder.UseMiddleware<RefreshSession>();
     builder.UseAuthentication();
     builder.UseAuthorization();
+
+    builder.UseGraphQL<DemoSchema>();
 
     if (builder is WebApplication application)
     {
