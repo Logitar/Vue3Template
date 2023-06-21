@@ -33,8 +33,7 @@ function onProfileUpdated(event: ProfileUpdatedEvent): void {
 
 onMounted(async () => {
   try {
-    const { data } = await getProfile();
-    user.value = data;
+    user.value = await getProfile();
   } catch (e: unknown) {
     handleError(e);
   }

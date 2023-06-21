@@ -85,12 +85,12 @@ const emit = defineEmits<{
 const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
   try {
-    const { data } = await saveContactInformation({
+    const user = await saveContactInformation({
       address: address.value.line1 ? address.value : undefined,
       email: email.value,
       phone: phone.value.number ? phone.value : undefined,
     });
-    emit("profile-updated", { user: data });
+    emit("profile-updated", { user });
   } catch (e: unknown) {
     handleError(e);
   }
