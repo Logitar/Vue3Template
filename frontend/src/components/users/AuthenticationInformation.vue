@@ -40,9 +40,9 @@ const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async (_, { resetForm }) => {
   invalidCredentials.value = false;
   try {
-    const { data } = await changePassword({ current: current.value, password: password.value });
+    const user = await changePassword({ current: current.value, password: password.value });
     resetForm();
-    emit("profile-updated", { toast: false, user: data });
+    emit("profile-updated", { toast: false, user });
     toasts.success("users.password.changed");
   } catch (e: unknown) {
     reset();

@@ -96,7 +96,7 @@ const { handleSubmit, isSubmitting } = useForm();
 const onSubmit = handleSubmit(async () => {
   try {
     if (realm.value) {
-      const { data } = await updateRealm(realm.value.id, {
+      const updatedRealm = await updateRealm(realm.value.id, {
         displayName: displayName.value,
         description: description.value,
         defaultLocale: defaultLocale.value,
@@ -109,10 +109,10 @@ const onSubmit = handleSubmit(async () => {
         claimMappings: claimMappings.value,
         customAttributes: customAttributes.value,
       });
-      setModel(data);
+      setModel(updatedRealm);
       toasts.success("realms.updated");
     } else {
-      const { data } = await createRealm({
+      const createdRealm = await createRealm({
         uniqueName: uniqueName.value,
         displayName: displayName.value,
         description: description.value,
@@ -126,9 +126,9 @@ const onSubmit = handleSubmit(async () => {
         claimMappings: claimMappings.value,
         customAttributes: customAttributes.value,
       });
-      setModel(data);
+      setModel(createdRealm);
       toasts.success("realms.created");
-      router.replace({ name: "RealmEdit", params: { id: data.id } });
+      router.replace({ name: "RealmEdit", params: { id: createdRealm.id } });
     }
   } catch (e: unknown) {
     handleError(e);
@@ -139,8 +139,8 @@ onMounted(async () => {
   const id = route.params.id?.toString();
   if (id) {
     try {
-      const { data } = await getRealm(id);
-      setModel(data);
+      const realm = await getRealm(id);
+      setModel(realm);
     } catch (e: unknown) {
       handleError(e);
     }
