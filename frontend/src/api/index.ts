@@ -1,4 +1,4 @@
-import type { ApiError, ApiResult } from "@/types/api";
+import type { ApiError, ApiResult, GraphQLRequest, GraphQLResponse } from "@/types/api";
 import { urlCombine } from "@/helpers/stringUtils";
 
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
@@ -54,4 +54,16 @@ export async function post<TData, TResult>(url: string, data?: TData): Promise<A
 
 export async function put<TData, TResult>(url: string, data?: TData): Promise<ApiResult<TResult>> {
   return await execute("PUT", url, data);
+}
+
+export async function graphQL<TVariables, TResult>(query: string, variables?: TVariables): Promise<ApiResult<TResult>> {
+  const { data, status } = await post<GraphQLRequest<TVariables>, GraphQLResponse<TResult>>("/graphql", { query, variables });
+
+  if (!data.data) {
+    const error: ApiError = { data: data.errors, status };
+    throw error;
+  }
+
+  const result: ApiResult<TResult> = { data: data.data, status };
+  return result;
 }

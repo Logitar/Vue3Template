@@ -12,6 +12,16 @@ export type ErrorDetail = {
   code?: string;
 };
 
+export type GraphQLRequest<T> = {
+  query: string;
+  variables?: T;
+};
+
+export type GraphQLResponse<T> = {
+  data?: T;
+  errors?: unknown[];
+};
+
 export type SearchParameters = {
   search: TextSearch;
   sort: SortParameters[];
