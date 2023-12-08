@@ -22,6 +22,7 @@
     "@popperjs/core": "^2.11.8",
     "@vee-validate/i18n": "^4.9.6",
     "@vee-validate/rules": "^4.9.6",
+    "@vitest/coverage-c8": "^0.33.0",
     "bootstrap": "^5.3.0",
     "libphonenumber-js": "^1.10.34",
     "maz-ui": "^3.9.0",
