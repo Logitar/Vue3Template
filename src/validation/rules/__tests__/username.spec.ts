@@ -6,7 +6,7 @@ const allowedCharacters: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRS
 
 describe("username", () => {
   it.concurrent("should return false when the value contains characters that are not allowed", () => {
-    expect(username(undefined, [undefined])).toBe(false);
+    expect(username(undefined, [undefined as any])).toBe(false);
     expect(username(undefined, [""])).toBe(false);
     expect(username(undefined, [allowedCharacters])).toBe(false);
     expect(username("test!", [allowedCharacters])).toBe(false);
@@ -14,7 +14,7 @@ describe("username", () => {
   });
 
   it.concurrent("should return true when the value only contains allowed characters", () => {
-    expect(username("carluiz", [undefined])).toBe(true);
+    expect(username("carluiz", [undefined as any])).toBe(true);
     expect(username("carluiz", [""])).toBe(true);
     expect(username("carluiz", [allowedCharacters])).toBe(true);
     expect(username("carlos.luiz@test.com", [allowedCharacters])).toBe(true);
