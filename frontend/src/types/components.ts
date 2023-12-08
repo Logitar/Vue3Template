@@ -6,6 +6,11 @@ export type ButtonType = "button" | "submit" | "reset" | undefined;
 
 export type ButtonVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link";
 
+export type Hyperlink = {
+  text?: string;
+  url: string;
+};
+
 export type SelectOption = {
   value: string;
   text?: string;

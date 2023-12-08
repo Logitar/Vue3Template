@@ -1,30 +1,27 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
 import { RouterLink, useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
+import { computed, ref, watchEffect } from "vue";
 import { setLocale } from "@vee-validate/i18n";
+import { useI18n } from "vue-i18n";
+
 import locales from "@/resources/locales.json";
 import type { AuthenticatedUser } from "@/types/users";
+import type { Hyperlink } from "@/types/components";
 import type { Locale } from "@/types/i18n";
+import { combineURL } from "@/helpers/stringUtils";
 import { orderBy } from "@/helpers/arrayUtils";
-import { urlCombine } from "@/helpers/stringUtils";
 import { useAccountStore } from "@/stores/account";
 import { useI18nStore } from "@/stores/i18n";
 
-const { availableLocales, locale, t } = useI18n();
-const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
-
 const account = useAccountStore();
+const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
+const environment = import.meta.env.MODE.toLowerCase();
 const i18n = useI18nStore();
 const router = useRouter();
-
-const props = defineProps<{
-  environment: string;
-}>();
+const { availableLocales, locale, t } = useI18n();
 
 const search = ref<string>("");
 
-const environmentName = computed<string>(() => props.environment.toLowerCase());
 const otherLocales = computed<Locale[]>(() => {
   const otherLocales = new Set<string>(availableLocales.filter((item) => item !== locale.value));
   return orderBy(
@@ -32,10 +29,20 @@ const otherLocales = computed<Locale[]>(() => {
     "nativeName"
   );
 });
-const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
+const swaggerUrl = computed<string | undefined>(() => (environment === "development" ? combineURL(apiBaseUrl, "/swagger") : undefined));
+const graphQLLinks = computed<Hyperlink[]>(() =>
+  environment === "development"
+    ? [
+        { text: "Altair", url: combineURL(apiBaseUrl, "/ui/altair") },
+        { text: "GraphiQL", url: combineURL(apiBaseUrl, "/ui/graphiql") },
+        { text: "Playground", url: combineURL(apiBaseUrl, "/ui/playground") },
+        { text: "Voyager", url: combineURL(apiBaseUrl, "/ui/voyager") },
+      ]
+    : []
+);
 const user = computed<AuthenticatedUser>(() => ({
   displayName: account.authenticated?.fullName ?? account.authenticated?.username,
-  emailAddress: account.authenticated?.email.address,
+  emailAddress: account.authenticated?.email?.address,
   picture: account.authenticated?.picture,
 }));
 
@@ -65,7 +72,7 @@ watchEffect(() => {
       <RouterLink :to="{ name: 'Home' }" class="navbar-brand">
         <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" />
         {{ t("brand") }}
-        <span v-if="environmentName !== 'production'" class="badge text-bg-warning">{{ environmentName }}</span>
+        <span v-if="environment !== 'production'" class="badge text-bg-warning">{{ environment }}</span>
       </RouterLink>
       <button
         class="navbar-toggler"
@@ -85,6 +92,16 @@ watchEffect(() => {
           </li>
           <li class="nav-item">
             <RouterLink :to="{ name: 'About' }" class="nav-link">About</RouterLink>
+          </li>
+          <li v-if="graphQLLinks.length" class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="@/assets/img/graphql.png" alt="GraphQL Logo" height="16" /> GraphQL
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li v-for="(link, index) in graphQLLinks" :key="index">
+                <a class="dropdown-item" :href="link.url" target="_blank">{{ link.text }}</a>
+              </li>
+            </ul>
           </li>
           <template v-if="account.authenticated">
             <li class="nav-item">

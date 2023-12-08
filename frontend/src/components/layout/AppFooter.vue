@@ -2,10 +2,7 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-
-defineProps<{
-  version: string;
-}>();
+const version = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <template>
