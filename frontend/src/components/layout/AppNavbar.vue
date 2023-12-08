@@ -42,7 +42,7 @@ const graphQLLinks = computed<Hyperlink[]>(() =>
 );
 const user = computed<AuthenticatedUser>(() => ({
   displayName: account.authenticated?.fullName ?? account.authenticated?.username,
-  emailAddress: account.authenticated?.email?.address,
+  emailAddress: account.authenticated?.email.address,
   picture: account.authenticated?.picture,
 }));
 
