@@ -35,9 +35,9 @@ export function slugify(s?: string): string {
   return unaccent(words.join("-").toLowerCase());
 }
 
-export function urlCombine(...segments: string[]): string {
+export function combineURL(...segments: string[]): string {
   return segments
-    .map((v) => v.replace(/^\/+|\/+$/g, ""))
+    .map((v) => v?.replace(/^\/+|\/+$/g, "") ?? "")
     .filter((v) => v.length)
     .join("/");
 }

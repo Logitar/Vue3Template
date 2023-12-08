@@ -21,7 +21,7 @@ onMounted(async () => {
       router.push({ name: "Profile", query: { status: "confirmed" } });
     } catch (e: unknown) {
       const { data, status } = e as ApiError;
-      if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
+      if (status === 400 && (data as ErrorDetail)?.errorCode === "InvalidCredentials") {
         router.push({ name: "SignIn" });
       } else {
         handleError(e);

@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import type { Actor } from "@/types/actor";
-import { urlCombine } from "@/helpers/stringUtils";
+import { combineURL } from "@/helpers/stringUtils";
 
 const portalBaseUrl: string = import.meta.env.VITE_APP_PORTAL_BASE_URL;
 
@@ -19,9 +19,9 @@ const href = computed<string | undefined>(() => {
   if (!isDeleted) {
     switch (type) {
       case "ApiKey":
-        return urlCombine(portalBaseUrl, `/api-keys/${id}`);
+        return combineURL(portalBaseUrl, `/api-keys/${id}`);
       case "User":
-        return urlCombine(portalBaseUrl, `/users/${id}`);
+        return combineURL(portalBaseUrl, `/users/${id}`);
     }
   }
   return undefined;

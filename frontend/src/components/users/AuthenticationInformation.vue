@@ -48,7 +48,7 @@ const onSubmit = handleSubmit(async (_, { resetForm }) => {
     reset();
     currentRef.value?.focus();
     const { data, status } = e as ApiError;
-    if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
+    if (status === 400 && (data as ErrorDetail)?.errorCode === "InvalidCredentials") {
       invalidCredentials.value = true;
     } else {
       handleError(e);

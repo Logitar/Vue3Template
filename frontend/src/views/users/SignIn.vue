@@ -33,7 +33,7 @@ const onSubmit = handleSubmit(async () => {
     router.push(redirect ?? { name: "Profile" });
   } catch (e: unknown) {
     const { data, status } = e as ApiError;
-    if (status === 400 && (data as ErrorDetail)?.code === "InvalidCredentials") {
+    if (status === 400 && (data as ErrorDetail)?.errorCode === "InvalidCredentials") {
       invalidCredentials.value = true;
       password.value = "";
       passwordRef.value?.focus();
