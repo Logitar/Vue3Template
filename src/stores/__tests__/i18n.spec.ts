@@ -32,8 +32,8 @@ describe("accountStore", () => {
   it.concurrent("should set the current locale", () => {
     const i18n = useI18nStore();
     i18n.setLocale(enUS);
-    expect(i18n.locale.id).toBe(enUS.id);
+    expect(i18n.locale?.id).toBe(enUS.id);
     i18n.setLocale(frCA);
-    expect(i18n.locale.id).toBe(frCA.id);
+    expect(i18n.locale?.id).toBe(frCA.id);
   });
 });

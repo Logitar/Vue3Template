@@ -32,7 +32,7 @@ describe("accountStore", () => {
   it.concurrent("should sign-in an authenticated user", () => {
     const account = useAccountStore();
     account.signIn(user);
-    expect(account.authenticated.username).toBe(user.username);
+    expect(account.authenticated?.username).toBe(user.username);
   });
 
   it.concurrent("should sign-out the authenticated user", () => {
