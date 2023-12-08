@@ -1,3 +1,16 @@
+export function combineURL(...segments: string[]): string {
+  const url = segments
+    .map((v) => v?.trim().replace(/^\/+|\/+$/g, "") ?? "")
+    .filter((v) => v.length)
+    .join("/");
+  return isAbsoluteURL(url) ? url : `/${url}`;
+}
+
+const absoluteUrlRegex = new RegExp("^(?:[a-z+]+:)?//", "i");
+export function isAbsoluteURL(url: string): boolean {
+  return absoluteUrlRegex.test(url);
+}
+
 export function isDigit(c: string): boolean {
   return c.trim() !== "" && !isNaN(Number(c));
 }
@@ -33,13 +46,6 @@ export function slugify(s?: string): string {
     words.push(word);
   }
   return unaccent(words.join("-").toLowerCase());
-}
-
-export function combineURL(...segments: string[]): string {
-  return segments
-    .map((v) => v?.replace(/^\/+|\/+$/g, "") ?? "")
-    .filter((v) => v.length)
-    .join("/");
 }
 
 const accents = new Map<string, string>([

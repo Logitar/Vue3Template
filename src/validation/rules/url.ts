@@ -1,4 +1,5 @@
 export default function (s?: string): boolean {
+  s = s?.trim();
   if (!s) {
     return true;
   }
