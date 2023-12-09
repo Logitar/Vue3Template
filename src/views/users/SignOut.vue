@@ -22,5 +22,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container"></div>
+  <main class="container"></main>
 </template>

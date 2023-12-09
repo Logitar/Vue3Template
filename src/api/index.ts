@@ -57,7 +57,17 @@ export async function put<TData, TResult>(url: string, data?: TData): Promise<Ap
 }
 
 export async function graphQL<TVariables, TResult>(query: string, variables?: TVariables): Promise<ApiResult<TResult>> {
-  const { data, status } = await post<GraphQLRequest<TVariables>, GraphQLResponse<TResult>>("/graphql", { query, variables });
+  let data: GraphQLResponse<TResult> | undefined = undefined;
+  let status: number | undefined = undefined;
+  try {
+    const response = await post<GraphQLRequest<TVariables>, GraphQLResponse<TResult>>("/graphql", { query, variables });
+    data = response.data;
+    status = response.status;
+  } catch (e: unknown) {
+    const error = e as ApiError;
+    data = error.data as GraphQLResponse<TResult>;
+    status = error.status;
+  }
 
   if (!data.data) {
     const error: ApiError = { data: data.errors, status };

@@ -1,4 +1,5 @@
 import type { InjectionKey } from "vue";
+
 import type { ToastOptions, ToastUtils } from "@/types/components";
 
 export const handleErrorKey = Symbol() as InjectionKey<(e: unknown) => void>;

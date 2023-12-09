@@ -1,6 +1,14 @@
+import type { RouteLocationRaw } from "vue-router";
+
 export type AlertVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
 
 export type BadgeVariant = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark";
+
+export type BreadcrumbOptions = {
+  to: RouteLocationRaw;
+  target?: string;
+  text?: string;
+};
 
 export type ButtonType = "button" | "submit" | "reset" | undefined;
 
@@ -9,6 +17,13 @@ export type ButtonVariant = "primary" | "secondary" | "success" | "danger" | "wa
 export type Hyperlink = {
   text?: string;
   url: string;
+};
+
+export type HyperlinkTarget = "_blank" | "_self" | "_parent" | "_top" | string;
+
+export type PictureOptions = {
+  alt?: string;
+  src: string;
 };
 
 export type SelectOption = {

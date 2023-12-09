@@ -35,11 +35,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <app-alert v-if="error" show>
       <strong>{{ t("users.confirm.failed") }}</strong> {{ t("users.confirm.signIn") }}
       <br />
       <icon-button icon="fas fa-arrow-right-to-bracket" text="users.signIn.title" :to="{ name: 'SignIn' }" />
     </app-alert>
-  </div>
+  </main>
 </template>

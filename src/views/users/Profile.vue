@@ -41,7 +41,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1>{{ t("users.profile.title") }}</h1>
     <app-alert dismissible variant="success" v-model="confirmed">
       <strong>{{ t("users.profile.welcome", { brand: t("brand") }) }}</strong> {{ t("users.profile.confirmed") }}
@@ -60,5 +60,5 @@ onMounted(async () => {
         </app-tab>
       </app-tabs>
     </template>
-  </div>
+  </main>
 </template>

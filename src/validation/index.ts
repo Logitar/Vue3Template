@@ -1,6 +1,6 @@
 import { configure, defineRule } from "vee-validate";
-import { localize } from "@vee-validate/i18n";
 import { email, max, max_value, min, min_value, regex, required } from "@vee-validate/rules";
+import { localize } from "@vee-validate/i18n";
 
 import confirmed from "./rules/confirmed";
 import identifier from "./rules/identifier";
