@@ -24,7 +24,7 @@ const onSubmit = handleSubmit(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1>{{ t("users.password.recover.title") }}</h1>
     <app-alert v-if="success" show variant="success">
       <strong>{{ t("users.password.recover.success") }}</strong> {{ t("users.password.recover.close") }}
@@ -37,5 +37,5 @@ const onSubmit = handleSubmit(async () => {
         <RouterLink :to="{ name: 'SignIn' }" class="mx-1">{{ t("users.password.recover.remember") }}</RouterLink>
       </form>
     </template>
-  </div>
+  </main>
 </template>

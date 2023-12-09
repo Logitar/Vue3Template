@@ -35,4 +35,30 @@ export default createI18n<[MessageSchema], "en" | "fr">({
       },
     },
   },
+  numberFormats: {
+    en: {
+      currency: {
+        style: "currency",
+        currency: "CAD",
+        currencyDisplay: "narrowSymbol",
+        notation: "standard",
+      },
+      decimal: {
+        style: "decimal",
+        minimumFractionDigits: 2,
+      },
+    },
+    fr: {
+      currency: {
+        style: "currency",
+        currency: "CAD",
+        currencyDisplay: "narrowSymbol",
+        notation: "standard",
+      },
+      decimal: {
+        style: "decimal",
+        minimumFractionDigits: 2,
+      },
+    },
+  },
 });

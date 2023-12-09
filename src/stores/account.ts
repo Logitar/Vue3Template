@@ -1,5 +1,6 @@
-import { ref } from "vue";
 import { defineStore } from "pinia";
+import { ref } from "vue";
+
 import type { UserProfile } from "@/types/users";
 
 export const useAccountStore = defineStore(

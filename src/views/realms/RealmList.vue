@@ -124,7 +124,7 @@ watch(
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1>{{ t("realms.title.list") }}</h1>
     <div class="my-2">
       <icon-button class="me-1" :disabled="isLoading" icon="fas fa-rotate" :loading="isLoading" text="actions.refresh" @click="refresh()" />
@@ -183,5 +183,5 @@ watch(
       <app-pagination :count="count" :model-value="page" :total="total" @update:model-value="setQuery('page', $event)" />
     </template>
     <p v-else>{{ t("realms.empty") }}</p>
-  </div>
+  </main>
 </template>

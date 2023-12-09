@@ -25,7 +25,7 @@ withDefaults(
 const showSecret = ref<boolean>(false);
 
 defineEmits<{
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 

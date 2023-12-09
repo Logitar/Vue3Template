@@ -151,7 +151,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1 v-show="hasLoaded">{{ title }}</h1>
     <status-detail v-if="realm" :aggregate="realm" />
     <form v-show="hasLoaded" @submit.prevent="onSubmit">
@@ -216,5 +216,5 @@ onMounted(async () => {
         </app-tab>
       </app-tabs>
     </form>
-  </div>
+  </main>
 </template>

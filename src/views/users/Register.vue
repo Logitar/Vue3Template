@@ -44,7 +44,7 @@ const onSubmit = handleSubmit(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1>{{ t("users.register.title") }}</h1>
     <app-alert v-if="success" show variant="success">
       <strong>{{ t("users.register.success") }}</strong>
@@ -75,5 +75,5 @@ const onSubmit = handleSubmit(async () => {
       </div>
       <icon-submit :disabled="isSubmitting" icon="fas fa-user" :loading="isSubmitting" text="users.register.submit" />
     </form>
-  </div>
+  </main>
 </template>

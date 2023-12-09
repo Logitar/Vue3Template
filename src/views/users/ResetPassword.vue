@@ -50,7 +50,7 @@ const onSubmit = handleSubmit(async () => {
 </script>
 
 <template>
-  <div class="container" v-show="validated">
+  <main class="container" v-show="validated">
     <h1>{{ t("users.password.reset.title") }}</h1>
     <app-alert v-if="success" show variant="success">
       <strong>{{ t("users.password.reset.success") }}</strong> {{ t("users.password.reset.signIn") }}
@@ -73,5 +73,5 @@ const onSubmit = handleSubmit(async () => {
         <icon-submit :disabled="isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.reset.submit" />
       </form>
     </template>
-  </div>
+  </main>
 </template>

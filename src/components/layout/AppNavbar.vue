@@ -67,7 +67,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3" data-bs-theme="dark">
     <div class="container-fluid">
       <RouterLink :to="{ name: 'Home' }" class="navbar-brand">
         <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" />

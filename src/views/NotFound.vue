@@ -5,7 +5,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <div class="row vh-100 text-center align-items-center">
       <div class="col jumbotron">
         <h1 class="display-4">404</h1>
@@ -19,7 +19,7 @@ const { t } = useI18n();
         </p>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped>

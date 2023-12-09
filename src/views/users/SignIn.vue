@@ -45,7 +45,7 @@ const onSubmit = handleSubmit(async () => {
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <h1>{{ t("users.signIn.title") }}</h1>
     <app-alert dismissible variant="warning" v-model="invalidCredentials">
       <strong>{{ t("users.signIn.failed") }}</strong> {{ t("users.signIn.invalidCredentials") }}
@@ -57,5 +57,5 @@ const onSubmit = handleSubmit(async () => {
       <icon-submit class="me-2" :disabled="isSubmitting" icon="fas fa-arrow-right-to-bracket" :loading="isSubmitting" text="users.signIn.submit" />
       <RouterLink :to="{ name: 'RecoverPassword' }" class="mx-1">{{ t("users.signIn.recover") }}</RouterLink>
     </form>
-  </div>
+  </main>
 </template>
