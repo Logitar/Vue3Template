@@ -39,7 +39,11 @@ yarn dev
 yarn build
 ```
 
-TODO(fpion): preview
+### Preview the Last Build from dist
+
+```sh
+yarn preview
+```
 
 ### Run Unit Tests and Code Coverage with [Vitest](https://vitest.dev/)
 
@@ -53,9 +57,17 @@ yarn test
 yarn test:dev
 ```
 
-TODO(fpion): build-only
+### Build the Application Without Type Checking
 
-TODO(fpion): type-check
+```sh
+yarn build-only
+```
+
+### Type Check the Application Code Without Building
+
+```sh
+yarn type-check
+```
 
 ### Lint with [ESLint](https://eslint.org/)
 
