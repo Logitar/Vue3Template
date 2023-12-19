@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { RouterView } from "vue-router";
 </script>
 
@@ -11,6 +12,7 @@ import { RouterView } from "vue-router";
       <li>
         <RouterLink :to="{ name: 'About' }">About</RouterLink>
       </li>
+      <li><FontAwesomeIcon :icon="['fas', 'user']" /> Register</li>
     </ul>
   </nav>
   <RouterView />
