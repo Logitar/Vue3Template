@@ -1,6 +1,6 @@
-# Logitar Vue3 Template
+# logitar-vue3-template
 
-This template should help get you started developing with Vue 3 in Vite. It integrates TypeScript, Pinia stores, routing, i18n, Bootstrap, Font Awesome, forms and validation, and unit tests using Vitest.
+This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
@@ -24,29 +24,47 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ## Project Setup
 
 ```sh
-npm install
+yarn
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+yarn build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+TODO(fpion): preview
+
+### Run Unit Tests and Code Coverage with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+yarn test
 ```
+
+### Run Unit Tests with Vitest
+
+```sh
+yarn test:dev
+```
+
+TODO(fpion): build-only
+
+TODO(fpion): type-check
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+yarn lint
+```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+yarn format
 ```
