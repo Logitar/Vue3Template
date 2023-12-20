@@ -59,7 +59,7 @@ users.create({
       </div>
       <div class="form-check mb-3">
         <input class="form-check-input" id="remember-me" type="checkbox" v-model="payload.remember" />
-        <label class="form-check-label" for="remember-me">Remember me</label>
+        <label class="form-check-label" for="remember-me">Remember Me</label>
       </div>
       <button class="btn btn-primary" :disabled="loading" type="submit">
         <span v-if="loading">
