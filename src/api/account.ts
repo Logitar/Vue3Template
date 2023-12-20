@@ -1,5 +1,5 @@
 import type { Actor } from "@/types/aggregate";
-import type { RegisterPayload } from "@/types/account";
+import type { RegisterPayload, SignInPayload } from "@/types/account";
 import { useUserStore } from "@/stores/user";
 
 export async function confirm(token: string): Promise<Actor | undefined> {
@@ -10,6 +10,11 @@ export async function confirm(token: string): Promise<Actor | undefined> {
 export async function register(payload: RegisterPayload): Promise<void> {
   const users = useUserStore();
   users.create(payload);
+}
+
+export async function signIn(payload: SignInPayload): Promise<Actor> {
+  const users = useUserStore();
+  return users.signIn(payload);
 }
 
 export async function signOut(): Promise<void> {}

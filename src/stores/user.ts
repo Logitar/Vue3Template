@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { ref } from "vue";
 
 import type { Actor } from "@/types/aggregate";
-import type { RegisterPayload } from "@/types/account";
+import type { RegisterPayload, SignInPayload } from "@/types/account";
 import type { User } from "@/types/users";
 
 function buildFullName(...names: (string | undefined)[]): string | undefined {
@@ -111,6 +111,38 @@ export const useUserStore = defineStore(
       }
     }
 
+    function signIn(payload: SignInPayload): Actor {
+      // Try finding the user by username
+      const usernameNormalized = payload.username.trim().toUpperCase();
+      let id: string | undefined = usernameIndex.value.get(usernameNormalized);
+
+      // Try finding the user by email address
+      if (!id) {
+        id = emailIndex.value.get(usernameNormalized);
+      }
+
+      // Checking credentials
+      if (!id) {
+        throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
+      }
+      const user: User | undefined = users.value.get(id);
+      if (!user || user.isDisabled) {
+        throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
+      }
+      if (user.hasPassword) {
+        const password: string | undefined = passwordHashes.value.get(id);
+        if (!password || !payload.password || hash(payload.password) !== password) {
+          throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
+        }
+      }
+
+      // Authenticate the user
+      user.authenticatedOn = new Date().toISOString();
+      users.value.set(id, user);
+
+      return toActor(user);
+    }
+
     function verifyEmail(emailAddress: string): Actor | undefined {
       // Find the user identifier using the email address
       const emailAddressNormalized: string = emailAddress.trim().toUpperCase();
@@ -144,7 +176,7 @@ export const useUserStore = defineStore(
       return actor;
     }
 
-    return { create, verifyEmail };
+    return { create, signIn, verifyEmail };
   },
-  { persist: true },
+  { persist: true }, // TODO(fpion): does not seem to work
 );
