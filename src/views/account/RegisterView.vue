@@ -35,7 +35,9 @@ async function submit(): Promise<void> {
 }
 
 function onConfirm(): void {
-  router.push({ name: "Confirm", params: { token: payload.value.username } });
+  if (payload.value.emailAddress) {
+    router.push({ name: "Confirm", params: { token: payload.value.emailAddress } });
+  }
 }
 
 function onEmailAddressUpdate(e: Event): void {
@@ -54,7 +56,7 @@ function onEmailAddressUpdate(e: Event): void {
     </div>
     <div v-if="success">
       <div class="alert alert-success">Success!</div>
-      <button v-if="payload.username" type="button" class="btn btn-warning" @click="onConfirm">
+      <button v-if="payload.emailAddress" type="button" class="btn btn-warning" @click="onConfirm">
         <FontAwesomeIcon :icon="['fas', 'user']" />
         Confirm your account
       </button>

@@ -23,6 +23,18 @@ function hash(password: string): string {
     .join(""); // TODO(fpion): use a secure hashing function
 }
 
+function toActor(user: User): Actor {
+  const { id, username, fullName, email, picture } = user;
+  return {
+    id,
+    type: "User",
+    isDeleted: false,
+    displayName: fullName ?? username,
+    emailAddress: email?.address,
+    pictureUrl: picture,
+  };
+}
+
 export const useUserStore = defineStore(
   "user",
   () => {
@@ -99,7 +111,40 @@ export const useUserStore = defineStore(
       }
     }
 
-    return { create };
+    function verifyEmail(emailAddress: string): Actor | undefined {
+      // Find the user identifier using the email address
+      const emailAddressNormalized: string = emailAddress.trim().toUpperCase();
+      const id: string | undefined = emailIndex.value.get(emailAddressNormalized);
+      if (!id) {
+        return;
+      }
+
+      // Find the user
+      const user: User | undefined = users.value.get(id);
+      if (!user?.email) {
+        return;
+      }
+
+      // Check the user email is not already verified
+      if (user.email.isVerified) {
+        return;
+      }
+
+      // Create an actor from the user
+      const actor: Actor = toActor(user);
+
+      // Verify the user email
+      user.email.isVerified = true;
+      user.email.verifiedBy = actor;
+      user.email.verifiedOn = new Date().toISOString();
+
+      // Confirm the user
+      user.isConfirmed = true;
+
+      return actor;
+    }
+
+    return { create, verifyEmail };
   },
   { persist: true },
 );
