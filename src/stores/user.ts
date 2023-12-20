@@ -178,5 +178,5 @@ export const useUserStore = defineStore(
 
     return { create, signIn, verifyEmail };
   },
-  { persist: true }, // TODO(fpion): does not seem to work
+  { persist: true }, // TODO(fpion): does not seem to work because Map<K,V> is not serializable
 );
