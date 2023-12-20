@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import HomeView from "@/views/HomeView.vue";
+import { useAccountStore } from "./stores/account";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,6 +10,7 @@ const router = createRouter({
       path: "/",
       name: "Home",
       component: HomeView,
+      meta: { isPublic: true },
     },
     // Account
     {
@@ -17,6 +20,7 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("@/views/account/ConfirmView.vue"),
+      meta: { isPublic: true },
     },
     {
       path: "/profile",
@@ -27,11 +31,13 @@ const router = createRouter({
       path: "/register",
       name: "Register",
       component: () => import("@/views/account/RegisterView.vue"),
+      meta: { isPublic: true },
     },
     {
       path: "/sign-in",
       name: "SignIn",
       component: () => import("@/views/account/SignInView.vue"),
+      meta: { isPublic: true },
     },
     {
       path: "/sign-out",
@@ -39,6 +45,13 @@ const router = createRouter({
       component: () => import("@/views/account/SignOutView.vue"),
     },
   ],
+});
+
+router.beforeEach((to) => {
+  const account = useAccountStore();
+  if (!to.meta.isPublic && !account.authenticated) {
+    return { name: "SignIn", query: { redirect: to.fullPath } };
+  }
 });
 
 export default router;
