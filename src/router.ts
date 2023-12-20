@@ -28,9 +28,21 @@ const router = createRouter({
       component: () => import("@/views/account/ProfileView.vue"),
     },
     {
+      path: "/recover-password",
+      name: "RecoverPassword",
+      component: () => import("@/views/account/RecoverPasswordView.vue"),
+      meta: { isPublic: true },
+    },
+    {
       path: "/register",
       name: "Register",
       component: () => import("@/views/account/RegisterView.vue"),
+      meta: { isPublic: true },
+    },
+    {
+      path: "/reset-password/:token",
+      name: "ResetPassword",
+      component: () => import("@/views/account/ResetPasswordView.vue"),
       meta: { isPublic: true },
     },
     {

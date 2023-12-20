@@ -1,3 +1,7 @@
+export type RecoverPasswordPayload = {
+  username: string;
+};
+
 export type RegisterPayload = {
   username: string;
   password?: string;

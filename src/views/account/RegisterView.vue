@@ -13,10 +13,6 @@ const payload = ref<RegisterPayload>({ username: "" });
 const passwordConfirmation = ref<string>();
 const success = ref<boolean>(false);
 
-function sleep(delay: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, delay));
-}
-
 async function submit(): Promise<void> {
   if (!loading.value) {
     loading.value = true;
@@ -24,7 +20,6 @@ async function submit(): Promise<void> {
       await register(payload.value);
       payload.value.password = undefined;
       passwordConfirmation.value = undefined;
-      await sleep(2500);
       success.value = true;
     } catch (e) {
       console.error(e); // TODO(fpion): error handling

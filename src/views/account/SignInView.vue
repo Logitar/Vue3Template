@@ -57,7 +57,7 @@ async function submit(): Promise<void> {
         <input class="form-check-input" id="remember-me" type="checkbox" v-model="payload.remember" />
         <label class="form-check-label" for="remember-me">Remember Me</label>
       </div>
-      <button class="btn btn-primary" :disabled="loading" type="submit">
+      <button class="btn btn-primary me-2" :disabled="loading" type="submit">
         <span v-if="loading">
           <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
           <span class="visually-hidden">Loading...</span>
@@ -65,6 +65,7 @@ async function submit(): Promise<void> {
         <FontAwesomeIcon v-else :icon="['fas', 'right-to-bracket']" />
         Sign In
       </button>
+      <RouterLink :to="{ name: 'RecoverPassword' }">I forgot my password</RouterLink>
     </form>
   </main>
 </template>

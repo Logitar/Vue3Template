@@ -1,4 +1,4 @@
-import { faRightFromBracket, faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faKey, faRightFromBracket, faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-library.add(faRightFromBracket, faRightToBracket, faUser);
+library.add(faKey, faRightFromBracket, faRightToBracket, faUser);
