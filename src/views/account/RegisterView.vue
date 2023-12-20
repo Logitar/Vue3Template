@@ -9,8 +9,8 @@ import { register } from "@/api/account";
 const router = useRouter();
 
 const loading = ref<boolean>(false);
-const payload = ref<RegisterPayload>({ username: "" });
 const passwordConfirmation = ref<string>();
+const payload = ref<RegisterPayload>({ username: "" });
 const success = ref<boolean>(false);
 
 async function submit(): Promise<void> {

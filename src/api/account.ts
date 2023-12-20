@@ -1,5 +1,5 @@
 import type { Actor } from "@/types/aggregate";
-import type { RecoverPasswordPayload, RegisterPayload, SignInPayload } from "@/types/account";
+import type { RecoverPasswordPayload, RegisterPayload, ResetPasswordPayload, SignInPayload } from "@/types/account";
 import { useUserStore } from "@/stores/user";
 
 function sleep(delay: number): Promise<void> {
@@ -21,6 +21,12 @@ export async function register(payload: RegisterPayload): Promise<void> {
   await sleep(2500);
   const users = useUserStore();
   users.create(payload);
+}
+
+export async function resetPassword(payload: ResetPasswordPayload): Promise<Actor | undefined> {
+  await sleep(2500);
+  const users = useUserStore();
+  return users.resetPassword(payload);
 }
 
 export async function signIn(payload: SignInPayload): Promise<Actor> {

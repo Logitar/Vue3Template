@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import UserRepository from "./userRepository";
 import type { Actor } from "@/types/aggregate";
 import type { ErrorDetail } from "@/types/api";
-import type { RegisterPayload, SignInPayload } from "@/types/account";
+import type { RegisterPayload, ResetPasswordPayload, SignInPayload } from "@/types/account";
 import type { User } from "@/types/users";
 
 function buildFullName(...names: (string | undefined)[]): string | undefined {
@@ -100,6 +100,22 @@ export const useUserStore = defineStore("user", () => {
     users.save(user, passwordHash);
   }
 
+  function resetPassword(payload: ResetPasswordPayload): Actor | undefined {
+    // Initialize storage
+    const users = new UserRepository(localStorage);
+
+    // Try finding the user by username or email address
+    const user: User | undefined = users.findByUsername(payload.token) ?? users.findByEmail(payload.token);
+    if (!user) {
+      return;
+    }
+
+    // Change the user password
+    users.save(user, hash(payload.password));
+
+    return toActor(user);
+  }
+
   function signIn(payload: SignInPayload): Actor {
     // Initialize storage
     const users = new UserRepository(localStorage);
@@ -155,5 +171,5 @@ export const useUserStore = defineStore("user", () => {
     return actor;
   }
 
-  return { create, signIn, verifyEmail };
+  return { create, resetPassword, signIn, verifyEmail };
 });

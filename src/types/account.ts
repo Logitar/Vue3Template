@@ -10,6 +10,11 @@ export type RegisterPayload = {
   lastName?: string;
 };
 
+export type ResetPasswordPayload = {
+  token: string;
+  password: string;
+};
+
 export type SignInPayload = {
   username: string;
   password?: string;

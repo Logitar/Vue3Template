@@ -15,7 +15,8 @@ onMounted(async () => {
     const token = route.params.token as string;
     const actor: Actor | undefined = await confirm(token);
     if (!actor) {
-      return router.push({ name: "SignIn" });
+      router.push({ name: "SignIn" });
+      return;
     }
     account.signIn(actor);
     router.push({ name: "Profile" });
