@@ -22,7 +22,9 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
+    "nanoid": "^5.0.4",
     "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

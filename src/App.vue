@@ -12,7 +12,10 @@ import { RouterView } from "vue-router";
       <li>
         <RouterLink :to="{ name: 'About' }">About</RouterLink>
       </li>
-      <li><FontAwesomeIcon :icon="['fas', 'user']" /> Register</li>
+      <li>
+        <FontAwesomeIcon :icon="['fas', 'user']" />
+        <RouterLink :to="{ name: 'Register' }">Register</RouterLink>
+      </li>
     </ul>
   </nav>
   <RouterView />
