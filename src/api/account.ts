@@ -11,3 +11,5 @@ export async function register(payload: RegisterPayload): Promise<void> {
   const users = useUserStore();
   users.create(payload);
 }
+
+export async function signOut(): Promise<void> {}
