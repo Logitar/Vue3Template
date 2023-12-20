@@ -1,8 +1,9 @@
 import { defineStore } from "pinia";
 import { nanoid } from "nanoid";
-import { ref } from "vue";
 
+import UserRepository from "./userRepository";
 import type { Actor } from "@/types/aggregate";
+import type { ErrorDetail } from "@/types/api";
 import type { RegisterPayload, SignInPayload } from "@/types/account";
 import type { User } from "@/types/users";
 
@@ -35,148 +36,124 @@ function toActor(user: User): Actor {
   };
 }
 
-export const useUserStore = defineStore(
-  "user",
-  () => {
-    const emailIndex = ref<Map<string, string>>(new Map<string, string>());
-    const passwordHashes = ref<Map<string, string>>(new Map<string, string>());
-    const usernameIndex = ref<Map<string, string>>(new Map<string, string>());
-    const users = ref<Map<string, User>>(new Map<string, User>());
+export const useUserStore = defineStore("user", () => {
+  function create(payload: RegisterPayload): void {
+    // Initialize storage
+    const users = new UserRepository(localStorage);
 
-    function create(payload: RegisterPayload): void {
-      // Ensure username unicity
-      const username: string = payload.username.trim();
-      const usernameNormalized: string = username.toUpperCase();
-      if (usernameIndex.value.has(usernameNormalized)) {
-        return;
-      }
+    // Ensure username unicity
+    const username: string = payload.username.trim();
+    if (users.findByUsername(username)) {
+      return;
+    }
 
-      // Ensure email address unicity
-      const emailAddress: string | undefined = payload.emailAddress?.trim();
-      const emailAddressNormalized: string | undefined = emailAddress?.toUpperCase();
-      if (emailAddressNormalized && emailIndex.value.has(emailAddressNormalized)) {
-        return;
-      }
+    // Ensure email address unicity
+    const emailAddress: string | undefined = payload.emailAddress?.trim();
+    if (emailAddress && users.findByEmail(emailAddress)) {
+      return;
+    }
 
-      // Prepare user information
-      const firstName: string | undefined = payload.firstName?.trim();
-      const lastName: string | undefined = payload.lastName?.trim();
-      const fullName: string | undefined = buildFullName(firstName, lastName);
+    // Prepare user information
+    const firstName: string | undefined = payload.firstName?.trim();
+    const lastName: string | undefined = payload.lastName?.trim();
+    const fullName: string | undefined = buildFullName(firstName, lastName);
 
-      // Generate an unique identifier and a timestamp
-      const id: string = nanoid();
-      const now: string = new Date().toISOString();
+    // Generate an unique identifier and a timestamp
+    const id: string = nanoid();
+    const now: string = new Date().toISOString();
 
-      // Create an actor
-      const actor: Actor = {
-        id,
-        type: "User",
-        isDeleted: false,
-        displayName: fullName ?? username,
-        emailAddress,
-      };
+    // Create an actor
+    const actor: Actor = {
+      id,
+      type: "User",
+      isDeleted: false,
+      displayName: fullName ?? username,
+      emailAddress,
+    };
 
-      // Create the user
-      const user: User = {
-        id,
-        version: 1,
-        createdBy: actor,
-        createdOn: now,
-        updatedBy: actor,
-        updatedOn: now,
-        username,
-        hasPassword: Boolean(payload.password),
-        isDisabled: false,
-        isConfirmed: false,
-        firstName,
-        lastName,
-        fullName,
-      };
-      if (payload.password) {
-        user.passwordChangedBy = actor;
-        user.passwordChangedOn = now;
-      }
-      if (emailAddress) {
-        user.email = { isVerified: false, address: emailAddress };
-      }
+    // Create the user
+    const user: User = {
+      id,
+      version: 1,
+      createdBy: actor,
+      createdOn: now,
+      updatedBy: actor,
+      updatedOn: now,
+      username,
+      hasPassword: Boolean(payload.password),
+      isDisabled: false,
+      isConfirmed: false,
+      firstName,
+      lastName,
+      fullName,
+    };
+    if (payload.password) {
+      user.passwordChangedBy = actor;
+      user.passwordChangedOn = now;
+    }
+    if (emailAddress) {
+      user.email = { isVerified: false, address: emailAddress };
+    }
 
-      // Save the user
-      users.value.set(id, user);
-      usernameIndex.value.set(usernameNormalized, id);
-      if (emailAddressNormalized) {
-        emailIndex.value.set(emailAddressNormalized, id);
-      }
-      if (payload.password) {
-        passwordHashes.value.set(id, hash(payload.password));
+    // Save the user
+    const passwordHash: string | undefined = payload.password ? hash(payload.password) : undefined;
+    users.save(user, passwordHash);
+  }
+
+  function signIn(payload: SignInPayload): Actor {
+    // Initialize storage
+    const users = new UserRepository(localStorage);
+
+    // Try finding the user by username or email address
+    const user: User | undefined = users.findByUsername(payload.username) ?? users.findByEmail(payload.username);
+
+    // Checking credentials
+    if (!user || user.isDisabled) {
+      throw { code: "InvalidCredentials" } as ErrorDetail;
+    }
+    if (user.hasPassword) {
+      const password: string | undefined = users.findPassword(user);
+      if (!password || !payload.password || hash(payload.password) !== password) {
+        throw { code: "InvalidCredentials" } as ErrorDetail;
       }
     }
 
-    function signIn(payload: SignInPayload): Actor {
-      // Try finding the user by username
-      const usernameNormalized = payload.username.trim().toUpperCase();
-      let id: string | undefined = usernameIndex.value.get(usernameNormalized);
+    // Authenticate the user
+    user.authenticatedOn = new Date().toISOString();
+    users.save(user);
 
-      // Try finding the user by email address
-      if (!id) {
-        id = emailIndex.value.get(usernameNormalized);
-      }
+    return toActor(user);
+  }
 
-      // Checking credentials
-      if (!id) {
-        throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
-      }
-      const user: User | undefined = users.value.get(id);
-      if (!user || user.isDisabled) {
-        throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
-      }
-      if (user.hasPassword) {
-        const password: string | undefined = passwordHashes.value.get(id);
-        if (!password || !payload.password || hash(payload.password) !== password) {
-          throw "INVALID_CREDENTIALS"; // TODO(fpion): use error object
-        }
-      }
+  function verifyEmail(emailAddress: string): Actor | undefined {
+    // Initialize storage
+    const users = new UserRepository(localStorage);
 
-      // Authenticate the user
-      user.authenticatedOn = new Date().toISOString();
-      users.value.set(id, user);
-
-      return toActor(user);
+    // Find the user by the email address
+    const user: User | undefined = users.findByEmail(emailAddress);
+    if (!user?.email) {
+      return;
     }
 
-    function verifyEmail(emailAddress: string): Actor | undefined {
-      // Find the user identifier using the email address
-      const emailAddressNormalized: string = emailAddress.trim().toUpperCase();
-      const id: string | undefined = emailIndex.value.get(emailAddressNormalized);
-      if (!id) {
-        return;
-      }
-
-      // Find the user
-      const user: User | undefined = users.value.get(id);
-      if (!user?.email) {
-        return;
-      }
-
-      // Check the user email is not already verified
-      if (user.email.isVerified) {
-        return;
-      }
-
-      // Create an actor from the user
-      const actor: Actor = toActor(user);
-
-      // Verify the user email
-      user.email.isVerified = true;
-      user.email.verifiedBy = actor;
-      user.email.verifiedOn = new Date().toISOString();
-
-      // Confirm the user
-      user.isConfirmed = true;
-
-      return actor;
+    // Check the user email is not already verified
+    if (user.email.isVerified) {
+      return;
     }
 
-    return { create, signIn, verifyEmail };
-  },
-  { persist: true }, // TODO(fpion): does not seem to work because Map<K,V> is not serializable
-);
+    // Create an actor from the user
+    const actor: Actor = toActor(user);
+
+    // Verify the user email
+    user.email.isVerified = true;
+    user.email.verifiedBy = actor;
+    user.email.verifiedOn = new Date().toISOString();
+
+    // Confirm the user
+    user.isConfirmed = true;
+    users.save(user);
+
+    return actor;
+  }
+
+  return { create, signIn, verifyEmail };
+});

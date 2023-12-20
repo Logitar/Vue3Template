@@ -4,6 +4,7 @@ import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 import type { Actor } from "@/types/aggregate";
+import type { ErrorDetail } from "@/types/api";
 import type { SignInPayload } from "@/types/account";
 import { signIn } from "@/api/account";
 import { useAccountStore } from "@/stores/account";
@@ -25,8 +26,9 @@ async function submit(): Promise<void> {
       account.signIn(actor);
       const redirect = route.query.redirect as string | undefined;
       router.push(redirect ?? { name: "Profile" });
-    } catch (e) {
-      if (e === "INVALID_CREDENTIALS") {
+    } catch (e: unknown) {
+      const { code } = e as ErrorDetail;
+      if (code === "InvalidCredentials") {
         invalidCredentials.value = true;
       } else {
         console.error(e); // TODO(fpion): error handling
@@ -36,12 +38,6 @@ async function submit(): Promise<void> {
     }
   }
 }
-
-import { useUserStore } from "@/stores/user";
-const users = useUserStore();
-users.create({
-  username: "fpion",
-});
 </script>
 
 <template>
