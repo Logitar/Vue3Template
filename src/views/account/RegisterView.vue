@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+import AppCheckbox from "@/components/AppCheckbox.vue";
 import type { RegisterPayload } from "@/types/account";
 import { register } from "@/api/account";
 
@@ -45,10 +46,7 @@ function onEmailAddressUpdate(e: Event): void {
 <template>
   <main class="container">
     <h1>Register</h1>
-    <div class="form-check form-switch mb-3">
-      <input class="form-check-input" id="success" role="switch" type="checkbox" v-model="success" />
-      <label class="form-label-check" for="success">Success</label>
-    </div>
+    <AppCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
       <div class="alert alert-success">Success!</div>
       <button v-if="payload.emailAddress" type="button" class="btn btn-warning" @click="onConfirm">
