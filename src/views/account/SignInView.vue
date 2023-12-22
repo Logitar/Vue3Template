@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import AppCheckbox from "@/components/AppCheckbox.vue";
 import type { Actor } from "@/types/aggregate";
 import type { ErrorDetail } from "@/types/api";
 import type { SignInPayload } from "@/types/account";
@@ -54,7 +54,7 @@ async function submit(): Promise<void> {
         <label class="form-label" for="password">Password</label>
         <input class="form-control" id="password" placeholder="Password" type="password" v-model="payload.password" />
       </div>
-      <AppCheckbox class="mb-3" id="remember-be" label="Remember Me" v-model="payload.remember" />
+      <TarCheckbox class="mb-3" id="remember-be" label="Remember Me" v-model="payload.remember" />
       <button class="btn btn-primary me-2" :disabled="loading" type="submit">
         <span v-if="loading">
           <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>

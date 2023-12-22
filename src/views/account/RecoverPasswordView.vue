@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-import AppCheckbox from "@/components/AppCheckbox.vue";
 import type { RecoverPasswordPayload } from "@/types/account";
 import { recoverPassword } from "@/api/account";
 
@@ -35,7 +35,7 @@ function onResetPassword(): void {
 <template>
   <main class="container">
     <h1>Recover Password</h1>
-    <AppCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
+    <TarCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
       <div class="alert alert-success">Success!</div>
       <button v-if="payload.username" type="button" class="btn btn-warning" @click="onResetPassword">
