@@ -22,7 +22,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
-    "logitar-vue3-ui": "file:../Vue3Ui",
+    "logitar-vue3-ui": "^0.1.0",
     "nanoid": "^5.0.4",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",

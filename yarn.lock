@@ -2256,8 +2256,10 @@ lodash@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-"logitar-vue3-ui@file:../Vue3Ui":
+logitar-vue3-ui@^0.1.0:
   version "0.1.0"
+  resolved "https://registry.yarnpkg.com/logitar-vue3-ui/-/logitar-vue3-ui-0.1.0.tgz#fcff174f7a996cdac59f5b2b1db2f0f604a55be0"
+  integrity sha512-hMoPWz0h6gw11TERmTfGkn8vRMrWz23ca1igQG53/+LO5PEiUozoILuRYiLir0PG5Dlig1yFeGqhFdjllxLZZg==
   dependencies:
     nanoid "^5.0.4"
 
