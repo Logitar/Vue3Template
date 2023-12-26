@@ -111,6 +111,7 @@ export const useUserStore = defineStore("user", () => {
     }
 
     // Change the user password
+    user.version++;
     users.save(user, hash(payload.password));
 
     return toActor(user);
@@ -136,6 +137,7 @@ export const useUserStore = defineStore("user", () => {
 
     // Authenticate the user
     user.authenticatedOn = new Date().toISOString();
+    user.version++;
     users.save(user);
 
     return toActor(user);
@@ -166,6 +168,7 @@ export const useUserStore = defineStore("user", () => {
 
     // Confirm the user
     user.isConfirmed = true;
+    user.version++;
     users.save(user);
 
     return actor;
