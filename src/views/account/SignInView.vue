@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TarButton, TarCheckbox } from "logitar-vue3-ui";
+import { TarAlert, TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
@@ -43,7 +43,7 @@ async function submit(): Promise<void> {
 <template>
   <main class="container">
     <h1>Sign In</h1>
-    <div v-if="invalidCredentials" class="alert alert-warning">Invalid Credentials!</div>
+    <TarAlert v-if="invalidCredentials" show variant="warning">Invalid Credentials!</TarAlert>
     <form @submit.prevent="submit">
       <div class="mb-3">
         <label class="form-label" for="username">Username or Email Address <span class="text-danger">*</span></label>

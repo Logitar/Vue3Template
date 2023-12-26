@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TarButton, TarCheckbox } from "logitar-vue3-ui";
+import { TarAlert, TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -47,7 +47,7 @@ function onEmailAddressUpdate(e: Event): void {
     <h1>Register</h1>
     <TarCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
-      <div class="alert alert-success">Success!</div>
+      <TarAlert show variant="success">Success!</TarAlert>
       <TarButton v-if="payload.emailAddress" :icon="['fas', 'user']" text="Confirm your account" variant="warning" @click="onConfirm" />
     </div>
     <form v-else @submit.prevent="submit">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TarButton, TarCheckbox } from "logitar-vue3-ui";
+import { TarAlert, TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -36,7 +36,7 @@ function onResetPassword(): void {
     <h1>Recover Password</h1>
     <TarCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
-      <div class="alert alert-success">Success!</div>
+      <TarAlert show variant="success">Success!</TarAlert>
       <TarButton v-if="payload.username" :icon="['fas', 'key']" text="Reset your password" variant="warning" @click="onResetPassword" />
     </div>
     <form v-else @submit.prevent="submit">
