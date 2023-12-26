@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { TarCheckbox } from "logitar-vue3-ui";
+import { TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -38,24 +37,14 @@ function onResetPassword(): void {
     <TarCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
       <div class="alert alert-success">Success!</div>
-      <button v-if="payload.username" type="button" class="btn btn-warning" @click="onResetPassword">
-        <FontAwesomeIcon :icon="['fas', 'key']" />
-        Reset your password
-      </button>
+      <TarButton v-if="payload.username" :icon="['fas', 'key']" text="Reset your password" variant="warning" @click="onResetPassword" />
     </div>
     <form v-else @submit.prevent="submit">
       <div class="mb-3">
         <label class="form-label" for="username">Username or Email Address <span class="text-danger">*</span></label>
         <input class="form-control" id="username" placeholder="Username or Email Address" required type="text" v-model.trim="payload.username" />
       </div>
-      <button class="btn btn-primary me-2" :disabled="loading" type="submit">
-        <span v-if="loading">
-          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span class="visually-hidden">Loading...</span>
-        </span>
-        <FontAwesomeIcon v-else :icon="['fas', 'key']" />
-        Recover Password
-      </button>
+      <TarButton class="me-2" :disabled="loading" :icon="['fas', 'key']" :loading="loading" text="Recover Password" type="submit" />
       <RouterLink :to="{ name: 'SignIn' }">I remember my password</RouterLink>
     </form>
   </main>

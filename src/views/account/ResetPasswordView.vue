@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { TarButton } from "logitar-vue3-ui";
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
@@ -63,14 +63,7 @@ onMounted(() => (payload.value.token = route.params.token as string));
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" :disabled="loading" type="submit">
-        <span v-if="loading">
-          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span class="visually-hidden">Loading...</span>
-        </span>
-        <FontAwesomeIcon v-else :icon="['fas', 'key']" />
-        Reset Password
-      </button>
+      <TarButton :disabled="loading" :icon="['fas', 'key']" :loading="loading" text="Reset Password" type="submit" />
     </form>
   </main>
 </template>

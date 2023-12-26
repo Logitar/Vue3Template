@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { TarCheckbox } from "logitar-vue3-ui";
+import { TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -49,10 +48,7 @@ function onEmailAddressUpdate(e: Event): void {
     <TarCheckbox class="mb-3" id="success" label="Success" switch v-model="success" />
     <div v-if="success">
       <div class="alert alert-success">Success!</div>
-      <button v-if="payload.emailAddress" type="button" class="btn btn-warning" @click="onConfirm">
-        <FontAwesomeIcon :icon="['fas', 'user']" />
-        Confirm your account
-      </button>
+      <TarButton v-if="payload.emailAddress" :icon="['fas', 'user']" text="Confirm your account" variant="warning" @click="onConfirm" />
     </div>
     <form v-else @submit.prevent="submit">
       <div class="row">
@@ -114,14 +110,7 @@ function onEmailAddressUpdate(e: Event): void {
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" :disabled="loading" type="submit">
-        <span v-if="loading">
-          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span class="visually-hidden">Loading...</span>
-        </span>
-        <FontAwesomeIcon v-else :icon="['fas', 'user']" />
-        Register
-      </button>
+      <TarButton :disabled="loading" :icon="['fas', 'key']" :loading="loading" text="Register" type="submit" />
     </form>
   </main>
 </template>

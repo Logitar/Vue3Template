@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { TarCheckbox } from "logitar-vue3-ui";
+import { TarButton, TarCheckbox } from "logitar-vue3-ui";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
@@ -55,14 +54,7 @@ async function submit(): Promise<void> {
         <input class="form-control" id="password" placeholder="Password" type="password" v-model="payload.password" />
       </div>
       <TarCheckbox class="mb-3" id="remember-be" label="Remember Me" v-model="payload.remember" />
-      <button class="btn btn-primary me-2" :disabled="loading" type="submit">
-        <span v-if="loading">
-          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span class="visually-hidden">Loading...</span>
-        </span>
-        <FontAwesomeIcon v-else :icon="['fas', 'right-to-bracket']" />
-        Sign In
-      </button>
+      <TarButton class="me-2" :disabled="loading" :icon="['fas', 'right-to-bracket']" :loading="loading" text="Sign In" type="submit" />
       <RouterLink :to="{ name: 'RecoverPassword' }">I forgot my password</RouterLink>
     </form>
   </main>
