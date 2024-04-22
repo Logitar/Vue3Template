@@ -1,0 +1,22 @@
+{
+  "created": "The Todo has been created.",
+  "delete": {
+    "confirm": "Do you really want to delete the following Todo?",
+    "success": "The Todo has been deleted.",
+    "title": "Delete Todo"
+  },
+  "doneOn": "Completed on {date} by",
+  "empty": "This list is empty.",
+  "isDone": "Completed",
+  "sort": {
+    "options": {
+      "DisplayName": "Display name",
+      "UpdatedOn": "Updated on"
+    }
+  },
+  "title": {
+    "list": "Todos",
+    "new": "New Todo"
+  },
+  "updated": "The Todo has been updated."
+}

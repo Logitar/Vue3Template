@@ -4,7 +4,9 @@
     "cancel": "Cancel",
     "clear": "Clear",
     "close": "Close",
+    "create": "Create",
     "delete": "Delete",
+    "refresh": "Refresh",
     "save": "Save"
   },
   "brand": "Logitar",
@@ -14,6 +16,7 @@
   "description": "Description",
   "displayName": "Display Name",
   "loading": "Loading…",
+  "no": "No",
   "notFound": {
     "help": "The requested page could not be found.",
     "lead": "Page Not Found",
@@ -49,5 +52,6 @@
       "signedOut": "You have been signed-out, please try sign-in to your account again.",
       "title": "Warning!"
     }
-  }
+  },
+  "yes": "Yes"
 }

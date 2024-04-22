@@ -1,0 +1,22 @@
+{
+  "created": "Le Todo a été créé.",
+  "delete": {
+    "confirm": "Désirez-vous vraiment supprimer le Todo suivant ?",
+    "success": "Le Todo a été supprimé.",
+    "title": "Supprimer le Todo"
+  },
+  "doneOn": "Complété le {date} par",
+  "empty": "Cette liste est vide.",
+  "isDone": "Complété",
+  "sort": {
+    "options": {
+      "DisplayName": "Nom d’affichage",
+      "UpdatedOn": "Dernière modification"
+    }
+  },
+  "title": {
+    "list": "Todos",
+    "new": "Nouveau Todo"
+  },
+  "updated": "Le Todo a été enregistré."
+}

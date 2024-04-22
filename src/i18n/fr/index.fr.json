@@ -4,7 +4,9 @@
     "cancel": "Annuler",
     "clear": "Vider",
     "close": "Fermer",
+    "create": "Créer",
     "delete": "Supprimer",
+    "refresh": "Rafraîchir",
     "save": "Enregistrer"
   },
   "brand": "Logitar",
@@ -14,6 +16,7 @@
   "description": "Description",
   "displayName": "Nom d’affichage",
   "loading": "Chargement…",
+  "no": "Non",
   "notFound": {
     "help": "La page demandée n’a pu être trouvée.",
     "lead": "Page introuvable",
@@ -49,5 +52,6 @@
       "signedOut": "Vous avez été déconnecté, veuillez vous reconnecter à votre compte.",
       "title": "Attention !"
     }
-  }
+  },
+  "yes": "Oui"
 }

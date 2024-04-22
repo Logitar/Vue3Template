@@ -38,7 +38,7 @@ defineEmits<{
   <span>
     <TarButton
       :disabled="loading"
-      icon="fas fa-trash"
+      icon="fas fa-trash-can"
       :loading="loading"
       :text="t('actions.delete')"
       variant="danger"
@@ -55,7 +55,7 @@ defineEmits<{
         <TarButton icon="fas fa-ban" :text="t('actions.cancel')" variant="secondary" @click="hide" />
         <TarButton
           :disabled="loading"
-          icon="fas fa-trash"
+          icon="fas fa-trash-can"
           :loading="loading"
           :status="t('loading')"
           :text="t('actions.delete')"
