@@ -3,6 +3,8 @@ export type ConfirmedParams<T> = {
   label: string;
 };
 
+export type ShowStatus = "always" | "never" | "touched";
+
 export type ValidationListeners = {
   blur: (e: unknown, shouldValidate?: boolean) => void;
   change: (e: unknown, shouldValidate?: boolean) => void;
@@ -10,6 +12,7 @@ export type ValidationListeners = {
 };
 
 export type ValidationRules = {
+  allowed_characters?: string;
   confirmed?: string[];
   email?: boolean;
   max_length?: number;
@@ -24,5 +27,6 @@ export type ValidationRules = {
   required?: boolean;
   unique_chars?: number;
   url?: boolean;
-  username?: string;
 };
+
+export type ValidationType = "client" | "server";

@@ -4,6 +4,7 @@
   },
   "brand": "Logitar",
   "copyright": "© Logitar {version} {year}.",
+  "loading": "Chargement…",
   "notFound": {
     "help": "La page demandée n’a pu être trouvée.",
     "lead": "Page introuvable",
