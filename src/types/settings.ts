@@ -1,3 +1,9 @@
+export type CountrySettings = {
+  code: string;
+  postalCode?: string;
+  regions: string[];
+};
+
 export type PasswordSettings = {
   minimumLength?: number;
   uniqueCharacters?: number;

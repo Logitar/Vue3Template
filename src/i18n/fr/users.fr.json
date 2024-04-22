@@ -1,6 +1,68 @@
 {
+  "address": {
+    "country": {
+      "label": "Pays",
+      "placeholder": "Sélectionnez un pays"
+    },
+    "locality": "Ville",
+    "postalCode": "Code postal",
+    "region": {
+      "label": "Région",
+      "placeholder": "Sélectionnez une région"
+    },
+    "street": "Numéro et nom de rue",
+    "title": "Adresse postale",
+    "verified": "Vérifiée"
+  },
+  "authenticatedOn": "Dernière connexion",
+  "birthdate": "Date de naissance",
+  "createdOn": "Création",
+  "email": {
+    "address": "Adresse courriel",
+    "verified": "Vérifiée"
+  },
+  "gender": {
+    "label": "Genre",
+    "options": {
+      "female": "Femme",
+      "male": "Homme",
+      "other": "Autre"
+    },
+    "placeholder": "Sélectionnez votre genre"
+  },
+  "locale": {
+    "label": "Langue de communication",
+    "placeholder": "Sélectionnez votre langue de communication préférée"
+  },
+  "names": {
+    "first": "Prénom",
+    "full": "Nom complet",
+    "last": "Nom de famille",
+    "middle": "Nom intermédiaire",
+    "nick": "Surnom"
+  },
   "password": {
-    "label": "Mot de passe"
+    "changed": "Votre mot de passe a été modifié.",
+    "changedOn": "Dernière modification le {date}",
+    "confirm": "Confirmation du mot de passe",
+    "current": "Mot de passe actuel",
+    "failed": "Modification du mot de passe échouée !",
+    "invalid": "Veuillez vérifier que vous avez entré le bon mot de passe actuel.",
+    "label": "Mot de passe",
+    "new": "Nouveau mot de passe",
+    "submit": "Modifier le mot de passe"
+  },
+  "phone": {
+    "e164": "Téléphone (E.164)",
+    "extension": "Extension téléphonique",
+    "number": "Numéro de téléphone",
+    "verified": "Vérifié"
+  },
+  "pictureUrl": "Photo (URL)",
+  "profile": {
+    "saved": "Votre profil a été enregistré.",
+    "title": "Profil",
+    "url": "Profil (URL)"
   },
   "signIn": {
     "failed": "Connexion échouée !",
@@ -9,5 +71,16 @@
     "title": "Connexion"
   },
   "signOut": "Déconnexion",
-  "username": "Nom d’utilisateur"
+  "tabs": {
+    "authentication": "Informations d’authentification",
+    "contact": "Informations de contact",
+    "personal": "Informations personnelles"
+  },
+  "timeZone": {
+    "label": "Fuseau horaire",
+    "placeholder": "Sélectionnez votre fuseau horaire"
+  },
+  "updatedOn": "Dernière modification",
+  "username": "Nom d’utilisateur",
+  "websiteUrl": "Site Web (URL)"
 }
