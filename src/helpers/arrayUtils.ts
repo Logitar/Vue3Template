@@ -9,6 +9,7 @@ function compare<T>(a: T, b: T, weight: number): number {
   }
   return a < b ? -weight : a > b ? weight : 0;
 }
+
 export function orderBy<T>(items: T[], key?: keyof T, isDescending?: boolean): T[] {
   const weight = isDescending ? -1 : 1;
   if (key) {
@@ -20,3 +21,5 @@ export function orderBy<T>(items: T[], key?: keyof T, isDescending?: boolean): T
 export function orderByDescending<T>(items: T[], key?: keyof T) {
   return orderBy(items, key, true);
 }
+
+// TODO(fpion): external library

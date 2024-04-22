@@ -8,9 +8,20 @@ export type ApiResult<T> = {
   status: number;
 };
 
-export type ErrorDetail = {
-  errorCode: string;
-  errorMessage: string;
+export type ApiVersion = {
+  title: string;
+  version: string;
+};
+
+export type Error = {
+  code: string;
+  message: string;
+  data: ErrorData[];
+};
+
+export type ErrorData = {
+  key: string;
+  value?: string;
 };
 
 export type GraphQLError = {
@@ -40,28 +51,13 @@ export type GraphQLResponse<T> = {
   errors?: GraphQLError[];
 };
 
-export type SearchParameters = {
-  search: TextSearch;
-  sort: SortParameters[];
-  skip: number;
-  limit: number;
+export type PropertyError = Error & {
+  attemptedValue?: unknown;
+  propertyName?: string;
 };
 
-export type SearchResults<T> = {
-  results: T[];
-  total: number;
-};
-
-export type SearchTerm = {
-  value: string;
-};
-
-export type SortParameters = {
-  field: string;
-  isDescending: boolean;
-};
-
-export type TextSearch = {
-  terms: SearchTerm[];
-  operator: string;
+export type ValidationError = {
+  code: string;
+  message: string;
+  errors: PropertyError[];
 };

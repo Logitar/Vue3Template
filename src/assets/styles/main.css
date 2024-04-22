@@ -1,11 +1,5 @@
 @import "toasts.css";
 
-:root {
-  --maz-border-width: 1px;
-  --maz-color-danger: #dc3545;
-  --maz-color-success: #198754;
-}
-
 body {
   position: relative;
   min-height: calc(100svh);

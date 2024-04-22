@@ -1,21 +1,17 @@
-import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
+import VueDevTools from "vite-plugin-vue-devtools";
 import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
-import { resolve, dirname } from "node:path";
+
+import packageJson from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [vue(), vueJsx(), VueDevTools()],
   define: {
-    "import.meta.env.VITE_APP_VERSION": JSON.stringify(process.env.npm_package_version),
+    "import.meta.env.VITE_APP_VERSION": JSON.stringify(packageJson.version),
   },
-  plugins: [
-    vue(),
-    VueI18nPlugin({
-      include: resolve(dirname(fileURLToPath(import.meta.url)), "./i18n/**"),
-      jitCompilation: true,
-    }),
-  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

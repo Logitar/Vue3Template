@@ -1,7 +1,7 @@
-import type { ApiError, ApiResult, GraphQLRequest, GraphQLResponse } from "@/types/api";
-import { combineURL } from "@/helpers/stringUtils";
+import type { ApiError, ApiResult, ApiVersion, Error as ErrorT, GraphQLRequest, GraphQLResponse } from "@/types/api";
+import { combineURL, isAbsoluteURL } from "@/helpers/stringUtils";
 
-const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
+const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL ?? "";
 const contentType: string = "Content-Type";
 
 async function execute<TData, TResult>(method: string, url: string, data?: TData): Promise<ApiResult<TResult>> {
@@ -11,8 +11,7 @@ async function execute<TData, TResult>(method: string, url: string, data?: TData
     body = JSON.stringify(data);
     headers.set(contentType, "application/json; charset=UTF-8");
   }
-
-  const input = combineURL(apiBaseUrl, url);
+  const input: string = isAbsoluteURL(url) ? url : combineURL(apiBaseUrl, url);
 
   const response: Response = await fetch(input, { method, headers, body, credentials: "include" });
 
@@ -44,6 +43,10 @@ export async function get<TResult>(url: string): Promise<ApiResult<TResult>> {
   return await execute("GET", url);
 }
 
+export async function getVersion(): Promise<ApiVersion> {
+  return (await get<ApiVersion>("/")).data;
+}
+
 export async function patch<TData, TResult>(url: string, data?: TData): Promise<ApiResult<TResult>> {
   return await execute("PATCH", url, data);
 }
@@ -65,8 +68,11 @@ export async function graphQL<TVariables, TResult>(query: string, variables?: TV
     status = response.status;
   } catch (e: unknown) {
     const error = e as ApiError;
-    data = error.data as GraphQLResponse<TResult>;
     status = error.status;
+    if ((error.data as ErrorT)?.code) {
+      throw error;
+    }
+    data = error.data as GraphQLResponse<TResult>;
   }
 
   if (!data.data) {

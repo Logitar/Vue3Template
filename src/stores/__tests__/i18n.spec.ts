@@ -19,7 +19,7 @@ const frCA: Locale = {
   nativeName: "français (Canada)",
 };
 
-describe("accountStore", () => {
+describe("i18nStore", () => {
   beforeEach(() => {
     setActivePinia(createPinia());
   });

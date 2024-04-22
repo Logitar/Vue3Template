@@ -1,4 +1,5 @@
 {
+  "allowed_characters": "Le champs « {field} » ne peut contenir que les caractères suivants : 0:{allowedCharacters}",
   "confirmed": "Les champs « 1:{target} » et « {field} » ne correspondent pas.",
   "email": "Veuillez entrer une adresse courriel valide.",
   "identifier": "Le champs « {field} » ne peut commencer par un chiffre et il ne peut contenir que des lettres, des chiffres et des tirets bas (_).",
@@ -14,6 +15,5 @@
   "required": "Le champs « {field} » est requis.",
   "slug": "Le champs « {field} » doit être composé de mots alphanumériques non vides séparés par un tiret (-).",
   "unique_chars": "Le champs « {field} » doit contenir au moins 0:{count} caractères uniques.",
-  "url": "Veuillez entre un lien valide. Un lien valide débute par http:// ou https://.",
-  "username": "Le champs « {field} » ne peut contenir que les caractères suivants : 0:{allowedCharacters}"
+  "url": "Veuillez entre un lien valide. Un lien valide débute par http:// ou https://."
 }

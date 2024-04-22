@@ -2,6 +2,7 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
+const year: number = new Date().getUTCFullYear();
 const version = import.meta.env.VITE_APP_VERSION;
 </script>
 
@@ -9,7 +10,7 @@ const version = import.meta.env.VITE_APP_VERSION;
   <footer class="bg-dark">
     <div class="fluid">
       <RouterLink :to="{ name: 'Home' }" class="text-light">
-        <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" /> {{ t("copyright", { version }) }}
+        <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" /> {{ t("copyright", { version, year }) }}
       </RouterLink>
     </div>
   </footer>

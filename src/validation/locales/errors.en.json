@@ -1,4 +1,5 @@
 {
+  "allowed_characters": "The {field} may only contain the following characters: 0:{allowedCharacters}",
   "confirmed": "The 1:{target} and the {field} do not match.",
   "email": "Please enter a valid email address.",
   "identifier": "The {field} cannot start with a digit and it may only contain letters, digits and underscores (_).",
@@ -14,6 +15,5 @@
   "required": "The {field} is required.",
   "slug": "The {field} must be composed of non-empty alphanumeric words separated by hyphens (-).",
   "unique_chars": "The {field} must contain at least 0:{count} different characters.",
-  "url": "Please enter a valid URL. Valid URLs start with http:// or https://.",
-  "username": "The {field} may only contain the following characters: 0:{allowedCharacters}"
+  "url": "Please enter a valid URL. Valid URLs start with http:// or https://."
 }

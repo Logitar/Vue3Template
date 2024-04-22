@@ -1,3 +1,7 @@
+export function cleanTrim(s?: string): string | undefined {
+  return isNullOrWhiteSpace(s) ? undefined : s?.trim();
+}
+
 export function combineURL(...segments: string[]): string {
   const url = segments
     .map((v) => v?.trim().replace(/^\/+|\/+$/g, "") ?? "")
@@ -21,6 +25,14 @@ export function isLetter(c: string): boolean {
 
 export function isLetterOrDigit(c: string): boolean {
   return isDigit(c) || isLetter(c);
+}
+
+export function isNullOrEmpty(s?: string): boolean {
+  return typeof s !== "string" || s.length === 0;
+}
+
+export function isNullOrWhiteSpace(s?: string): boolean {
+  return isNullOrEmpty(s?.trim());
 }
 
 export function shortify(s: string, length: number): string {
@@ -48,6 +60,20 @@ export function slugify(s?: string): string {
   return unaccent(words.join("-").toLowerCase());
 }
 
+const reservedChars = new Set<string>(["]", "^", "\\"]);
+export function trim(s: string, c: string): string {
+  c = reservedChars.has(c) ? `\\${c}` : c;
+  return s.replace(new RegExp(`^[${c}]+|[${c}]+$`, "g"), "");
+}
+export function trimEnd(s: string, c: string): string {
+  c = reservedChars.has(c) ? `\\${c}` : c;
+  return s.replace(new RegExp(`[${c}]+$`, "g"), "");
+}
+export function trimStart(s: string, c: string): string {
+  c = reservedChars.has(c) ? `\\${c}` : c;
+  return s.replace(new RegExp(`^[${c}]+`, "g"), "");
+}
+
 const accents = new Map<string, string>([
   ["à", "a"],
   ["â", "a"],
@@ -66,3 +92,5 @@ const accents = new Map<string, string>([
 export function unaccent(s: string): string {
   return [...s].map((c) => (c.toUpperCase() === c ? (accents.get(c) ?? c).toUpperCase() : accents.get(c) ?? c)).join("");
 }
+
+// TODO(fpion): external library
