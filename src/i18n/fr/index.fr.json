@@ -1,6 +1,8 @@
 {
   "actions": {
-    "close": "Fermer"
+    "clear": "Vider",
+    "close": "Fermer",
+    "save": "Enregistrer"
   },
   "brand": "Logitar",
   "copyright": "© Logitar {version} {year}.",

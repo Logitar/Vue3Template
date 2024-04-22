@@ -1,6 +1,68 @@
 {
+  "address": {
+    "country": {
+      "label": "Country",
+      "placeholder": "Select a country"
+    },
+    "locality": "City",
+    "postalCode": "Postal Code",
+    "region": {
+      "label": "Region",
+      "placeholder": "Select a region"
+    },
+    "street": "Street Address",
+    "title": "Postal Address",
+    "verified": "Verified"
+  },
+  "authenticatedOn": "Last signed-in on",
+  "birthdate": "Date of birth",
+  "createdOn": "Created on",
+  "email": {
+    "address": "Email Address",
+    "verified": "Verified"
+  },
+  "gender": {
+    "label": "Gender",
+    "options": {
+      "female": "Female",
+      "male": "Male",
+      "other": "Other"
+    },
+    "placeholder": "Select your gender"
+  },
+  "locale": {
+    "label": "Communication Language",
+    "placeholder": "Select your preferred communication language"
+  },
+  "names": {
+    "first": "First Name",
+    "full": "Name",
+    "last": "Last Name",
+    "middle": "Middle Name",
+    "nick": "Nickname"
+  },
   "password": {
-    "label": "Password"
+    "changed": "Your password has been changed.",
+    "changedOn": "Last changed on {date}",
+    "confirm": "Password Confirmation",
+    "current": "Current Password",
+    "failed": "Password change failed!",
+    "invalid": "Please check you provided your correct current password.",
+    "label": "Password",
+    "new": "New Password",
+    "submit": "Change password"
+  },
+  "phone": {
+    "e164": "Phone Number (E.164)",
+    "extension": "Phone Extension",
+    "number": "Phone Number",
+    "verified": "Verified"
+  },
+  "pictureUrl": "Picture URL",
+  "profile": {
+    "saved": "Your profile has been saved.",
+    "title": "Profile",
+    "url": "Profile URL"
   },
   "signIn": {
     "failed": "Sign in failed!",
@@ -9,5 +71,16 @@
     "title": "Sign In"
   },
   "signOut": "Sign Out",
-  "username": "Username"
+  "tabs": {
+    "authentication": "Authentication Information",
+    "contact": "Contact Information",
+    "personal": "Personal Information"
+  },
+  "timeZone": {
+    "label": "Time Zone",
+    "placeholder": "Select your time zone"
+  },
+  "updatedOn": "Updated on",
+  "username": "Username",
+  "websiteUrl": "Website URL"
 }
