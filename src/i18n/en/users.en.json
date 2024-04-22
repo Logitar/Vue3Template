@@ -1,0 +1,13 @@
+{
+  "password": {
+    "label": "Password"
+  },
+  "signIn": {
+    "failed": "Sign in failed!",
+    "invalidCredentials": "Please check you provided the correct email username and password.",
+    "submit": "Sign in",
+    "title": "Sign In"
+  },
+  "signOut": "Sign Out",
+  "username": "Username"
+}

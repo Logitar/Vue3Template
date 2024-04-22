@@ -1,0 +1,13 @@
+{
+  "password": {
+    "label": "Mot de passe"
+  },
+  "signIn": {
+    "failed": "Connexion échouée !",
+    "invalidCredentials": "Veuillez vérifier que vous avez entré votre nom d’utilisateur et mot de passe.",
+    "submit": "Se connecter",
+    "title": "Connexion"
+  },
+  "signOut": "Déconnexion",
+  "username": "Nom d’utilisateur"
+}

@@ -14,25 +14,25 @@ const router = createRouter({
       meta: { isPublic: true },
     },
     // Account
-    // {
-    //   name: "Profile",
-    //   path: "/profile",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (ProfileView.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("./views/account/ProfileView.vue"),
-    // },
-    // {
-    //   name: "SignIn",
-    //   path: "/sign-in",
-    //   component: () => import("./views/account/SignInView.vue"),
-    //   meta: { isPublic: true },
-    // },
-    // {
-    //   name: "SignOut",
-    //   path: "/sign-out",
-    //   component: () => import("./views/account/SignOutView.vue"),
-    // },
+    {
+      name: "Profile",
+      path: "/profile",
+      // route level code-splitting
+      // this generates a separate chunk (ProfileView.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("./views/account/ProfileView.vue"),
+    },
+    {
+      name: "SignIn",
+      path: "/sign-in",
+      component: () => import("./views/account/SignInView.vue"),
+      meta: { isPublic: true },
+    },
+    {
+      name: "SignOut",
+      path: "/sign-out",
+      component: () => import("./views/account/SignOutView.vue"),
+    },
     // Articles
     // {
     //   name: "ArticleList",

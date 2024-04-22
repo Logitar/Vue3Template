@@ -96,6 +96,7 @@ watchEffect(() => {
             </ul>
           </li>
           <template v-if="user">
+            <!-- TODO(fpion): implement
             <li class="nav-item">
               <RouterLink :to="{ name: 'ArticleList' }" class="nav-link"><font-awesome-icon icon="fas fa-carrot" /> {{ t("articles.title.list") }}</RouterLink>
             </li>
@@ -117,7 +118,7 @@ watchEffect(() => {
             </li>
             <li class="nav-item">
               <RouterLink :to="{ name: 'TaxList' }" class="nav-link"><font-awesome-icon icon="fas fa-sack-dollar" /> {{ t("taxes.title.list") }}</RouterLink>
-            </li>
+            </li> -->
           </template>
         </ul>
 
@@ -163,13 +164,13 @@ watchEffect(() => {
               </ul>
             </li>
           </template>
-          <!-- <template v-else>
+          <template v-else>
             <li class="nav-item">
               <RouterLink :to="{ name: 'SignIn' }" class="nav-link">
                 <font-awesome-icon icon="fas fa-arrow-right-to-bracket" /> {{ t("users.signIn.title") }}
               </RouterLink>
             </li>
-          </template> -->
+          </template>
         </ul>
       </div>
     </div>
