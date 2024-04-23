@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Nothing yet.
 
+## [2.0.0] - 2024-04-23
+
+### Changed
+
+- Recreated a new Vue3 project.
+- Refactored views and components to use `logitar-vue3-ui`.
+- Replaced the need for a Backend by Frontend implementations of fake APIs.
+
 ## [1.0.0] - 2023-06-21
 
 ### Added
@@ -31,4 +39,5 @@ Nothing yet.
 - ConfiguredGraphQL.
 
 [unreleased]: https://github.com/Logitar/Vue3Template/compare/v1.0.0...HEAD
+[2.0.0]: https://github.com/Logitar/Vue3Template/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/Logitar/Vue3Template/releases/tag/v1.0.0
