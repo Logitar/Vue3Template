@@ -1,97 +1,105 @@
 <script setup lang="ts">
-import { computed, inject, ref } from "vue";
+import { TarAlert, TarButton } from "logitar-vue3-ui";
+import { computed, ref } from "vue";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
+
 import PasswordInput from "./PasswordInput.vue";
 import UsernameInput from "./UsernameInput.vue";
-import type { ApiError, ErrorDetail } from "@/types/api";
-import type { ProfileUpdatedEvent } from "@/types/users";
-import type { ToastUtils } from "@/types/components";
-import type { UserProfile } from "@/types/users";
-import { changePassword } from "@/api/account";
-import { handleErrorKey, toastsKey } from "@/inject/App";
+import type { ApiError, Error } from "@/types/api";
+import type { PasswordSettings } from "@/types/settings";
+import type { UserProfile } from "@/types/account";
+import { saveProfile } from "@/api/account";
 
+const passwordSettings: PasswordSettings = {
+  minimumLength: 8,
+  uniqueCharacters: 8,
+  requireNonAlphanumeric: true,
+  requireLowercase: true,
+  requireUppercase: true,
+  requireDigit: true,
+};
 const { d, t } = useI18n();
-const handleError = inject(handleErrorKey) as (e: unknown) => void;
-const toasts = inject(toastsKey) as ToastUtils;
 
 defineProps<{
   user: UserProfile;
 }>();
 
-const confirm = ref<string>("");
-const current = ref<string>("");
-const currentRef = ref<InstanceType<typeof PasswordInput> | null>(null);
+const currentPassword = ref<string>("");
+const currentPasswordRef = ref<InstanceType<typeof PasswordInput> | null>();
 const invalidCredentials = ref<boolean>(false);
-const password = ref<string>("");
+const newPassword = ref<string>("");
+const passwordConfirmation = ref<string>("");
 
-const hasChanges = computed<boolean>(() => Boolean(current.value) || Boolean(password.value) || Boolean(confirm.value));
-
-function reset(): void {
-  current.value = "";
-  password.value = "";
-  confirm.value = "";
-}
+const hasChanges = computed<boolean>(() => Boolean(currentPassword.value || newPassword.value || passwordConfirmation.value));
 
 const emit = defineEmits<{
-  (e: "profile-updated", event: ProfileUpdatedEvent): void;
+  (e: "error", value: unknown): void;
+  (e: "saved", value: UserProfile): void;
 }>();
+
+function reset(): void {
+  currentPassword.value = "";
+  newPassword.value = "";
+  passwordConfirmation.value = "";
+  currentPasswordRef.value?.focus();
+}
+
 const { handleSubmit, isSubmitting } = useForm();
-const onSubmit = handleSubmit(async (_, { resetForm }) => {
-  invalidCredentials.value = false;
+const onSubmit = handleSubmit(async () => {
   try {
-    const user = await changePassword({ current: current.value, password: password.value });
-    resetForm();
-    emit("profile-updated", { toast: false, user });
-    toasts.success("users.password.changed");
-  } catch (e: unknown) {
+    invalidCredentials.value = false;
+    const user: UserProfile = await saveProfile({
+      authenticationInformation: {
+        password: {
+          current: currentPassword.value,
+          new: newPassword.value,
+        },
+      },
+    });
     reset();
-    currentRef.value?.focus();
+    emit("saved", user);
+  } catch (e: unknown) {
     const { data, status } = e as ApiError;
-    if (status === 400 && (data as ErrorDetail)?.errorCode === "InvalidCredentials") {
+    if (status === 400 && (data as Error)?.code === "InvalidCredentials") {
       invalidCredentials.value = true;
+      reset();
     } else {
-      handleError(e);
+      emit("error", e);
     }
   }
 });
 </script>
 
 <template>
-  <div>
-    <form @submit.prevent="onSubmit">
-      <UsernameInput disabled :model-value="user.username" />
-      <template v-if="user.passwordChangedOn">
-        <h5>{{ t("users.password.label") }}</h5>
-        <app-alert dismissible variant="warning" v-model="invalidCredentials">
-          <strong>{{ t("users.password.changeFailed") }}</strong> {{ t("users.password.invalidCredentials") }}
-        </app-alert>
-        <p>{{ t("users.password.changedOn", { date: d(user.passwordChangedOn, "medium") }) }}</p>
-        <PasswordInput
-          id="current"
-          label="users.password.current.label"
-          placeholder="users.password.current.placeholder"
-          ref="currentRef"
-          required
-          v-model="current"
-        />
-        <div class="row">
-          <PasswordInput class="col-lg-6" label="users.password.new.label" placeholder="users.password.new.placeholder" required validate v-model="password" />
-          <PasswordInput
-            class="col-lg-6"
-            :confirm="{ value: password, label: 'users.password.new.label' }"
-            id="confirm"
-            label="users.password.confirm.label"
-            placeholder="users.password.confirm.placeholder"
-            required
-            validate
-            v-model="confirm"
-          />
-        </div>
-        <div class="mb-3">
-          <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-key" :loading="isSubmitting" text="users.password.submit" />
-        </div>
-      </template>
-    </form>
-  </div>
+  <form @submit.prevent="onSubmit">
+    <UsernameInput disabled floating id="username" label="users.username" :model-value="user.username" no-status placeholder="users.username" />
+    <h5>{{ t("users.password.label") }}</h5>
+    <TarAlert :close="t('actions.close')" dismissible variant="warning" v-model="invalidCredentials">
+      <strong>{{ t("users.password.failed") }}</strong> {{ t("users.password.invalid") }}
+    </TarAlert>
+    <p v-if="user.passwordChangedOn">{{ t("users.password.changedOn", { date: d(new Date(user.passwordChangedOn), "medium") }) }}</p>
+    <PasswordInput id="current-password" label="users.password.current" ref="currentPasswordRef" :required="hasChanges" v-model="currentPassword" />
+    <div class="row">
+      <PasswordInput class="col-lg-6" id="new-password" label="users.password.new" :required="hasChanges" :settings="passwordSettings" v-model="newPassword" />
+      <PasswordInput
+        class="col-lg-6"
+        :confirm="{ value: newPassword, label: 'users.password.new' }"
+        id="password-confirmation"
+        label="users.password.confirm"
+        :required="hasChanges"
+        v-model="passwordConfirmation"
+      />
+    </div>
+    <div class="mb-3">
+      <TarButton
+        :disabled="isSubmitting || !hasChanges"
+        icon="fas fa-key"
+        :loading="isSubmitting"
+        :status="t('loading')"
+        :text="t('users.password.submit')"
+        type="submit"
+      />
+    </div>
+  </form>
 </template>

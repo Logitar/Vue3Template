@@ -3,16 +3,30 @@ name: Build Vue3 Template
 on:
   push:
     branches:
-      - dev
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
+    name: Build Vue3 Template
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - run: |
-          npm ci
-          npm run build
-          npm run test
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install dependencies
+        run: npm clean-install
+
+      - name: Build for Production
+        run: npm run build
+
+      - name: Run Tests & Coverage
+        run: npm run test

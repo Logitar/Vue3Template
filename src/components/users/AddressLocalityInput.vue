@@ -1,37 +1,24 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id?: string;
-    label?: string;
-    modelValue?: string;
-    placeholder?: string;
-    required?: boolean;
-    validate?: boolean;
-  }>(),
-  {
-    disabled: false,
-    id: "locality",
-    label: "users.address.locality.label",
-    placeholder: "users.address.locality.placeholder",
-    required: false,
-    validate: false,
-  }
-);
+import AppInput from "@/components/shared/AppInput.vue";
+
+defineProps<{
+  modelValue?: string;
+  required?: boolean | string;
+}>();
 
 defineEmits<{
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 
 <template>
-  <form-input
-    :disabled="disabled"
-    :id="id"
-    :label="label"
-    :max-length="validate ? 255 : undefined"
+  <AppInput
+    floating
+    id="address-locality"
+    label="users.address.locality"
+    max="255"
     :model-value="modelValue"
-    :placeholder="placeholder"
+    placeholder="users.address.locality"
     :required="required"
     @update:model-value="$emit('update:model-value', $event)"
   />

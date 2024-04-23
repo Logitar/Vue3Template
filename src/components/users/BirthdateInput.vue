@@ -1,23 +1,13 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id?: string;
-    label?: string;
-    modelValue?: Date;
-    required?: boolean;
-  }>(),
-  {
-    disabled: false,
-    id: "birthdate",
-    label: "users.birthdate",
-    required: false,
-  }
-);
+import DateTimeInput from "@/components/shared/DateTimeInput.vue";
 
 const max = new Date();
 const min = new Date(max);
 min.setFullYear(min.getFullYear() - 100);
+
+defineProps<{
+  modelValue?: Date;
+}>();
 
 defineEmits<{
   (e: "update:model-value", value?: Date): void;
@@ -25,14 +15,13 @@ defineEmits<{
 </script>
 
 <template>
-  <date-time-input
-    :disabled="disabled"
-    :id="id"
-    :label="label"
-    :max="max"
+  <DateTimeInput
+    floating
+    id="birthdate"
+    label="users.birthdate"
     :min="min"
+    :max="max"
     :model-value="modelValue"
-    :required="required"
     @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

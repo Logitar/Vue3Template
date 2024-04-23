@@ -1,53 +1,46 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { UsernameSettings } from "@/types/realms";
+import { parsingUtils } from "logitar-vue3-ui";
+
+import AppInput from "@/components/shared/AppInput.vue";
+import type { UsernameSettings } from "@/types/settings";
 import type { ValidationRules } from "@/types/validation";
 
-const props = withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id?: string;
-    label?: string;
-    modelValue?: string;
-    placeholder?: string;
-    required?: boolean;
-    settings?: UsernameSettings;
-    validate?: boolean;
-  }>(),
-  {
-    disabled: false,
-    id: "username",
-    label: "users.name.user.label",
-    placeholder: "users.name.user.placeholder",
-    required: false,
-    settings: () => ({ allowedCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+" }),
-    validate: false,
-  }
-);
+const { parseBoolean } = parsingUtils;
+
+const props = defineProps<{
+  disabled?: boolean | string;
+  modelValue?: string;
+  noStatus?: boolean | string;
+  required?: boolean | string;
+  settings?: UsernameSettings;
+}>();
 
 const rules = computed<ValidationRules>(() => {
   const rules: ValidationRules = {};
-  if (props.validate && props.settings?.allowedCharacters) {
-    rules.username = props.settings.allowedCharacters;
+  if (props.settings?.allowedCharacters) {
+    rules.allowed_characters = props.settings.allowedCharacters;
   }
   return rules;
 });
 
 defineEmits<{
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 
 <template>
-  <form-input
+  <AppInput
     :disabled="disabled"
-    :id="id"
-    :label="label"
-    :max-length="validate ? 255 : null"
+    floating
+    id="username"
+    label="users.username"
+    max="255"
     :model-value="modelValue"
-    :placeholder="placeholder"
+    placeholder="users.username"
     :required="required"
     :rules="rules"
+    :show-status="parseBoolean(noStatus) ? 'never' : undefined"
     @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

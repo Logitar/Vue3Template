@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import { TarAvatar } from "logitar-vue3-ui";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import type { Actor } from "@/types/actor";
-import { combineURL } from "@/helpers/stringUtils";
 
-const portalBaseUrl: string = import.meta.env.VITE_APP_PORTAL_BASE_URL;
+import type { Actor } from "@/types/actor";
 
 const { d, t } = useI18n();
 
@@ -17,26 +16,14 @@ const displayName = computed<string>(() => {
   const { displayName, type } = props.actor;
   return type === "System" ? t("system") : displayName;
 });
-const href = computed<string | undefined>(() => {
-  const { id, isDeleted, type } = props.actor;
-  if (!isDeleted) {
-    switch (type) {
-      case "ApiKey":
-        return combineURL(portalBaseUrl, `/api-keys/${id}`);
-      case "User":
-        return combineURL(portalBaseUrl, `/users/${id}`);
-    }
-  }
-  return undefined;
-});
 const icon = computed<string | undefined>(() => {
   switch (props.actor.type) {
     case "ApiKey":
-      return "key";
+      return "fas fa-key";
     case "System":
-      return "robot";
+      return "fas fa-robot";
     case "User":
-      return "user";
+      return "fas fa-user";
   }
   return undefined;
 });
@@ -47,18 +34,14 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
   <div class="d-flex">
     <div class="d-flex">
       <div class="d-flex align-content-center flex-wrap mx-1">
-        <a v-if="href" :href="href" target="_blank">
-          <app-avatar :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.picture" :variant="variant" />
-        </a>
-        <app-avatar v-else :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.picture" :variant="variant" />
+        <TarAvatar :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.pictureUrl" :variant="variant" />
       </div>
     </div>
     <div>
       {{ d(date, "medium") }}
       <br />
       {{ t("by") }}
-      <a v-if="href" :href="href" target="_blank">{{ displayName }} <font-awesome-icon icon="fas fa-arrow-up-right-from-square" /></a>
-      <template v-else>{{ displayName }}</template>
+      {{ displayName }}
     </div>
   </div>
 </template>

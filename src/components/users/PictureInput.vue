@@ -1,35 +1,23 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id?: string;
-    label?: string;
-    modelValue?: string;
-    placeholder?: string;
-    required?: boolean;
-  }>(),
-  {
-    disabled: false,
-    id: "picture",
-    label: "users.picture.label",
-    placeholder: "users.picture.placeholder",
-    required: false,
-  }
-);
+import UrlInput from "../shared/UrlInput.vue";
+
+defineProps<{
+  modelValue?: string;
+}>();
 
 defineEmits<{
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 
 <template>
-  <url-input
-    :disabled="disabled"
-    :id="id"
-    :label="label"
+  <UrlInput
+    floating
+    id="picture"
+    label="users.pictureUrl"
+    max="2048"
     :model-value="modelValue"
-    :placeholder="placeholder"
-    :required="required"
+    placeholder="users.pictureUrl"
     @update:model-value="$emit('update:model-value', $event)"
   />
 </template>

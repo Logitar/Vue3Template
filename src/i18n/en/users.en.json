@@ -1,164 +1,76 @@
 {
   "address": {
-    "additional": {
-      "label": "Additional Information",
-      "placeholder": "Enter additional information, if necessary (e.g. P.O. Box #4321)"
-    },
     "country": {
       "label": "Country",
-      "placeholder": "Select your country"
+      "placeholder": "Select a country"
     },
-    "locality": {
-      "label": "Locality/City",
-      "placeholder": "Enter your locality or city name"
-    },
-    "postalCode": {
-      "label": "Postal Code",
-      "placeholder": "Enter your postal code"
-    },
+    "locality": "City",
+    "postalCode": "Postal Code",
     "region": {
       "label": "Region",
-      "placeholder": "Select your region"
+      "placeholder": "Select a region"
     },
-    "street": {
-      "label": "Street Address",
-      "placeholder": "Enter your street address"
-    },
+    "street": "Street Address",
     "title": "Postal Address",
     "verified": "Verified"
   },
+  "authenticatedOn": "Last signed-in on",
   "birthdate": "Date of birth",
-  "confirm": {
-    "failed": "Account confirmation failed!",
-    "signIn": "We could not confirm your account. Please contact the support if the problem persists. You may click the button below to sign-in to your account."
-  },
   "createdOn": "Created on",
   "email": {
-    "address": {
-      "label": "Email Address",
-      "placeholder": "Enter your email address"
-    },
+    "address": "Email Address",
     "verified": "Verified"
   },
   "gender": {
     "label": "Gender",
     "options": {
-      "Female": "Female",
-      "Male": "Male",
-      "Other": "Other"
+      "female": "Female",
+      "male": "Male",
+      "other": "Other"
     },
     "placeholder": "Select your gender"
   },
   "locale": {
+    "label": "Communication Language",
     "placeholder": "Select your preferred communication language"
   },
-  "name": {
-    "first": {
-      "label": "First Name",
-      "placeholder": "Enter your first name"
-    },
+  "names": {
+    "first": "First Name",
     "full": "Name",
-    "last": {
-      "label": "Last Name",
-      "placeholder": "Enter your last name"
-    },
-    "middle": {
-      "label": "Middle Name",
-      "placeholder": "Enter your middle name"
-    },
-    "nick": {
-      "label": "Nickname",
-      "placeholder": "Enter your nickname"
-    },
-    "user": {
-      "label": "Username",
-      "placeholder": "Enter your username"
-    }
+    "last": "Last Name",
+    "middle": "Middle Name",
+    "nick": "Nickname"
   },
   "password": {
-    "changeFailed": "Password change failed!",
     "changed": "Your password has been changed.",
     "changedOn": "Last changed on {date}",
-    "confirm": {
-      "label": "Password Confirmation",
-      "placeholder": "Enter the same password again"
-    },
-    "current": {
-      "label": "Current Password",
-      "placeholder": "Enter your current password"
-    },
-    "invalidCredentials": "Please check you provided your correct current password.",
+    "confirm": "Password Confirmation",
+    "current": "Current Password",
+    "failed": "Password change failed!",
+    "invalid": "Please check you provided your correct current password.",
     "label": "Password",
-    "new": {
-      "label": "New Password",
-      "placeholder": "Enter a new password"
-    },
-    "placeholder": "Enter your password",
-    "recover": {
-      "close": "You may now close this page.",
-      "info": "A password recovery message will be sent to your email address.",
-      "remember": "I remember my password",
-      "submit": "Send",
-      "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
-      "title": "Recover Password"
-    },
-    "reset": {
-      "info": "Create a new password to secure your account.",
-      "signIn": "Click the button below to sign-in to your account.",
-      "submit": "Reset password",
-      "success": "Your password has been changed.",
-      "title": "Reset Password"
-    },
+    "new": "New Password",
     "submit": "Change password"
   },
   "phone": {
-    "countryCode": {
-      "label": "Country Code",
-      "placeholder": "Select a country"
-    },
-    "e164": "Phone Number (E164)",
-    "extension": {
-      "label": "Phone Extension",
-      "placeholder": "Enter your phone extension"
-    },
-    "invalid": "The phone is not valid.",
-    "number": {
-      "example": "Example:",
-      "label": "Phone Number",
-      "placeholder": "Enter your phone number"
-    },
+    "e164": "Phone Number (E.164)",
+    "extension": "Phone Extension",
+    "number": "Phone Number",
     "verified": "Verified"
   },
-  "picture": {
-    "label": "Picture URL",
-    "placeholder": "Paste the URL to your picture"
-  },
+  "pictureUrl": "Picture URL",
   "profile": {
-    "confirmed": "Your account has been successfully confirmed.",
-    "label": "Profile URL",
-    "placeholder": "Paste the URL to your profile",
+    "saved": "Your profile has been saved.",
     "title": "Profile",
-    "updated": "Your profile has been updated.",
-    "welcome": "Welcome to {brand}!"
-  },
-  "register": {
-    "close": "You may now close this page.",
-    "submit": "Register",
-    "success": "A message has been sent to your email address. Please make sure to check your spam folder.",
-    "title": "Register"
+    "url": "Profile URL"
   },
   "signIn": {
     "failed": "Sign in failed!",
-    "invalidCredentials": "Please check you provided the correct email address/username and password.",
-    "recover": "I forgot my password",
-    "remember": "Remember me",
+    "invalidCredentials": "Please check you provided the correct email username and password.",
     "submit": "Sign in",
     "title": "Sign In"
   },
-  "signOut": {
-    "title": "Sign Out"
-  },
-  "signedInOn": "Last signed-in on",
+  "signOut": "Sign Out",
   "tabs": {
     "authentication": "Authentication Information",
     "contact": "Contact Information",
@@ -168,10 +80,7 @@
     "label": "Time Zone",
     "placeholder": "Select your time zone"
   },
-  "updatedOn": "Last updated on",
-  "usernameOrEmailPlaceholder": "Enter your email address or username",
-  "website": {
-    "label": "Website URL",
-    "placeholder": "Paste the URL to your website"
-  }
+  "updatedOn": "Updated on",
+  "username": "Username",
+  "websiteUrl": "Website URL"
 }

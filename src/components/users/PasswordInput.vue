@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import FormInput from "@/components/shared/FormInput.vue";
-import type { ConfirmedParams } from "@/types/validation";
-import type { PasswordSettings } from "@/types/realms";
-import type { ValidationRules } from "@/types/validation";
+
+import AppInput from "@/components/shared/AppInput.vue";
+import type { ConfirmedParams, ValidationRules } from "@/types/validation";
+import type { PasswordSettings } from "@/types/settings";
 
 const { t } = useI18n();
 
@@ -14,76 +14,61 @@ const props = withDefaults(
     id?: string;
     label?: string;
     modelValue?: string;
-    placeholder?: string;
-    required?: boolean;
+    required?: boolean | string;
     settings?: PasswordSettings;
-    validate?: boolean;
   }>(),
   {
     id: "password",
     label: "users.password.label",
-    placeholder: "users.password.placeholder",
-    required: false,
-    settings: () => ({
-      requiredLength: 6,
-      requiredUniqueChars: 1,
-      requireNonAlphanumeric: false,
-      requireLowercase: true,
-      requireUppercase: true,
-      requireDigit: true,
-    }),
-    validate: false,
-  }
+  },
 );
+
+const inputRef = ref<InstanceType<typeof AppInput> | null>();
 
 const rules = computed<ValidationRules>(() => {
   const rules: ValidationRules = {};
-  if (props.validate) {
-    if (props.confirm) {
-      rules.confirmed = [props.confirm.value, t(props.confirm.label).toLowerCase()];
+  if (props.confirm) {
+    rules.confirmed = [props.confirm.value, t(props.confirm.label).toLowerCase()];
+  } else if (props.settings) {
+    if (props.settings.minimumLength) {
+      rules.min_length = props.settings.minimumLength;
     }
-    if (props.settings) {
-      const { requiredLength, requiredUniqueChars, requireNonAlphanumeric, requireLowercase, requireUppercase, requireDigit } = props.settings;
-      if (requiredLength) {
-        rules.min_length = requiredLength;
-      }
-      if (requiredUniqueChars) {
-        rules.unique_chars = requiredUniqueChars;
-      }
-      if (requireNonAlphanumeric) {
-        rules.require_non_alphanumeric = true;
-      }
-      if (requireLowercase) {
-        rules.require_lowercase = true;
-      }
-      if (requireUppercase) {
-        rules.require_uppercase = true;
-      }
-      if (requireDigit) {
-        rules.require_digit = true;
-      }
+    if (props.settings.uniqueCharacters) {
+      rules.unique_chars = props.settings.uniqueCharacters;
+    }
+    if (props.settings.requireNonAlphanumeric) {
+      rules.require_non_alphanumeric = true;
+    }
+    if (props.settings.requireLowercase) {
+      rules.require_lowercase = true;
+    }
+    if (props.settings.requireUppercase) {
+      rules.require_uppercase = true;
+    }
+    if (props.settings.requireDigit) {
+      rules.require_digit = true;
     }
   }
   return rules;
 });
 
-const inputRef = ref<InstanceType<typeof FormInput> | null>(null);
+defineEmits<{
+  (e: "update:model-value", value?: string): void;
+}>();
+
 function focus(): void {
   inputRef.value?.focus();
 }
 defineExpose({ focus });
-
-defineEmits<{
-  (e: "update:model-value", value: string): void;
-}>();
 </script>
 
 <template>
-  <FormInput
+  <AppInput
+    floating
     :id="id"
     :label="label"
     :model-value="modelValue"
-    :placeholder="placeholder"
+    :placeholder="label"
     ref="inputRef"
     :required="required"
     :rules="rules"

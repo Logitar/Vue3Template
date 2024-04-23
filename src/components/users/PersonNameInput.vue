@@ -1,39 +1,30 @@
 <script setup lang="ts">
+import AppInput from "@/components/shared/AppInput.vue";
 import { computed } from "vue";
-import type { PersonNameType } from "@/types/users";
+import type { PersonNameType } from "@/types/account";
 
-const props = withDefaults(
-  defineProps<{
-    id?: string;
-    label?: string;
-    modelValue?: string;
-    placeholder?: string;
-    required?: boolean;
-    type: PersonNameType;
-    validate?: boolean;
-  }>(),
-  {
-    required: false,
-    validate: false,
-  }
-);
+const props = defineProps<{
+  modelValue?: string;
+  required?: boolean | string;
+  type: PersonNameType;
+}>();
 
-const inputId = computed<string>(() => props.id ?? `${props.type}Name`);
-const inputLabel = computed<string>(() => props.label ?? `users.name.${props.type}.label`);
-const inputPlaceholder = computed<string>(() => props.placeholder ?? `users.name.${props.type}.placeholder`);
+const inputId = computed<string>(() => (props.type === "nick" ? "nickname" : `${props.type}-name`));
+const inputLabel = computed<string>(() => `users.names.${props.type}`);
 
 defineEmits<{
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 
 <template>
-  <form-input
+  <AppInput
+    floating
     :id="inputId"
     :label="inputLabel"
-    :max-length="validate ? 255 : null"
+    max="255"
     :model-value="modelValue"
-    :placeholder="inputPlaceholder"
+    :placeholder="inputLabel"
     :required="required"
     @update:model-value="$emit('update:model-value', $event)"
   />

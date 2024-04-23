@@ -1,46 +1,39 @@
 <script setup lang="ts">
-import type { SelectOption } from "@/types/components";
+import { TarCheckbox, TarSelect, type SelectOption } from "logitar-vue3-ui";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 withDefaults(
   defineProps<{
-    disabled?: boolean;
+    descending?: boolean | string;
     id?: string;
-    descending?: boolean;
-    label?: string;
     modelValue?: string;
-    name?: string;
-    options: SelectOption[];
-    placeholder?: string;
+    options?: SelectOption[];
   }>(),
   {
-    disabled: false,
-    isDescending: false,
     id: "sort",
-    label: "sort.label",
-    placeholder: "sort.placeholder",
-  }
+  },
 );
 
 defineEmits<{
   (e: "descending", value: boolean): void;
-  (e: "update:model-value", value: string): void;
+  (e: "update:model-value", value?: string): void;
 }>();
 </script>
 
 <template>
-  <form-select
-    :disabled="disabled"
+  <TarSelect
+    floating
     :id="id"
-    :label="label"
+    :label="t('sort.select.label')"
     :model-value="modelValue"
-    :name="name"
-    no-state
     :options="options"
-    :placeholder="placeholder"
+    :placeholder="t('sort.select.placeholder')"
     @update:model-value="$emit('update:model-value', $event)"
   >
     <template #after>
-      <form-checkbox id="isDescending" label="sort.isDescending" :model-value="descending" @update:model-value="$emit('descending', $event)" />
+      <TarCheckbox :id="`${id}_desc`" :label="t('sort.isDescending')" :model-value="descending" @update:model-value="$emit('descending', $event)" />
     </template>
-  </form-select>
+  </TarSelect>
 </template>

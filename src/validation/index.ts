@@ -2,6 +2,7 @@ import { configure, defineRule } from "vee-validate";
 import { email, max, max_value, min, min_value, regex, required } from "@vee-validate/rules";
 import { localize } from "@vee-validate/i18n";
 
+import allowedCharacters from "./rules/allowedCharacters";
 import confirmed from "./rules/confirmed";
 import identifier from "./rules/identifier";
 import requireDigit from "./rules/requireDigit";
@@ -11,8 +12,8 @@ import requireUppercase from "./rules/requireUppercase";
 import slug from "./rules/slug";
 import uniqueChars from "./rules/uniqueChars";
 import url from "./rules/url";
-import username from "./rules/username";
 
+defineRule("allowed_characters", allowedCharacters);
 defineRule("confirmed", confirmed);
 defineRule("email", email);
 defineRule("identifier", identifier);
@@ -29,7 +30,6 @@ defineRule("required", required);
 defineRule("slug", slug);
 defineRule("unique_chars", uniqueChars);
 defineRule("url", url);
-defineRule("username", username);
 
 import en from "./locales/errors.en.json";
 import fr from "./locales/errors.fr.json";

@@ -47,6 +47,10 @@ export default createI18n<[MessageSchema], "en" | "fr">({
         style: "decimal",
         minimumFractionDigits: 2,
       },
+      percent: {
+        style: "percent",
+        minimumFractionDigits: 3,
+      },
     },
     fr: {
       currency: {
@@ -58,6 +62,10 @@ export default createI18n<[MessageSchema], "en" | "fr">({
       decimal: {
         style: "decimal",
         minimumFractionDigits: 2,
+      },
+      percent: {
+        style: "percent",
+        minimumFractionDigits: 3,
       },
     },
   },

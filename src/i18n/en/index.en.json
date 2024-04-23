@@ -1,52 +1,22 @@
 {
   "actions": {
-    "add": "Add",
-    "back": "Back",
+    "back": "Go back",
     "cancel": "Cancel",
     "clear": "Clear",
     "close": "Close",
     "create": "Create",
     "delete": "Delete",
-    "ok": "OK",
     "refresh": "Refresh",
-    "revert": "Revert",
     "save": "Save"
   },
   "brand": "Logitar",
   "by": "By",
-  "copyright": "© Logitar {version} 2023.",
+  "copyright": "© Logitar {version} {year}.",
   "count": "Count",
-  "custom": "Custom",
-  "customAttributes": {
-    "empty": "There are no custom attribute.",
-    "key": {
-      "label": "Key",
-      "placeholder": "Enter the key of the attribute"
-    },
-    "title": "Custom Attributes",
-    "value": {
-      "label": "Value",
-      "placeholder": "Enter the value of the attribute"
-    }
-  },
-  "description": {
-    "label": "Description",
-    "placeholder": "Enter a description"
-  },
-  "displayName": {
-    "label": "Display Name",
-    "placeholder": "Enter a display name"
-  },
-  "general": "General",
-  "home": {
-    "clickMe": "Click Me! ({count})",
-    "title": "Home"
-  },
-  "loading": "Loading...",
-  "locale": {
-    "label": "Locale",
-    "placeholder": "Select a locale"
-  },
+  "description": "Description",
+  "displayName": "Display Name",
+  "loading": "Loading…",
+  "no": "No",
   "notFound": {
     "help": "The requested page could not be found.",
     "lead": "Page Not Found",
@@ -54,24 +24,18 @@
   },
   "pagination": {
     "first": "First",
-    "label": "Page result pagination",
+    "label": "Pagination",
     "last": "Last",
     "next": "Next",
     "previous": "Previous"
   },
-  "search": {
-    "label": "Search",
-    "placeholder": "Type something to search"
-  },
-  "settings": "Settings",
-  "slug": {
-    "label": "Slug",
-    "placeholder": "Enter a slug"
-  },
+  "search": "Search",
   "sort": {
     "isDescending": "Is descending",
-    "label": "Sort",
-    "placeholder": "Select a sort option"
+    "select": {
+      "label": "Sort",
+      "placeholder": "Select a sort"
+    }
   },
   "status": {
     "createdOn": "Created on {date} by",
@@ -83,12 +47,11 @@
       "message": "An unexpected error occurred. Please try again later or contact our support team.",
       "title": "Error!"
     },
-    "success": {
-      "title": "Success!"
-    },
+    "success": "Success!",
     "warning": {
       "signedOut": "You have been signed-out, please try sign-in to your account again.",
       "title": "Warning!"
     }
-  }
+  },
+  "yes": "Yes"
 }

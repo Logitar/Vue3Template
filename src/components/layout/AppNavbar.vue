@@ -1,56 +1,52 @@
 <script setup lang="ts">
-import { RouterLink, useRouter } from "vue-router";
-import { computed, ref, watchEffect } from "vue";
+import { RouterLink } from "vue-router";
+import { TarAvatar, parsingUtils } from "logitar-vue3-ui";
+import { arrayUtils, stringUtils } from "logitar-js";
+import { computed, watchEffect } from "vue";
 import { setLocale } from "@vee-validate/i18n";
 import { useI18n } from "vue-i18n";
 
 import locales from "@/resources/locales.json";
-import type { AuthenticatedUser } from "@/types/users";
-import type { Hyperlink } from "@/types/components";
+import type { CurrentUser } from "@/types/account";
 import type { Locale } from "@/types/i18n";
-import { combineURL } from "@/helpers/stringUtils";
-import { orderBy } from "@/helpers/arrayUtils";
 import { useAccountStore } from "@/stores/account";
 import { useI18nStore } from "@/stores/i18n";
 
+const { combineURL } = stringUtils;
+const { orderBy } = arrayUtils;
+const { parseBoolean } = parsingUtils;
+type Hyperlink = {
+  text?: string;
+  url: string;
+};
+
 const account = useAccountStore();
-const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
+const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL ?? "";
 const environment = import.meta.env.MODE.toLowerCase();
 const i18n = useI18nStore();
-const router = useRouter();
+const isGraphQLEnabled: boolean = parseBoolean(import.meta.env.VITE_APP_ENABLE_GRAPHQL) ?? false;
+const isOpenApiEnabled: boolean = parseBoolean(import.meta.env.VITE_APP_ENABLE_OPENAPI) ?? false;
 const { availableLocales, locale, t } = useI18n();
-
-const search = ref<string>("");
 
 const otherLocales = computed<Locale[]>(() => {
   const otherLocales = new Set<string>(availableLocales.filter((item) => item !== locale.value));
   return orderBy(
     locales.filter(({ code }) => otherLocales.has(code)),
-    "nativeName"
+    "nativeName",
   );
 });
-const swaggerUrl = computed<string | undefined>(() => (environment === "development" ? combineURL(apiBaseUrl, "/swagger") : undefined));
+const swaggerUrl = computed<string | undefined>(() => (isOpenApiEnabled ? combineURL(apiBaseUrl, "/swagger") : undefined));
 const graphQLLinks = computed<Hyperlink[]>(() =>
-  environment === "development"
+  isGraphQLEnabled
     ? [
         { text: "Altair", url: combineURL(apiBaseUrl, "/ui/altair") },
         { text: "GraphiQL", url: combineURL(apiBaseUrl, "/ui/graphiql") },
         { text: "Playground", url: combineURL(apiBaseUrl, "/ui/playground") },
         { text: "Voyager", url: combineURL(apiBaseUrl, "/ui/voyager") },
       ]
-    : []
+    : [],
 );
-const user = computed<AuthenticatedUser>(() => ({
-  displayName: account.authenticated?.fullName ?? account.authenticated?.username,
-  emailAddress: account.authenticated?.email.address,
-  picture: account.authenticated?.picture,
-}));
-
-function onSearch(): void {
-  const query = { search: search.value, page: 1, count: 10 };
-  search.value = "";
-  router.push({ name: "RealmList", query });
-}
+const user = computed<CurrentUser | undefined>(() => account.currentUser);
 
 watchEffect(() => {
   if (i18n.locale) {
@@ -67,7 +63,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
       <RouterLink :to="{ name: 'Home' }" class="navbar-brand">
         <img src="@/assets/img/logo.png" :alt="`${t('brand')} Logo`" height="32" />
@@ -90,9 +86,6 @@ watchEffect(() => {
           <li v-if="swaggerUrl" class="nav-item">
             <a class="nav-link" :href="swaggerUrl" target="_blank"> <font-awesome-icon icon="fas fa-vial" /> Swagger</a>
           </li>
-          <li class="nav-item">
-            <RouterLink :to="{ name: 'About' }" class="nav-link">About</RouterLink>
-          </li>
           <li v-if="graphQLLinks.length" class="nav-item dropdown d-none d-lg-block">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="@/assets/img/graphql.png" alt="GraphQL Logo" height="16" /> GraphQL
@@ -103,21 +96,12 @@ watchEffect(() => {
               </li>
             </ul>
           </li>
-          <template v-if="account.authenticated">
+          <template v-if="user">
             <li class="nav-item">
-              <RouterLink :to="{ name: 'RealmList' }" class="nav-link">
-                <font-awesome-icon icon="fas fa-chess-rook" /> {{ t("realms.title.list") }}
-              </RouterLink>
+              <RouterLink :to="{ name: 'TodoList' }" class="nav-link"><font-awesome-icon icon="fas fa-list-check" /> {{ t("todos.title.list") }}</RouterLink>
             </li>
           </template>
         </ul>
-
-        <form v-if="account.authenticated" class="d-flex" role="search" @submit.prevent="onSearch">
-          <div class="input-group">
-            <input class="form-control" :placeholder="t('search.label')" type="search" v-model="search" aria-label="Search" />
-            <button class="btn btn-outline-primary" :disabled="!search" type="submit"><font-awesome-icon icon="fas fa-search" /></button>
-          </div>
-        </form>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <template v-if="i18n.locale">
@@ -133,21 +117,21 @@ watchEffect(() => {
               <a class="nav-link" href="#" @click.prevent="i18n.setLocale(otherLocales[0])">{{ otherLocales[0].nativeName }}</a>
             </li>
           </template>
-          <template v-if="account.authenticated">
+          <template v-if="user">
             <li class="nav-item d-block d-lg-none">
               <RouterLink class="nav-link" :to="{ name: 'Profile' }">
-                <app-avatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.picture" />
+                <TarAvatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.pictureUrl" />
                 {{ user.displayName }}
               </RouterLink>
             </li>
             <li class="nav-item d-block d-lg-none">
               <RouterLink class="nav-link" :to="{ name: 'SignOut' }">
-                <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}
+                <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut") }}
               </RouterLink>
             </li>
             <li class="nav-item dropdown d-none d-lg-block">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <app-avatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.picture" />
+                <TarAvatar :display-name="user.displayName" :email-address="user.emailAddress" :size="24" :url="user.pictureUrl" />
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li>
@@ -155,7 +139,7 @@ watchEffect(() => {
                 </li>
                 <li>
                   <RouterLink class="dropdown-item" :to="{ name: 'SignOut' }">
-                    <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut.title") }}
+                    <font-awesome-icon icon="fas fa-arrow-right-from-bracket" /> {{ t("users.signOut") }}
                   </RouterLink>
                 </li>
               </ul>
@@ -166,9 +150,6 @@ watchEffect(() => {
               <RouterLink :to="{ name: 'SignIn' }" class="nav-link">
                 <font-awesome-icon icon="fas fa-arrow-right-to-bracket" /> {{ t("users.signIn.title") }}
               </RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'Register' }" class="nav-link"> <font-awesome-icon icon="fas fa-user" /> {{ t("users.register.title") }} </RouterLink>
             </li>
           </template>
         </ul>

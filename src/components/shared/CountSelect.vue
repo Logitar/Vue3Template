@@ -1,42 +1,29 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { SelectOption } from "@/types/components";
+import { TarSelect, parsingUtils, type SelectOption } from "logitar-vue3-ui";
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id?: string;
-    label?: string;
-    modelValue?: number;
-    name?: string;
-  }>(),
-  {
-    disabled: false,
-    id: "count",
-    label: "count",
-    modelValue: 10,
-  }
-);
+const { parseNumber } = parsingUtils;
+const { t } = useI18n();
 
-const options = computed<SelectOption[]>(() => [10, 25, 50, 100].map((value) => ({ text: value.toString(), value: value.toString() })));
-
-const emit = defineEmits<{
-  (e: "update:model-value", value: number): void;
+defineProps<{
+  modelValue?: number;
 }>();
-function onModelValueUpdate(value: string): void {
-  emit("update:model-value", Number(value));
-}
+
+const options = ref<SelectOption[]>([{ text: "10" }, { text: "25" }, { text: "50" }, { text: "100" }]);
+
+defineEmits<{
+  (e: "update:model-value", value?: number): void;
+}>();
 </script>
 
 <template>
-  <form-select
-    :disabled="disabled"
-    :id="id"
-    :label="label"
-    :model-value="modelValue.toString()"
-    :name="name"
-    no-state
+  <TarSelect
+    floating
+    id="count"
+    :label="t('count')"
+    :model-value="modelValue?.toString()"
     :options="options"
-    @update:model-value="onModelValueUpdate"
+    @update:model-value="$emit('update:model-value', parseNumber($event))"
   />
 </template>

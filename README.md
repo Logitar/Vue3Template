@@ -39,14 +39,44 @@ npm run dev
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Preview the Last Build from dist
 
 ```sh
-npm run test:unit
+npm run preview
+```
+
+### Run Unit Tests and Code Coverage with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test
+```
+
+### Run Unit Tests with Vitest
+
+```sh
+npm run test:dev
+```
+
+### Build the Application Without Type Checking for Production
+
+```sh
+npm run build-only
+```
+
+### Type Check the Application Code Without Building
+
+```sh
+npm run type-check
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
+```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
 ```

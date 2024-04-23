@@ -1,77 +1,41 @@
 {
   "actions": {
-    "add": "Ajouter",
     "back": "Retour",
     "cancel": "Annuler",
     "clear": "Vider",
-    "close": "Vider",
+    "close": "Fermer",
     "create": "Créer",
     "delete": "Supprimer",
-    "ok": "OK",
     "refresh": "Rafraîchir",
-    "revert": "Annuler",
     "save": "Enregistrer"
   },
   "brand": "Logitar",
   "by": "Par",
-  "copyright": "© Logitar {version} 2023.",
+  "copyright": "© Logitar {version} {year}.",
   "count": "Nombre de résultats",
-  "custom": "Personnalisé",
-  "customAttributes": {
-    "empty": "Il n’y a aucun attribut personnalisé.",
-    "key": {
-      "label": "Clé",
-      "placeholder": "Entrez la clé de l’attribut"
-    },
-    "title": "Attributs personnalisés",
-    "value": {
-      "label": "Valeur",
-      "placeholder": "Entrez la valeur de l’attribut"
-    }
-  },
-  "description": {
-    "label": "Description",
-    "placeholder": "Entrez une description"
-  },
-  "displayName": {
-    "label": "Nom d’affichage",
-    "placeholder": "Entrez un nom d’affichage"
-  },
-  "general": "Général",
-  "home": {
-    "clickMe": "Cliquez-moi ! ({count})",
-    "title": "Accueil"
-  },
-  "loading": "Chargement...",
-  "locale": {
-    "label": "Langue",
-    "placeholder": "Sélectionnez une langue"
-  },
+  "description": "Description",
+  "displayName": "Nom d’affichage",
+  "loading": "Chargement…",
+  "no": "Non",
   "notFound": {
     "help": "La page demandée n’a pu être trouvée.",
     "lead": "Page introuvable",
     "link": "Aller à l’accueil"
   },
   "pagination": {
-    "first": "Première",
-    "label": "Pagination d’une page de résultats",
-    "last": "Dernière",
-    "next": "Suivante",
-    "previous": "Précédente"
+    "first": "Première page",
+    "label": "Pagination",
+    "last": "Dernière page",
+    "next": "Prochaine page",
+    "previous": "Page précédente"
   },
-  "search": {
-    "label": "Recherche",
-    "placeholder": "Entrez quelque chose à chercher"
-  },
-  "settings": "Paramètres",
-  "slug": {
-    "label": "Alias (slug)",
-    "placeholder": "Entrez un alias (slug)"
-  },
+  "search": "Recherche",
   "sort": {
     "isDescending": "Descendant",
-    "label": "Tri",
-    "placeholder": "Sélectionnez une option de tri"
+    "select": {
+      "label": "Tri",
+      "placeholder": "Sélectionnez un tri"
+    }
   },
   "status": {
     "createdOn": "Création le {date} par",
@@ -83,12 +47,11 @@
       "message": "Une erreur inattendue s’est produite. Veuillez réessayer plus tard ou contacter notre équipe de support.",
       "title": "Erreur !"
     },
-    "success": {
-      "title": "Succès !"
-    },
+    "success": "Succès !",
     "warning": {
       "signedOut": "Vous avez été déconnecté, veuillez vous reconnecter à votre compte.",
       "title": "Attention !"
     }
-  }
+  },
+  "yes": "Oui"
 }

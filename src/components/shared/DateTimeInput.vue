@@ -1,55 +1,60 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import type { InputSize } from "logitar-vue3-ui";
+import { dateUtils } from "logitar-js";
 
-const props = withDefaults(
-  defineProps<{
-    disabled?: boolean;
-    id: string;
-    label?: string;
-    max?: Date;
-    min?: Date;
-    modelValue?: Date;
-    name?: string;
-    required?: boolean;
-  }>(),
-  {
-    disabled: false,
-    required: false,
-  }
-);
+import AppInput from "./AppInput.vue";
+import type { ValidationRules } from "@/types/validation";
 
-function getDateTimeLocal(value: Date): string {
-  const date = [value.getFullYear(), (value.getMonth() + 1).toString().padStart(2, "0"), value.getDate().toString().padStart(2, "0")].join("-");
-  const time = [value.getHours().toString().padStart(2, "0"), value.getMinutes().toString().padStart(2, "0")].join(":");
-  return [date, time].join("T");
-}
-const formattedMax = computed<string | undefined>(() => (props.max ? getDateTimeLocal(props.max) : undefined));
-const formattedMin = computed<string | undefined>(() => (props.min ? getDateTimeLocal(props.min) : undefined));
-const formattedValue = computed<string | undefined>(() => (props.modelValue ? getDateTimeLocal(props.modelValue) : undefined));
+const { toDateTimeLocal } = dateUtils;
+
+defineProps<{
+  describedBy?: string;
+  disabled?: boolean | string;
+  floating?: boolean | string;
+  id?: string;
+  label?: string;
+  max?: Date;
+  min?: Date;
+  modelValue?: Date;
+  name?: string;
+  plaintext?: boolean | string;
+  readonly?: boolean | string;
+  required?: boolean | string;
+  rules?: ValidationRules;
+  size?: InputSize;
+  step?: number | string;
+}>();
 
 const emit = defineEmits<{
-  (e: "update:model-value", date?: Date): void;
+  (e: "update:model-value", value?: Date): void;
 }>();
 function onModelValueUpdate(value: string): void {
   try {
     const date = new Date(value);
     emit("update:model-value", isNaN(date.getTime()) ? undefined : date);
-  } catch {
+  } catch (e: unknown) {
     emit("update:model-value", undefined);
   }
 }
 </script>
 
 <template>
-  <form-input
+  <AppInput
+    :described-by="describedBy"
     :disabled="disabled"
+    :floating="floating"
     :id="id"
     :label="label"
-    :max-date="formattedMax"
-    :min-date="formattedMin"
-    :model-value="formattedValue"
+    :max="max ? toDateTimeLocal(max) : undefined"
+    :min="min ? toDateTimeLocal(min) : undefined"
+    :model-value="modelValue ? toDateTimeLocal(modelValue) : undefined"
     :name="name"
+    :plaintext="plaintext"
+    :readonly="readonly"
     :required="required"
+    :rules="rules"
+    :size="size"
+    :step="step"
     type="datetime-local"
     @update:model-value="onModelValueUpdate"
   />

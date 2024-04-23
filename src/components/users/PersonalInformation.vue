@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { computed, inject, ref, watchEffect } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { useForm } from "vee-validate";
+
+import AppSaveButton from "@/components/shared/AppSaveButton.vue";
 import BirthdateInput from "@/components/users/BirthdateInput.vue";
 import GenderSelect from "@/components/users/GenderSelect.vue";
+import LocaleSelect from "@/components/users/LocaleSelect.vue";
 import PersonNameInput from "@/components/users/PersonNameInput.vue";
 import PictureInput from "@/components/users/PictureInput.vue";
 import ProfileInput from "@/components/users/ProfileInput.vue";
 import TimeZoneSelect from "@/components/users/TimeZoneSelect.vue";
 import WebsiteInput from "@/components/users/WebsiteInput.vue";
-import type { ProfileUpdatedEvent, UserProfile } from "@/types/users";
-import { handleErrorKey } from "@/inject/App";
-import { savePersonalInformation } from "@/api/account";
-
-const handleError = inject(handleErrorKey) as (e: unknown) => void;
+import type { UserProfile } from "@/types/account";
+import { saveProfile } from "@/api/account";
 
 const props = defineProps<{
   user: UserProfile;
@@ -31,18 +31,15 @@ const timeZone = ref<string>("");
 const website = ref<string>("");
 
 const hasChanges = computed<boolean>(() => {
-  const user: UserProfile | undefined = props.user;
-  if (!user) {
-    return false;
-  }
+  const user: UserProfile = props.user;
   return (
-    firstName.value !== user.firstName ||
-    lastName.value !== user.lastName ||
+    firstName.value !== (user.firstName ?? "") ||
+    lastName.value !== (user.lastName ?? "") ||
     middleName.value !== (user.middleName ?? "") ||
     nickname.value !== (user.nickname ?? "") ||
-    birthdate.value?.getTime() !== (user.birthdate ? new Date(user.birthdate) : undefined)?.getTime() ||
+    birthdate.value?.getTime() !== (user.birthdate ? new Date(user.birthdate).getTime() : undefined) ||
     gender.value !== (user.gender ?? "") ||
-    locale.value !== (user.locale ?? "") ||
+    locale.value !== (user.locale?.code ?? "") ||
     timeZone.value !== (user.timeZone ?? "") ||
     picture.value !== (user.picture ?? "") ||
     profile.value !== (user.profile ?? "") ||
@@ -50,13 +47,42 @@ const hasChanges = computed<boolean>(() => {
   );
 });
 
+const emit = defineEmits<{
+  (e: "error", value: unknown): void;
+  (e: "saved", value: UserProfile): void;
+}>();
+
+const { handleSubmit, isSubmitting } = useForm();
+const onSubmit = handleSubmit(async () => {
+  try {
+    const user: UserProfile = await saveProfile({
+      personalInformation: {
+        firstName: firstName.value,
+        middleName: middleName.value,
+        lastName: lastName.value,
+        nickname: nickname.value,
+        birthdate: birthdate.value,
+        gender: gender.value,
+        locale: locale.value,
+        timeZone: timeZone.value,
+        picture: picture.value,
+        profile: profile.value,
+        website: website.value,
+      },
+    });
+    emit("saved", user);
+  } catch (e: unknown) {
+    emit("error", e);
+  }
+});
+
 watchEffect(() => {
-  const user = props.user;
+  const user: UserProfile = props.user;
   birthdate.value = user.birthdate ? new Date(user.birthdate) : undefined;
-  firstName.value = user.firstName;
+  firstName.value = user.firstName ?? "";
   gender.value = user.gender ?? "";
-  lastName.value = user.lastName;
-  locale.value = user.locale;
+  lastName.value = user.lastName ?? "";
+  locale.value = user.locale?.code ?? "";
   middleName.value = user.middleName ?? "";
   nickname.value = user.nickname ?? "";
   picture.value = user.picture ?? "";
@@ -64,58 +90,31 @@ watchEffect(() => {
   timeZone.value = user.timeZone ?? "";
   website.value = user.website ?? "";
 });
-
-const emit = defineEmits<{
-  (e: "profile-updated", event: ProfileUpdatedEvent): void;
-}>();
-const { handleSubmit, isSubmitting } = useForm();
-const onSubmit = handleSubmit(async () => {
-  try {
-    const user = await savePersonalInformation({
-      firstName: firstName.value,
-      middleName: middleName.value,
-      lastName: lastName.value,
-      nickname: nickname.value,
-      birthdate: birthdate.value,
-      gender: gender.value,
-      locale: locale.value,
-      timeZone: timeZone.value,
-      picture: picture.value,
-      profile: profile.value,
-      website: website.value,
-    });
-    emit("profile-updated", { user });
-  } catch (e: unknown) {
-    handleError(e);
-  }
-});
 </script>
 
 <template>
-  <div>
-    <form @submit.prevent="onSubmit">
-      <div class="mb-3">
-        <icon-submit :disabled="!hasChanges || isSubmitting" icon="fas fa-floppy-disk" :loading="isSubmitting" text="actions.save" />
-      </div>
-      <div class="row">
-        <PersonNameInput class="col-lg-6" required type="first" validate v-model="firstName" />
-        <PersonNameInput class="col-lg-6" required type="last" validate v-model="lastName" />
-      </div>
-      <div class="row">
-        <PersonNameInput class="col-lg-6" type="middle" validate v-model="middleName" />
-        <PersonNameInput class="col-lg-6" type="nick" validate v-model="nickname" />
-      </div>
-      <div class="row">
-        <BirthdateInput class="col-lg-6" v-model="birthdate" />
-        <GenderSelect class="col-lg-6" v-model="gender" />
-      </div>
-      <div class="row">
-        <locale-select class="col-lg-6" placeholder="users.locale.placeholder" required v-model="locale" />
-        <TimeZoneSelect class="col-lg-6" v-model="timeZone" />
-      </div>
-      <PictureInput v-model="picture" />
-      <ProfileInput v-model="profile" />
-      <WebsiteInput v-model="website" />
-    </form>
-  </div>
+  <form @submit.prevent="onSubmit">
+    <div class="mb-3">
+      <AppSaveButton :disabled="isSubmitting || !hasChanges" exists :loading="isSubmitting" />
+    </div>
+    <div class="row">
+      <PersonNameInput class="col-lg-6" type="first" v-model="firstName" />
+      <PersonNameInput class="col-lg-6" type="last" v-model="lastName" />
+    </div>
+    <div class="row">
+      <PersonNameInput class="col-lg-6" type="middle" v-model="middleName" />
+      <PersonNameInput class="col-lg-6" type="nick" v-model="nickname" />
+    </div>
+    <div class="row">
+      <BirthdateInput class="col-lg-6" v-model="birthdate" />
+      <GenderSelect class="col-lg-6" v-model="gender" />
+    </div>
+    <div class="row">
+      <LocaleSelect class="col-lg-6" v-model="locale" />
+      <TimeZoneSelect class="col-lg-6" v-model="timeZone" />
+    </div>
+    <PictureInput v-model="picture" />
+    <ProfileInput v-model="profile" />
+    <WebsiteInput v-model="website" />
+  </form>
 </template>
