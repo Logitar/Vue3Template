@@ -14,6 +14,10 @@
       "UpdatedOn": "Dernière modification"
     }
   },
+  "status": {
+    "label": "Complété",
+    "placeholder": "Sélectionnez une option"
+  },
   "title": {
     "list": "Todos",
     "new": "Nouveau Todo"

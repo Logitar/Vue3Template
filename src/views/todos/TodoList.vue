@@ -9,6 +9,7 @@ import CountSelect from "@/components/shared/CountSelect.vue";
 import SearchInput from "@/components/shared/SearchInput.vue";
 import SortSelect from "@/components/shared/SortSelect.vue";
 import StatusBlock from "@/components/shared/StatusBlock.vue";
+import StatusSelect from "@/components/todos/StatusSelect.vue";
 import type { Todo, TodoSort, SearchTodosPayload } from "@/types/todos";
 import { handleErrorKey } from "@/inject/App";
 import { isEmpty } from "@/helpers/objectUtils";
@@ -132,16 +133,17 @@ watch(
       <RouterLink :to="{ name: 'CreateTodo' }" class="btn btn-success ms-1"><font-awesome-icon icon="fas fa-plus" /> {{ t("actions.create") }}</RouterLink>
     </div>
     <div class="row">
-      <SearchInput class="col-lg-4" :model-value="search" @update:model-value="setQuery('search', $event ?? '')" />
+      <StatusSelect class="col-lg-3" :model-value="isDone?.toString()" @update:model-value="setQuery('isDone', $event ?? '')" />
+      <SearchInput class="col-lg-3" :model-value="search" @update:model-value="setQuery('search', $event ?? '')" />
       <SortSelect
-        class="col-lg-4"
+        class="col-lg-3"
         :descending="isDescending"
         :model-value="sort"
         :options="sortOptions"
         @descending="setQuery('isDescending', $event.toString())"
         @update:model-value="setQuery('sort', $event ?? '')"
       />
-      <CountSelect class="col-lg-4" :model-value="count" @update:model-value="setQuery('count', ($event ?? 10).toString())" />
+      <CountSelect class="col-lg-3" :model-value="count" @update:model-value="setQuery('count', ($event ?? 10).toString())" />
     </div>
     <template v-if="todos.length">
       <table class="table table-striped">

@@ -3,8 +3,8 @@ import { nanoid } from "nanoid";
 import { ref } from "vue";
 
 import type { Actor } from "@/types/actor";
-import type { CreateTodoPayload, ReplaceTodoPayload, SearchTodosPayload, Todo } from "@/types/todos";
-import type { SearchResults, SortOption } from "@/types/search";
+import type { CreateTodoPayload, ReplaceTodoPayload, SearchTodosPayload, Todo, TodoSortOption } from "@/types/todos";
+import type { SearchResults } from "@/types/search";
 import { cleanTrim, trim } from "@/helpers/stringUtils";
 import { orderBy } from "@/helpers/arrayUtils";
 import { useUserStore } from "./user";
@@ -49,7 +49,7 @@ export const useTodoStore = defineStore(
 
     function _delete(id: string): Todo {
       const index: number = todos.value.findIndex((todo) => todo.id === id);
-      const todo: Todo | undefined = todos.value.at(index);
+      const todo: Todo | undefined = todos.value[index];
       if (!todo) {
         throw { status: 404 };
       }
@@ -59,7 +59,7 @@ export const useTodoStore = defineStore(
 
     function read(id: string): Todo {
       const index: number = todos.value.findIndex((todo) => todo.id === id);
-      const todo: Todo | undefined = todos.value.at(index);
+      const todo: Todo | undefined = todos.value[index];
       if (!todo) {
         throw { status: 404 };
       }
@@ -69,7 +69,7 @@ export const useTodoStore = defineStore(
     function replace(id: string, payload: ReplaceTodoPayload, version?: number) {
       console.info(`Replacing todo ID=${id} at version ${version}.`);
       const index: number = todos.value.findIndex((todo) => todo.id === id);
-      const todo: Todo | undefined = todos.value.at(index);
+      const todo: Todo | undefined = todos.value[index];
       if (!todo) {
         throw { status: 404 };
       }
@@ -120,7 +120,7 @@ export const useTodoStore = defineStore(
       });
       const total: number = items.length;
 
-      const sort: SortOption | undefined = payload.sort.at(0);
+      const sort: TodoSortOption | undefined = payload.sort[0];
       if (sort) {
         switch (sort.field) {
           case "DisplayName":
