@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { TarButton } from "logitar-vue3-ui";
 import { computed, ref, watch } from "vue";
+import { stringUtils } from "logitar-js";
 import { useForm } from "vee-validate";
 import { useI18n } from "vue-i18n";
 
@@ -17,9 +18,9 @@ import countries from "@/resources/countries.json";
 import type { AddressPayload, EmailPayload, PhonePayload } from "@/types/users";
 import type { CountrySettings } from "@/types/settings";
 import type { UserProfile } from "@/types/account";
-import { isNullOrWhiteSpace } from "@/helpers/stringUtils";
 import { saveProfile } from "@/api/account";
 
+const { isNullOrWhiteSpace } = stringUtils;
 const { t } = useI18n();
 
 const props = defineProps<{

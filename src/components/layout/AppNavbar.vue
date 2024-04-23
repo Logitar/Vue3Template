@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { TarAvatar, parsingUtils } from "logitar-vue3-ui";
+import { arrayUtils, stringUtils } from "logitar-js";
 import { computed, watchEffect } from "vue";
 import { setLocale } from "@vee-validate/i18n";
 import { useI18n } from "vue-i18n";
@@ -8,11 +9,11 @@ import { useI18n } from "vue-i18n";
 import locales from "@/resources/locales.json";
 import type { CurrentUser } from "@/types/account";
 import type { Locale } from "@/types/i18n";
-import { combineURL } from "@/helpers/stringUtils";
-import { orderBy } from "@/helpers/arrayUtils";
 import { useAccountStore } from "@/stores/account";
 import { useI18nStore } from "@/stores/i18n";
 
+const { combineURL } = stringUtils;
+const { orderBy } = arrayUtils;
 const { parseBoolean } = parsingUtils;
 type Hyperlink = {
   text?: string;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TarButton, parsingUtils, type SelectOption } from "logitar-vue3-ui";
+import { arrayUtils, objectUtils } from "logitar-js";
 import { computed, inject, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
@@ -12,13 +13,13 @@ import StatusBlock from "@/components/shared/StatusBlock.vue";
 import StatusSelect from "@/components/todos/StatusSelect.vue";
 import type { Todo, TodoSort, SearchTodosPayload } from "@/types/todos";
 import { handleErrorKey } from "@/inject/App";
-import { isEmpty } from "@/helpers/objectUtils";
-import { orderBy } from "@/helpers/arrayUtils";
 import { searchTodos } from "@/api/todos";
 
 const handleError = inject(handleErrorKey) as (e: unknown) => void;
 const route = useRoute();
 const router = useRouter();
+const { isEmpty } = objectUtils;
+const { orderBy } = arrayUtils;
 const { parseBoolean, parseNumber } = parsingUtils;
 const { rt, t, tm } = useI18n();
 

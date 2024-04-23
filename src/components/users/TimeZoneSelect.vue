@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import type { SelectOption } from "logitar-vue3-ui";
+import { arrayUtils } from "logitar-js";
 import { computed } from "vue";
 
 import AppSelect from "@/components/shared/AppSelect.vue";
 import timeZones from "@/resources/timeZones.json";
-import { orderBy } from "@/helpers/arrayUtils";
+
+const { orderBy } = arrayUtils;
 
 defineProps<{
   modelValue?: string;

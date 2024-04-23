@@ -1,3 +1,4 @@
+import { arrayUtils, stringUtils } from "logitar-js";
 import { defineStore } from "pinia";
 import { nanoid } from "nanoid";
 import { ref } from "vue";
@@ -5,9 +6,10 @@ import { ref } from "vue";
 import type { Actor } from "@/types/actor";
 import type { CreateTodoPayload, ReplaceTodoPayload, SearchTodosPayload, Todo, TodoSortOption } from "@/types/todos";
 import type { SearchResults } from "@/types/search";
-import { cleanTrim, trim } from "@/helpers/stringUtils";
-import { orderBy } from "@/helpers/arrayUtils";
 import { useUserStore } from "./user";
+
+const { cleanTrim, trim } = stringUtils;
+const { orderBy } = arrayUtils;
 
 function getCurrentActor(): Actor {
   const user = useUserStore();
