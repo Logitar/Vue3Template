@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - v2 # TODO(fpion): remove
   pull_request:
     branches:
       - main
-      - v2 # TODO(fpion): remove
   workflow_dispatch:
 
 jobs:
