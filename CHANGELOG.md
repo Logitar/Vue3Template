@@ -38,6 +38,6 @@ Nothing yet.
 - Configured Swagger documentation.
 - ConfiguredGraphQL.
 
-[unreleased]: https://github.com/Logitar/Vue3Template/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/Logitar/Vue3Template/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/Logitar/Vue3Template/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/Logitar/Vue3Template/releases/tag/v1.0.0
