@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { TarInput, inputUtils, parsingUtils, type InputOptions, type InputStatus } from "logitar-vue3-ui";
+import { TarInput, inputUtils, type InputOptions, type InputStatus } from "logitar-vue3-ui";
 import { computed, ref } from "vue";
 import { nanoid } from "nanoid";
+import { parsingUtils, stringUtils } from "logitar-js";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
 
 import type { ShowStatus, ValidationListeners, ValidationRules, ValidationType } from "@/types/validation";
-import { isNullOrWhiteSpace } from "@/helpers/stringUtils";
 
 const { isDateTimeInput, isNumericInput, isTextualInput } = inputUtils;
+const { isNullOrWhiteSpace } = stringUtils;
 const { parseBoolean, parseNumber } = parsingUtils;
 const { t } = useI18n();
 

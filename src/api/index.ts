@@ -1,8 +1,10 @@
+import { stringUtils } from "logitar-js";
+
 import type { ApiError, ApiResult, ApiVersion, Error as ErrorT, GraphQLRequest, GraphQLResponse } from "@/types/api";
-import { combineURL, isAbsoluteURL } from "@/helpers/stringUtils";
 
 const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL ?? "";
 const contentType: string = "Content-Type";
+const { combineURL, isAbsoluteURL } = stringUtils;
 
 async function execute<TData, TResult>(method: string, url: string, data?: TData): Promise<ApiResult<TResult>> {
   let body: string | undefined = undefined;

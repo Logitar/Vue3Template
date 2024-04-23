@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { SelectOption } from "logitar-vue3-ui";
+import { arrayUtils } from "logitar-js";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 import AppSelect from "@/components/shared/AppSelect.vue";
-import { orderBy } from "@/helpers/arrayUtils";
 
+const { orderBy } = arrayUtils;
 const { t } = useI18n();
 
 defineProps<{

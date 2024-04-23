@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { InputSize } from "logitar-vue3-ui";
+import { dateUtils } from "logitar-js";
 
 import AppInput from "./AppInput.vue";
 import type { ValidationRules } from "@/types/validation";
-import { toDateTimeLocal } from "@/helpers/dateUtils";
+
+const { toDateTimeLocal } = dateUtils;
 
 defineProps<{
   describedBy?: string;

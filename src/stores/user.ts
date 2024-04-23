@@ -1,13 +1,14 @@
 import { defineStore } from "pinia";
 import { nanoid } from "nanoid";
 import { ref } from "vue";
+import { stringUtils } from "logitar-js";
 
 import locales from "@/resources/locales.json";
 import type { Address, AddressPayload, Email, Phone, PhonePayload } from "@/types/users";
 import type { CurrentUser, SaveProfilePayload, SignInPayload, UserProfile } from "@/types/account";
 import type { Locale } from "@/types/i18n";
-import { cleanTrim, isDigit, isNullOrEmpty, isNullOrWhiteSpace } from "@/helpers/stringUtils";
 
+const { cleanTrim, isDigit, isNullOrEmpty, isNullOrWhiteSpace } = stringUtils;
 type User = {
   id: string;
   version: number;
