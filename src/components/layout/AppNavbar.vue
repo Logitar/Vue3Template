@@ -96,29 +96,9 @@ watchEffect(() => {
             </ul>
           </li>
           <template v-if="user">
-            <!-- TODO(fpion): implement
             <li class="nav-item">
-              <RouterLink :to="{ name: 'ArticleList' }" class="nav-link"><font-awesome-icon icon="fas fa-carrot" /> {{ t("articles.title.list") }}</RouterLink>
+              <RouterLink :to="{ name: 'TodoList' }" class="nav-link"><font-awesome-icon icon="fas fa-list-check" /> {{ t("todos.title.list") }}</RouterLink>
             </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'BannerList' }" class="nav-link"><font-awesome-icon icon="fas fa-flag" /> {{ t("banners.title.list") }}</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'StoreList' }" class="nav-link"><font-awesome-icon icon="fas fa-store" /> {{ t("stores.title.list") }}</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'ProductList' }" class="nav-link">
-                <font-awesome-icon icon="fas fa-shopping-cart" /> {{ t("products.title.list") }}
-              </RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'ReceiptList' }" class="nav-link">
-                <font-awesome-icon icon="fas fa-file-invoice-dollar" /> {{ t("receipts.title.list") }}
-              </RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: 'TaxList' }" class="nav-link"><font-awesome-icon icon="fas fa-sack-dollar" /> {{ t("taxes.title.list") }}</RouterLink>
-            </li> -->
           </template>
         </ul>
 

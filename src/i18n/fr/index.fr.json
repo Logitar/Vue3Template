@@ -1,17 +1,47 @@
 {
   "actions": {
+    "back": "Retour",
+    "cancel": "Annuler",
     "clear": "Vider",
     "close": "Fermer",
+    "create": "Créer",
+    "delete": "Supprimer",
+    "refresh": "Rafraîchir",
     "save": "Enregistrer"
   },
   "brand": "Logitar",
+  "by": "Par",
   "copyright": "© Logitar {version} {year}.",
+  "count": "Nombre de résultats",
+  "description": "Description",
+  "displayName": "Nom d’affichage",
   "loading": "Chargement…",
+  "no": "Non",
   "notFound": {
     "help": "La page demandée n’a pu être trouvée.",
     "lead": "Page introuvable",
     "link": "Aller à l’accueil"
   },
+  "pagination": {
+    "first": "Première page",
+    "label": "Pagination",
+    "last": "Dernière page",
+    "next": "Prochaine page",
+    "previous": "Page précédente"
+  },
+  "search": "Recherche",
+  "sort": {
+    "isDescending": "Descendant",
+    "select": {
+      "label": "Tri",
+      "placeholder": "Sélectionnez un tri"
+    }
+  },
+  "status": {
+    "createdOn": "Création le {date} par",
+    "updatedOn": "Dernière modification le {date} par"
+  },
+  "system": "Système",
   "toasts": {
     "error": {
       "message": "Une erreur inattendue s’est produite. Veuillez réessayer plus tard ou contacter notre équipe de support.",
@@ -22,5 +52,6 @@
       "signedOut": "Vous avez été déconnecté, veuillez vous reconnecter à votre compte.",
       "title": "Attention !"
     }
-  }
+  },
+  "yes": "Oui"
 }

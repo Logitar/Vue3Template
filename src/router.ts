@@ -33,22 +33,22 @@ const router = createRouter({
       path: "/sign-out",
       component: () => import("./views/account/SignOutView.vue"),
     },
-    // Articles
-    // {
-    //   name: "ArticleList",
-    //   path: "/articles",
-    //   component: () => import("./views/articles/ArticleList.vue"),
-    // },
-    // {
-    //   name: "ArticleEdit",
-    //   path: "/articles/:id",
-    //   component: () => import("./views/articles/ArticleEdit.vue"),
-    // },
-    // {
-    //   name: "CreateArticle",
-    //   path: "/create-article",
-    //   component: () => import("./views/articles/ArticleEdit.vue"),
-    // },
+    // Todos
+    {
+      name: "TodoList",
+      path: "/todos",
+      component: () => import("./views/todos/TodoList.vue"),
+    },
+    {
+      name: "TodoEdit",
+      path: "/todos/:id",
+      component: () => import("./views/todos/TodoEdit.vue"),
+    },
+    {
+      name: "CreateTodo",
+      path: "/create-todo",
+      component: () => import("./views/todos/TodoEdit.vue"),
+    },
     // NotFound
     {
       name: "NotFound",
